@@ -88,3 +88,8 @@ table thead tr th{
 table tbody tr td{
     font-size: 13px !important;
 }
+.card-footer {
+    padding-top: 1.25rem !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
