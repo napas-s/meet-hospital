@@ -64,20 +64,20 @@
             <div class="collapse " id="formsExamples">
               <ul class="nav">
                 <li>
-                  <a href="../examples/forms/regular.html">
-                    <span class="sidebar-mini-icon">RF</span>
+                  <a href="../about/about.php">
+                    <span class="sidebar-mini-icon"><i class="nc-icon nc-single-copy-04"></i></span>
                     <span class="sidebar-normal"> ข้อมูลเกี่ยวกับองค์กร </span>
                   </a>
                 </li>
                 <li>
-                  <a href="../examples/forms/extended.html">
-                    <span class="sidebar-mini-icon">EF</span>
+                  <a href="../about/organizationchart.php">
+                    <span class="sidebar-mini-icon"><i class="nc-icon nc-vector"></i></span>
                     <span class="sidebar-normal"> แผนผังองค์กร </span>
                   </a>
                 </li>
                 <li>
-                  <a href="../examples/forms/validation.html">
-                    <span class="sidebar-mini-icon">V</span>
+                  <a href="../about/map.php">
+                    <span class="sidebar-mini-icon"><i class="nc-icon nc-map-big"></i></span>
                     <span class="sidebar-normal"> แผนที่องค์กร </span>
                   </a>
                 </li>
