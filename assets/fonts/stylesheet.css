@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Sarabun';
+    src: url('Sarabun-Regular.eot');
+    src: url('Sarabun-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Sarabun-Regular.woff2') format('woff2'),
+        url('Sarabun-Regular.woff') format('woff'),
+        url('Sarabun-Regular.ttf') format('truetype'),
+        url('Sarabun-Regular.svg#Sarabun-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+body,div,label,input,textarea,small,span,h1,h2,h3,h4,h5,h6{
+    font-family: 'Sarabun' !important;
+}

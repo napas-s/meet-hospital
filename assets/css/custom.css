@@ -1,0 +1,23 @@
+.img-topnav{
+    max-width: 280px;
+}
+#top-bar {
+    position: relative;
+    border-bottom: 1px solid #EEE;
+    height: 65px;
+    line-height: 65px;
+    font-size: 16px;
+    background: #eee;
+}
+
+@media only screen and (max-width: 767px) {
+    #top-bar{
+        text-align: center;
+    }
+}
+#primary-menu ul li > a {
+    font-size: 16px;
+}
+#primary-menu ul ul li > a {
+    font-size: 16px;
+}

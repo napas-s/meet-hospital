@@ -1,0 +1,40 @@
+body{
+    font-size: 16px !important;
+}
+
+#datatable_paginate{
+    float: right;
+}
+.btn-md {
+    font-size: 0.8rem;
+    border-radius: 6px;
+    padding: 10px 30px;
+}
+.card .card-header{
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+}
+.card .card-footer{
+    border-top: 1px solid #ccc;
+    margin-top: 1rem;
+    padding-top: 2rem;
+}
+.card{
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+#FormValidation .error{
+    display: none !important;
+}
+
+.swal2-icon.swal2-warning {
+    font-size: unset !important;
+}
