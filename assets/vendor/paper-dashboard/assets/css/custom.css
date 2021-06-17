@@ -35,6 +35,56 @@ img{
     display: none !important;
 }
 
+
 .swal2-icon.swal2-warning {
     font-size: unset !important;
+}
+
+.swalShow-icon {
+    position: relative;
+    box-sizing: content-box;
+    justify-content: center;
+    width: 5em;
+    height: 5em;
+    margin: 2.5em auto .6em;
+    border: .25em solid transparent;
+    border-radius: 50%;
+    border-color: #000;
+    font-family: inherit;
+    line-height: 5em;
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.swalShow-icon.swalShow-warning {
+    font-size: unset !important;
+}
+.swalShow-icon .swalShow-icon-content {
+    display: flex;
+    align-items: center;
+    font-size: 3.75em;
+}
+.swalShow-icon.swalShow-warning {
+    border-color: #facea8;
+    color: #f8bb86;
+}
+.swalShow-icon.swalShow-warning {
+    font-size: unset !important;
+}
+.swalShow-icon.swalShow-warning {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #FFB236;
+    border-color: #FFB236;
+    font-size: 60px;
+    line-height: 80px;
+    text-align: center;
+}
+
+table thead tr th{
+    font-size: 13px !important;
+}
+table tbody tr td{
+    font-size: 13px !important;
 }
