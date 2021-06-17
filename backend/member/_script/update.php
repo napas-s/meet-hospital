@@ -9,9 +9,9 @@
 	$date2 = date("Y-m-d H:i:s");
 
 	$member_id    		= $_POST['member_id'];
+	$member_user        = $_POST['member_user_old'];
     $member_fullname    = $_POST['member_fullname'];
 	$member_tel 	    = $_POST['member_tel'];
-	$member_user 	    = $_POST['member_user'];
 	$member_lavel 	    = $_POST['member_lavel'];
 	$member_updateby    = $_SESSION["User"];
 	$upload             = $_FILES['member_img']['name'];
@@ -49,7 +49,6 @@
             $sql = "UPDATE member SET
                 member_fullname	    ='$member_fullname',
                 member_tel	        ='$member_tel',
-                member_user	        ='$member_user',
                 member_lavel	    ='$member_lavel',
                 member_img		    ='$newname',
                 member_updateby	    ='$member_updateby',
@@ -61,7 +60,6 @@
             $sql = "UPDATE member SET
                 member_fullname	    ='$member_fullname',
                 member_tel	        ='$member_tel',
-                member_user	        ='$member_user',
                 member_lavel	    ='$member_lavel',
                 member_updateby	    ='$member_updateby',
                 member_updatedate	='$date2'

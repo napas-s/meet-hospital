@@ -63,7 +63,8 @@
                       </div>
                       <div class="form-group">
                         <label>ชื่อผู้ใช้ <small>(ใช้สำหรับเข้าสู่ระบบ)</small></label>
-                        <input onkeyup="checkEng(this);" class="form-control" type="text" name="member_user" id="member_user" required="true" value="<?PHP if(!empty($row['member_user'])){ echo $row['member_user']; }?>"/>
+                        <input <?PHP if(!empty($_GET["id"])){ ?>disabled<?PHP } ?> class="form-control" type="text" name="member_user" id="member_user" required="true" value="<?PHP if(!empty($row['member_user'])){ echo $row['member_user']; }?>"/>
+                        <input type="hidden" name="member_user_old" id="member_user_old" value="<?PHP if(!empty($row['member_user'])){ echo $row['member_user']; }?>"/>
                       </div>
                       <?PHP if(empty($_GET["id"])){ ?>
                       <div class="form-group">
@@ -80,7 +81,7 @@
                       </div>
                       <?PHP if(!empty($_GET["id"])){ ?>
                         <div class="form-group">
-                          <a href="#"><i class="nc-icon nc-tap-01"></i> เปลี่ยนรหัสผ่าน</a>
+                          <a href="changpassword.php?id=<?PHP echo $_GET['id']; ?>"><i class="nc-icon nc-tap-01"></i> เปลี่ยนรหัสผ่าน</a>
                         </div>
                       <?PHP } ?>
                     </div>
@@ -98,6 +99,8 @@
     </div>
 
 </div>
+
+
 <!-- ./จบเนื้อหาของหน้า -->
 
 <!-- นำเข้าไฟล์ js เบื้องต้น -->

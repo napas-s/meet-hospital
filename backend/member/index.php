@@ -30,10 +30,11 @@
                             <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">รหัสผู้ใช้</th>
+                                        <th class="text-center" style="width: 70px;">รหัสผู้ใช้</th>
                                         <th>ชื่อ-สกุล</th>
                                         <th>ชื่อผู้ใช้</th>
-                                        <th class="text-center">สถานะ</th>
+                                        <th class="text-center" style="width: 70px;">สถานะ</th>
+                                        <th class="text-center" style="width: 70px;">สถานะการใช้งาน</th>
                                         <th class="text-center">เข้าใช้งานล่าสุด</th>
                                         <th class="disabled-sorting text-center">จัดการ</th>
                                     </tr>
@@ -59,8 +60,23 @@
                                                 <span class="badge badge-pill badge-success">ผู้ดูแลระบบ</span>
                                             <?PHP } ?>
                                         </td>
+                                        <td class="text-center">
+                                            <!-- เช็คค่า member_status -->
+                                            <?PHP if($row['member_status'] == 1){ ?>  <!-- ถ้า member_status == 1 -->
+                                                <span class="badge badge-pill badge-success">เปิดใช้งาน</span>
+                                            <?PHP }else{ ?> <!-- ถ้า member_status == 2 -->
+                                                <span class="badge badge-pill badge-danger">ปิดการใช้งาน</span>
+                                            <?PHP } ?>
+                                        </td>
                                         <td class="text-center"><?PHP echo $row['last_login']; ?></td>
                                         <td class="text-center">
+                                            <button data-toggle="modal" data-target="#showModel" data-id="<?PHP echo $row['member_id']; ?>" data-status="<?PHP echo $row['member_status']; ?>"  type="button" rel="tooltip" class="btn btn-warning btn-icon btn-sm showModel">
+                                                <?PHP if($row['member_status'] == 1){ ?>
+                                                    <i class="fa fa-eye-slash"></i>
+                                                <?PHP }else{ ?>
+                                                    <i class="fa fa-eye"></i>
+                                                <?PHP } ?>
+                                            </button>
                                             <a href="form.php?id=<?PHP echo $row['member_id']; ?>"><button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm"><i class="fa fa-edit"></i></button></a>
                                             <a href="_script/delete.php?id=<?PHP echo $row['member_id']; ?>">
                                                 <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm"><i class="fa fa-times"></i></button>
@@ -78,15 +94,20 @@
     </div>
 
 </div>
+
 <!-- ./จบเนื้อหาของหน้า -->
 
 <!-- นำเข้าไฟล์ js เบื้องต้น -->
 <?PHP include_once('../_template/footerjs.php') ?>
 
 <!-- นำเข้าไฟล์ js ที่ต้องการเพิ่มเติม เพื่อใช้ในหน้านี้เท่านั้น -->
-
 <script src="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/js/plugins/jquery.dataTables.min.js"></script>
+
+<!-- นำเข้าแจ้งเตือนก่อนตกลง ปิด/เปิด การใช้งาน -->
+<?PHP include_once('_action/show.php'); ?>
+
 <script>
+
     $(document).ready(function() {
       $('#datatable').DataTable({
         responsive: true,
