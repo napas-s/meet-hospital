@@ -11,6 +11,18 @@ function readURL(input) {
     }
 }
 
+function readURL2(input) {
+  if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+          $('#preView2').attr('src', e.target.result);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+  }
+}
+
 //แสดง error หากช่องที่กำหนด ไม่มีการกรอกข้อมูล
 function setFormValidation(id) {
     $(id).validate({
