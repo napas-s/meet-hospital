@@ -81,6 +81,12 @@
                     <span class="sidebar-normal"> แผนที่องค์กร </span>
                   </a>
                 </li>
+                <li>
+                  <a href="../about/servicetime.php">
+                    <span class="sidebar-mini-icon"><i class="nc-icon nc-watch-time"></i></span>
+                    <span class="sidebar-normal"> ตารางเวลาการให้บริการ </span>
+                  </a>
+                </li>
               </ul>
             </div>
           </li>
