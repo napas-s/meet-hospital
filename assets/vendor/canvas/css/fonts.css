@@ -201,3 +201,7 @@ label {
 	font-style: italic;
 	text-transform: none;
 }
+
+body{
+	font-size: 16px;
+}

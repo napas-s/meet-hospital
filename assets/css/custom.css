@@ -21,3 +21,11 @@
 #primary-menu ul ul li > a {
     font-size: 16px;
 }
+
+.mapabout .fluid-width-video-wrapper iframe, .mapabout .fluid-width-video-wrapper object, .mapabout .fluid-width-video-wrapper embed {
+    max-height: 500px;
+}
+
+.mapabout ul, .mapabout ol{
+    margin-left: 40px;
+}
