@@ -1,8 +1,3 @@
-    
-    <!-- Go To Top
-	============================================= -->
-	<div id="gotoTop" class="icon-angle-up"></div>
-
     <!-- นำเข้า Canvas js สำหรับตกแต่งเว็บไซต์ -->
     <script type="text/javascript" src="<?PHP echo base_url(); ?>assets/vendor/canvas/js/jquery.js"></script>
     <script type="text/javascript" src="<?PHP echo base_url(); ?>assets/vendor/canvas/js/plugins.js"></script>
