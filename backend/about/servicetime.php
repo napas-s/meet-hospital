@@ -3,7 +3,7 @@
 
 <!-- ตั้งค่าตัวแปรที่ต้องการส่งในหน้านี้ -->
 <?PHP
-    $breadcrumb =  'ข้อมูลเกี่ยวกับองค์กร';
+    $breadcrumb =  'ตารางเวลาการให้บริการ';
 ?>
 
 <!-- นำเข้าไฟล์ Template ส่วนหัว -->
@@ -21,7 +21,7 @@
         <div class="content">
 
         <?php
-            $sql="SELECT * FROM about WHERE about_type = 1 ";
+            $sql="SELECT * FROM about WHERE about_type = 4 ";
             $sql_query = mysqli_query($con,$sql)or die(mysqli_error($con));
             $row = mysqli_fetch_assoc($sql_query);
         ?>
@@ -32,10 +32,10 @@
             <?PHP }else{ ?>
               <form id="FormValidation" class="form-horizontal" enctype="multipart/form-data" action="_script/add.php" method="post">
             <?PHP } ?>
-              <input type="hidden" name="about_type" id="about_type" value="1" />
+              <input type="hidden" name="about_type" id="about_type" value="4" />
               <div class="card ">
                 <div class="card-header ">
-                    <h4 class="card-title">ข้อมูลเกี่ยวกับองค์กร</h4>
+                    <h4 class="card-title">ตารางเวลาการให้บริการ</h4>
                 </div>
                 <div class="card-body ">
                     <div class="row">

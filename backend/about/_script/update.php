@@ -10,6 +10,11 @@
 
 	$about_id 	        = $_POST['about_id'];
 	$about_content 	    = $_POST['about_content'];
+    if(isset($_POST['about_googlemap'])){
+	    $about_googlemap 	= $_POST['about_googlemap'];
+    }else{
+        $about_googlemap 	= NULL;
+    }
 	$about_type         = $_POST['about_type'];
 	$about_lavel 	    = $_POST['about_lavel'];
 	$about_status 	    = $_POST['about_status'];
@@ -20,8 +25,10 @@
         $page = 'about.php';
     }else if($about_type == 2){
         $page = 'organizationchart.php';
-    }else{
+    }else if($about_type == 3){
         $page = 'map.php';
+    }else{
+        $page = 'servicetime.php';
     }
 
     if($upload !='') {
@@ -43,17 +50,19 @@
 
         $sql = "UPDATE about SET
             about_content	    ='$about_content',
+            about_googlemap	    ='$about_googlemap',
             about_lavel	        ='$about_lavel',
             about_status		='$about_status',
             about_updateby	    ='$about_updateby',
-            about_updatedate	='$date2'
-            about_img		    ='$newname',
+            about_updatedate	='$date2',
+            about_img		    ='$newname'
             WHERE about_id=$about_id";
 
     }else{
 
         $sql = "UPDATE about SET
             about_content	    ='$about_content',
+            about_googlemap	    ='$about_googlemap',
             about_lavel	        ='$about_lavel',
             about_status		='$about_status',
             about_updateby	    ='$about_updateby',

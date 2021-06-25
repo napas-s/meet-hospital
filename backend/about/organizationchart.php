@@ -53,7 +53,7 @@
                                 <label>สถานะ</label>
                                 <select class="form-control" name="about_status" id="about_status">
                                     <option value="1" <?PHP if(isset($row['about_status'])){ if($row['about_status'] == 1){echo 'selected';} }?> >แสดงเนื้อหา</option>
-                                    <option value="0" <?PHP if(isset($row['about_status'])){ if($row['about_status'] == 2){echo 'selected';}  }?>>ซ่อนเนื้อหา</option>
+                                    <option value="0" <?PHP if(isset($row['about_status'])){ if($row['about_status'] == 0){echo 'selected';}  }?>>ซ่อนเนื้อหา</option>
                                 </select>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                                 <input type="file" id="about_img" name="about_img" class="form-control" accept="image/*" onchange="readURL(this);"/>
                                 <br/>
                                 <div class="text-center">
-                                    <?PHP if(isset($row['about_img'])){ ?>
+                                    <?PHP if(!empty($row['about_img'])){ ?>
                                         <img style="width: auto;"  id="preView" src="<?PHP base_url() ?>../../uploads/about/<?PHP echo $row['about_img']; ?>" alt="your image" />
                                     <?PHP }else{ ?>
                                         <img style="width: auto;" id="preView" src="<?PHP base_url() ?>../../assets/images/no-image-banner.png" alt="your image" />

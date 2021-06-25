@@ -9,6 +9,11 @@
 	$numrand = (mt_rand());
 
 	$about_content 	    = $_POST['about_content'];
+    if(isset($_POST['about_googlemap'])){
+	    $about_googlemap 	= $_POST['about_googlemap'];
+    }else{
+        $about_googlemap 	= NULL;
+    }
 	$about_type         = $_POST['about_type'];
 	$about_lavel 	    = $_POST['about_lavel'];
 	$about_status 	    = $_POST['about_status'];
@@ -19,8 +24,10 @@
         $page = 'about.php';
     }else if($about_type == 2){
         $page = 'organizationchart.php';
-    }else{
+    }else if($about_type == 3){
         $page = 'map.php';
+    }else{
+        $page = 'servicetime.php';
     }
 
     if($upload !='') {
@@ -35,9 +42,9 @@
         $newname = null;
     }
 
-    $sql = "INSERT INTO about (about_img,about_content, about_lavel, about_type, about_status, about_updateby, about_updatedate)
+    $sql = "INSERT INTO about (about_img,about_content, about_googlemap, about_lavel, about_type, about_status, about_updateby, about_updatedate)
             VALUES
-            ('$newname','$about_content','$about_lavel', '$about_type','$about_status', '$about_updateby', '$date')";
+            ('$newname','$about_content','$about_googlemap','$about_lavel', '$about_type','$about_status', '$about_updateby', '$date')";
 
     $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error($con));
 

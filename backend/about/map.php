@@ -45,6 +45,7 @@
                                 <select onchange="showContent(this)" class="form-control" name="about_lavel" id="about_lavel">
                                     <option value="1" <?PHP if(isset($row['about_lavel'])){ if($row['about_lavel'] == 1){echo 'selected';} }?> >เนื้อหา</option>
                                     <option value="2" <?PHP if(isset($row['about_lavel'])){ if($row['about_lavel'] == 2){echo 'selected';}  }?>>รูปภาพ</option>
+                                    <option value="3" <?PHP if(isset($row['about_lavel'])){ if($row['about_lavel'] == 3){echo 'selected';}  }?>>Google Map</option>
                                 </select>
                             </div>
                         </div>
@@ -67,12 +68,19 @@
                                 </div>
                                 <br/>
                             </div>
+                            <div id="showContentMap" style="display: none;">
+                                <br/>
+                                <div class="form-group">
+                                    <textarea id="about_googlemap" name="about_googlemap" class="form-control" rows="10" style="max-height: none;"><?PHP if(isset($row['about_googlemap'])){ echo $row['about_googlemap'];}?></textarea>
+                                </div>
+                                <br/>
+                            </div>
                             <div id="showContentImg" style="display: none;">
                                 <label>เลือกรูปภาพ</label>
                                 <input type="file" id="about_img" name="about_img" class="form-control" accept="image/*" onchange="readURL(this);"/>
                                 <br/>
                                 <div class="text-center">
-                                    <?PHP if(isset($row['about_img'])){ ?>
+                                    <?PHP if(!empty($row['about_img'])){ ?>
                                         <img style="width: auto;"  id="preView" src="<?PHP base_url() ?>../../uploads/about/<?PHP echo $row['about_img']; ?>" alt="your image" />
                                     <?PHP }else{ ?>
                                         <img style="width: auto;" id="preView" src="<?PHP base_url() ?>../../assets/images/no-image-banner.png" alt="your image" />
@@ -148,12 +156,19 @@
         var e = document.getElementById("about_lavel");
         var x = document.getElementById("showContentImg");
         var y = document.getElementById("showContent");
+        var z = document.getElementById("showContentMap");
         if (e.value == 2) {
             x.style.display = "block";
             y.style.display = "none";
+            z.style.display = "none";
+        }else if (e.value == 3) {
+            x.style.display = "none";
+            y.style.display = "none";
+            z.style.display = "block";
         } else {
             x.style.display = "none";
             y.style.display = "block";
+            z.style.display = "none";
         }
 
     });
@@ -161,14 +176,22 @@
 
         var x = document.getElementById("showContentImg");
         var y = document.getElementById("showContent");
+        var z = document.getElementById("showContentMap");
         if (e.value == 2) {
             x.style.display = "block";
             y.style.display = "none";
+            z.style.display = "none";
+        } else if (e.value == 3) {
+            x.style.display = "none";
+            y.style.display = "none";
+            z.style.display = "block";
         } else {
             x.style.display = "none";
             y.style.display = "block";
+            z.style.display = "none";
         }
     }
+
 </script>
 
 <!-- ./จบนำเข้าไฟล์ js ที่ต้องการเพิ่มเติม เพื่อใช้ในหน้านี้เท่านั้น -->
