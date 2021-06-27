@@ -38,7 +38,7 @@
             <?PHP } ?>
               <div class="card ">
                 <div class="card-header ">
-                    <h4 class="card-title">ข้อมูลบัญชีผู้ใช้</h4>
+                    <h4 class="card-title"><i class="nc-icon nc-chart-bar-32"></i> ข้อมูลบัญชีผู้ใช้</h4>
                 </div>
                 <div class="card-body ">
                   <div class="row">

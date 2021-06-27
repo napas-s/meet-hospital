@@ -23,7 +23,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">บัญชีผู้ใช้งาน</h4>
+                            <h4 class="card-title"><i class="nc-icon nc-chart-bar-32"></i> บัญชีผู้ใช้งาน</h4>
                         </div>
                         <div class="card-body">
                             <div class="toolbar"></div>
