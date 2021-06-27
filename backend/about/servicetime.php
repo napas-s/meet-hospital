@@ -35,7 +35,7 @@
               <input type="hidden" name="about_type" id="about_type" value="4" />
               <div class="card ">
                 <div class="card-header ">
-                    <h4 class="card-title">ตารางเวลาการให้บริการ</h4>
+                    <h4 class="card-title"><i class="nc-icon nc-watch-time"></i> ตารางเวลาการให้บริการ</h4>
                 </div>
                 <div class="card-body ">
                     <div class="row">

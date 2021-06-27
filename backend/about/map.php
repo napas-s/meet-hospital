@@ -35,7 +35,7 @@
               <input type="hidden" name="about_type" id="about_type" value="3" />
               <div class="card ">
                 <div class="card-header ">
-                    <h4 class="card-title">แผนที่องค์กร</h4>
+                    <h4 class="card-title"><i class="nc-icon nc-map-big"></i> แผนที่องค์กร</h4>
                 </div>
                 <div class="card-body ">
                     <div class="row">
