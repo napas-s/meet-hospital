@@ -70,7 +70,7 @@
                                         </td>
                                         <td class="text-center"><?PHP echo $row['last_login']; ?></td>
                                         <td class="text-center">
-                                            <button data-toggle="modal" data-target="#showModel" data-id="<?PHP echo $row['member_id']; ?>" data-status="<?PHP echo $row['member_status']; ?>"  type="button" rel="tooltip" class="btn btn-warning btn-icon btn-sm showModel">
+                                            <button data-toggle="modal" data-target="#showModel" data-id="<?PHP echo $row['member_id']; ?>" data-status="<?PHP echo $row['member_status']; ?>"  data-message="<?PHP if($row['member_status'] == 1){ ?>คุณต้องการระงับการใช้งานผู้ใช้นี้หรือไม่ ? <?PHP }else{ ?>คุณต้องการเปิดใช้งานผู้ใช้นี้หรือไม่ ?<?PHP } ?>" type="button" rel="tooltip" class="btn btn-warning btn-icon btn-sm" id="<?PHP echo $row['member_id']; ?>" onclick="showModel(this)">
                                                 <?PHP if($row['member_status'] == 1){ ?>
                                                     <i class="fa fa-eye-slash"></i>
                                                 <?PHP }else{ ?>

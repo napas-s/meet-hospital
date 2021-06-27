@@ -9,7 +9,7 @@
             <div class="swalShow-icon-content">!</div>
           </div>
           <br/>
-          คุณต้องการซ่อน/แสดง รายการนี้หรือไม่ ?
+          <div id="messageShow"></div>
           <br/>
           <br/>
         </div>
@@ -29,13 +29,16 @@
 
 <script>
 
-  $(".showModel").on('click', function(event){
-    var idShow = $('.showModel').data('id');
-    var statusShow = $('.showModel').data('status');
+function showModel(e){
 
-    $('#idShow').val(idShow);
-    $('#statusShow').val(statusShow);
+  var idShow = $(e).data('id');
+  var statusShow = $(e).data('status');
+  var messageShow = $(e).data('message');
 
-  });
+  $('#idShow').val(idShow);
+  $('#statusShow').val(statusShow);
+  $('#messageShow').html(messageShow);
+
+};
 
 </script>

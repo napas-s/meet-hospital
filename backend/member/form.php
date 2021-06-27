@@ -44,7 +44,7 @@
                   <div class="row">
                     <div class="col-md-4 text-center">
                       <div class="form-group">
-                        <?PHP if(isset($row['member_img'])){ ?>
+                        <?PHP if(!empty($row['member_img'])){ ?>
                           <img style="max-width: 360px;" id="preView" src="<?PHP base_url() ?>../../uploads/member/<?PHP echo $row['member_img']; ?>" alt="your image" />
                         <?PHP }else{ ?>
                           <img style="max-width: 360px;" id="preView" src="<?PHP base_url() ?>../../assets/images/no-image.jpeg" alt="your image" />

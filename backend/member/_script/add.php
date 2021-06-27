@@ -49,10 +49,10 @@
 
 		if($result){
 
-			$row = mysqli_fetch_assoc($result);
+			$id = mysqli_insert_id($con);
 
 			echo "<script type='text/javascript'>";
-			echo "window.location='../form.php?id=$row[member_id]&icon=success&message=เพิ่มข้อมูลเรียบร้อยแล้ว';";
+			echo "window.location='../form.php?id=$id&icon=success&message=เพิ่มข้อมูลเรียบร้อยแล้ว';";
 			echo "</script>";
 
 		}else{
