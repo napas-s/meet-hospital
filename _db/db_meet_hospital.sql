@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 27, 2021 at 07:00 PM
+-- Generation Time: Jun 27, 2021 at 07:36 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.12
 
@@ -111,6 +111,10 @@ CREATE TABLE `setting` (
   `icon_web` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Icon Web',
   `logo_web` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Logo Web',
   `name_web` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'ชื่อเว็บไซต์',
+  `tel` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'เบอร์โทรศัพท์',
+  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'อีเมล',
+  `facebook` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Facebook',
+  `twitter` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Twitter',
   `edit_by` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'อัพเดตข้อมูลโดย',
   `edit_date` datetime DEFAULT NULL COMMENT 'วันที่อัพเดต'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -119,8 +123,8 @@ CREATE TABLE `setting` (
 -- Dumping data for table `setting`
 --
 
-INSERT INTO `setting` (`id`, `icon_web`, `logo_web`, `name_web`, `edit_by`, `edit_date`) VALUES
-(14, 'icon3309549920210625_235337.png', 'logo72795205520210627_200725.png', 'ระบบจองคิวทันตกรรมออนไลน์', 'ผู้ดูแลระบบ', '2021-06-27 20:07:25');
+INSERT INTO `setting` (`id`, `icon_web`, `logo_web`, `name_web`, `tel`, `email`, `facebook`, `twitter`, `edit_by`, `edit_date`) VALUES
+(14, 'icon3309549920210625_235337.png', 'logo72795205520210627_200725.png', 'ระบบจองคิวทันตกรรมออนไลน์', 'ss', 'ss@gmail.com', 'ss', 'ss', 'ผู้ดูแลระบบ', '2021-06-28 00:19:20');
 
 --
 -- Indexes for dumped tables
