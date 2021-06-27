@@ -68,8 +68,26 @@
                     <div class="col-md-12">
                         <div class="card ">
                             <div class="card-body">
-                                <label>ชื่อเว็บไซต์</label>
-                                <input class="form-control" name="name_web" id="name_web" type='input' value="<?PHP if(isset($row['name_web'])){ echo $row['name_web'];}?>"  />
+                                <div class="form-group">
+                                    <label>ชื่อเว็บไซต์</label>
+                                    <input class="form-control" name="name_web" id="name_web" type='input' value="<?PHP if(isset($row['name_web'])){ echo $row['name_web'];}?>"  required="true"  />
+                                </div>
+                                <div class="form-group">
+                                    <label>เบอร์โทรศัพท์</label>
+                                    <input class="form-control" name="tel" id="tel" type='input' placeholder="012-345-6789" value="<?PHP if(isset($row['tel'])){ echo $row['tel'];}?>"  />
+                                </div>
+                                <div class="form-group">
+                                    <label>อีเมล</label>
+                                    <input class="form-control" name="email" id="email" type='input' placeholder="ex@email.com" value="<?PHP if(isset($row['email'])){ echo $row['email'];}?>"  />
+                                </div>
+                                <div class="form-group">
+                                    <label>Facebook</label>
+                                    <input class="form-control" name="facebook" id="facebook" type='input' placeholder="https://www.facebook.com/" value="<?PHP if(isset($row['facebook'])){ echo $row['facebook'];}?>"  />
+                                </div>
+                                <div class="form-group">
+                                    <label>Twitter</label>
+                                    <input class="form-control" name="twitter" id="twitter" type='input' placeholder="https://www.twitter.com/" value="<?PHP if(isset($row['twitter'])){ echo $row['twitter'];}?>"  />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -95,6 +113,13 @@
 <?PHP include_once('../_template/footerjs.php') ?>
 
 <!-- นำเข้าไฟล์ js ที่ต้องการเพิ่มเติม เพื่อใช้ในหน้านี้เท่านั้น -->
+<script src="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/js/plugins/jquery.validate.min.js"></script>
+<script>
+    //ส่งค่า input ไปยัง form Validation ในไฟล์ assets/vendor/paper-dashboard/assets/js/function.js
+    $(document).ready(function() {
+      setFormValidation('#FormValidation');
+    });
+</script>
 
 <!-- แจ้งเตือนมีการผิดพลาด (รับตัวแปลจากหน้า _script/add or _script/update) -->
 <?PHP if(isset($_GET['message'])){ ?>

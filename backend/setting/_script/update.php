@@ -10,6 +10,10 @@
 
     $setting_id             = $_POST['setting_id'];
     $name_web               = $_POST['name_web'];
+    $tel               		= $_POST['tel'];
+    $email               	= $_POST['email'];
+    $facebook               = $_POST['facebook'];
+    $twitter               	= $_POST['twitter'];
 	$edit_by                = $_SESSION["User"];
 	$icon_web               = $_FILES['icon_web']['name'];
     $icon_web_old           = $_POST['icon_web_old'];
@@ -58,6 +62,10 @@
         icon_web		    ='$newnameIcon',
         logo_web		    ='$newnameLogo',
         name_web		    ='$name_web',
+        tel		            ='$tel',
+        email		        ='$email',
+        facebook		    ='$facebook',
+        twitter		        ='$twitter',
         edit_by	            ='$edit_by',
         edit_date	        ='$date2'
         WHERE id=$setting_id";

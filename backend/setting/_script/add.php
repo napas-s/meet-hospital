@@ -9,6 +9,10 @@
 	$numrand = (mt_rand());
 
     $name_web               = $_POST['name_web'];
+    $tel               		= $_POST['tel'];
+    $email               	= $_POST['email'];
+    $facebook               = $_POST['facebook'];
+    $twitter               	= $_POST['twitter'];
 	$icon_web               = $_FILES['icon_web']['name'];
 	$logo_web               = $_FILES['logo_web']['name'];
 	$edit_by                = $_SESSION["User"];
@@ -39,9 +43,9 @@
         $newnameLogo = NULL;
     }
 
-	$sql = "INSERT INTO setting (icon_web, logo_web, name_web, edit_by, edit_date)
+	$sql = "INSERT INTO setting (icon_web, logo_web, name_web, tel, email, facebook, twitter, edit_by, edit_date)
 			VALUES
-			('$newnameIcon','$newnameLogo','$name_web', '$edit_by', '$date')";
+			('$newnameIcon','$newnameLogo','$name_web', '$tel', '$email', '$facebook', '$twitter', '$edit_by', '$date')";
 
 	$result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error($con));
 
