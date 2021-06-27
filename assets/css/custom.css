@@ -22,6 +22,9 @@
     font-size: 16px;
 }
 
+.mapabout .fluid-width-video-wrapper{
+    padding-top: 55% !important;
+}
 .mapabout .fluid-width-video-wrapper iframe, .mapabout .fluid-width-video-wrapper object, .mapabout .fluid-width-video-wrapper embed {
     max-height: 500px;
 }
