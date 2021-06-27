@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 27, 2021 at 07:36 PM
+-- Generation Time: Jun 27, 2021 at 07:41 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.12
 
@@ -124,7 +124,7 @@ CREATE TABLE `setting` (
 --
 
 INSERT INTO `setting` (`id`, `icon_web`, `logo_web`, `name_web`, `tel`, `email`, `facebook`, `twitter`, `edit_by`, `edit_date`) VALUES
-(14, 'icon3309549920210625_235337.png', 'logo72795205520210627_200725.png', 'ระบบจองคิวทันตกรรมออนไลน์', 'ss', 'ss@gmail.com', 'ss', 'ss', 'ผู้ดูแลระบบ', '2021-06-28 00:19:20');
+(14, 'icon3309549920210625_235337.png', 'logo72795205520210627_200725.png', 'ระบบจองคิวทันตกรรมออนไลน์', '0123-456-7890', 'ex@email.com', 'https://www.facebook.com/samroiyodhospital', '', 'ผู้ดูแลระบบ', '2021-06-28 00:40:37');
 
 --
 -- Indexes for dumped tables
