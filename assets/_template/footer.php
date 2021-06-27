@@ -12,20 +12,22 @@
 
                 <div class="col_half col_last tright">
                     <div class="fright clearfix">
-                        <a href="#" class="social-icon si-small si-borderless si-facebook">
-                            <i class="icon-facebook"></i>
-                            <i class="icon-facebook"></i>
-                        </a>
-
-                        <a href="#" class="social-icon si-small si-borderless si-twitter">
-                            <i class="icon-twitter"></i>
-                            <i class="icon-twitter"></i>
-                        </a>
+                        <?PHP if(isset($setting['facebook'])){ ?>
+                            <a target="_bank" href="<?PHP echo $setting['facebook']; ?>" class="social-icon si-small si-borderless si-facebook">
+                                <i class="icon-facebook"></i>
+                                <i class="icon-facebook"></i>
+                            </a>
+                        <?PHP } ?>
+                        <?PHP if(isset($setting['twitter'])){ ?>
+                            <a target="_bank" href="<?PHP echo $setting['twitter']; ?>" class="social-icon si-small si-borderless si-twitter">
+                                <i class="icon-twitter"></i>
+                                <i class="icon-twitter"></i>
+                            </a>
+                        <?PHP } ?>
                     </div>
 
                     <div class="clear"></div>
-
-                    <i class="icon-envelope2"></i> info@canvas.com <span class="middot">·</span> <i class="icon-headphones"></i> +91-11-6541-6369
+                    <?PHP if(isset($setting['name_web'])){ ?><i class="icon-envelope2"></i> <?PHP echo $setting['email']; ?> <span class="middot">·</span><?PHP } ?> <?PHP if(isset($setting['tel'])){ ?><i class="icon-headphones"></i> <?PHP echo $setting['tel']; ?><?PHP } ?>
                 </div>
 
             </div>
