@@ -38,7 +38,7 @@
             <?PHP } ?>
               <div class="card ">
                 <div class="card-header ">
-                    <h4 class="card-title">ข่าวประชาสัมพันธ์</h4>
+                    <h4 class="card-title"><i class="nc-icon nc-align-left-2"></i> ข่าวประชาสัมพันธ์</h4>
                 </div>
                 <div class="card-body ">
                   <div class="row">
