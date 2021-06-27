@@ -21,31 +21,31 @@
                         $row = mysqli_fetch_assoc($sql_query);
                     ?>
 
-                    <?PHP if(isset($setting['tel'])){ ?>
+                    <?PHP if(!empty($setting['tel'])){ ?>
                         <div style="margin-bottom:20px"><strong>เบอร์โทรศัพท์ : <a href="tel:<?PHP echo $setting['tel']; ?>"><?PHP echo $setting['tel']; ?></a></strong></div>
                     <?PHP } ?>
-                    <?PHP if(isset($setting['email'])){ ?>
+                    <?PHP if(!empty($setting['email'])){ ?>
                         <div style="margin-bottom:20px"><strong>อีเมล : <a href="mailto:<?PHP echo $setting['email']; ?>"><?PHP echo $setting['email']; ?></a></strong></div>
                     <?PHP } ?>
-                    <?PHP if(isset($setting['tel'])){ ?>
+                    <?PHP if(!empty($setting['tel'])){ ?>
                         <a href="tel:<?PHP echo $setting['tel']; ?>" class="social-icon inline-block si-rounded si-light si-call" title="Call">
 							<i class="icon-call"></i>
 							<i class="icon-call"></i>
 						</a>
                     <?PHP } ?>
-                    <?PHP if(isset($setting['email'])){ ?>
+                    <?PHP if(!empty($setting['email'])){ ?>
                         <a href="mailto:<?PHP echo $setting['email']; ?>" class="social-icon inline-block si-rounded si-light si-email3" title="Email">
 							<i class="icon-email3"></i>
 							<i class="icon-email3"></i>
 						</a>
                     <?PHP } ?>
-                    <?PHP if(isset($setting['facebook'])){ ?>
+                    <?PHP if(!empty($setting['facebook'])){ ?>
                         <a target="_bank" href="<?PHP echo $setting['facebook']; ?>" class="social-icon inline-block si-light si-rounded si-facebook">
                             <i class="icon-facebook"></i>
                             <i class="icon-facebook"></i>
                         </a>
                     <?PHP } ?>
-                    <?PHP if(isset($setting['twitter'])){ ?>
+                    <?PHP if(!empty($setting['twitter'])){ ?>
                         <a target="_bank" href="<?PHP echo $setting['twitter']; ?>"  class="social-icon inline-block si-light si-rounded si-twitter">
                             <i class="icon-twitter"></i>
                             <i class="icon-twitter"></i>
