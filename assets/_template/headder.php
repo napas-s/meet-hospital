@@ -25,6 +25,9 @@
     <!-- นำเข้าไฟล์ config font -->
     <link rel="stylesheet" href="<?PHP echo base_url(); ?>assets/fonts/stylesheet.css">
 
+    <!-- นำเข้า CSS -->
+    <link rel="stylesheet" href="<?PHP echo base_url(); ?>assets/css/custom.css">
+
     <!-- นำเข้า Canvas css สำหรับตกแต่งเว็บไซต์ -->
     <link rel="stylesheet" href="<?PHP echo base_url(); ?>assets/vendor/canvas/css/bootstrap.css" type="text/css" />
 	<link rel="stylesheet" href="<?PHP echo base_url(); ?>assets/vendor/canvas/style.css" type="text/css" />
@@ -36,8 +39,6 @@
 	<link rel="stylesheet" href="<?PHP echo base_url(); ?>assets/vendor/canvas/css/colors.css" type="text/css" />
 	<link rel="stylesheet" href="<?PHP echo base_url(); ?>assets/vendor/canvas/css/fonts.css" type="text/css" />
 
-    <!-- นำเข้า CSS -->
-    <link rel="stylesheet" href="<?PHP echo base_url(); ?>assets/css/custom.css">
 
 </head>
 <body class="stretched">

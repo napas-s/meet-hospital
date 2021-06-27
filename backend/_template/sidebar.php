@@ -54,6 +54,12 @@
             </a>
           </li>
           <li>
+            <a href="../news/index.php">
+              <i class="nc-icon nc-align-left-2"></i>
+              <p>ข่าวประชาสัมพันธ์</p>
+            </a>
+          </li>
+          <li>
             <a data-toggle="collapse" href="#formsExamples">
               <i class="nc-icon nc-ruler-pencil"></i>
               <p>
