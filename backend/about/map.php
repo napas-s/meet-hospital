@@ -71,7 +71,12 @@
                             <div id="showContentMap" style="display: none;">
                                 <br/>
                                 <div class="form-group">
-                                    <textarea id="about_googlemap" name="about_googlemap" class="form-control" rows="10" style="max-height: none;"><?PHP if(isset($row['about_googlemap'])){ echo $row['about_googlemap'];}?></textarea>
+                                    <label>ฝัง Google Map</label>
+                                    <textarea id="about_googlemap" name="about_googlemap" class="form-control" rows="5" style="max-height: none;"><?PHP if(isset($row['about_googlemap'])){ echo $row['about_googlemap'];}?></textarea>
+                                </div>
+                                <br/>
+                                <div class="form-group">
+                                    <textarea id="about_content_googlemap" name="about_content_googlemap"><?PHP if(isset($row['about_content_googlemap'])){ echo $row['about_content_googlemap'];}?></textarea>
                                 </div>
                                 <br/>
                             </div>
@@ -116,6 +121,9 @@
 
 <script>
 	CKEDITOR.replace( 'about_content',{
+        height: 400
+    });
+	CKEDITOR.replace( 'about_content_googlemap',{
         height: 400
     });
 </script>

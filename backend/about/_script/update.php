@@ -15,6 +15,11 @@
     }else{
         $about_googlemap 	= NULL;
     }
+    if(isset($_POST['about_content_googlemap'])){
+	    $about_content_googlemap 	= $_POST['about_content_googlemap'];
+    }else{
+        $about_content_googlemap 	= NULL;
+    }
 	$about_type         = $_POST['about_type'];
 	$about_lavel 	    = $_POST['about_lavel'];
 	$about_status 	    = $_POST['about_status'];
@@ -49,24 +54,26 @@
         }
 
         $sql = "UPDATE about SET
-            about_content	    ='$about_content',
-            about_googlemap	    ='$about_googlemap',
-            about_lavel	        ='$about_lavel',
-            about_status		='$about_status',
-            about_updateby	    ='$about_updateby',
-            about_updatedate	='$date2',
-            about_img		    ='$newname'
+            about_content	            ='$about_content',
+            about_googlemap	            ='$about_googlemap',
+            about_content_googlemap	    ='$about_content_googlemap',
+            about_lavel	                ='$about_lavel',
+            about_status		        ='$about_status',
+            about_updateby	            ='$about_updateby',
+            about_updatedate	        ='$date2',
+            about_img		            ='$newname'
             WHERE about_id=$about_id";
 
     }else{
 
         $sql = "UPDATE about SET
-            about_content	    ='$about_content',
-            about_googlemap	    ='$about_googlemap',
-            about_lavel	        ='$about_lavel',
-            about_status		='$about_status',
-            about_updateby	    ='$about_updateby',
-            about_updatedate	='$date2'
+            about_content	            ='$about_content',
+            about_googlemap	            ='$about_googlemap',
+            about_content_googlemap	    ='$about_content_googlemap',
+            about_lavel	                ='$about_lavel',
+            about_status		        ='$about_status',
+            about_updateby	            ='$about_updateby',
+            about_updatedate	        ='$date2'
             WHERE about_id=$about_id";
 
     }

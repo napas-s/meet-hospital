@@ -14,6 +14,11 @@
     }else{
         $about_googlemap 	= NULL;
     }
+    if(isset($_POST['about_content_googlemap'])){
+	    $about_content_googlemap 	= $_POST['about_content_googlemap'];
+    }else{
+        $about_content_googlemap 	= NULL;
+    }
 	$about_type         = $_POST['about_type'];
 	$about_lavel 	    = $_POST['about_lavel'];
 	$about_status 	    = $_POST['about_status'];
@@ -42,9 +47,9 @@
         $newname = null;
     }
 
-    $sql = "INSERT INTO about (about_img,about_content, about_googlemap, about_lavel, about_type, about_status, about_updateby, about_updatedate)
+    $sql = "INSERT INTO about (about_img,about_content, about_googlemap, about_content_googlemap, about_lavel, about_type, about_status, about_updateby, about_updatedate)
             VALUES
-            ('$newname','$about_content','$about_googlemap','$about_lavel', '$about_type','$about_status', '$about_updateby', '$date')";
+            ('$newname','$about_content','$about_googlemap','$about_content_googlemap','$about_lavel', '$about_type','$about_status', '$about_updateby', '$date')";
 
     $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error($con));
 
