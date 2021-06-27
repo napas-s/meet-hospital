@@ -12,9 +12,9 @@
     <section id="content">
         <div class="content-wrap">
             <div class="container clearfix mapabout">
-                <div>
-                    <h3 class="c-text">การเดินทาง</h3>
-                </div>
+                    <div class="heading-block center">
+                        <h4>การเดินทาง</h4>
+                    </div>
                     <?php
                         $sql="SELECT * FROM about WHERE about_type = '3' AND about_status = '1'";
                         $sql_query = mysqli_query($con,$sql)or die(mysqli_error($con));
@@ -29,6 +29,8 @@
                                 <img style="width: 100%; height: auto" src="<?PHP base_url() ?>uploads/about/<?PHP echo $row['about_img']; ?>" alt="about image" />
                             </div>
                         <?PHP }else{ ?>
+                            <?PHP echo $row['about_content_googlemap']; ?>
+                            <br/>
                             <?PHP echo $row['about_googlemap']; ?>
                         <?PHP } ?>
                     <?PHP }else{ ?>

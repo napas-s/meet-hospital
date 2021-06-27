@@ -12,9 +12,9 @@
     <section id="content">
         <div class="content-wrap">
             <div class="container clearfix mapabout">
-                <div>
-                    <h3 class="c-text">ตารางเวลาการให้บริการ</h3>
-                </div>
+                    <div class="heading-block center">
+                        <h4>ตารางเวลาการให้บริการ</h4>
+                    </div>
                     <?php
                         $sql="SELECT * FROM about WHERE about_type = '4' AND about_status = '1'";
                         $sql_query = mysqli_query($con,$sql)or die(mysqli_error($con));
