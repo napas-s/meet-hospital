@@ -25,7 +25,7 @@
         <!-- นำเข้าไฟล์ Template ส่วนเมนูด้านข้าง -->
         <?PHP include_once('../_template/navbar.php') ?>
         <div class="content">
-            <?PHP if(isset($row)){ ?>
+            <?PHP if(!empty($row)){ ?>
               <form id="FormValidation" class="form-horizontal" enctype="multipart/form-data" action="_script/update.php" method="post">
               <input type="hidden" name="setting_id" id="setting_id" value="<?PHP if(isset($row['id'])){ echo $row['id'];}?>" />
 
