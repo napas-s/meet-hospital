@@ -60,6 +60,12 @@
             </a>
           </li>
           <li>
+            <a href="../album/index.php">
+              <i class="nc-icon nc-image"></i>
+              <p>กิจกรรมของเรา</p>
+            </a>
+          </li>
+          <li>
             <a data-toggle="collapse" href="#formsExamples">
               <i class="nc-icon nc-ruler-pencil"></i>
               <p>

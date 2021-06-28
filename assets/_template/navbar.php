@@ -13,7 +13,7 @@
                         </ul>
                     </li>
                     <li><a href="servicetime.php"><div>ตารางเวลาการให้บริการ</div></a></li>
-                    <li><a href="#"><div>กิจกรรมของเรา</div></a></li>
+                    <li><a href="album.php"><div>กิจกรรมของเรา</div></a></li>
                     <li><a href="news.php"><div>ข่าวสารและประชาสัมพันธ์</div></a></li>
                     <li><a href="map.php"><div>การเดินทาง</div></a></li>
                 </ul>
