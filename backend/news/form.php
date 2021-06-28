@@ -29,7 +29,7 @@
             }
         ?>
 
-            <?PHP if(isset($_GET["id"])){ ?>
+            <?PHP if(!empty($_GET["id"])){ ?>
               <form id="FormValidation" class="form-horizontal" enctype="multipart/form-data" action="_script/update.php" method="post">
               <input type="hidden" name="news_id" id="news_id" value="<?PHP if(isset($_GET['id'])){ echo $_GET['id'];}?>" /> <!-- ตัวแปร icon แจ้งเตือน -->
 

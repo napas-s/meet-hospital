@@ -54,6 +54,7 @@
                                             <?PHP }else{ ?>
                                                 <img style="max-height: 100px; width:auto;" id="preView" src="<?PHP base_url() ?>../../assets/images/no-image.jpeg" alt="your image" />
                                             <?PHP } ?>
+                                        </td>
                                         <td><?PHP echo $row['news_title']; ?></td>
                                         <td class="text-center">
                                             <!-- เช็คค่า news_status -->
@@ -72,7 +73,7 @@
                                                 <?PHP } ?>
                                             </button>
                                             <a href="form.php?id=<?PHP echo $row['news_id']; ?>"><button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm"><i class="fa fa-edit"></i></button></a>
-                                            <a href="_script/delete.php?id=<?PHP echo $row['news_id']; ?>">
+                                            <a href="#"  onclick="deleteModel(this)" data-toggle="modal" data-target="#deleteModel" data-id="<?PHP echo $row['news_id']; ?>" data-message="คุณต้องการลบข้อมูลรายการนี้หรือไม่ ?" type="button" rel="tooltip">
                                                 <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm"><i class="fa fa-times"></i></button>
                                             </a>
                                         </td>
@@ -97,6 +98,8 @@
 <!-- นำเข้าไฟล์ js ที่ต้องการเพิ่มเติม เพื่อใช้ในหน้านี้เท่านั้น -->
 <script src="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/js/plugins/jquery.dataTables.min.js"></script>
 
+<!-- นำเข้าแจ้งเตือนก่อนตกลง delete -->
+<?PHP include_once('_action/delete.php'); ?>
 <!-- นำเข้าแจ้งเตือนก่อนตกลง ปิด/เปิด การใช้งาน -->
 <?PHP include_once('_action/show.php'); ?>
 

@@ -3,7 +3,7 @@
 
     require_once('../../../_database/connection.php');
 
-    $news_id = $_GET['id'];
+    $news_id = $_POST['idDelete'];
 
     $sql = "DELETE FROM news WHERE news_id=$news_id";
     $result = mysqli_query($con, $sql) or die("Error in query : $sql" .mysqli_error($con));
