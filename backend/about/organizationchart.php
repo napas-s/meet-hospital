@@ -26,7 +26,7 @@
             $row = mysqli_fetch_assoc($sql_query);
         ?>
 
-            <?PHP if(isset($row) != ""){ ?>
+            <?PHP if(!empty($row) != ""){ ?>
               <form id="FormValidation" class="form-horizontal" enctype="multipart/form-data" action="_script/update.php" method="post">
               <input type="hidden" name="about_id" id="about_id" value="<?PHP if(isset($row['about_id'])){ echo $row['about_id'];}?>" />
             <?PHP }else{ ?>
