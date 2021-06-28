@@ -93,3 +93,17 @@ table tbody tr td{
     padding-left: 0px !important;
     padding-right: 0px !important;
 }
+.album_img{
+    position: relative;
+    margin-bottom: 10px;
+}
+.album_bookmark{
+    position: absolute;
+    left: -10px;
+    top: -15px;
+}
+.album_remove{
+    position: absolute;
+    right: -10px;
+    top: -15px;
+}
