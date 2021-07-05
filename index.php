@@ -52,15 +52,36 @@
                     <form role="form">
                         <div class="tab-content">
                             <div class="tab-pane active" role="tabpanel" id="step1">
-                                <h3>Step 1</h3>
-                                <p>This is step 1</p>
-                                <ul class="list-inline pull-right">
-                                    <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
-                                </ul>
+                                <div class="tap-box">
+                                    <h3>ลงทะเบียน</h3>
+                                    <div class="col_full">
+                                        <label for="billing-form-companyname">เลขบัตรประชาชน</label>
+                                        <input type="text" id="billing-form-companyname" name="billing-form-companyname" value="" class="sm-form-control">
+                                    </div>
+                                    <div class="col_full">
+                                        <label for="billing-form-companyname">วัน/เดือน/ปีเกิด</label>
+                                        <div class="input-group">
+                                            <input type="text" value="" class="sm-form-control tleft format" placeholder="วัน-เดือน-คศ">
+                                            <span class="input-group-addon" style="padding: 9px 12px;">
+                                                <i class="icon-calendar2"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col_full">
+                                        <label for="billing-form-companyname">เบอร์ติดต่อ</label>
+                                        <input type="text" id="billing-form-companyname" name="billing-form-companyname" value="" class="sm-form-control">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-8"></div>
+                                        <div class="col-md-4">
+                                            <a href="#" class="btn btn-block button button-border button-rounded button-fill button-green2 next-step">
+                                                <span>ลงทะเบียน<i class="icon-angle-right"></i></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="tab-pane" role="tabpanel" id="step2">
-                                <h3>Step 2</h3>
-                                <p>This is step 2</p>
                                 <ul class="list-inline pull-right">
                                     <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
                                     <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
@@ -92,6 +113,11 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
+
+        $('.format').datepicker({
+            autoclose: true,
+            format: "dd-mm-yyyy",
+        });
         //Initialize tooltips
         $('.nav-tabs > li a[title]').tooltip();
         //Wizard
@@ -119,6 +145,7 @@
     function prevTab(elem) {
         $(elem).prev().find('a[data-toggle="tab"]').click();
     }
+
 </script>
 
 </body>
