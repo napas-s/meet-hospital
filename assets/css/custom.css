@@ -197,7 +197,7 @@ span.round-tab:hover {
 .wizard li:after {
     content: " ";
     position: absolute;
-    left: 46%;
+    left: 46.8%;
     opacity: 0;
     margin: 0 auto;
     bottom: 0px;
@@ -208,7 +208,7 @@ span.round-tab:hover {
 .wizard li.active:after {
     content: " ";
     position: absolute;
-    left: 46%;
+    left: 46.8%;
     opacity: 1;
     margin: 0 auto;
     bottom: 0px;
@@ -261,4 +261,12 @@ span.round-tab:hover {
         position: absolute;
         left: 35%;
     }
+}
+
+.tap-box{
+    max-width: 500px;
+    margin: auto;
+}
+.button-green2{
+    margin: 0px !important;
 }
