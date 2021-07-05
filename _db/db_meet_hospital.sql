@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 28, 2021 at 02:33 PM
+-- Generation Time: Jul 05, 2021 at 06:34 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.12
 
@@ -172,6 +172,53 @@ INSERT INTO `news` (`news_id`, `news_img_cover`, `news_title`, `news_content`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `services`
+--
+
+CREATE TABLE `services` (
+  `ser_id` int(11) NOT NULL COMMENT 'รหัส',
+  `ser_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'ชื่อบริการ',
+  `ser_status` int(1) NOT NULL DEFAULT 1 COMMENT 'สถานะการใช้งาน [1=แสดง, 0=ซ่อน]	',
+  `ser_addby` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'เพิ่มข้อมูลโดย',
+  `ser_adddate` datetime DEFAULT NULL COMMENT 'วันที่เพิ่มข้อมูล',
+  `ser_updateby` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'อัพเดตข้อมูลโดย',
+  `ser_updatedate` datetime DEFAULT NULL COMMENT 'วันที่อัพเดต'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='ข้อมูลการบริการ';
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`ser_id`, `ser_name`, `ser_status`, `ser_addby`, `ser_adddate`, `ser_updateby`, `ser_updatedate`) VALUES
+(1, 'ขูดหินปูน', 1, 'ผู้ดูแลระบบ', '2021-07-05 23:05:13', 'ผู้ดูแลระบบ', '2021-07-05 23:10:41'),
+(3, 'ถอนฟัน', 1, 'ผู้ดูแลระบบ', '2021-07-05 23:11:00', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `services_point`
+--
+
+CREATE TABLE `services_point` (
+  `ser_point_id` int(11) NOT NULL COMMENT 'รหัส',
+  `ser_point_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'ชื่อจุดบริการ',
+  `ser_point_status` int(1) NOT NULL DEFAULT 1 COMMENT 'สถานะการใช้งาน [1=แสดง, 0=ซ่อน]	',
+  `ser_point_addby` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'เพิ่มข้อมูลโดย',
+  `ser_point_adddate` datetime DEFAULT NULL COMMENT 'วันที่เพิ่มข้อมูล',
+  `ser_point_updateby` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'อัพเดตข้อมูลโดย',
+  `ser_point_updatedate` datetime DEFAULT NULL COMMENT 'วันที่อัพเดต'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='ข้อมูลจุดบริการ';
+
+--
+-- Dumping data for table `services_point`
+--
+
+INSERT INTO `services_point` (`ser_point_id`, `ser_point_name`, `ser_point_status`, `ser_point_addby`, `ser_point_adddate`, `ser_point_updateby`, `ser_point_updatedate`) VALUES
+(4, 'ทันตกรรม', 1, 'ผู้ดูแลระบบ', '2021-07-05 23:17:14', 'ผู้ดูแลระบบ', '2021-07-05 23:18:13');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `setting`
 --
 
@@ -231,6 +278,18 @@ ALTER TABLE `news`
   ADD PRIMARY KEY (`news_id`);
 
 --
+-- Indexes for table `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`ser_id`);
+
+--
+-- Indexes for table `services_point`
+--
+ALTER TABLE `services_point`
+  ADD PRIMARY KEY (`ser_point_id`);
+
+--
 -- Indexes for table `setting`
 --
 ALTER TABLE `setting`
@@ -269,6 +328,18 @@ ALTER TABLE `member`
 --
 ALTER TABLE `news`
   MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `services`
+--
+ALTER TABLE `services`
+  MODIFY `ser_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `services_point`
+--
+ALTER TABLE `services_point`
+  MODIFY `ser_point_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `setting`
