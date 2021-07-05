@@ -239,3 +239,19 @@ input.switch-toggle-round:checked + label:before,
 	.portfolio-filter li a:hover { color: #62b721; }
 
 }
+
+.wizard li.active span.round-tab {
+    border: 2px solid #62b721;
+    
+}
+.wizard li.active span.round-tab i{
+    color: #62b721;
+}
+
+.wizard li:after {
+    border-bottom-color: #62b721;
+}
+
+.wizard li.active:after {
+    border-bottom-color: #62b721;
+}
