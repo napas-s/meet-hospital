@@ -8,20 +8,31 @@
     }
 
 ?>
-
+<!-- นำเข้าไฟล์ฐานข้อมูล -->
+<?PHP require_once('../../_database/connection.php'); ?>
+<?php
+    $sql_setting="SELECT * FROM setting";
+    $sql_query_setting = mysqli_query($con,$sql_setting)or die(mysqli_error($con));
+    $setting = mysqli_fetch_assoc($sql_query_setting);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
+  <!-- นำเข้าไฟล์ config part file เพื่อเรียกใช้ part file ปัจจุบัน -->
+  <?PHP include_once('../../assets/vendor/base_url.php'); ?>
+
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <?PHP if(isset($setting['icon_web'])){ ?>
+      <link rel="icon" href="<?PHP echo base_url(); ?>../../uploads/setting/<?PHP echo $setting['icon_web']; ?>" type ="image/png">
+  <?PHP } ?>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>ระบบจัดการหลังบ้าน</title>
+  <?PHP if(isset($setting['name_web'])){ ?>
+      <title>ระบบจัดการหลังบ้าน | <?PHP echo $setting['name_web']; ?></title>
+  <?PHP } ?>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
-   <!-- นำเข้าไฟล์ config part file เพื่อเรียกใช้ part file ปัจจุบัน -->
-   <?PHP include_once('../../assets/vendor/base_url.php'); ?>
 
   <!-- นำเข้าไฟล์  Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />

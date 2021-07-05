@@ -1,16 +1,17 @@
 <div class="sidebar" data-color="brown" data-active-color="danger">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-    -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-          <div class="logo-image-small">
-            <img src="../../assets/images/no-image.jpeg">
-          </div>
+        <?PHP if(isset($setting['icon_web'])){ ?>
+          <a href="../../index.php" target="_bank" class="simple-text logo-mini">
+            <div class="logo-image-small">
+              <img src="<?PHP echo base_url(); ?>../../uploads/setting/<?PHP echo $setting['icon_web']; ?>">
+            </div>
+          </a>
+        <?PHP } ?>
+        <?PHP if(isset($setting['icon_web'])){ ?>
+        <a href="../../index.php" target="_bank"  class="simple-text logo-normal">
+          <img style="max-width: 80px;" src="<?PHP echo base_url(); ?>../../uploads/setting/<?PHP echo $setting['icon_web']; ?>">
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
-        </a>
+        <?PHP } ?>
       </div>
       <div class="sidebar-wrapper">
         <div class="user">
@@ -66,14 +67,14 @@
             </a>
           </li>
           <li>
-            <a data-toggle="collapse" href="#formsExamples">
+            <a data-toggle="collapse" href="#formsAbouts">
               <i class="nc-icon nc-ruler-pencil"></i>
               <p>
                 ข้อมูลเกี่ยวกับองค์กร
                 <b class="caret"></b>
               </p>
             </a>
-            <div class="collapse " id="formsExamples">
+            <div class="collapse " id="formsAbouts">
               <ul class="nav">
                 <li>
                   <a href="../about/about.php">
@@ -97,6 +98,31 @@
                   <a href="../about/servicetime.php">
                     <span class="sidebar-mini-icon"><i class="nc-icon nc-watch-time"></i></span>
                     <span class="sidebar-normal"> ตารางเวลาการให้บริการ </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a data-toggle="collapse" href="#formService">
+              <i class="nc-icon nc-calendar-60"></i>
+              <p>
+                ข้อมูลการบริการนัดหมาย
+                <b class="caret"></b>
+              </p>
+            </a>
+            <div class="collapse " id="formService">
+              <ul class="nav">
+                <li>
+                  <a href="../servicepoint/index.php">
+                    <span class="sidebar-mini-icon"><i class="nc-icon nc-tile-56"></i></span>
+                    <span class="sidebar-normal"> ข้อมูลจุดบริการ </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="../service/index.php">
+                    <span class="sidebar-mini-icon"><i class="nc-icon nc-paper"></i></span>
+                    <span class="sidebar-normal"> ข้อมูลการบริการ </span>
                   </a>
                 </li>
               </ul>
