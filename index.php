@@ -13,7 +13,10 @@
         <div class="content-wrap">
             <div class="container clearfix">
                 <div class="center">
-                    <h3 class="c-text">ระบบจองนัดออนไลน์</h3>
+                    <img class="logo-health" src="assets/images/ministry_of_public_health.png" />
+                    <h3 class="c-text" style="margin-bottom: 0;">โรงพยาบาลสามร้อยยอด</h3>
+                    <h4 class="c-text" style="margin-bottom: 0;">กระทรวงสาธารณสุข</h4>
+                    <h4 class="c-text" style="margin-bottom: 0;">ระบบจองนัดออนไลน์</h4>
                 </div>
             </div>
 
