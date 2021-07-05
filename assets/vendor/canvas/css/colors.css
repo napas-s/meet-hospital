@@ -255,3 +255,9 @@ input.switch-toggle-round:checked + label:before,
 .wizard li.active:after {
     border-bottom-color: #03673A;
 }
+.button-green2{
+	border-color: #03673A !important;
+}
+.button.button-border.button-fill:before {
+    background-color: #03673A;
+}
