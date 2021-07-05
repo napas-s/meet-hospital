@@ -15,7 +15,7 @@
         <!-- นำเข้าไฟล์ Template ส่วนเมนูด้านข้าง -->
         <?PHP include_once('../_template/navbar.php') ?>
         <div class="content">
-            111
+            
         </div>
     </div>
 

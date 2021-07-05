@@ -79,3 +79,8 @@
 
 <!-- นำเข้าไฟล์ Template ส่วนท้าย -->
 <?PHP include_once('assets/_template/footer.php') ?>
+<!-- นำเข้าไฟล์ Template js ส่วนท้าย -->
+<?PHP include_once('assets/_template/footerjs.php') ?>
+
+</body>
+</html>

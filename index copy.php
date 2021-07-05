@@ -22,22 +22,25 @@
                     <div class="wizard-inner">
                         <div class="connecting-line"></div>
                         <ul class="nav nav-tabs" role="tablist">
+
                             <li role="presentation" class="active">
-                                <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="ลงทะเบียน">
+                                <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
                                     <span class="round-tab">
                                         <i class="icon-user4"></i>
                                     </span>
                                 </a>
                             </li>
+
                             <li role="presentation" class="disabled">
-                                <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="นัดหมาย">
+                                <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
                                     <span class="round-tab">
                                         <i class="icon-calendar3"></i>
                                     </span>
                                 </a>
                             </li>
+
                             <li role="presentation" class="disabled">
-                                <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="ยืนยันการนัดหมาย">
+                                <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
                                     <span class="round-tab">
                                         <i class="glyphicon icon-ok"></i>
                                     </span>
@@ -88,34 +91,41 @@
 
 <script type="text/javascript">
 
-    $(document).ready(function () {
-        //Initialize tooltips
-        $('.nav-tabs > li a[title]').tooltip();
-        //Wizard
-        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-            var $target = $(e.target);
-        
-            if ($target.parent().hasClass('disabled')) {
-                return false;
-            }
-        });
-        $(".next-step").click(function (e) {
-            var $active = $('.wizard .nav-tabs li.active');
-            $active.next().removeClass('disabled');
-            nextTab($active);
-        });
-        $(".prev-step").click(function (e) {
-            var $active = $('.wizard .nav-tabs li.active');
-            prevTab($active);
-        });
+$(document).ready(function () {
+    //Initialize tooltips
+    $('.nav-tabs > li a[title]').tooltip();
+    
+    //Wizard
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+
+        var $target = $(e.target);
+    
+        if ($target.parent().hasClass('disabled')) {
+            return false;
+        }
     });
 
-    function nextTab(elem) {
-        $(elem).next().find('a[data-toggle="tab"]').click();
-    }
-    function prevTab(elem) {
-        $(elem).prev().find('a[data-toggle="tab"]').click();
-    }
+    $(".next-step").click(function (e) {
+
+        var $active = $('.wizard .nav-tabs li.active');
+        $active.next().removeClass('disabled');
+        nextTab($active);
+
+    });
+    $(".prev-step").click(function (e) {
+
+        var $active = $('.wizard .nav-tabs li.active');
+        prevTab($active);
+
+    });
+});
+
+function nextTab(elem) {
+    $(elem).next().find('a[data-toggle="tab"]').click();
+}
+function prevTab(elem) {
+    $(elem).prev().find('a[data-toggle="tab"]').click();
+}
 </script>
 
 </body>
