@@ -49,3 +49,18 @@ function checkEng(e)
     e.value = "";
   }
 }
+
+//time service
+function timeChange(e){
+
+  var t1 = document.getElementById("Time1");
+  var t2 = document.getElementById("Time2");
+
+  if(e == 1){
+    t1.style.display = "block";
+    t2.style.display = "none";
+  }else{
+    t1.style.display = "none";
+    t2.style.display = "block";
+  }
+}
