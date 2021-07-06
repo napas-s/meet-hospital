@@ -49,32 +49,32 @@
                         </ul>
                     </div>
 
-                    <form role="form">
+                    <form id="registrationForm" role="form" action="">
                         <div class="tab-content">
                             <div class="tab-pane active" role="tabpanel" id="step1">
                                 <div class="tap-box">
-                                    <h3>ลงทะเบียน</h3>
+                                    <h3><i class="icon-user4"></i> :: ลงทะเบียน</h3>
                                     <div class="col_full">
-                                        <label for="billing-form-companyname">เลขบัตรประชาชน</label>
-                                        <input type="text" id="billing-form-companyname" name="billing-form-companyname" value="" class="sm-form-control">
+                                        <label for="idcardNumber">เลขบัตรประชาชน</label>
+                                        <input type="text" id="idcardNumber" name="idcardNumber" value="" class="sm-form-control">
                                     </div>
                                     <div class="col_full">
-                                        <label for="billing-form-companyname">วัน/เดือน/ปีเกิด</label>
+                                        <label for="birthday">วัน/เดือน/ปีเกิด</label>
                                         <div class="input-group">
-                                            <input type="text" value="" class="sm-form-control tleft format" placeholder="วัน-เดือน-คศ">
+                                            <input name="birthday" id="birthday" type="text" value="" class="sm-form-control tleft format" placeholder="วัน-เดือน-คศ">
                                             <span class="input-group-addon" style="padding: 9px 12px;">
                                                 <i class="icon-calendar2"></i>
                                             </span>
                                         </div>
                                     </div>
                                     <div class="col_full">
-                                        <label for="billing-form-companyname">เบอร์ติดต่อ</label>
-                                        <input type="text" id="billing-form-companyname" name="billing-form-companyname" value="" class="sm-form-control">
+                                        <label for="contact">เบอร์ติดต่อ</label>
+                                        <input type="text" id="contact" name="contact" value="" class="sm-form-control">
                                     </div>
                                     <div class="row">
                                         <div class="col-md-8"></div>
                                         <div class="col-md-4">
-                                            <a href="#" class="btn btn-block button button-border button-rounded button-fill button-green2 next-step">
+                                            <a href="#" class="btn btn-block button button-border button-rounded button-fill button-green2" onclick="nextPrev(1)">
                                                 <span>ลงทะเบียน<i class="icon-angle-right"></i></span>
                                             </a>
                                         </div>
@@ -82,17 +82,81 @@
                                 </div>
                             </div>
                             <div class="tab-pane" role="tabpanel" id="step2">
-                                <ul class="list-inline pull-right">
-                                    <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                                    <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
-                                </ul>
+                                <div class="tap-box">
+                                    <h3><i class="icon-calendar3"></i> :: นัดหมาย</h3>
+                                    <div class="col_full">
+                                        <label for="idcardNumber">จุดบริการ</label>
+                                        <select class="sm-form-control" name="serpoint_id" id="serpoint_id" onchange="setPointService(this.value)" >
+                                        <?PHP
+                                            $sqlPoint="SELECT * FROM services_point WHERE ser_point_status = 1 ";
+                                            $sql_query_point = mysqli_query($con,$sqlPoint)or die(mysqli_error($con));
+                                        ?>
+                                        <?PHP foreach($sql_query_point as $point){ ?>
+                                            <option value="<?PHP echo $point['ser_point_id']; ?>" ><?PHP echo $point['ser_point_name']; ?></option>
+                                        <?PHP } ?>
+                                        </select>
+                                    </div>
+                                    <div class="col_full">
+                                        <label for="birthday">ประเภทบริการ</label>
+                                        <select class="sm-form-control" name="sertype_id" id="sertype_id" onchange="setTypeService(this.value)">
+                                            <option value="1" >คลินิกทั่วไป</option>
+                                            <option value="2" >คลินิกนอกเวลา</option>
+                                        </select>
+                                    </div>
+                                    <div class="col_full">
+                                        <label for="idcardNumber">บริการ</label>
+                                        <select class="sm-form-control" name="service_id" id="service_id" >
+                                        <?PHP
+                                            $sqlService="SELECT * FROM services WHERE ser_status = 1 ";
+                                            $sql_query_service = mysqli_query($con,$sqlService)or die(mysqli_error($con));
+                                        ?>
+                                        <?PHP foreach($sql_query_service as $service){ ?>
+                                            <option value="<?PHP echo $service['ser_id']; ?>" ><?PHP echo $service['ser_name']; ?></option>
+                                        <?PHP } ?>
+                                        </select>
+                                    </div>
+                                    <div class="col_full">
+                                        <label for="birthday">วันที่นัดหมายทันตกรรม</label><br/>
+                                        <select class="form-control" name="serdateId" id="serdateId" onchange="setTimeService(this.value)" ></select>
+                                    </div>
+                                    <div class="col_full">
+                                        <label for="birthday">เวลานัดหมายทันตกรรม</label><br/>
+                                        <select class="form-control" name="sertimeId" id="sertimeId" ></select>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <a href="#" class="btn btn-block button button-border button-rounded button-fill button-green2 prev-step">
+                                                <span><i class="icon-angle-left"></i> ย้อนกลับ</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4">
+                                            <a onclick="meetPresent()" href="#" class="btn btn-block button button-border button-rounded button-fill button-green2 next-step">
+                                                <span>ทำนัดหมาย<i class="icon-angle-right"></i></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="tab-pane" role="tabpanel" id="complete">
-                                <h3>Complete</h3>
-                                <p>You have successfully completed all steps.</p>
-                                <ul class="list-inline pull-right">
-                                    <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                                </ul>
+                                <div class="tap-box">
+                                    <h3><i class="glyphicon icon-ok"></i> :: ยืนยันการนัดหมาย</h3>
+                                    <div id="meetPresent"></div>
+                                    <br/>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <a href="#" class="btn btn-block button button-border button-rounded button-fill button-green2 prev-step">
+                                                <span><i class="icon-angle-left"></i> ย้อนกลับ</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4">
+                                            <button type="submit" class="btn btn-block button button-border button-rounded button-fill button-green2">
+                                                <span>ยืนยันนัดหมาย</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -114,16 +178,11 @@
 
     $(document).ready(function () {
 
-        $('.format').datepicker({
-            autoclose: true,
-            format: "dd-mm-yyyy",
-        });
         //Initialize tooltips
         $('.nav-tabs > li a[title]').tooltip();
         //Wizard
         $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
             var $target = $(e.target);
-        
             if ($target.parent().hasClass('disabled')) {
                 return false;
             }
@@ -139,12 +198,28 @@
         });
     });
 
-    function nextTab(elem) {
-        $(elem).next().find('a[data-toggle="tab"]').click();
-    }
-    function prevTab(elem) {
-        $(elem).prev().find('a[data-toggle="tab"]').click();
-    }
+    $(document).ready(function () {
+
+        var serpointId = $('#serpoint_id').val();
+        var sertypeId  = $('#sertype_id').val();
+
+        $.ajax({
+            url: '_ajax/serviceDate.php',
+            type: "GET",
+            data: { serpointId: serpointId, sertypeId:sertypeId },
+            cache: false,
+            beforeSend: function () { },
+            success: function (response) {
+
+                $("#serdateId").html(response);
+
+            },
+            failure: function (errMsg) {
+                alert(errMsg);
+            }
+        });
+
+    });
 
 </script>
 
