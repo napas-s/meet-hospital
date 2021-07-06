@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 06, 2021 at 04:04 PM
+-- Generation Time: Jul 06, 2021 at 07:06 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.12
 
@@ -260,7 +260,7 @@ INSERT INTO `services_des` (`serdes_id`, `serpoint_id`, `sertype_id`, `serdes_da
 --
 
 CREATE TABLE `services_des_time` (
-  `destime_id` int(11) NOT NULL COMMENT 'รหัส',
+  `des_time_id` int(11) NOT NULL COMMENT 'รหัส',
   `serdesId` int(11) NOT NULL COMMENT 'รหัสจากตาราง services_des',
   `destimeId` int(11) NOT NULL COMMENT 'เวลาที่ให้บริการ'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='ข้อมูลประเภทบริการ';
@@ -269,7 +269,7 @@ CREATE TABLE `services_des_time` (
 -- Dumping data for table `services_des_time`
 --
 
-INSERT INTO `services_des_time` (`destime_id`, `serdesId`, `destimeId`) VALUES
+INSERT INTO `services_des_time` (`des_time_id`, `serdesId`, `destimeId`) VALUES
 (240, 4, 1),
 (241, 4, 2),
 (242, 4, 3),
@@ -690,7 +690,7 @@ INSERT INTO `services_time` (`time_id`, `time_name`, `time_type`, `time_status`,
 (3, '09.30 - 10.00', 1, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
 (4, '10.00 - 10.30', 1, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
 (5, '10.30 - 11.00', 1, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
-(6, '11.00 -11.30', 1, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
+(6, '11.00 - 11.30', 1, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
 (7, '11.30 - 12.00', 1, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
 (8, '13.00 - 13.30', 1, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
 (9, '13.30 - 14.00', 1, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
@@ -698,14 +698,14 @@ INSERT INTO `services_time` (`time_id`, `time_name`, `time_type`, `time_status`,
 (11, '14.30 - 15.00', 1, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
 (12, '15.00 - 15.30', 1, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
 (13, '15.30 - 16.00', 1, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
-(14, '16.00 - 16.30', 2, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
-(15, '16.30 - 17.00', 2, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
-(16, '17.00 - 17.30', 2, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
-(17, '17.30 - 18.00', 2, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
-(18, '18.00 - 18.30', 2, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
-(19, '18.30 - 19.00', 2, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
-(20, '19.00 - 19.30', 2, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
-(21, '19.30 - 20.00', 2, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06');
+(14, '16.30 - 17.00', 2, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
+(15, '17.00 - 17.30', 2, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
+(16, '17.30 - 18.00', 2, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
+(17, '18.00 - 18.30', 2, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
+(18, '18.30 - 19.00', 2, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
+(19, '19.00 - 19.30', 2, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
+(20, '19.30 - 20.00', 2, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06'),
+(21, '20.00 - 20.30', 2, 1, 'System', '2021-07-06 15:44:06', 'System', '2021-07-06 15:44:06');
 
 -- --------------------------------------------------------
 
@@ -785,7 +785,7 @@ ALTER TABLE `services_des`
 -- Indexes for table `services_des_time`
 --
 ALTER TABLE `services_des_time`
-  ADD PRIMARY KEY (`destime_id`),
+  ADD PRIMARY KEY (`des_time_id`),
   ADD KEY `services_des_time_serdesId_index` (`serdesId`) USING BTREE,
   ADD KEY `services_des_time_destimeId_index` (`destimeId`) USING BTREE;
 
@@ -857,7 +857,7 @@ ALTER TABLE `services_des`
 -- AUTO_INCREMENT for table `services_des_time`
 --
 ALTER TABLE `services_des_time`
-  MODIFY `destime_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=607;
+  MODIFY `des_time_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=607;
 
 --
 -- AUTO_INCREMENT for table `services_point`
