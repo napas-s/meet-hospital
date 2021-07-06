@@ -270,3 +270,30 @@ span.round-tab:hover {
 .button-green2{
     margin: 0px !important;
 }
+
+
+
+/* select 2 */
+.select2{
+    width: 100% !important;
+}
+.select2-container--default .select2-selection--single {
+    display: block;
+    width: 100% !important;
+    height: 38px !important;
+    padding: 3px 14px !important;
+    font-size: 15px !important;
+    line-height: 1.42857143 !important;
+    color: #555555 !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+    border: 2px solid #DDD !important;
+    border-radius: 0 !important;
+    -webkit-transition: border-color ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s;
+    transition: border-color ease-in-out .15s;
+}
+
+.mg_present{
+    margin-bottom: 10px;
+}
