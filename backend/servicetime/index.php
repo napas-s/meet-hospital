@@ -39,13 +39,12 @@
                                     // query ตาราง services
                                     $query_des = "SELECT * FROM services_des JOIN services_point ON services_point.ser_point_id = services_des.serpoint_id ORDER BY services_des.serdes_date ASC;" or die("Error:" . mysqli_error($con));
                                     $result_des = mysqli_query($con, $query_des);
-                                    $i = 1;
                                 ?>
                                 <tbody>
                                     <!-- loop ข้อมูลที่ query ได้ จาก services -->
                                     <?PHP  while($row = mysqli_fetch_array($result_des)) {  ?>
                                     <tr>
-                                        <td class="text-center"><?PHP echo str_pad($row['serdes_id'], 4, '0', STR_PAD_LEFT); ?></td>
+                                        <td class="text-center"><?PHP echo str_pad($row['serdes_id'], 4, 'T0', STR_PAD_LEFT); ?></td>
                                         <td><?PHP echo $row['serdes_date']; ?></td>
                                         <td><?PHP if($row['sertype_id'] == 1){ ?>คลินิกทั่วไป<?PHP }else{ ?>คลินิกนอกเวลา<?PHP } ?></td>
                                         <td><?PHP echo $row['ser_point_name']; ?></td>
