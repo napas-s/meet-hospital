@@ -6,7 +6,7 @@
 	date_default_timezone_set('Asia/Bangkok');
 
     $idcardNumber           = $_POST['idcardNumber'];
-    $birthday 	            = date("Y-m-d", strtotime($_POST['birthday']));;
+    $birthday 	            = date("Y-m-d", strtotime($_POST['birthday']));
     $contact 	            = $_POST['contact'];
     $serpoint_id 	        = $_POST['serpoint_id'];
     $sertype_id 	        = $_POST['sertype_id'];
