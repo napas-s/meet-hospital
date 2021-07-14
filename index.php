@@ -59,7 +59,7 @@
                                         <input type="text" id="idcardNumber" name="idcardNumber" required="required" value="" class="sm-form-control">
                                     </div>
                                     <div class="col_full form-group">
-                                        <label for="birthday">วัน/เดือน/ปีเกิด</label>
+                                        <label for="birthday">วัน/เดือน/ปีเกิด (ค.ศ.)</label>
                                         <div class="input-group">
                                             <input name="birthday" id="birthday" type="text" required="required" value="" class="sm-form-control tleft format" placeholder="วัน-เดือน-คศ">
                                             <span class="input-group-addon" style="padding: 9px 12px;">

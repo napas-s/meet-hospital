@@ -32,6 +32,7 @@
                                           JOIN services_des ON services_des.serdes_id = meet_service.mt_serdateId 
                                           JOIN services_des_time ON services_des_time.serdesId = services_des.serdes_id 
                                           JOIN services_time ON services_time.time_id = services_des_time.destimeId 
+                                          JOIN users ON users.user_iden13 = meet_service.mt_idcardNumber 
                                           WHERE meet_service.mt_id = $Id ";
                                     $sql_query = mysqli_query($con,$sql)or die(mysqli_error($con));
                                     $row = mysqli_fetch_assoc($sql_query);
@@ -39,7 +40,10 @@
                                 <div class="preview_detail">
                                     <div class="center"><h4>คุณลงทะเบียนสำเร็จแล้ว</h4></div>
                                     <div class='mg_present'><b>เลขบัตรประชาชน : </b><?PHP if(isset($row['mt_idcardNumber'])){ echo $row['mt_idcardNumber']; } ?></div>
-                                    <div class='mg_present'><b>วัน/เดือน/ปีเกิด : </b><?PHP if(isset($row['mt_birthday'])){ echo $row['mt_birthday']; } ?></div>
+                                    <?PHP if(isset($row['user_prename']) && isset($row['user_fname']) && isset($row['user_lname'])){ ?>
+                                        <div class='mg_present'><b>ชื่อ - สกุล : </b><?PHP if($row['user_prename'] == "อื่นๆ"){echo $row['user_prenameOthers']; } else{echo $row['user_prename'];} ?> <?PHP echo $row['user_fname']; ?> <?PHP echo $row['user_lname']; ?></div>
+                                    <?PHP } ?>
+                                    <div class='mg_present'><b>วัน/เดือน/ปีเกิด (ค.ศ.) : </b><?PHP if(isset($row['user_birthday'])){ echo date("d-m-Y", strtotime($row['user_birthday']));; } ?></div>
                                     <div class='mg_present'><b>เบอร์โทรศัพท์ : </b><?PHP if(isset($row['mt_tel'])){ echo $row['mt_tel']; } ?></div>
                                     <div class='divider'><i class='icon-screen'></i></div>
                                     <div class='mg_present'><b>จุดบริการ : </b><?PHP if(isset($row['ser_point_name'])){ echo $row['ser_point_name']; } ?></div>
