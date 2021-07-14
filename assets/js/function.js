@@ -61,20 +61,20 @@ if ($(".format").length != 0) {
 }
 
 
-function setPointService(e){
+//select ประเภทบริการ
+function setTypeService(e){
 
     var setpointId  = e;
-    var settypeId  = $('#sertype_id').val();
 
     $.ajax({
         url: '_ajax/serviceType.php',
         type: "GET",
-        data: { setpointId:setpointId,settypeId:settypeId},
+        data: { setpointId:setpointId},
         cache: false,
         beforeSend: function () { },
         success: function (response) {
 
-            $("#serdateId").html(response);
+            $("#sertype_id").html(response);
             $("#sertimeId").html('');
 
         },
@@ -85,13 +85,14 @@ function setPointService(e){
 
 }
 
-function setTypeService(e){
+//select วันที่นัดหมาย
+function setDateService(e){
 
     var setpointId  = $('#serpoint_id').val();
     var settypeId  = e;
 
     $.ajax({
-        url: '_ajax/serviceType.php',
+        url: '_ajax/serviceDate.php',
         type: "GET",
         data: { setpointId:setpointId,settypeId:settypeId},
         cache: false,
@@ -109,6 +110,7 @@ function setTypeService(e){
 
 }
 
+//select เวลาที่นัดหมาย
 function setTimeService(e){
 
     $.ajax({
@@ -128,6 +130,7 @@ function setTimeService(e){
     });
 }
 
+//แสดงรายการยืนยันการนัดหมาย
 function meetPresent(){
 
     var idcardNumber    = $('#idcardNumber').val();
