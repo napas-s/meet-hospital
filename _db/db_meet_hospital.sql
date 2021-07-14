@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 14, 2021 at 06:41 PM
+-- Generation Time: Jul 14, 2021 at 07:37 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.12
 
@@ -127,7 +127,6 @@ INSERT INTO `album_des` (`des_id`, `albumId`, `des_img`, `des_status`, `des_addb
 CREATE TABLE `meet_service` (
   `mt_id` int(11) NOT NULL,
   `mt_idcardNumber` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'เลขบัตรประชาชน',
-  `mt_birthday` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'วัน/เดือน/ปีเกิด',
   `mt_tel` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'เบอร์โทรศัพท์',
   `mt_serpoint_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'จุดบริการ',
   `mt_sertype_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'ประเภทบริการ ',
@@ -142,8 +141,9 @@ CREATE TABLE `meet_service` (
 -- Dumping data for table `meet_service`
 --
 
-INSERT INTO `meet_service` (`mt_id`, `mt_idcardNumber`, `mt_birthday`, `mt_tel`, `mt_serpoint_id`, `mt_sertype_id`, `mt_service_id`, `mt_serdateId`, `mt_sertimeId`, `mt_dateMeetadd`, `mt_status`) VALUES
-(2, '1850456723459', '21-07-2021', '1234567890', '5', '2', '1', '15', '345', '2021-07-14 12:55:07', 0);
+INSERT INTO `meet_service` (`mt_id`, `mt_idcardNumber`, `mt_tel`, `mt_serpoint_id`, `mt_sertype_id`, `mt_service_id`, `mt_serdateId`, `mt_sertimeId`, `mt_dateMeetadd`, `mt_status`) VALUES
+(1, '1234567823490', '09875647234', '5', '2', '1', '15', '342', '2021-07-14 23:51:15', 0),
+(2, '1850456723459', '1234567890', '6', '2', '3', '7', '266', '2021-07-14 23:55:53', 0);
 
 -- --------------------------------------------------------
 
@@ -10828,7 +10828,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_iden13`, `user_prename`, `user_prenameOthers`, `user_fname`, `user_lname`, `user_sex`, `user_birthday`, `user_nation`, `user_nationOther`, `user_country`, `user_countryOther`, `user_province_birth`, `user_provinceOther`, `user_job`, `user_faith`, `user_faithOther`, `user_education`, `user_marry_status`, `user_blood`, `user_allergy`, `user_allergyOther`, `user_father_name`, `user_mother_name`, `user_addby`, `user_adddate`, `user_updateby`, `user_updatedate`) VALUES
-(12, '1850456723459', 'นางสาว', '', 'มะลิ', 'กลิ่นหอม', 'หญิง', '1995-07-19', 'ไทย', '', 'ไทย', '', 'กรุงเทพมหานคร', '', 'รับจ้างทั่วไป', 'พุทธ', '', 'ไม่ได้ศึกษา', 'โสด', 'O (โอ)', 'ไม่เคยแพ้', '', 'สุทน กลิ่นหอม', 'มานี กลิ่นหอม', 'ผู้ดูแลระบบ', '2021-07-14 22:09:31', 'ผู้ดูแลระบบ', '2021-07-14 23:37:14');
+(12, '1850456723459', 'นางสาว', '', 'มะลิ', 'กลิ่นหอม', 'หญิง', '1995-07-19', 'ไทย', '', 'ไทย', '', 'กรุงเทพมหานคร', '', 'รับจ้างทั่วไป', 'พุทธ', '', 'ไม่ได้ศึกษา', 'โสด', 'O (โอ)', 'ไม่เคยแพ้', '', 'สุทน กลิ่นหอม', 'มานี กลิ่นหอม', 'ผู้ดูแลระบบ', '2021-07-14 22:09:31', 'ผู้ดูแลระบบ', '2021-07-15 00:22:33'),
+(18, '1234567823490', NULL, NULL, NULL, NULL, NULL, '2021-07-27', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'SYSTEM', '2021-07-14 23:51:15', 'SYSTEM', '2021-07-14 23:51:15');
 
 -- --------------------------------------------------------
 
@@ -10859,7 +10860,8 @@ CREATE TABLE `users_contact` (
 --
 
 INSERT INTO `users_contact` (`id`, `user_id`, `user_home_no_pt`, `user_moo_pt`, `user_soi_pt`, `user_road_pt`, `user_province_live_pt`, `user_amphure_live_pt`, `user_district_live_pt`, `user_zipcode_live_pt`, `user_phone_moblie_1_pt`, `user_phone_moblie_2_pt`, `user_phone_home_pt`, `user_phone_work_pt`, `user_email_pt`) VALUES
-(11, 12, '12/54', '2', '-', 'บางบ่อ', 'สมุทรปราการ', 'บางบ่อ', 'คลองด่าน', '10550', '0987654321', '', '', '', '');
+(11, 12, '12/54', '2', '-', 'บางบ่อ', 'สมุทรปราการ', 'บางบ่อ', 'คลองด่าน', '10550', '0987654321', '', '', '', ''),
+(17, 18, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -10884,7 +10886,8 @@ CREATE TABLE `users_family` (
 --
 
 INSERT INTO `users_family` (`id`, `user_id`, `user_name_fam`, `user_relation_fam`, `user_phone_moblie_1_fam`, `user_phone_moblie_2_fam`, `user_phone_home_fam`, `user_phone_work_fam`, `user_email_fam`) VALUES
-(8, 12, '', '', '', '', '', '', '');
+(8, 12, '', '', '', '', '', '', ''),
+(14, 18, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -11039,7 +11042,7 @@ ALTER TABLE `album_des`
 -- AUTO_INCREMENT for table `meet_service`
 --
 ALTER TABLE `meet_service`
-  MODIFY `mt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `mt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `member`
@@ -11117,19 +11120,19 @@ ALTER TABLE `se_provinces`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `users_contact`
 --
 ALTER TABLE `users_contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `users_family`
 --
 ALTER TABLE `users_family`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
