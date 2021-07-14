@@ -297,3 +297,29 @@ span.round-tab:hover {
 .mg_present{
     margin-bottom: 10px;
 }
+.mgt_preview{
+    margin-top: 40px;
+}
+.mgb_no{
+    margin-bottom: 0px;
+}
+.preview_detail{
+    margin: auto;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 3rem;
+}
+.preview_detail_pdf{
+    margin: auto;
+    max-width: 600px;
+    padding: 3rem;
+    border: 1px solid #ccc;
+}
+/* ============================================================================ stepwizard */
+.has-error .sm-form-control {
+    border: 2px solid #a94442;
+}
+
+.has-error .select2-container--default .select2-selection--single {
+    border: 2px solid #a94442 !important;
+}
