@@ -61,6 +61,12 @@
             </a>
           </li>
           <li>
+            <a href="../user/index.php">
+              <i class="nc-icon nc-book-bookmark"></i>
+              <p>ข้อมูลผู้ลงทะเบียนนัดหมาย</p>
+            </a>
+          </li>
+          <li>
             <a data-toggle="collapse" href="#formService">
               <i class="nc-icon nc-calendar-60"></i>
               <p>
@@ -90,18 +96,6 @@
                 </li>
               </ul>
             </div>
-          </li>
-          <li>
-            <a href="../user/index.php">
-              <i class="nc-icon nc-book-bookmark"></i>
-              <p>ข้อมูลผู้ลงทะเบียนนัดหมาย</p>
-            </a>
-          </li>
-          <li>
-            <a href="../member/index.php">
-              <i class="nc-icon nc-chart-bar-32"></i>
-              <p>ข้อมูลพนักงาน</p>
-            </a>
           </li>
           <li>
             <a href="../news/index.php">
@@ -151,6 +145,12 @@
                 </li>
               </ul>
             </div>
+          </li>
+          <li>
+            <a href="../member/index.php">
+              <i class="nc-icon nc-chart-bar-32"></i>
+              <p>ข้อมูลพนักงาน</p>
+            </a>
           </li>
           <li>
             <a href="../setting/index.php">
