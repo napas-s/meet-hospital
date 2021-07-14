@@ -27,13 +27,14 @@
                             <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th class="text-center" style="width: 150px;">เลขบัตรประชาชน</th>
+                                        <th class="text-center" style="width: 10%;">เลขบัตรประชาชน</th>
                                         <th>ชื่อ - สกุล</th>
                                         <th>เบอร์โทรศัพท์</th>
+                                        <th>จุดบริการ</th>
                                         <th>บริการ</th>
-                                        <th style="width: 150px;"> วันที่นัดหมาย</th>
-                                        <th class="text-center" style="width: 100px;">สถานะ</th>
-                                        <th class="disabled-sorting text-center" style="width: 100px;">จัดการ</th>
+                                        <th style="width: 10%;"> วันที่นัดหมาย</th>
+                                        <th class="text-center" style="width: 10%;">สถานะ</th>
+                                        <th class="disabled-sorting text-center" style="width: 5%;">จัดการ</th>
                                     </tr>
                                 </thead>
                                 <?php
@@ -44,7 +45,8 @@
                                                    JOIN services_des ON services_des.serdes_id = meet_service.mt_serdateId 
                                                    JOIN services_des_time ON services_des_time.des_time_id = meet_service.mt_sertimeId 
                                                    JOIN services_time ON services_time.time_id = services_des_time.destimeId 
-                                                   ORDER BY meet_service.mt_id ASC;" or die("Error:" . mysqli_error($con));
+                                                   JOIN users ON users.user_iden13 = meet_service.mt_idcardNumber 
+                                                   ORDER BY services_des.serdes_date desc;" or die("Error:" . mysqli_error($con));
                                     $result_meet = mysqli_query($con, $query_meet);
                                     $i = 1;
                                 ?>
@@ -53,9 +55,18 @@
                                     <?PHP  while($row = mysqli_fetch_array($result_meet)) {  ?>
                                     <tr>
                                         <td class="text-center"><?PHP echo $row['mt_idcardNumber']; ?></td>
-                                        <td></td>
+                                        <td>
+                                            <?PHP if(isset($row['user_prename']) && isset($row['user_fname']) && isset($row['user_lname'])){ ?>
+                                                <?PHP if($row['user_prename'] == "อื่นๆ"){echo $row['user_prenameOthers']; } else{echo $row['user_prename'];} ?> <?PHP echo $row['user_fname']; ?> <?PHP echo $row['user_lname']; ?>
+                                            <?PHP } else{ ?>
+                                                ยังไม่มีประวัติ  <br/><a href="../user/form.php?id=<?PHP echo $row['user_id']; ?>">คลิกเพื่ออัพเดตข้อมูล <i class="fa fa-edit"></i></a>
+                                            <?PHP } ?>
+                                        </td>
                                         <td><?PHP echo $row['mt_tel']; ?></td>
-                                        <td><?PHP echo $row['ser_name']; ?></td>
+                                        <td><?PHP echo $row['ser_point_name']; ?> <?PHP if($row['mt_sertype_id'] == 1){ ?>(คลินิกทั่วไป)<?PHP }else{ ?>(คลินิกนอกเวลา)<?PHP } ?></td>
+                                        <td>
+                                            <?PHP echo $row['ser_name']; ?>
+                                        </td>
                                         <td>วันที่ <?PHP echo date("d-m-Y", strtotime($row['serdes_date'])) ; ?><br/>เวลา <?PHP echo $row['time_name']; ?> น.</td>
                                         <td  class="text-center">
                                             <!-- 0 = ทำการนัดหมายไว้ -->
@@ -69,7 +80,6 @@
                                                 <span class="badge badge-pill badge-danger">ยกเลิกนัดหมาย</span>
                                             <?PHP } ?>
                                         </td>
-                                        <!-- <td>วันที่ <?PHP echo date("d-m-Y", strtotime($row['serdes_date'])); ?><br/>เวลา <?PHP echo $row['time_name']; ?> น.</td> -->
                                         <td class="text-center">
                                             <a href="form.php?id=<?PHP echo $row['mt_id']; ?>"><button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm"><i class="fa fa-edit"></i></button></a>
                                         </td>
