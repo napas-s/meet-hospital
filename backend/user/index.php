@@ -48,7 +48,11 @@
                                     <tr>
                                         <td><?PHP echo $row['user_iden13']; ?></td>
                                         <td>
-                                            <?PHP if($row['user_prename'] == "อื่นๆ"){echo $row['user_prenameOthers']; } else{echo $row['user_prename'];} ?> <?PHP echo $row['user_fname']; ?> <?PHP echo $row['user_lname']; ?>
+                                            <?PHP if(isset($row['user_prename']) && isset($row['user_fname']) && isset($row['user_lname'])){ ?>
+                                                <?PHP if($row['user_prename'] == "อื่นๆ"){echo $row['user_prenameOthers']; } else{echo $row['user_prename'];} ?> <?PHP echo $row['user_fname']; ?> <?PHP echo $row['user_lname']; ?>
+                                            <?PHP } else{ ?>
+                                                <div class="text-danger">ยังไม่มีข้อมูลส่วนบุคคล</div>
+                                            <?PHP } ?>
                                         </td>
                                         <td class="text-center"><?PHP echo $row['user_marry_status']; ?></td>
                                         <td class="text-center"><?PHP if($row['user_nation'] == "อื่นๆ"){echo $row['user_nationOther']; } else{echo $row['user_nation'];} ?></td>
