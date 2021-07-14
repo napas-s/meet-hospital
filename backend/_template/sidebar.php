@@ -55,6 +55,55 @@
             </a>
           </li>
           <li>
+            <a href="../meet/index.php">
+              <i class="nc-icon nc-single-copy-04"></i>
+              <p>ประวัติการนัดหมาย</p>
+            </a>
+          </li>
+          <li>
+            <a data-toggle="collapse" href="#formService">
+              <i class="nc-icon nc-calendar-60"></i>
+              <p>
+                ข้อมูลการบริการนัดหมาย
+                <b class="caret"></b>
+              </p>
+            </a>
+            <div class="collapse " id="formService">
+              <ul class="nav">
+                <li>
+                  <a href="../servicetime/index.php">
+                    <span class="sidebar-mini-icon"><i class="nc-icon nc-tv-2"></i></span>
+                    <span class="sidebar-normal"> ข้อมูลเวลาการบริการ </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="../servicepoint/index.php">
+                    <span class="sidebar-mini-icon"><i class="nc-icon nc-tile-56"></i></span>
+                    <span class="sidebar-normal"> ข้อมูลจุดบริการ </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="../service/index.php">
+                    <span class="sidebar-mini-icon"><i class="nc-icon nc-paper"></i></span>
+                    <span class="sidebar-normal"> ข้อมูลการบริการ </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="../user/index.php">
+              <i class="nc-icon nc-book-bookmark"></i>
+              <p>ข้อมูลผู้รับการรักษา</p>
+            </a>
+          </li>
+          <li>
+            <a href="../member/index.php">
+              <i class="nc-icon nc-chart-bar-32"></i>
+              <p>ข้อมูลพนักงาน</p>
+            </a>
+          </li>
+          <li>
             <a href="../news/index.php">
               <i class="nc-icon nc-align-left-2"></i>
               <p>ข่าวประชาสัมพันธ์</p>
@@ -102,43 +151,6 @@
                 </li>
               </ul>
             </div>
-          </li>
-          <li>
-            <a data-toggle="collapse" href="#formService">
-              <i class="nc-icon nc-calendar-60"></i>
-              <p>
-                ข้อมูลการบริการนัดหมาย
-                <b class="caret"></b>
-              </p>
-            </a>
-            <div class="collapse " id="formService">
-              <ul class="nav">
-                <li>
-                  <a href="../servicetime/index.php">
-                    <span class="sidebar-mini-icon"><i class="nc-icon nc-tv-2"></i></span>
-                    <span class="sidebar-normal"> ข้อมูลเวลาการบริการ </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="../servicepoint/index.php">
-                    <span class="sidebar-mini-icon"><i class="nc-icon nc-tile-56"></i></span>
-                    <span class="sidebar-normal"> ข้อมูลจุดบริการ </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="../service/index.php">
-                    <span class="sidebar-mini-icon"><i class="nc-icon nc-paper"></i></span>
-                    <span class="sidebar-normal"> ข้อมูลการบริการ </span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <a href="../member/index.php">
-              <i class="nc-icon nc-chart-bar-32"></i>
-              <p>ข้อมูลพนักงาน</p>
-            </a>
           </li>
           <li>
             <a href="../setting/index.php">
