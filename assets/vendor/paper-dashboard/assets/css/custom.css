@@ -107,3 +107,44 @@ table tbody tr td{
     right: -10px;
     top: -15px;
 }
+.group-other{
+    display: none;
+}
+
+/* select2 */
+.select2{
+    width: 100% !important;
+}
+.select2-container--default .select2-selection--single {
+    display: block;
+    width: 100% !important;
+    height: 40px !important;
+    padding: 6px 5px !important;
+    font-size: 15px !important;
+    color: #66615b !important;
+    background-color: #ffffff !important;
+    border: 1px solid #DDDDDD !important;
+    border-radius: 4px !important;
+    -webkit-transition: border-color ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s;
+    transition: border-color ease-in-out .15s;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #66615b !important;
+}
+
+.has-danger .select2-container--default .select2-selection--single {
+    display: block;
+    width: 100% !important;
+    height: 40px !important;
+    padding: 6px 5px !important;
+    font-size: 15px !important;
+    background-color: #FFC0A4 !important;
+    border: 1px solid #ef8157 !important;
+    color: #ef8157 !important;
+    border-radius: 4px !important;
+    -webkit-transition: border-color ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s;
+    transition: border-color ease-in-out .15s;
+}

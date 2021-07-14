@@ -44,7 +44,7 @@ demo = {
 
     if ($(".datepicker").length != 0) {
       $('.datepicker').datetimepicker({
-        format: 'MM/DD/YYYY',
+        format: 'MM-DD-YYYY',
         icons: {
           time: "fa fa-clock-o",
           date: "fa fa-calendar",
