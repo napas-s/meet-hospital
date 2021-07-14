@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 06, 2021 at 07:06 PM
+-- Generation Time: Jul 14, 2021 at 11:32 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.12
 
@@ -117,6 +117,32 @@ INSERT INTO `album_des` (`des_id`, `albumId`, `des_img`, `des_status`, `des_addb
 (49, 4, '20210628_18591911.jpg', 0, 'ผู้ดูแลระบบ', '2021-06-28 18:59:19'),
 (50, 4, '20210628_18591912(24).jpg', 0, 'ผู้ดูแลระบบ', '2021-06-28 18:59:19'),
 (51, 4, '20210628_18591920593.jpg', 0, 'ผู้ดูแลระบบ', '2021-06-28 18:59:19');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `meet_service`
+--
+
+CREATE TABLE `meet_service` (
+  `mt_id` int(11) NOT NULL,
+  `mt_idcardNumber` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'เลขบัตรประชาชน',
+  `mt_birthday` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'วัน/เดือน/ปีเกิด',
+  `mt_tel` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'เบอร์โทรศัพท์',
+  `mt_serpoint_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'จุดบริการ',
+  `mt_sertype_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'ประเภทบริการ ',
+  `mt_service_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'บริการ',
+  `mt_serdateId` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'วันที่นัดหมาย',
+  `mt_sertimeId` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'เวลาที่นัดหมาย',
+  `mt_dateMeetadd` datetime NOT NULL COMMENT 'วันที่ทำการนัดหมาย'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `meet_service`
+--
+
+INSERT INTO `meet_service` (`mt_id`, `mt_idcardNumber`, `mt_birthday`, `mt_tel`, `mt_serpoint_id`, `mt_sertype_id`, `mt_service_id`, `mt_serdateId`, `mt_sertimeId`, `mt_dateMeetadd`) VALUES
+(2, '1234567890123', '21-07-2021', '1234567890', '5', '2', '1', '15', '345', '2021-07-14 12:55:07');
 
 -- --------------------------------------------------------
 
@@ -757,6 +783,12 @@ ALTER TABLE `album_des`
   ADD KEY `album_des_albumId_index` (`albumId`) USING BTREE;
 
 --
+-- Indexes for table `meet_service`
+--
+ALTER TABLE `meet_service`
+  ADD PRIMARY KEY (`mt_id`);
+
+--
 -- Indexes for table `member`
 --
 ALTER TABLE `member`
@@ -828,6 +860,12 @@ ALTER TABLE `album`
 --
 ALTER TABLE `album_des`
   MODIFY `des_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+
+--
+-- AUTO_INCREMENT for table `meet_service`
+--
+ALTER TABLE `meet_service`
+  MODIFY `mt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `member`
