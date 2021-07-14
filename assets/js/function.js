@@ -113,10 +113,12 @@ function setDateService(e){
 //select เวลาที่นัดหมาย
 function setTimeService(e){
 
+    var setpointId  = $('#serpoint_id').val();
+    var sertypeId  = $('#sertype_id').val();
     $.ajax({
         url: '_ajax/serviceTime.php',
         type: "GET",
-        data: { serdateId:e},
+        data: { serdateId:e, setpointId:setpointId,sertypeId:sertypeId},
         cache: false,
         beforeSend: function () { },
         success: function (response) {
