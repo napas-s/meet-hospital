@@ -2,12 +2,13 @@
 
     // นำเข้าไฟล์ฐานข้อมูล
     require_once('../_database/connection.php');
+	date_default_timezone_set('Asia/Bangkok');
 
     $serpointId = $_GET['setpointId'];
     $sertypeId = $_GET['settypeId'];
     $dateNow = date('Y-m-d');
 
-    $sql = "SELECT serdes_id,serpoint_id,sertype_id,serdes_date FROM services_des WHERE serpoint_id = $serpointId AND sertype_id = $sertypeId AND serdes_date >= $dateNow ORDER BY serdes_date ASC";
+    $sql = "SELECT serdes_id,serpoint_id,sertype_id,serdes_date FROM services_des WHERE serpoint_id = $serpointId AND sertype_id = $sertypeId AND serdes_date >= '$dateNow' ORDER BY serdes_date ASC";
     $sql_query = mysqli_query($con,$sql)or die(mysqli_error($con));
 
     echo "<option value=''>กรุณาเลือกวันที่นัดหมาย</option>";
