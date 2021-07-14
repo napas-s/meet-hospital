@@ -315,6 +315,15 @@ span.round-tab:hover {
     padding: 3rem;
     border: 1px solid #ccc;
 }
+
+.swal2-popup {
+    width: 40em !important;
+    font-size: 1.3rem !important;
+}
+.swal2-styled.swal2-confirm {
+    font-size: 1.2em !important;
+    min-width: 100px !important;
+}
 /* ============================================================================ stepwizard */
 .has-error .sm-form-control {
     border: 2px solid #a94442;

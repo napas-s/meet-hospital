@@ -177,6 +177,28 @@
 <!-- นำเข้าไฟล์ Template js ส่วนท้าย -->
 <?PHP include_once('assets/_template/footerjs.php') ?>
 
+<!-- แจ้งเตือนมีการผิดพลาด (รับตัวแปลจากหน้า _script/addMeet) -->
+<?PHP if(isset($_GET['message'])){ ?>
+<script src="<?PHP base_url() ?>assets/vendor/paper-dashboard/sweetalert2@11.js"></script>
+<input type="hidden" name="icon" id="icon" value="<?PHP if(isset($_GET['icon'])){ echo $_GET['icon'];}?>" /> <!-- ตัวแปร icon แจ้งเตือน -->
+<input type="hidden" name="title" id="title" value="<?PHP if(isset($_GET['title'])){ echo $_GET['title'];}?>" /> <!-- ตัวแปร title แจ้งเตือน -->
+<input type="hidden" name="message" id="message" value="<?PHP if(isset($_GET['message'])){ echo $_GET['message'];}?>" /> <!-- ตัวแปรข้อความ -->
+
+<script>
+    $(document).ready(function() {
+      $icon = $('#icon').val();
+      $message = $('#message').val();
+      $title = $('#title').val();
+      Swal.fire({
+        title: $title,
+        text: $message,
+        icon: $icon,
+        confirmButtonText: 'ปิด'
+      })
+    });
+</script>
+<?PHP } ?>
+
 <script type="text/javascript">
 
     $(document).ready(function () {
