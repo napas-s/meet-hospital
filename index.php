@@ -56,12 +56,12 @@
                                     <h3><i class="icon-user4"></i> :: ลงทะเบียน</h3>
                                     <div class="col_full form-group">
                                         <label for="idcardNumber">เลขบัตรประชาชน</label>
-                                        <input required="required" type="text" id="idcardNumber" name="idcardNumber" required="required" value="" class="sm-form-control">
+                                        <input type="text" id="idcardNumber" name="idcardNumber" required="required" value="" class="sm-form-control">
                                     </div>
                                     <div class="col_full form-group">
                                         <label for="birthday">วัน/เดือน/ปีเกิด</label>
                                         <div class="input-group">
-                                            <input required="required" name="birthday" id="birthday" type="text" required="required" value="" class="sm-form-control tleft format" placeholder="วัน-เดือน-คศ">
+                                            <input name="birthday" id="birthday" type="text" required="required" value="" class="sm-form-control tleft format" placeholder="วัน-เดือน-คศ">
                                             <span class="input-group-addon" style="padding: 9px 12px;">
                                                 <i class="icon-calendar2"></i>
                                             </span>
@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="col_full form-group">
                                         <label for="contact">เบอร์ติดต่อ</label>
-                                        <input required="required" type="text" id="contact" name="contact" required="required" value="" class="sm-form-control" >
+                                        <input type="text" id="contact" name="contact" required="required" value="" class="sm-form-control" >
                                     </div>
                                     <div class="row">
                                         <div class="col-md-8"></div>
