@@ -75,9 +75,9 @@
                 (
                     '$idcardNumber',
                     '$birthday',
-                    'SYSTEM',
+                    'System',
                     '$date',
-                    'SYSTEM',
+                    'System',
                     '$date'
                 )";
 
