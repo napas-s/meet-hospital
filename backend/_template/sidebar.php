@@ -94,7 +94,7 @@
           <li>
             <a href="../user/index.php">
               <i class="nc-icon nc-book-bookmark"></i>
-              <p>ข้อมูลผู้รับการรักษา</p>
+              <p>ข้อมูลผู้ลงทะเบียนนัดหมาย</p>
             </a>
           </li>
           <li>
