@@ -1,6 +1,6 @@
 <!-- ตั้งค่าตัวแปรที่ต้องการส่งในหน้านี้ -->
 <?PHP
-    $breadcrumb =  'ข้อมูลผู้รับการรักษา';
+    $breadcrumb =  'ข้อมูลผู้ลงทะเบียนนัดหมายทันตกรรม';
 ?>
 
 <!-- นำเข้าไฟล์ Template ส่วนหัว -->
@@ -20,7 +20,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"><i class="nc-icon nc-book-bookmark"></i> ข้อมูลผู้รับการรักษา</h4>
+                            <h4 class="card-title"><i class="nc-icon nc-book-bookmark"></i> ข้อมูลผู้ลงทะเบียนนัดหมายทันตกรรม</h4>
                         </div>
                         <div class="card-body">
                             <div class="toolbar"></div>
@@ -54,10 +54,12 @@
                                                 <div class="text-danger">ยังไม่มีข้อมูลส่วนบุคคล</div>
                                             <?PHP } ?>
                                         </td>
-                                        <td class="text-center"><?PHP echo $row['user_marry_status']; ?></td>
-                                        <td class="text-center"><?PHP if($row['user_nation'] == "อื่นๆ"){echo $row['user_nationOther']; } else{echo $row['user_nation'];} ?></td>
-                                        <td class="text-center"><?PHP echo $row['user_sex']; ?></td>
-                                        <td class="text-center"><?PHP echo $row['user_blood']; ?></td>
+                                        <td class="text-center">
+                                            <?PHP if(isset($row['user_marry_status'])){ echo $row['user_marry_status'];}else{echo '-';} ?>
+                                        </td>
+                                        <td class="text-center"><?PHP if(isset($row['user_nation'])){ if($row['user_nation'] == "อื่นๆ"){echo $row['user_nationOther']; } else{echo $row['user_nation'];} }else{echo '-';} ?></td>
+                                        <td class="text-center"><?PHP if(isset($row['user_sex'])){ echo $row['user_sex'];}else{echo '-';} ?></td>
+                                        <td class="text-center"><?PHP if(isset($row['user_blood'])){ echo $row['user_blood'];}else{echo '-';} ?></td>
                                         <td class="text-center">
                                             <a href="form.php?id=<?PHP echo $row['user_id']; ?>"><button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm"><i class="fa fa-edit"></i></button></a>
                                             <a href="#"  onclick="deleteModel(this)" data-toggle="modal" data-target="#deleteModel" data-id="<?PHP echo $row['user_id']; ?>" data-message="คุณต้องการลบข้อมูลรายการนี้หรือไม่ ?" type="button" rel="tooltip">
