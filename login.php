@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V14</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- นำเข้าไฟล์ config part file เพื่อเรียกใช้ part file ปัจจุบัน -->
+	<!-- นำเข้าไฟล์ config part file เพื่อเรียกใช้ part file ปัจจุบัน -->
     <?PHP include_once('assets/vendor/base_url.php'); ?>
 
-	<link rel="icon" type="image/png" href="<?PHP base_url()?>assets/vendor/Login_v14/images/icons/favicon.ico"/>
+    <!-- นำเข้าไฟล์ฐานข้อมูล -->
+    <?PHP require_once('_database/connection.php'); ?>
+    <?php
+        $sql_setting="SELECT * FROM setting";
+        $sql_query_setting = mysqli_query($con,$sql_setting)or die(mysqli_error($con));
+        $setting = mysqli_fetch_assoc($sql_query_setting);
+    ?>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<?PHP if(isset($setting['name_web'])){ ?>
+        <title><?PHP echo $setting['name_web']; ?></title>
+    <?PHP } ?>
+    <?PHP if(isset($setting['icon_web'])){ ?>
+        <link rel="icon" href="<?PHP echo base_url(); ?>uploads/setting/<?PHP echo $setting['icon_web']; ?>" type ="image/x-icon">
+    <?PHP } ?>
+
 	<link rel="stylesheet" type="text/css" href="<?PHP base_url()?>assets/vendor/Login_v14/vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?PHP base_url()?>assets/vendor/Login_v14/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="<?PHP base_url()?>assets/vendor/Login_v14/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
@@ -39,7 +52,9 @@
 			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
 				<form class="login100-form validate-form flex-sb flex-w" action="_login/login.php" method="post">
 					<span class="login100-form-title p-b-32">
-                        <img src="<?PHP echo base_url(); ?>uploads/topbar/news-logo-2-640px.png" alt="" class="img-topnav" />
+						<?PHP if(isset($setting['logo_web'])){ ?>
+                        	<img src="<?PHP echo base_url(); ?>uploads/setting/<?PHP echo $setting['logo_web']; ?>" alt="" class="img-topnav" />
+						<?PHP } ?>
 					</span>
 
                     <?PHP if(!empty($_GET['er'])){ ?>
