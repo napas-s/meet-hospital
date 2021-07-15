@@ -60,12 +60,14 @@
               <p>ประวัติการนัดหมาย</p>
             </a>
           </li>
+          <?PHP if($_SESSION["Level"] == 2){ ?>
           <li>
             <a href="../user/index.php">
               <i class="nc-icon nc-book-bookmark"></i>
               <p>ข้อมูลผู้ลงทะเบียนนัดหมาย</p>
             </a>
           </li>
+          <?PHP } ?>
           <li>
             <a data-toggle="collapse" href="#formService">
               <i class="nc-icon nc-calendar-60"></i>
@@ -146,18 +148,20 @@
               </ul>
             </div>
           </li>
-          <li>
-            <a href="../member/index.php">
-              <i class="nc-icon nc-chart-bar-32"></i>
-              <p>ข้อมูลพนักงาน</p>
-            </a>
-          </li>
-          <li>
-            <a href="../setting/index.php">
-              <i class="nc-icon nc-settings-gear-65"></i>
-              <p>ตั้งค่าเว็บไซต์</p>
-            </a>
-          </li>
+          <?PHP if($_SESSION["Level"] == 2){ ?>
+            <li>
+              <a href="../member/index.php">
+                <i class="nc-icon nc-chart-bar-32"></i>
+                <p>ข้อมูลพนักงาน</p>
+              </a>
+            </li>
+            <li>
+              <a href="../setting/index.php">
+                <i class="nc-icon nc-settings-gear-65"></i>
+                <p>ตั้งค่าเว็บไซต์</p>
+              </a>
+            </li>
+          <?PHP } ?>
         </ul>
       </div>
     </div>
