@@ -102,7 +102,7 @@
                                                   WHERE services_des.serpoint_id LIKE '%$point%' 
                                                   AND services_des.sertype_id LIKE '%$type%' 
                                                   AND services_des.serdes_date LIKE '%$date%' 
-                                                  ORDER BY services_des.serdes_date ASC;" or die("Error:" . mysqli_error($con));
+                                                  ORDER BY services_des.serdes_date DESC;" or die("Error:" . mysqli_error($con));
                                     $result_des = mysqli_query($con, $query_des);
                                 ?>
                                 <tbody>
@@ -110,7 +110,7 @@
                                     <?PHP  while($row = mysqli_fetch_array($result_des)) {  ?>
                                     <tr>
                                         <td class="text-center"><?PHP echo str_pad($row['serdes_id'], 4, 'T0', STR_PAD_LEFT); ?></td>
-                                        <td><?PHP echo $row['serdes_date']; ?></td>
+                                        <td data-sort='YYYYMMDD'><?PHP echo $row['serdes_date']; ?></td>
                                         <td><?PHP if($row['sertype_id'] == 1){ ?>คลินิกทั่วไป<?PHP }else{ ?>คลินิกนอกเวลา<?PHP } ?></td>
                                         <td><?PHP echo $row['ser_point_name']; ?></td>
                                         <td class="text-center">
