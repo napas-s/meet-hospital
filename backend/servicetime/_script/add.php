@@ -33,7 +33,7 @@
 
 	} else {
 
-		$sqlDes = "INSERT INTO services_des (serpoint_id,sertype_id,serdes_date,serdes_status,serdes_addby,serdes_adddate ) VALUES ('$serpoint_id','$sertype_id','$serdes_date','$serdes_status','$session_user','$date')";
+		$sqlDes = "INSERT INTO services_des (serpoint_id,sertype_id,serdes_date,serdes_status,serdes_addby,serdes_adddate ,serdes_updateby,serdes_updatedate ) VALUES ('$serpoint_id','$sertype_id','$serdes_date','$serdes_status','$session_user','$date','$session_user','$date')";
 		$resultDes = mysqli_query($con, $sqlDes) or die ("Error in query: $sqlDes " . mysqli_error($con));
 		$idDes = mysqli_insert_id($con);
 
