@@ -27,6 +27,9 @@
                     <?PHP if(!empty($setting['email'])){ ?>
                         <div style="margin-bottom:20px"><strong>อีเมล : <a href="mailto:<?PHP echo $setting['email']; ?>"><?PHP echo $setting['email']; ?></a></strong></div>
                     <?PHP } ?>
+                    <?PHP if(!empty($setting['address'])){ ?>
+                        <div style="margin-bottom:20px"><strong>ที่อยู่ : </strong><?PHP echo $setting['address']; ?></a></div>
+                    <?PHP } ?>
                     <?PHP if(!empty($setting['tel'])){ ?>
                         <a href="tel:<?PHP echo $setting['tel']; ?>" class="social-icon inline-block si-rounded si-light si-call" title="Call">
 							<i class="icon-call"></i>
