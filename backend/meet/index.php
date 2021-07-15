@@ -83,94 +83,100 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>ค้นหา</label>
-                                            <input name="search" id="search" type="text" value="" class="form-control" placeholder="ค้นหาข้อมูล">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-2 col-md-4">
-                                        <a href="index.php" type="button" style="margin-top: 25px;" class="btn btn-block btn-info"><i class="nc-icon nc-refresh-69"></i> โหลดข้อมูลใหม่</a>
-                                    </div>
-                                    <div class="col-lg-2 col-md-4">
-                                        <button type="submit" style="margin-top: 25px;" class="btn btn-block btn-success"><i class="nc-icon nc-tap-01"></i> ค้นหาข้อมูล</button>
+                                        <button type="submit" style="margin-top: 25px;"  class="btn btn-block btn-success"><i class="nc-icon nc-tap-01"></i> ค้นหาข้อมูล</button>
                                     </div>
                                 </div>
                             </form>
-                            <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center" style="width: 120px;">เลขบัตรประชาชน</th>
-                                        <th>ชื่อ - สกุล</th>
-                                        <th>เบอร์โทรศัพท์</th>
-                                        <th>จุดบริการ</th>
-                                        <th>บริการ</th>
-                                        <th class="text-center" style="width: 10%;"> วันที่นัดหมาย</th>
-                                        <th class="text-center" style="width: 10%;"> เวลาที่นัดหมาย</th>
-                                        <th class="text-center" style="width: 10%;">สถานะ</th>
-                                        <th class="disabled-sorting text-center" style="width: 5%;">จัดการ</th>
-                                    </tr>
-                                </thead>
-                                <?php
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label>ค้นหา</label>
+                                        <input name="search" id="search" type="text" value="" class="form-control" placeholder="ค้นหาข้อมูล">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="index.php" style="margin-top: 25px;"  type="button" class="btn btn-block btn-warning"><i class="nc-icon nc-refresh-69"></i> โหลดข้อมูลใหม่</a>
+                                </div>
+                            </div>
 
-                                    //กำหนดค่าตัวแปร เมื่อไม่มีการค้นหา
-                                    if(!empty($_GET['point'])){ $point = $_GET['point']; }else{  $point = ''; }
-                                    if(!empty($_GET['type'])){ $type = $_GET['type']; }else{  $type = ''; }
-                                    if(!empty($_GET['status'])){ $status = $_GET['status']; }else{  $status = ''; }
-                                    if(!empty($_GET['service'])){ $service = $_GET['service']; }else{  $service = ''; }
-                                    if(!empty($_GET['date'])){ $date = date("Y-m-d", strtotime($_GET['date'])); }else{  $date = ''; }
-                                    if(!empty($_GET['search'])){ $search = $_GET['search']; }else{  $search = ''; }
+                            <div class="table-responsive">
+                                <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" style="width: 120px;">เลขบัตรประชาชน</th>
+                                            <th>ชื่อ - สกุล</th>
+                                            <th>เบอร์โทรศัพท์</th>
+                                            <th>จุดบริการ</th>
+                                            <th>บริการ</th>
+                                            <th class="text-center" style="width: 10%;"> วันที่นัดหมาย</th>
+                                            <th class="text-center" style="width: 10%;"> เวลาที่นัดหมาย</th>
+                                            <th class="text-center" style="width: 10%;">สถานะ</th>
+                                            <th class="disabled-sorting text-center" style="width: 5%;">จัดการ</th>
+                                        </tr>
+                                    </thead>
+                                    <?php
 
-                                    // query ตาราง member
-                                    $query_meet = "SELECT * FROM meet_service 
-                                                   JOIN users ON users.user_iden13 = meet_service.mt_idcardNumber
-                                                   WHERE meet_service.mt_serpoint_id LIKE '%$point%' 
-                                                   AND meet_service.mt_sertype_id LIKE '%$type%' 
-                                                   AND meet_service.mt_status LIKE '%$status%' 
-                                                   AND meet_service.mt_service_id LIKE '%$service%' 
-                                                   AND meet_service.mt_idcardNumber LIKE '%$search%' 
-                                                   AND meet_service.mt_serdateId LIKE '%$date%' 
-                                                   ORDER BY meet_service.mt_serdateId desc;"or die("Error:" . mysqli_error($con));
-                                    $result_meet = mysqli_query($con, $query_meet)or die(mysqli_error($con));
-                                    $i = 1;
-                                ?>
-                                <tbody>
-                                    <!-- loop ข้อมูลที่ query ได้ จาก member -->
-                                    <?PHP  while($row = mysqli_fetch_array($result_meet)) {  ?>
-                                    <tr>
-                                        <td class="text-center"><?PHP echo $row['mt_idcardNumber']; ?></td>
-                                        <td>
-                                            <?PHP if(isset($row['user_prename']) && isset($row['user_fname']) && isset($row['user_lname'])){ ?>
-                                                <?PHP if($row['user_prename'] == "อื่นๆ"){echo $row['user_prenameOthers']; } else{echo $row['user_prename'];} ?> <?PHP echo $row['user_fname']; ?> <?PHP echo $row['user_lname']; ?>
-                                            <?PHP } else{ ?>
-                                                ยังไม่มีประวัติ  <br/><a href="../user/form.php?id=<?PHP echo $row['user_id']; ?>">คลิกเพื่ออัพเดตข้อมูล <i class="fa fa-edit"></i></a>
-                                            <?PHP } ?>
-                                        </td>
-                                        <td><?PHP echo $row['mt_tel']; ?></td>
-                                        <td><?PHP echo $row['mt_serpoint_id']; ?> (<?PHP echo $row['mt_sertype_id']; ?>)</td>
-                                        <td><?PHP echo $row['mt_service_id']; ?></td>
-                                        <td  class="text-center" data-sort='YYYYMMDD'><?PHP echo date("d-m-Y", strtotime($row['mt_serdateId'])) ; ?></td>
-                                        <td  class="text-center"><?PHP echo $row['mt_sertimeId']; ?> น.</td>
-                                        <td  class="text-center">
-                                            <?PHP if($row['mt_status'] == 1){ ?>
-                                                <!-- 1 = ทำการนัดหมายไว้ -->
-                                                <span class="badge badge-pill badge-warning">นัดหมายแล้ว</span>
-                                            <?PHP }else if($row['mt_status'] == 2){ ?>
-                                                <!-- 2 = มาตามนัดหมาย -->
-                                                <span class="badge badge-pill badge-success">นัดหมายสำเร็จ</span>
-                                            <?PHP }else{ ?>
-                                                <!-- 3 = ไม่มาตามนัดหมาย -->
-                                                <span class="badge badge-pill badge-danger">ยกเลิกนัดหมาย</span>
-                                            <?PHP } ?>
-                                        </td>
-                                        <td class="text-center">
-                                            <a href="form.php?id=<?PHP echo $row['mt_id']; ?>"><button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm"><i class="fa fa-eye"></i></button></a>
-                                        </td>
-                                    </tr>
-                                    <?PHP } ?>
-                                </tbody>
-                            </table>
+                                        //กำหนดค่าตัวแปร เมื่อไม่มีการค้นหา
+                                        if(!empty($_GET['point'])){ $point = $_GET['point']; }else{  $point = ''; }
+                                        if(!empty($_GET['type'])){ $type = $_GET['type']; }else{  $type = ''; }
+                                        if(!empty($_GET['status'])){ $status = $_GET['status']; }else{  $status = ''; }
+                                        if(!empty($_GET['service'])){ $service = $_GET['service']; }else{  $service = ''; }
+                                        if(!empty($_GET['date'])){ $date = date("Y-m-d", strtotime($_GET['date'])); }else{  $date = ''; }
+                                        if(!empty($_GET['search'])){ $search = $_GET['search']; }else{  $search = ''; }
+
+                                        // query ตาราง member
+                                        $query_meet = "SELECT * FROM meet_service 
+                                                    JOIN users ON users.user_iden13 = meet_service.mt_idcardNumber
+                                                    WHERE meet_service.mt_serpoint_id LIKE '%$point%' 
+                                                    AND meet_service.mt_sertype_id LIKE '%$type%' 
+                                                    AND meet_service.mt_status LIKE '%$status%' 
+                                                    AND meet_service.mt_service_id LIKE '%$service%' 
+                                                    AND meet_service.mt_idcardNumber LIKE '%$search%' 
+                                                    AND meet_service.mt_serdateId LIKE '%$date%' 
+                                                    ORDER BY meet_service.mt_serdateId desc;"or die("Error:" . mysqli_error($con));
+                                        $result_meet = mysqli_query($con, $query_meet)or die(mysqli_error($con));
+                                        $i = 1;
+                                    ?>
+                                    <tbody>
+                                        <!-- loop ข้อมูลที่ query ได้ จาก member -->
+                                        <?PHP  while($row = mysqli_fetch_array($result_meet)) {  ?>
+                                        <tr>
+                                            <td class="text-center"><?PHP echo $row['mt_idcardNumber']; ?></td>
+                                            <td>
+                                                <?PHP if(isset($row['user_prename']) && isset($row['user_fname']) && isset($row['user_lname'])){ ?>
+                                                    <?PHP if($row['user_prename'] == "อื่นๆ"){echo $row['user_prenameOthers']; } else{echo $row['user_prename'];} ?> <?PHP echo $row['user_fname']; ?> <?PHP echo $row['user_lname']; ?>
+                                                <?PHP } else{ ?>
+                                                    ยังไม่มีประวัติ  
+                                                    <?PHP if($_SESSION["Level"] == 2){ ?>
+                                                    <br/><a href="../user/form.php?id=<?PHP echo $row['user_id']; ?>">คลิกเพื่ออัพเดตข้อมูล <i class="fa fa-edit"></i></a>
+                                                    <?PHP } ?>
+                                                <?PHP } ?>
+                                            </td>
+                                            <td><?PHP echo $row['mt_tel']; ?></td>
+                                            <td><?PHP echo $row['mt_serpoint_id']; ?> (<?PHP echo $row['mt_sertype_id']; ?>)</td>
+                                            <td><?PHP echo $row['mt_service_id']; ?></td>
+                                            <td  class="text-center" data-sort='YYYYMMDD'><?PHP echo date("d-m-Y", strtotime($row['mt_serdateId'])) ; ?></td>
+                                            <td  class="text-center"><?PHP echo $row['mt_sertimeId']; ?> น.</td>
+                                            <td  class="text-center">
+                                                <?PHP if($row['mt_status'] == 1){ ?>
+                                                    <!-- 1 = ทำการนัดหมายไว้ -->
+                                                    <span class="badge badge-pill badge-warning">นัดหมายแล้ว</span>
+                                                <?PHP }else if($row['mt_status'] == 2){ ?>
+                                                    <!-- 2 = มาตามนัดหมาย -->
+                                                    <span class="badge badge-pill badge-success">นัดหมายสำเร็จ</span>
+                                                <?PHP }else{ ?>
+                                                    <!-- 3 = ไม่มาตามนัดหมาย -->
+                                                    <span class="badge badge-pill badge-danger">ยกเลิกนัดหมาย</span>
+                                                <?PHP } ?>
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="form.php?id=<?PHP echo $row['mt_id']; ?>"><button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm"><i class="fa fa-eye"></i></button></a>
+                                            </td>
+                                        </tr>
+                                        <?PHP } ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
