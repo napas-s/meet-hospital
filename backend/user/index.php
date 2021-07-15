@@ -87,11 +87,11 @@
 <?PHP include_once('../_template/footerjs.php') ?>
 
 <!-- นำเข้าไฟล์ js ที่ต้องการเพิ่มเติม เพื่อใช้ในหน้านี้เท่านั้น -->
-<script src="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/js/plugins/jquery.dataTables.min.js"></script>
 
 <!-- นำเข้าแจ้งเตือนก่อนตกลง delete -->
 <?PHP include_once('_action/delete.php'); ?>
 
+<script src="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/js/plugins/jquery.dataTables.min.js"></script>
 <script>
 
     $(document).ready(function() {
