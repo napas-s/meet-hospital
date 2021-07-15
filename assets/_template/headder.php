@@ -39,6 +39,9 @@
 	<link rel="stylesheet" href="<?PHP echo base_url(); ?>assets/vendor/canvas/css/colors.css" type="text/css" />
 	<link rel="stylesheet" href="<?PHP echo base_url(); ?>assets/vendor/canvas/css/fonts.css" type="text/css" />
 
+	<!-- Bootstrap Data Table Plugin -->
+	<link rel="stylesheet" href="<?PHP echo base_url(); ?>assets/vendor/canvas/css/components/bs-datatable.css" type="text/css" />
+
     <!-- Date & Time Picker CSS -->
 	<link rel="stylesheet" href="<?PHP echo base_url(); ?>assets/vendor/canvas/css/components/datepicker.css" type="text/css" />
 	<link rel="stylesheet" href="<?PHP echo base_url(); ?>assets/vendor/canvas/css/components/timepicker.css" type="text/css" />
