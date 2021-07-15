@@ -26,20 +26,12 @@
                 $sql_query = mysqli_query($con,$sql)or die(mysqli_error($con));
                 $row = mysqli_fetch_assoc($sql_query);
 
-                $query = "SELECT * FROM meet_service 
-                JOIN services_point ON services_point.ser_point_id = meet_service.mt_serpoint_id 
-                JOIN services ON services.ser_id = meet_service.mt_service_id 
-                JOIN services_des ON services_des.serdes_id = meet_service.mt_serdateId 
-                JOIN services_des_time ON services_des_time.des_time_id = meet_service.mt_sertimeId 
-                JOIN services_time ON services_time.time_id = services_des_time.destimeId 
-                WHERE meet_service.mt_idcardNumber = $row[user_iden13] 
-                ORDER BY services_des.serdes_date desc;"or die("Error:" . mysqli_error($con));
+                $query = "SELECT * FROM meet_service WHERE mt_idcardNumber = $row[user_iden13] ORDER BY mt_serdateId desc;"or die("Error:" . mysqli_error($con));
                 $result = mysqli_query($con, $query)or die(mysqli_error($con));
                 $numMeet     = mysqli_num_rows($result);
             ?>
             <div class="row">
-
-            <div class="col-md-4">
+                <div class="col-md-4">
                   <div class="card">
                     <div class="card-body">
                     <div class="row">
@@ -150,10 +142,10 @@
                                         <!-- loop ข้อมูลที่ query ได้ จาก member -->
                                         <?PHP  while($row = mysqli_fetch_array($result)) {  ?>
                                         <tr>
-                                            <td class="text-center" data-sort='YYYYMMDD'><?PHP echo date("d-m-Y", strtotime($row['serdes_date'])) ; ?></td>
-                                            <td class="text-center" ><?PHP echo $row['time_name']; ?></td>
-                                            <td><?PHP echo $row['ser_point_name']; ?> <?PHP if($row['mt_sertype_id'] == 1){ ?>(คลินิกทั่วไป)<?PHP }else{ ?>(คลินิกนอกเวลา)<?PHP } ?></td>
-                                            <td><?PHP echo $row['ser_name']; ?></td>
+                                            <td class="text-center" data-sort='YYYYMMDD'><?PHP echo date("d-m-Y", strtotime($row['mt_serdateId'])) ; ?></td>
+                                            <td class="text-center" ><?PHP echo $row['mt_sertimeId']; ?></td>
+                                            <td><?PHP echo $row['mt_serpoint_id']; ?> <br/>(<?PHP echo $row['mt_sertype_id']; ?>)</td>
+                                            <td><?PHP echo $row['mt_service_id']; ?></td>
                                             <td><?PHP echo $row['mt_tel']; ?></td>
                                             <td  class="text-center">
                                                 <?PHP if($row['mt_status'] == 1){ ?>
