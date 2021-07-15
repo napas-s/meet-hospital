@@ -324,6 +324,9 @@ span.round-tab:hover {
     font-size: 1.2em !important;
     min-width: 100px !important;
 }
+.dataTables_empty{
+    text-align: center !important;
+}
 /* ============================================================================ stepwizard */
 .has-error .sm-form-control {
     border: 2px solid #a94442;
