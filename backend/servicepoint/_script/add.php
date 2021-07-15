@@ -25,9 +25,9 @@
 
 	} else {
 
-		$sql = "INSERT INTO services_point (ser_point_name,ser_point_status,ser_point_addby, ser_point_adddate)
+		$sql = "INSERT INTO services_point (ser_point_name,ser_point_status,ser_point_addby, ser_point_adddate,ser_point_updateby, ser_point_updatedate)
 				VALUES
-				('$ser_point_name','$ser_point_status','$ser_point_addby', '$date')";
+				('$ser_point_name','$ser_point_status','$ser_point_addby', '$date','$ser_point_addby', '$date')";
 
 		$result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error($con));
 
