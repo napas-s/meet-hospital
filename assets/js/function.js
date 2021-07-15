@@ -60,6 +60,36 @@ if ($(".format").length != 0) {
     });
 }
 
+var table = $('#datatable1').DataTable({
+    responsive: true,
+    autoWidth: false,
+    processing: true,
+    pageLength: 15,
+    language: {
+        sLengthMenu: "",
+        search: 'ค้นหา',
+        searchPlaceholder: "ค้นหา",
+        processing: '<i class="nc-icon nc-refresh-69"></i><span class="ml-2">กำลังโหลดข้อมูล...</span> ',
+        info: "แสดง หน้า _PAGE_ จาก _PAGES_",
+        infoEmpty: "",
+        zeroRecords: "ไม่พบข้อมูล",
+        infoFiltered: "(ค้นหา จาก _MAX_ รายการ)",
+        paginate: {
+            first: 'หน้าแรก',
+            last: 'หน้าสุดท้าย',
+            next: '<i class="icon-chevron-right"></i>',
+            previous: '<i class="icon-chevron-left"></i>'
+        }
+    },
+
+});
+
+//custom search input for data table
+$(".dataTables_filter").hide();
+$('#search').on( 'keypress', function () {
+    var val = $("#search").val();
+    table.search( val ).draw();
+});
 
 //select ประเภทบริการ
 function setTypeService(e){
