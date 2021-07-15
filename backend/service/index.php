@@ -30,6 +30,7 @@
                                         <th class="text-center" style="width: 70px;">รหัสบริการ</th>
                                         <th>ชื่อบริการ</th>
                                         <th class="text-center" style="width: 70px;">สถานะ</th>
+                                        <th class="text-center" style="width: 120px;">อัพเดตข้อมูลล่าสุด</th>
                                         <th class="disabled-sorting text-center" style="width: 120px;">จัดการ</th>
                                     </tr>
                                 </thead>
@@ -55,6 +56,7 @@
                                                 <span class="badge badge-pill badge-danger">ซ่อนข้อมูล</span>
                                             <?PHP } ?>
                                         </td>
+                                        <td><?PHP echo $row['ser_updateby']; ?><br/> <small><i class="fa fa-clock-o"></i> <?PHP echo $row['ser_updatedate']; ?></small></td>
                                         <td class="text-center">
                                             <button data-toggle="modal" data-target="#showModel" data-id="<?PHP echo $row['ser_id']; ?>" data-status="<?PHP echo $row['ser_status']; ?>"  data-message="<?PHP if($row['ser_status'] == 1){ ?>คุณต้องการซ่อนรายการนี้หรือไม่ ? <?PHP }else{ ?>คุณต้องการแสดงรายการนี้หรือไม่ ?<?PHP } ?>" type="button" rel="tooltip" class="btn btn-warning btn-icon btn-sm" id="<?PHP echo $row['ser_id']; ?>" onclick="showModel(this)">
                                                 <?PHP if($row['ser_status'] == 1){ ?>
