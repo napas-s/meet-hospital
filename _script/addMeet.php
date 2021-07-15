@@ -5,6 +5,7 @@
 
 	date_default_timezone_set('Asia/Bangkok');
 
+    //รับค่าจาก form
     $idcardNumber           = $_POST['idcardNumber'];
     $birthday 	            = date("Y-m-d", strtotime($_POST['birthday']));
     $contact 	            = $_POST['contact'];
@@ -17,8 +18,39 @@
     $date 				    = date("Y-m-d H:i:s");
     $status 				= 1;
 
+    //select point เก็บชื่อลงฐานข้อมูล
+    $sql_point="SELECT * FROM services_point WHERE ser_point_id = $serpoint_id ";
+    $sql_query_point = mysqli_query($con,$sql_point)or die(mysqli_error($con));
+    $row_point = mysqli_fetch_assoc($sql_query_point);
+    $point = $row_point['ser_point_name'];
+
+    //select type เก็บชื่อลงฐานข้อมูล
+    if($sertype_id == 1){
+        $type = "คลินิกทั่วไป";
+    }else{
+        $type = "คลินิกนอกเวลา";
+    }
+
+    //select service เก็บชื่อลงฐานข้อมูล
+    $sql_ser="SELECT * FROM services WHERE ser_id = $service_id ";
+    $sql_query_ser = mysqli_query($con,$sql_ser)or die(mysqli_error($con));
+    $row_ser = mysqli_fetch_assoc($sql_query_ser);
+    $service = $row_ser['ser_name'];
+
+    //select date เก็บชื่อลงฐานข้อมูล
+    $sql_date="SELECT * FROM services_des WHERE serdes_id = $serdateId ";
+    $sql_query_date = mysqli_query($con,$sql_date)or die(mysqli_error($con));
+    $row_date = mysqli_fetch_assoc($sql_query_date);
+    $date = $row_date['serdes_date'];
+
+    //select time เก็บชื่อลงฐานข้อมูล
+    $sql_time="SELECT * FROM services_des_time JOIN services_time ON services_time.time_id = services_des_time.destimeId WHERE des_time_id = $sertimeId ";
+    $sql_query_time = mysqli_query($con,$sql_time)or die(mysqli_error($con));
+    $row_time = mysqli_fetch_assoc($sql_query_time);
+    $time = $row_time['time_name'];
+
     //ตรวจสอบว่าหมายเลขบัตรประชาชนนี้เคยทำรายการนี้ไปแล้วไหม ถ้ามีอยู่แล้วให้เด้งแจ้งเตือนแทน ถ้ายังไม่มีให้เพิ่มข้อมูล
-    $checkIdcard   = "SELECT * FROM meet_service WHERE mt_serpoint_id='$serpoint_id' AND mt_sertype_id='$sertype_id' AND mt_service_id='$service_id'AND mt_serdateId='$serdateId'AND mt_sertimeId='$sertimeId'AND mt_idcardNumber='$idcardNumber'AND mt_status='$status'";
+    $checkIdcard   = "SELECT * FROM meet_service WHERE mt_serpoint_id='$point' AND mt_sertype_id='$type' AND mt_service_id='$service'AND mt_serdateId='$date'AND mt_sertimeId='$time'AND mt_idcardNumber='$idcardNumber'AND mt_status='$status'";
 	$resultIdcard = mysqli_query($con, $checkIdcard);
 	$Idcard     = mysqli_num_rows($resultIdcard);
 
@@ -32,11 +64,11 @@
 
         //ตรวจสอบใน meet_service ว่ามีการทำนัดหมายในรายการดังกล่าวไปหรือยัง
         $checkMeet   = "SELECT * FROM meet_service  
-                        WHERE mt_serpoint_id='$serpoint_id' 
-                        AND mt_sertype_id='$sertype_id' 
-                        AND mt_service_id='$service_id'
-                        AND mt_serdateId='$serdateId'
-                        AND mt_sertimeId='$sertimeId'
+                        WHERE mt_serpoint_id='$point' 
+                        AND mt_sertype_id='$type' 
+                        AND mt_service_id='$service'
+                        AND mt_serdateId='$date'
+                        AND mt_sertimeId='$time'
                     ";
         $resultMeet = mysqli_query($con, $checkMeet);
         $meet     = mysqli_num_rows($resultMeet);
@@ -49,7 +81,7 @@
 
         }else{
 
-            //เช็คก่อนว่าเคยมีหมายเลขบัตรประชาชนนี้หรือไม่
+            //เช็คก่อนว่าเคยมีหมายเลขบัตรประชาชนนี้หรือไม่ ถ้าไม่มีให้เพิ่มข้อมูล users ถ้ามีอยู่แล้วไม่ต้องทำอะไร
             $check   = "SELECT * FROM users  WHERE user_iden13='$idcardNumber'";
             $result1 = mysqli_query($con, $check);
             $num     = mysqli_num_rows($result1);
@@ -102,11 +134,11 @@
             (
                 '$idcardNumber',
                 '$contact',
-                '$serpoint_id',
-                '$sertype_id',
-                '$service_id',
-                '$serdateId',
-                '$sertimeId',
+                '$point',
+                '$type',
+                '$service',
+                '$date',
+                '$time',
                 '$status',
                 '$dateMeetadd'
             )";
