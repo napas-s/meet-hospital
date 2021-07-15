@@ -17,4 +17,5 @@
         echo "window.location ='../index.php'; ";
         echo "</script>";
     }
+
 ?>
