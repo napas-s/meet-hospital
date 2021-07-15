@@ -26,14 +26,7 @@
                             <?php if(isset($_GET["id"])){ ?>
                                 <?PHP
                                     $Id = $_GET["id"];
-                                    $sql="SELECT * FROM meet_service 
-                                          JOIN services_point ON services_point.ser_point_id = meet_service.mt_serpoint_id 
-                                          JOIN services ON services.ser_id = meet_service.mt_service_id 
-                                          JOIN services_des ON services_des.serdes_id = meet_service.mt_serdateId 
-                                          JOIN services_des_time ON services_des_time.serdesId = services_des.serdes_id 
-                                          JOIN services_time ON services_time.time_id = services_des_time.destimeId 
-                                          JOIN users ON users.user_iden13 = meet_service.mt_idcardNumber 
-                                          WHERE meet_service.mt_id = $Id ";
+                                    $sql="SELECT * FROM meet_service JOIN users ON users.user_iden13 = meet_service.mt_idcardNumber WHERE meet_service.mt_id = $Id ";
                                     $sql_query = mysqli_query($con,$sql)or die(mysqli_error($con));
                                     $row = mysqli_fetch_assoc($sql_query);
                                 ?>
@@ -46,11 +39,11 @@
                                     <div class='mg_present'><b>วัน/เดือน/ปีเกิด (ค.ศ.) : </b><?PHP if(isset($row['user_birthday'])){ echo date("d-m-Y", strtotime($row['user_birthday']));; } ?></div>
                                     <div class='mg_present'><b>เบอร์โทรศัพท์ : </b><?PHP if(isset($row['mt_tel'])){ echo $row['mt_tel']; } ?></div>
                                     <div class='divider'><i class='icon-screen'></i></div>
-                                    <div class='mg_present'><b>จุดบริการ : </b><?PHP if(isset($row['ser_point_name'])){ echo $row['ser_point_name']; } ?></div>
-                                    <div class='mg_present'><b>ประเภทบริการ : </b><?PHP if(isset($row['mt_sertype_id'])){ ?> <?PHP if($row['mt_sertype_id'] == 1){echo 'คลินิกทั่วไป';}else{echo 'คลินิกนอกเวลา';} ?> <?PHP } ?></div>
-                                    <div class='mg_present'><b>บริการ : </b><?PHP if(isset($row['ser_name'])){ echo $row['ser_name']; } ?></div>
-                                    <div class='mg_present'><b>วันที่นัดหมาย : </b><?PHP if(isset($row['serdes_date'])){ echo date("d-m-Y", strtotime($row['serdes_date']));} ?></div>
-                                    <div class='mg_present'><b>เวลาที่นัดหมาย : </b><?PHP if(isset($row['time_name'])){ echo $row['time_name']; } ?></div>
+                                    <div class='mg_present'><b>จุดบริการ : </b><?PHP if(isset($row['mt_serpoint_id'])){ echo $row['mt_serpoint_id']; } ?></div>
+                                    <div class='mg_present'><b>ประเภทบริการ : </b><?PHP if(isset($row['mt_sertype_id'])){ echo $row['mt_sertype_id']; } ?></div>
+                                    <div class='mg_present'><b>บริการ : </b><?PHP if(isset($row['mt_service_id'])){ echo $row['mt_service_id']; } ?></div>
+                                    <div class='mg_present'><b>วันที่นัดหมาย : </b><?PHP if(isset($row['mt_serdateId'])){ echo date("d-m-Y", strtotime($row['mt_serdateId']));} ?></div>
+                                    <div class='mg_present'><b>เวลาที่นัดหมาย : </b><?PHP if(isset($row['mt_sertimeId'])){ echo $row['mt_sertimeId']; } ?></div>
                                     <br/>
                                     <div class="center">
                                         <a href="_script/pdfMeet.php?id=<?PHP echo $Id; ?>" class="btn btn-block button button-green2" type="button">
