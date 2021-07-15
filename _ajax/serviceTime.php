@@ -7,7 +7,7 @@
     $sertypeId = $_GET['sertypeId'];
 
     //เช็คว่าวันที่เวลานั้นว่งให้บริการที่เลือกหรือไม่
-    $sqlMeet = "SELECT * FROM meet_service WHERE mt_serpoint_id = '$setpointId' AND mt_sertype_id = '$sertypeId' AND mt_serdateId = '$serdateId' AND mt_status != '2'";
+    $sqlMeet = "SELECT * FROM meet_service WHERE mt_serpoint_id = '$setpointId' AND mt_sertype_id = '$sertypeId' AND mt_serdateId = '$serdateId' AND mt_status != '3'";
     $sql_queryMeet = mysqli_query($con,$sqlMeet)or die(mysqli_error($con));
     $numMeet    = mysqli_num_rows($sql_queryMeet);
 
