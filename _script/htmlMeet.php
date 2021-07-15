@@ -1,94 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!-- นำเข้าไฟล์ฐานข้อมูล -->
+<?PHP require_once('../_database/connection.php'); ?>
 
-    <!-- นำเข้าไฟล์ config part file เพื่อเรียกใช้ part file ปัจจุบัน -->
-    <?PHP include_once('../assets/vendor/base_url.php'); ?>
+<?php
+    $sql_setting="SELECT * FROM setting";
+    $sql_query_setting = mysqli_query($con,$sql_setting)or die(mysqli_error($con));
+    $setting = mysqli_fetch_assoc($sql_query_setting);
+?>
 
-    <!-- นำเข้าไฟล์ฐานข้อมูล -->
-    <?PHP require_once('../_database/connection.php'); ?>
-    <?php
-        $sql_setting="SELECT * FROM setting";
-        $sql_query_setting = mysqli_query($con,$sql_setting)or die(mysqli_error($con));
-        $setting = mysqli_fetch_assoc($sql_query_setting);
+<div style=" line-height: 0.7; color: #03673A; ">
+    <div style="background-color: #dff0d8; width:100%;">
+        <table style="width:100%;  padding: 10px">
+            <tr>
+                <td style="width: 100px;">
+                    <img style="width:100px; margin-bottom:20px" src="../assets/images/ministry_of_public_health.png" />
+                </td>
+                <td style="width:auto">
+                    <div><strong style="margin: 0; font-size:20px;">โรงพยาบาลสามร้อยยอด กระทรวงสาธารณสุข</strong></div>
+                    <div><strong style="margin: 0; font-size:18px;">ใบนัดหมายทันตกรรมออนไลน์</strong></div>
+                    <div style="font-size: 16px;"><strong>โทรศัพท์ : </strong><?PHP if(isset($setting['tel'])){ echo $setting['tel']; }else{ echo '-';} ?></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <?PHP
+        $Id = $_GET["id"];
+        $sql="SELECT * FROM meet_service JOIN users ON users.user_iden13 = meet_service.mt_idcardNumber WHERE mt_id = $Id ";
+        $sql_query = mysqli_query($con,$sql)or die(mysqli_error($con));
+        $row = mysqli_fetch_assoc($sql_query);
     ?>
-
-    <?PHP if(isset($setting['name_web'])){ ?>
-        <title><?PHP echo $setting['name_web']; ?></title>
-    <?PHP } ?>
-    <?PHP if(isset($setting['icon_web'])){ ?>
-        <link rel="icon" href="<?PHP echo base_url(); ?>../uploads/setting/<?PHP echo $setting['icon_web']; ?>" type ="image/x-icon">
-    <?PHP } ?>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- นำเข้าไฟล์ config font -->
-    <link rel="stylesheet" href="<?PHP echo base_url(); ?>../assets/fonts/stylesheet.css">
-
-    <!-- นำเข้า CSS -->
-    <link rel="stylesheet" href="<?PHP echo base_url(); ?>../assets/css/custom.css">
-
-    <!-- นำเข้า Canvas css สำหรับตกแต่งเว็บไซต์ -->
-    <link rel="stylesheet" href="<?PHP echo base_url(); ?>../assets/vendor/canvas/css/bootstrap.css" type="text/css" />
-	<link rel="stylesheet" href="<?PHP echo base_url(); ?>../assets/vendor/canvas/style.css" type="text/css" />
-	<link rel="stylesheet" href="<?PHP echo base_url(); ?>../assets/vendor/canvas/css/dark.css" type="text/css" />
-	<link rel="stylesheet" href="<?PHP echo base_url(); ?>../assets/vendor/canvas/css/font-icons.css" type="text/css" />
-	<link rel="stylesheet" href="<?PHP echo base_url(); ?>../assets/vendor/canvas/css/animate.css" type="text/css" />
-	<link rel="stylesheet" href="<?PHP echo base_url(); ?>../assets/vendor/canvas/css/magnific-popup.css" type="text/css" />
-	<link rel="stylesheet" href="<?PHP echo base_url(); ?>../assets/vendor/canvas/css/responsive.css" type="text/css" />
-	<link rel="stylesheet" href="<?PHP echo base_url(); ?>../assets/vendor/canvas/css/colors.css" type="text/css" />
-	<link rel="stylesheet" href="<?PHP echo base_url(); ?>../assets/vendor/canvas/css/fonts.css" type="text/css" />
-
-    <!-- Date & Time Picker CSS -->
-	<link rel="stylesheet" href="<?PHP echo base_url(); ?>../assets/vendor/canvas/css/components/datepicker.css" type="text/css" />
-	<link rel="stylesheet" href="<?PHP echo base_url(); ?>../assets/vendor/canvas/css/components/timepicker.css" type="text/css" />
-	<link rel="stylesheet" href="<?PHP echo base_url(); ?>../assets/vendor/canvas/css/components/daterangepicker.css" type="text/css" />
-
-</head>
-<body class="stretched">
-
-    <section id="content">
-        <div class="content-wrap">
-            <div class="container clearfix">
-                <div class="center">
-                    <img class="logo-health" src="../assets/images/ministry_of_public_health.png" />
-                    <h3 class="c-text" style="margin-bottom: 0;">โรงพยาบาลสามร้อยยอด</h3>
-                    <h4 class="c-text" style="margin-bottom: 0;">กระทรวงสาธารณสุข</h4>
-                    <h4 class="c-text" style="margin-bottom: 0;">ระบบจองนัดออนไลน์</h4>
-                </div>
-                <?PHP
-                    $Id = $_GET["id"];
-                    $sql="SELECT * FROM meet_service 
-                            JOIN services_point ON services_point.ser_point_id = meet_service.mt_serpoint_id 
-                            JOIN services ON services.ser_id = meet_service.mt_service_id 
-                            JOIN services_des ON services_des.serdes_id = meet_service.mt_serdateId 
-                            JOIN services_des_time ON services_des_time.serdesId = services_des.serdes_id 
-                            JOIN services_time ON services_time.time_id = services_des_time.destimeId 
-                            WHERE meet_service.mt_id = $Id ";
-                    $sql_query = mysqli_query($con,$sql)or die(mysqli_error($con));
-                    $row = mysqli_fetch_assoc($sql_query);
-                ?>
+    <br/>
+    <table style="width:100%;">
+        <tr>
+            <td style="width: auto;">
+                <h3>รายละเอียดการนัดหมายทันตกรรม</h3>
+                <hr/>
+            </td>
+        </tr>
+    </table>
+    <table style="width:100%; padding: 10px">
+        <tr>
+            <td>
+                <div ><b>เลขบัตรประชาชน : </b><?PHP if(isset($row['mt_idcardNumber'])){ echo $row['mt_idcardNumber']; } ?></div>
+                <?PHP if(isset($row['user_prename']) && isset($row['user_fname']) && isset($row['user_lname'])){ ?>
+                    <div ><b>ชื่อ - สกุล : </b><?PHP if($row['user_prename'] == "อื่นๆ"){echo $row['user_prenameOthers']; } else{echo $row['user_prename'];} ?> <?PHP echo $row['user_fname']; ?> <?PHP echo $row['user_lname']; ?></div>
+                <?PHP }else{ ?>
+                    <div ><b>ชื่อ - สกุล : </b> - </div>
+                <?PHP } ?>
+                <?PHP if(isset($row['user_birthday'])){ ?>
+                <div ><b>วัน/เดือน/ปีเกิด (ค.ศ.) : </b><?PHP if(isset($row['user_birthday'])){ echo date("d-m-Y", strtotime($row['user_birthday']));; } ?></div>
+                <?PHP }else{ ?>
+                    <div ><b>วัน/เดือน/ปีเกิด (ค.ศ.) : </b> - </div>
+                <?PHP } ?>
+                <div ><b>เบอร์โทรศัพท์ : </b><?PHP if(isset($row['mt_tel'])){ echo $row['mt_tel']; } ?></div>
                 <br/>
-                <div class="preview_detail_pdf">
-                    <div><h4>รายละเอียดการนัดหมายทันตกรรม</h4></div>
-                    <div class='mg_present'><b>เลขบัตรประชาชน : </b><?PHP if(isset($row['mt_idcardNumber'])){ echo $row['mt_idcardNumber']; } ?></div>
-                    <div class='mg_present'><b>วัน/เดือน/ปีเกิด : </b><?PHP if(isset($row['mt_birthday'])){ echo $row['mt_birthday']; } ?></div>
-                    <div class='mg_present'><b>เบอร์โทรศัพท์ : </b><?PHP if(isset($row['mt_tel'])){ echo $row['mt_tel']; } ?></div>
-                    <div class='divider'><i class='icon-screen'></i></div>
-                    <div class='mg_present'><b>จุดบริการ : </b><?PHP if(isset($row['ser_point_name'])){ echo $row['ser_point_name']; } ?></div>
-                    <div class='mg_present'><b>ประเภทบริการ : </b><?PHP if(isset($row['mt_sertype_id'])){ ?> <?PHP if($row['mt_sertype_id'] == 1){echo 'คลินิกทั่วไป';}else{echo 'คลินิกนอกเวลา';} ?> <?PHP } ?></div>
-                    <div class='mg_present'><b>บริการ : </b><?PHP if(isset($row['ser_name'])){ echo $row['ser_name']; } ?></div>
-                    <div class='mg_present'><b>วันที่นัดหมาย : </b><?PHP if(isset($row['serdes_date'])){ echo $row['serdes_date']; } ?></div>
-                    <div class='mg_present'><b>เวลาที่นัดหมาย : </b><?PHP if(isset($row['time_name'])){ echo $row['time_name']; } ?></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- นำเข้า Canvas js สำหรับตกแต่งเว็บไซต์ -->
-    <script type="text/javascript" src="<?PHP echo base_url(); ?>../assets/vendor/canvas/js/jquery.js"></script>
-    <script type="text/javascript" src="<?PHP echo base_url(); ?>../assets/vendor/canvas/js/plugins.js"></script>
-    <script type="text/javascript" src="<?PHP echo base_url(); ?>../assets/vendor/canvas/js/functions.js"></script>
-
-</body>
-</html>
+                <img style="width:auto;" src="../assets/images/pdf-line.png" />
+                <br/>
+                <div ><b>จุดบริการ : </b><?PHP if(isset($row['mt_serpoint_id'])){ echo $row['mt_serpoint_id']; } ?></div>
+                <div ><b>ประเภทบริการ : </b><?PHP if(isset($row['mt_sertype_id'])){ echo $row['mt_sertype_id']; } ?></div>
+                <div ><b>บริการ : </b><?PHP if(isset($row['mt_service_id'])){ echo $row['mt_service_id']; } ?></div>
+                <div ><b>วันที่นัดหมาย : </b><?PHP if(isset($row['mt_serdateId'])){ echo date("d-m-Y", strtotime($row['mt_serdateId']));} ?></div>
+                <div ><b>เวลาที่นัดหมาย : </b><?PHP if(isset($row['mt_sertimeId'])){ echo $row['mt_sertimeId']; } ?></div>
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div style="background-color: #dff0d8; ">
+        <table style="width:100%; padding-bottom:10px; padding:5px; font-size:15px;">
+            <tr>
+                <td>
+                    <div><b>หมายเหตุ :</b></div>
+                    <div>1. กรุณาเก็บไฟล์ไว้เป็นหลักฐานในการนัดหมายทันตกรรมของท่าน</div>
+                    <div>2. วันที่ทำการนัดหมาย : <?PHP if(isset($row['mt_dateMeetadd'])){ echo $row['mt_dateMeetadd']; } ?></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
