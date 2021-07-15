@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 14, 2021 at 07:37 PM
+-- Generation Time: Jul 15, 2021 at 03:52 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.12
 
@@ -134,16 +134,19 @@ CREATE TABLE `meet_service` (
   `mt_serdateId` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'วันที่นัดหมาย',
   `mt_sertimeId` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'เวลาที่นัดหมาย',
   `mt_dateMeetadd` datetime NOT NULL COMMENT 'วันที่ทำการนัดหมาย',
-  `mt_status` int(1) NOT NULL DEFAULT 0 COMMENT '0 = ทำการนัดหมาย'
+  `mt_status` int(1) NOT NULL DEFAULT 0 COMMENT '1 = ทำการนัดหมาย, 2= นัดหมายสำเร็จ, 3=นัดหมายไม่สำเร็จ/ยกเลิก',
+  `mt_status_updateby` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'อัพเดตข้อมูลโดย',
+  `mt_status_dateby` datetime DEFAULT NULL COMMENT 'วันที่อัพเดตข้อมูล'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `meet_service`
 --
 
-INSERT INTO `meet_service` (`mt_id`, `mt_idcardNumber`, `mt_tel`, `mt_serpoint_id`, `mt_sertype_id`, `mt_service_id`, `mt_serdateId`, `mt_sertimeId`, `mt_dateMeetadd`, `mt_status`) VALUES
-(1, '1234567823490', '09875647234', '5', '2', '1', '15', '342', '2021-07-14 23:51:15', 0),
-(2, '1850456723459', '1234567890', '6', '2', '3', '7', '266', '2021-07-14 23:55:53', 0);
+INSERT INTO `meet_service` (`mt_id`, `mt_idcardNumber`, `mt_tel`, `mt_serpoint_id`, `mt_sertype_id`, `mt_service_id`, `mt_serdateId`, `mt_sertimeId`, `mt_dateMeetadd`, `mt_status`, `mt_status_updateby`, `mt_status_dateby`) VALUES
+(1, '1850456723459', '0987654321', 'คลินิกทันตกรรมผู้ป่วยเรื้อรัง', 'คลินิกนอกเวลา', 'ขูดหินปูน', '2021-07-20', '16.30 - 17.00', '2021-07-15 20:31:19', 3, 'ผู้ดูแลระบบ', '2021-07-15 20:50:35'),
+(2, '1850456723459', '11', 'คลินิกทันตกรรมทั่วไป', 'คลินิกนอกเวลา', 'ขูดหินปูน', '2021-07-21', '16.30 - 17.00', '2021-07-15 20:33:27', 1, NULL, NULL),
+(3, '1234652789012', '0987654379', 'คลินิกทันตกรรมผู้ป่วยเรื้อรัง', 'คลินิกนอกเวลา', 'ถอนฟัน', '2021-07-27', '18.30 - 19.00', '2021-07-15 20:48:58', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -10829,7 +10832,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `user_iden13`, `user_prename`, `user_prenameOthers`, `user_fname`, `user_lname`, `user_sex`, `user_birthday`, `user_nation`, `user_nationOther`, `user_country`, `user_countryOther`, `user_province_birth`, `user_provinceOther`, `user_job`, `user_faith`, `user_faithOther`, `user_education`, `user_marry_status`, `user_blood`, `user_allergy`, `user_allergyOther`, `user_father_name`, `user_mother_name`, `user_addby`, `user_adddate`, `user_updateby`, `user_updatedate`) VALUES
 (12, '1850456723459', 'นางสาว', '', 'มะลิ', 'กลิ่นหอม', 'หญิง', '1995-07-19', 'ไทย', '', 'ไทย', '', 'กรุงเทพมหานคร', '', 'รับจ้างทั่วไป', 'พุทธ', '', 'ไม่ได้ศึกษา', 'โสด', 'O (โอ)', 'ไม่เคยแพ้', '', 'สุทน กลิ่นหอม', 'มานี กลิ่นหอม', 'ผู้ดูแลระบบ', '2021-07-14 22:09:31', 'ผู้ดูแลระบบ', '2021-07-15 00:22:33'),
-(18, '1234567823490', NULL, NULL, NULL, NULL, NULL, '2021-07-27', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'SYSTEM', '2021-07-14 23:51:15', 'SYSTEM', '2021-07-14 23:51:15');
+(18, '1234567823490', NULL, NULL, NULL, NULL, NULL, '2021-07-27', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'SYSTEM', '2021-07-14 23:51:15', 'SYSTEM', '2021-07-14 23:51:15'),
+(20, '11', 'อื่นๆ', 'ร้อยตำรวจตรี', '11', '11', 'ชาย', '2021-07-13', 'ไทย', '', 'ไทย', '', 'สมุทรปราการ', '', '11', 'อิสลาม', '', 'ไม่ทราบ', 'แต่งงาน', 'B (บี)', 'ไม่ทราบ', '', '', '', 'System', '2021-07-15 01:25:29', 'ผู้ดูแลระบบ', '2021-07-15 18:21:04'),
+(21, '1234652789012', NULL, NULL, NULL, NULL, NULL, '1990-07-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'System', '2021-07-27 00:00:00', 'System', '2021-07-27 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -10861,7 +10866,9 @@ CREATE TABLE `users_contact` (
 
 INSERT INTO `users_contact` (`id`, `user_id`, `user_home_no_pt`, `user_moo_pt`, `user_soi_pt`, `user_road_pt`, `user_province_live_pt`, `user_amphure_live_pt`, `user_district_live_pt`, `user_zipcode_live_pt`, `user_phone_moblie_1_pt`, `user_phone_moblie_2_pt`, `user_phone_home_pt`, `user_phone_work_pt`, `user_email_pt`) VALUES
 (11, 12, '12/54', '2', '-', 'บางบ่อ', 'สมุทรปราการ', 'บางบ่อ', 'คลองด่าน', '10550', '0987654321', '', '', '', ''),
-(17, 18, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(17, 18, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(19, 20, '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(20, 21, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -10887,7 +10894,9 @@ CREATE TABLE `users_family` (
 
 INSERT INTO `users_family` (`id`, `user_id`, `user_name_fam`, `user_relation_fam`, `user_phone_moblie_1_fam`, `user_phone_moblie_2_fam`, `user_phone_home_fam`, `user_phone_work_fam`, `user_email_fam`) VALUES
 (8, 12, '', '', '', '', '', '', ''),
-(14, 18, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(14, 18, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(16, 20, '', '', '', '', '', NULL, ''),
+(17, 21, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -11120,19 +11129,19 @@ ALTER TABLE `se_provinces`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `users_contact`
 --
 ALTER TABLE `users_contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users_family`
 --
 ALTER TABLE `users_family`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
