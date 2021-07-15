@@ -15,17 +15,10 @@
     $sertimeId 	            = $_POST['sertimeId'];
     $dateMeetadd 	        = date("Y-m-d H:i:s");
     $date 				    = date("Y-m-d H:i:s");
+    $status 				= 1;
 
-    //ตรวจสอบว่าหมายเลขบัตรประชาชนนี้เคยมีอยู่แล้วไหม
-    $checkIdcard   = "SELECT * FROM meet_service  
-                    WHERE mt_serpoint_id='$serpoint_id' 
-                    AND mt_sertype_id='$sertype_id' 
-                    AND mt_service_id='$service_id'
-                    AND mt_serdateId='$serdateId'
-                    AND mt_sertimeId='$sertimeId'
-                    AND mt_idcardNumber='$idcardNumber'
-                    AND mt_status='0'
-                ";
+    //ตรวจสอบว่าหมายเลขบัตรประชาชนนี้เคยทำรายการนี้ไปแล้วไหม ถ้ามีอยู่แล้วให้เด้งแจ้งเตือนแทน ถ้ายังไม่มีให้เพิ่มข้อมูล
+    $checkIdcard   = "SELECT * FROM meet_service WHERE mt_serpoint_id='$serpoint_id' AND mt_sertype_id='$sertype_id' AND mt_service_id='$service_id'AND mt_serdateId='$serdateId'AND mt_sertimeId='$sertimeId'AND mt_idcardNumber='$idcardNumber'AND mt_status='$status'";
 	$resultIdcard = mysqli_query($con, $checkIdcard);
 	$Idcard     = mysqli_num_rows($resultIdcard);
 
@@ -37,7 +30,7 @@
 
     }else{
 
-        //ตรวจสอบใน meet_service ว่ามีการทำนัดหมายในรายการดังกล่าวไปหนือยัง
+        //ตรวจสอบใน meet_service ว่ามีการทำนัดหมายในรายการดังกล่าวไปหรือยัง
         $checkMeet   = "SELECT * FROM meet_service  
                         WHERE mt_serpoint_id='$serpoint_id' 
                         AND mt_sertype_id='$sertype_id' 
@@ -102,6 +95,7 @@
                 mt_service_id,
                 mt_serdateId,
                 mt_sertimeId,
+                mt_status,
                 mt_dateMeetadd
             )
             VALUES
@@ -113,6 +107,7 @@
                 '$service_id',
                 '$serdateId',
                 '$sertimeId',
+                '$status',
                 '$dateMeetadd'
             )";
 
