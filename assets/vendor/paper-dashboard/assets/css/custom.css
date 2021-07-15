@@ -148,3 +148,9 @@ table tbody tr td{
     -o-transition: border-color ease-in-out .15s;
     transition: border-color ease-in-out .15s;
 }
+
+
+#datatable_wrapper.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+}
