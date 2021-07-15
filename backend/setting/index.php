@@ -70,6 +70,10 @@
                                     <input class="form-control" name="name_web" id="name_web" type='input' value="<?PHP if(isset($row['name_web'])){ echo $row['name_web'];}?>"  required="true"  />
                                 </div>
                                 <div class="form-group">
+                                    <label>ที่อยู่</label>
+                                    <textarea class="form-control" name="address" id="address" ><?PHP if(isset($row['address'])){ echo $row['address'];}?></textarea>
+                                </div>
+                                <div class="form-group">
                                     <label>เบอร์โทรศัพท์</label>
                                     <input class="form-control" name="tel" id="tel" type='input' placeholder="012-345-6789" value="<?PHP if(isset($row['tel'])){ echo $row['tel'];}?>"  />
                                 </div>

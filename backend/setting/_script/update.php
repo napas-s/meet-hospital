@@ -14,6 +14,7 @@
     $email               	= $_POST['email'];
     $facebook               = $_POST['facebook'];
     $twitter               	= $_POST['twitter'];
+    $address               	= $_POST['address'];
 	$edit_by                = $_SESSION["User"];
 	$icon_web               = $_FILES['icon_web']['name'];
     $icon_web_old           = $_POST['icon_web_old'];
@@ -66,6 +67,7 @@
         email		        ='$email',
         facebook		    ='$facebook',
         twitter		        ='$twitter',
+        address		        ='$address',
         edit_by	            ='$edit_by',
         edit_date	        ='$date2'
         WHERE id=$setting_id";
