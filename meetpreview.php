@@ -49,7 +49,7 @@
                                     <div class='mg_present'><b>จุดบริการ : </b><?PHP if(isset($row['ser_point_name'])){ echo $row['ser_point_name']; } ?></div>
                                     <div class='mg_present'><b>ประเภทบริการ : </b><?PHP if(isset($row['mt_sertype_id'])){ ?> <?PHP if($row['mt_sertype_id'] == 1){echo 'คลินิกทั่วไป';}else{echo 'คลินิกนอกเวลา';} ?> <?PHP } ?></div>
                                     <div class='mg_present'><b>บริการ : </b><?PHP if(isset($row['ser_name'])){ echo $row['ser_name']; } ?></div>
-                                    <div class='mg_present'><b>วันที่นัดหมาย : </b><?PHP if(isset($row['serdes_date'])){ echo $row['serdes_date']; } ?></div>
+                                    <div class='mg_present'><b>วันที่นัดหมาย : </b><?PHP if(isset($row['serdes_date'])){ echo date("d-m-Y", strtotime($row['serdes_date']));} ?></div>
                                     <div class='mg_present'><b>เวลาที่นัดหมาย : </b><?PHP if(isset($row['time_name'])){ echo $row['time_name']; } ?></div>
                                     <br/>
                                     <div class="center">
