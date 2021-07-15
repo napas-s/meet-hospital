@@ -23,21 +23,105 @@
                             <h4 class="card-title"><i class="nc-icon nc-single-copy-04"></i> ประวัติการนัดหมาย</h4>
                         </div>
                         <div class="card-body">
-                            <div class="toolbar"></div>
+                            <form action="index.php" method="get">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>ค้นหาจากจุดบริการ</label>
+                                            <select class="form-control" name="point" id="point">
+                                                <option value="">กรุณาเลือกข้อมูล</option>
+                                                <?PHP
+                                                    $sqlPoint="SELECT ser_point_id,ser_point_name,ser_point_status FROM services_point WHERE ser_point_status = 1 ";
+                                                    $sql_query_point = mysqli_query($con,$sqlPoint)or die(mysqli_error($con));
+                                                ?>
+                                                <?PHP foreach($sql_query_point as $point){ ?>
+                                                    <option value="<?PHP echo $point['ser_point_id']; ?>" <?PHP if(isset($_GET['point'])){ if($_GET['point'] == $point['ser_point_id'] ){echo 'selected';} } ?>><?PHP echo $point['ser_point_name']?></option>
+                                                <?PHP } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>ค้นหาจากประเภทคลินิก</label>
+                                            <select class="form-control" name="type" id="type">
+                                                <option value="">กรุณาเลือกข้อมูล</option>
+                                                <option value="1" <?PHP if(isset($_GET['type'])){ if($_GET['type'] == 1 ){echo 'selected';} } ?>>คลินิกทั่วไป</option>
+                                                <option value="2" <?PHP if(isset($_GET['type'])){ if($_GET['type'] == 2 ){echo 'selected';} } ?>>คลินิกนอกเวลา</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>ค้นหาจากบริการ</label>
+                                        <select class="form-control" name="service" id="service">
+                                            <option value="">กรุณาเลือกข้อมูล</option>
+                                            <?PHP
+                                                $sqlService="SELECT ser_id,ser_name,ser_status FROM services WHERE ser_status = 1 ";
+                                                $sql_query_service = mysqli_query($con,$sqlService)or die(mysqli_error($con));
+                                            ?>
+                                            <?PHP foreach($sql_query_service as $service){ ?>
+                                                <option value="<?PHP echo $service['ser_id']; ?>" <?PHP if(isset($_GET['service'])){ if($_GET['service'] == $service['ser_id'] ){echo 'selected';} } ?>><?PHP echo $service['ser_name']?></option>
+                                            <?PHP } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>ค้นหาจากสถานะ</label>
+                                            <select class="form-control" name="status" id="status">
+                                                <option value="" >กรุณาเลือกข้อมูล</option>
+                                                <option value="1" <?PHP if(isset($_GET['status'])){ if($_GET['status'] == 1 ){echo 'selected';} } ?>>นัดหมายแล้ว</option>
+                                                <option value="2" <?PHP if(isset($_GET['status'])){ if($_GET['status'] == 2 ){echo 'selected';} } ?>>นัดหมายสำเร็จ</option>
+                                                <option value="3" <?PHP if(isset($_GET['status'])){ if($_GET['status'] == 3 ){echo 'selected';} } ?>>ไม่มาตามนัดหมาย/ยกเลิก</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>ค้นหาจากวันที่ (ค.ศ.)</label>
+                                            <input name="date" id="date" type="text" value="<?PHP if(isset($_GET['date'])){ echo $_GET['date']; } ?>" class="form-control datepicker" placeholder="วัน-เดือน-คศ">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>ค้นหา</label>
+                                            <input name="search" id="search" type="text" value="" class="form-control" placeholder="ค้นหาข้อมูล">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-4">
+                                        <a href="index.php" type="button" style="margin-top: 25px;" class="btn btn-block btn-info"><i class="nc-icon nc-refresh-69"></i> โหลดข้อมูลใหม่</a>
+                                    </div>
+                                    <div class="col-lg-2 col-md-4">
+                                        <button type="submit" style="margin-top: 25px;" class="btn btn-block btn-success"><i class="nc-icon nc-tap-01"></i> ค้นหาข้อมูล</button>
+                                    </div>
+                                </div>
+                            </form>
                             <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th class="text-center" style="width: 10%;">เลขบัตรประชาชน</th>
+                                        <th class="text-center" style="width: 120px;">เลขบัตรประชาชน</th>
                                         <th>ชื่อ - สกุล</th>
                                         <th>เบอร์โทรศัพท์</th>
                                         <th>จุดบริการ</th>
                                         <th>บริการ</th>
-                                        <th style="width: 10%;"> วันที่นัดหมาย</th>
+                                        <th class="text-center" style="width: 10%;"> วันที่นัดหมาย</th>
+                                        <th class="text-center" style="width: 10%;"> เวลาที่นัดหมาย</th>
                                         <th class="text-center" style="width: 10%;">สถานะ</th>
                                         <th class="disabled-sorting text-center" style="width: 5%;">จัดการ</th>
                                     </tr>
                                 </thead>
                                 <?php
+
+                                    //กำหนดค่าตัวแปร เมื่อไม่มีการค้นหา
+                                    if(!empty($_GET['point'])){ $point = $_GET['point']; }else{  $point = ''; }
+                                    if(!empty($_GET['type'])){ $type = $_GET['type']; }else{  $type = ''; }
+                                    if(!empty($_GET['status'])){ $status = $_GET['status']; }else{  $status = ''; }
+                                    if(!empty($_GET['service'])){ $service = $_GET['service']; }else{  $service = ''; }
+                                    if(!empty($_GET['date'])){ $date = date("Y-m-d", strtotime($_GET['date'])); }else{  $date = ''; }
+                                    if(!empty($_GET['search'])){ $search = $_GET['search']; }else{  $search = ''; }
+
                                     // query ตาราง member
                                     $query_meet = "SELECT * FROM meet_service 
                                                    JOIN services_point ON services_point.ser_point_id = meet_service.mt_serpoint_id 
@@ -45,9 +129,15 @@
                                                    JOIN services_des ON services_des.serdes_id = meet_service.mt_serdateId 
                                                    JOIN services_des_time ON services_des_time.des_time_id = meet_service.mt_sertimeId 
                                                    JOIN services_time ON services_time.time_id = services_des_time.destimeId 
-                                                   JOIN users ON users.user_iden13 = meet_service.mt_idcardNumber 
-                                                   ORDER BY services_des.serdes_date desc;" or die("Error:" . mysqli_error($con));
-                                    $result_meet = mysqli_query($con, $query_meet);
+                                                   JOIN users ON users.user_iden13 = meet_service.mt_idcardNumber
+                                                   WHERE meet_service.mt_serpoint_id LIKE '%$point%' 
+                                                   AND meet_service.mt_sertype_id LIKE '%$type%' 
+                                                   AND meet_service.mt_status LIKE '%$status%' 
+                                                   AND meet_service.mt_service_id LIKE '%$service%' 
+                                                   AND meet_service.mt_idcardNumber LIKE '%$search%' 
+                                                   AND services_des.serdes_date LIKE '%$date%' 
+                                                   ORDER BY services_des.serdes_date desc;"or die("Error:" . mysqli_error($con));
+                                    $result_meet = mysqli_query($con, $query_meet)or die(mysqli_error($con));
                                     $i = 1;
                                 ?>
                                 <tbody>
@@ -64,24 +154,23 @@
                                         </td>
                                         <td><?PHP echo $row['mt_tel']; ?></td>
                                         <td><?PHP echo $row['ser_point_name']; ?> <?PHP if($row['mt_sertype_id'] == 1){ ?>(คลินิกทั่วไป)<?PHP }else{ ?>(คลินิกนอกเวลา)<?PHP } ?></td>
-                                        <td>
-                                            <?PHP echo $row['ser_name']; ?>
-                                        </td>
-                                        <td>วันที่ <?PHP echo date("d-m-Y", strtotime($row['serdes_date'])) ; ?><br/>เวลา <?PHP echo $row['time_name']; ?> น.</td>
+                                        <td><?PHP echo $row['ser_name']; ?></td>
+                                        <td  class="text-center" data-sort='YYYYMMDD'><?PHP echo date("d-m-Y", strtotime($row['serdes_date'])) ; ?></td>
+                                        <td  class="text-center"><?PHP echo $row['time_name']; ?> น.</td>
                                         <td  class="text-center">
-                                            <!-- 0 = ทำการนัดหมายไว้ -->
-                                            <!-- 1 = มาตามนัดหมาย -->
-                                            <!-- 2 = ไม่มาตามนัดหมาย -->
-                                            <?PHP if($row['mt_status'] == 0){ ?>
+                                            <?PHP if($row['mt_status'] == 1){ ?>
+                                                <!-- 1 = ทำการนัดหมายไว้ -->
                                                 <span class="badge badge-pill badge-warning">นัดหมายแล้ว</span>
-                                            <?PHP }else if($row['mt_status'] == 1){ ?>
+                                            <?PHP }else if($row['mt_status'] == 2){ ?>
+                                                <!-- 2 = มาตามนัดหมาย -->
                                                 <span class="badge badge-pill badge-success">นัดหมายสำเร็จ</span>
                                             <?PHP }else{ ?>
+                                                <!-- 3 = ไม่มาตามนัดหมาย -->
                                                 <span class="badge badge-pill badge-danger">ยกเลิกนัดหมาย</span>
                                             <?PHP } ?>
                                         </td>
                                         <td class="text-center">
-                                            <a href="form.php?id=<?PHP echo $row['mt_id']; ?>"><button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm"><i class="fa fa-edit"></i></button></a>
+                                            <a href="form.php?id=<?PHP echo $row['mt_id']; ?>"><button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm"><i class="fa fa-eye"></i></button></a>
                                         </td>
                                     </tr>
                                     <?PHP } ?>
@@ -102,39 +191,42 @@
 <?PHP include_once('../_template/footerjs.php') ?>
 
 <!-- นำเข้าไฟล์ js ที่ต้องการเพิ่มเติม เพื่อใช้ในหน้านี้เท่านั้น -->
+
+<!-- data table -->
 <script src="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/js/plugins/jquery.dataTables.min.js"></script>
-
-<!-- นำเข้าแจ้งเตือนก่อนตกลง delete -->
-<?PHP include_once('_action/delete.php'); ?>
-<!-- นำเข้าแจ้งเตือนก่อนตกลง ปิด/เปิด การใช้งาน -->
-<?PHP include_once('_action/show.php'); ?>
-
 <script>
 
     $(document).ready(function() {
-      $('#datatable').DataTable({
-        responsive: true,
-        autoWidth: false,
-        processing: true,
-        pageLength: 15,
-        language: {
-            sLengthMenu: "",
-            search: 'ค้นหา',
-            searchPlaceholder: "ค้นหา",
-            processing: '<i class="nc-icon nc-refresh-69"></i><span class="ml-2">กำลังโหลดข้อมูล...</span> ',
-            info: "แสดง หน้า _PAGE_ จาก _PAGES_",
-            infoEmpty: "",
-            zeroRecords: "ไม่พบข้อมูล",
-            infoFiltered: "(ค้นหา จาก _MAX_ รายการ)",
-            paginate: {
-                first: 'หน้าแรก',
-                last: 'หน้าสุดท้าย',
-                next: '<i class="nc-icon nc-minimal-right"></i>',
-                previous: '<i class="nc-icon nc-minimal-left"></i>'
-            }
-        },
+        var table = $('#datatable').DataTable({
+            responsive: true,
+            autoWidth: false,
+            processing: true,
+            pageLength: 15,
+            language: {
+                sLengthMenu: "",
+                search: "ค้นหา",
+                searchPlaceholder: "ค้นหา",
+                processing: '<i class="nc-icon nc-refresh-69"></i><span class="ml-2">กำลังโหลดข้อมูล...</span> ',
+                info: "แสดง หน้า _PAGE_ จาก _PAGES_",
+                infoEmpty: "",
+                zeroRecords: "ไม่พบข้อมูล",
+                infoFiltered: "(ค้นหา จาก _MAX_ รายการ)",
+                paginate: {
+                    first: 'หน้าแรก',
+                    last: 'หน้าสุดท้าย',
+                    next: '<i class="nc-icon nc-minimal-right"></i>',
+                    previous: '<i class="nc-icon nc-minimal-left"></i>'
+                }
+            },
 
-      });
+        });
+
+        //custom search input for data table
+        $(".dataTables_filter").hide();
+        $('#search').on( 'keypress', function () {
+            var val = $("#search").val();
+            table.search( val ).draw();
+        });
 
     });
 </script>

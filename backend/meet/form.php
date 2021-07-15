@@ -21,12 +21,13 @@
             if(isset($_GET["id"])){
               $meetId = $_GET["id"];
               $sql = "SELECT * FROM meet_service 
-                            JOIN services_point ON services_point.ser_point_id = meet_service.mt_serpoint_id 
-                            JOIN services ON services.ser_id = meet_service.mt_service_id 
-                            JOIN services_des ON services_des.serdes_id = meet_service.mt_serdateId 
-                            JOIN services_des_time ON services_des_time.des_time_id = meet_service.mt_sertimeId 
-                            JOIN services_time ON services_time.time_id = services_des_time.destimeId 
-                            WHERE meet_service.mt_id = $meetId;" ;
+                    JOIN services_point ON services_point.ser_point_id = meet_service.mt_serpoint_id 
+                    JOIN services ON services.ser_id = meet_service.mt_service_id 
+                    JOIN services_des ON services_des.serdes_id = meet_service.mt_serdateId 
+                    JOIN services_des_time ON services_des_time.des_time_id = meet_service.mt_sertimeId 
+                    JOIN services_time ON services_time.time_id = services_des_time.destimeId 
+                    JOIN users ON users.user_iden13 = meet_service.mt_idcardNumber 
+                    WHERE meet_service.mt_id = $meetId;" or die("Error:" . mysqli_error($con));
               $sql_query = mysqli_query($con,$sql)or die(mysqli_error($con));
               $row = mysqli_fetch_assoc($sql_query);
             }
@@ -39,64 +40,210 @@
             <?PHP }else{ ?>
               <form id="FormValidation" class="form-horizontal" enctype="multipart/form-data" action="_script/add.php" method="post">
             <?PHP } ?>
-              <div class="card ">
-                <div class="card-header ">
-                    <h4 class="card-title"><i class="nc-icon nc-single-copy-04"></i> ประวัติการนัดหมาย</h4>
-                </div>
-                <div class="card-body ">
-                  <div class="row">
-                    <div class="col-md-4 text-center">
-                      <div class="form-group">
-                        <?PHP if(!empty($row['member_img'])){ ?>
-                          <img style="max-width: 360px;" id="preView" src="<?PHP base_url() ?>../../uploads/member/<?PHP echo $row['member_img']; ?>" alt="your image" />
-                        <?PHP }else{ ?>
-                          <img style="max-width: 360px;" id="preView" src="<?PHP base_url() ?>../../assets/images/no-image.jpeg" alt="your image" />
-                        <?PHP } ?>
-                      </div>
-                      <input class="form-control" name="member_img" id="member_img" type='file' accept="image/*" onchange="readURL(this);" />
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="card">
+                    <div class="card-header">
+                      <h5 class="title">ข้อมูลส่วนบุคคล</h5>
                     </div>
-                    <div class="col-md-8">
-                      <div class="form-group">
-                        <label>ชื่อ - นามสกุล</label>
-                        <input class="form-control" type="text" name="member_fullname" id="member_fullname" value="<?PHP if(isset($row['member_fullname'])){ echo $row['member_fullname']; } ?>" required="true" />
-                      </div>
-                      <div class="form-group">
-                        <label>เบอร์โทรศัพท์</label>
-                        <input class="form-control" type="text" name="mt_tel" id="mt_tel" value="<?PHP if(isset($row['mt_tel'])){ echo $row['mt_tel']; } ?>"  />
-                      </div>
-                      <div class="form-group">
-                        <label>ชื่อผู้ใช้ <small>(ใช้สำหรับเข้าสู่ระบบ)</small></label>
-                        <input <?PHP if(isset($_GET["id"])){ ?>disabled<?PHP } ?> class="form-control" type="text" name="member_user" id="member_user" required="true" value="<?PHP if(isset($row['member_user'])){ echo $row['member_user']; }?>"/>
-                        <input type="hidden" name="member_user_old" id="member_user_old" value="<?PHP if(isset($row['member_user'])){ echo $row['member_user']; }?>"/>
-                      </div>
-                      <?PHP if(empty($_GET["id"])){ ?>
-                      <div class="form-group">
-                        <label>รหัสผ่าน <small>(ใช้สำหรับเข้าสู่ระบบ)</small></label>
-                        <input class="form-control" type="text" name="member_password" id="member_password" required="true" />
-                      </div>
-                      <?PHP } ?>
-                      <div class="form-group">
-                        <label>สถานะ</label>
-                        <select class="form-control" name="member_lavel" id="member_lavel">
-                          <option value="1" value="<?PHP if(isset($row['member_lavel'])){ if($row['member_user'] == 1){echo 'selected';} }?>" >พนักงาน</option>
-                          <option value="2" value="<?PHP if(isset($row['member_lavel'])){ if($row['member_user'] == 2){echo 'selected';}  }?>">ผู้ดูแลระบบ</option>
-                        </select>
-                      </div>
-                      <?PHP if(isset($_GET["id"])){ ?>
-                        <div class="form-group">
-                          <a href="changpassword.php?id=<?PHP echo $_GET['id']; ?>"><i class="nc-icon nc-tap-01"></i> เปลี่ยนรหัสผ่าน</a>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>เลขบัตรประชาชน</label>
+                            <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_iden13'])){ echo $row['user_iden13']; } ?>" />
+                          </div>
                         </div>
-                      <?PHP } ?>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>คำนำหน้า</label>
+                            <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_prename'])){ echo $row['user_prename']; }else{echo '-';} ?>" />
+                          </div>
+                          <div id="prenameOthers" class="form-group <?PHP if(isset($row['user_prename'])){ if($row['user_prename'] != "อื่นๆ"){echo 'group-other'; }  }else{ echo 'group-other'; } ?>">
+                            <input disabled placeholder="โปรดระบุ" class="form-control" type="text" value="<?PHP if(isset($row['user_prenameOthers'])){ echo $row['user_prenameOthers']; } else{echo '-';}?>" />
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>ชื่อ</label>
+                            <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_fname'])){ echo $row['user_fname']; }else{echo '-';} ?>"/>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>นามสกุล</label>
+                            <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_lname'])){ echo $row['user_lname']; }else{echo '-';} ?>" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>เพศ</label>
+                            <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_sex'])){ echo $row['user_sex']; }else{echo '-';} ?>"/>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>วัน/เดือน/ปีเกิด (ค.ศ.)</label>
+                            <input disabled type="text" value="<?PHP if(isset($row['user_birthday'])){ echo date("d-m-Y", strtotime($row['user_birthday'])); }else{echo '-';} ?>" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>สัญชาติ<font color="red"><i>*</i></font></label>
+                              <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_nation'])){ echo $row['user_nation']; } else{echo '-';}?>"/>
+                            </div>
+                            <div id="nationOthers" class="form-group <?PHP if(isset($row['user_nation'])){ if($row['user_nation'] != "อื่นๆ"){echo 'group-other'; }  }else{ echo 'group-other'; } ?>" >
+                              <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_nationOther'])){ echo $row['user_nationOther']; }else{echo '-';} ?>" />
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>ประเทศที่เกิด</label>
+                              <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_country'])){ echo $row['user_country']; } else{echo '-';}?>"/>
+                            </div>
+                            <div id="countryOthers" class="form-group <?PHP if(isset($row['user_country'])){ if($row['user_country'] != "อื่นๆ"){echo 'group-other'; }  }else{ echo 'group-other'; } ?>">
+                              <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_countryOther'])){ echo $row['user_countryOther']; }else{echo '-';} ?>"  />
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>จังหวัดที่เกิด</label>
+                              <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_province_birth'])){ echo $row['user_province_birth']; }else{echo '-';} ?>"/>
+                            </div>
+                            <div id="provinceOthers" class="form-group <?PHP if(isset($row['user_province_birth'])){ if($row['user_province_birth'] != "อื่นๆ"){echo 'group-other'; }  }else{ echo 'group-other'; } ?>">
+                              <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_provinceOther'])){ echo $row['user_provinceOther']; } else{echo '-';}?>" />
+                            </div>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>อาชีพ</label>
+                              <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_job'])){ echo $row['user_job']; }else{echo '-';} ?>"/>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>ศาสนา<font color="red"><i>*</i></font></label>
+                              <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_faith'])){ echo $row['user_faith']; }else{echo '-';} ?>"/>
+                            </div>
+                            <div id="faithOthers" class="form-group <?PHP if(isset($row['user_faith'])){ if($row['user_faith'] != "อื่นๆ"){echo 'group-other'; }  }else{ echo 'group-other'; } ?>">
+                              <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_faithOther'])){ echo $row['user_faithOther']; }else{echo '-';} ?>"  />
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>ระดับการศึกษาสูงสุด</label>
+                              <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_education'])){ echo $row['user_education']; }else{echo '-';} ?>"/>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>สถานะภาพสมรส</label>
+                              <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_marry_status'])){ echo $row['user_marry_status']; }else{echo '-';} ?>"/>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>หมู่เลือด</label>
+                              <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_blood'])){ echo $row['user_blood']; }else{echo '-';} ?>"/>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>ประวัติการแพ้ (ยา/อาหาร/อื่นๆ)</label>
+                              <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_allergy'])){ echo $row['user_allergy']; }else{echo '-';} ?>"/>
+                            </div>
+                            <div id="allergyOthers" class="form-group <?PHP if(isset($row['user_allergy'])){ if($row['user_allergy'] != "เคยแพ้"){echo 'group-other'; }  }else{ echo 'group-other'; } ?>">
+                              <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_allergyOther'])){ echo $row['user_allergyOther']; }else{echo '-';} ?>" />
+                            </div>
+                          </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>ชื่อ-นามสกุล บิดา</label>
+                            <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_father_name'])){ echo $row['user_father_name']; } else{echo '-';}?>" />
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>ชื่อ-นามสกุล มารดา</label>
+                            <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_mother_name'])){ echo $row['user_mother_name']; }else{echo '-';} ?>"  />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <div class="row">
+                        <div class="col-md-6"><a href="index.php"><button type="button" class="btn btn-danger">ย้อนกลับ</button></a></div>
+                        <div class="col-md-6 text-right"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="card-footer">
-                  <div class="row">
-                    <div class="col-md-6"><a href="index.php"><button type="button" class="btn btn-danger">ย้อนกลับ</button></a></div>
-                    <div class="col-md-6 text-right"><button type="submit" class="btn btn-success">บันทึกข้อมูล</button></div>
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-header">
+                      <h5 class="title">รายละเอียดนัดหมาย</h5>
+                    </div>
+                    <div class="card-body">
+                      <div><b>จุดบริการ : </b><?PHP if(isset($row['ser_point_name'])){ echo $row['ser_point_name']; } ?></div>
+                      <div><b>ประเภทบริการ : </b><?PHP if(isset($row['mt_sertype_id'])){ ?> <?PHP if($row['mt_sertype_id'] == 1){echo 'คลินิกทั่วไป';}else{echo 'คลินิกนอกเวลา';} ?> <?PHP } ?></div>
+                      <div><b>บริการ : </b><?PHP if(isset($row['ser_name'])){ echo $row['ser_name']; } ?></div>
+                      <br/>
+                      <div><b>วันที่นัดหมาย : </b><?PHP if(isset($row['serdes_date'])){ echo date("d-m-Y", strtotime($row['serdes_date'])); } ?></div>
+                      <div><b>เวลาที่นัดหมาย : </b><?PHP if(isset($row['time_name'])){ echo $row['time_name']; } ?></div>
+                      <br/>
+                      <div><b>เบอร์โทรศัพท์ : </b><?PHP if(isset($row['mt_tel'])){ echo $row['mt_tel']; } ?></div>
+                    </div>
                   </div>
+
+                  <form id="FormValidation" class="form-horizontal" enctype="multipart/form-data" action="_script/update.php" method="post">
+                    <input type="hidden" name="mtId" id="mtId" value="<?PHP if(isset($row['mt_id'])){ echo $row['mt_id'];}?>" /> <!-- ตัวแปร -->
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="title">สถานะการนัดหมาย</h5>
+                      </div>
+                      <div class="card-body">
+                        <div class="form-check-radio">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="mt_status" id="mt_status" value="1" <? if($row['mt_status'] == 1){ echo 'checked'; } ?>> นัดหมายแล้ว
+                            <span class="form-check-sign"></span>
+                          </label>
+                        </div>
+                        <div class="form-check-radio">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="mt_status" id="mt_status" value="2" <? if($row['mt_status'] == 2){ echo 'checked'; } ?>> มาตามนัดหมาย/นัดหมายสำเร็จ
+                            <span class="form-check-sign"></span>
+                          </label>
+                        </div>
+                        <div class="form-check-radio">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="mt_status" id="mt_status" value="3" <? if($row['mt_status'] == 3){ echo 'checked'; } ?>> ไม่มาตามนัดหมาย/ยกเลิก
+                            <span class="form-check-sign"></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="card-footer">
+                        <div class="row">
+                          <div class="col-md-6"></div>
+                          <div class="col-md-6 text-right"><button type="submit" class="btn btn-success">บันทึกข้อมูล</button></div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
                 </div>
               </div>
+
             </form>
         </div>
     </div>
