@@ -60,7 +60,7 @@
                           </select>
                       </div>
                       <div class="form-group">
-                        <label>วันที่ให้บริการ</label>
+                        <label>วันที่ให้บริการ (ค.ศ.)</label>
                         <input type="hidden" name="serdes_date_old" id="serdes_date_old" value="<?PHP if(isset($row['serdes_date'])){ ?><?PHP echo $row['serdes_date']; ?><?PHP }?>" >
                         <input type="text" name="serdes_date" id="serdes_date" class="form-control datepicker" value="<?PHP if(isset($row['serdes_date'])){ ?><?PHP echo date("d-m-Y", strtotime($row['serdes_date']));?><?PHP }?>" placeholder="<?PHP if(isset($row['serdes_date'])){ ?><?PHP echo date("d-m-Y", strtotime($row['serdes_date']));?><?PHP }else{ ?><?PHP echo date('d-m-Y') ?><?PHP } ?>" <?PHP if(empty($_GET["id"])){ ?>required="true" <?PHP } ?>>
                       </div>
