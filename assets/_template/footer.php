@@ -7,7 +7,7 @@
                 <?PHP if(!empty($setting['name_web'])){ ?>
                 Copyrights © 2021 All Rights Reserved by <?PHP echo $setting['name_web']; ?>.<br>
                 <?PHP } ?>
-                <div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
+                <!-- <div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div> -->
             </div>
 
             <div class="col_half col_last tright">
