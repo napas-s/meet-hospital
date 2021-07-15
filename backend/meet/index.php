@@ -35,7 +35,7 @@
                                                     $sql_query_point = mysqli_query($con,$sqlPoint)or die(mysqli_error($con));
                                                 ?>
                                                 <?PHP foreach($sql_query_point as $point){ ?>
-                                                    <option value="<?PHP echo $point['ser_point_id']; ?>" <?PHP if(isset($_GET['point'])){ if($_GET['point'] == $point['ser_point_id'] ){echo 'selected';} } ?>><?PHP echo $point['ser_point_name']?></option>
+                                                    <option value="<?PHP echo $point['ser_point_name']; ?>" <?PHP if(isset($_GET['point'])){ if($_GET['point'] == $point['ser_point_name'] ){echo 'selected';} } ?>><?PHP echo $point['ser_point_name']?></option>
                                                 <?PHP } ?>
                                             </select>
                                         </div>
@@ -45,8 +45,8 @@
                                             <label>ค้นหาจากประเภทคลินิก</label>
                                             <select class="form-control" name="type" id="type">
                                                 <option value="">กรุณาเลือกข้อมูล</option>
-                                                <option value="1" <?PHP if(isset($_GET['type'])){ if($_GET['type'] == 1 ){echo 'selected';} } ?>>คลินิกทั่วไป</option>
-                                                <option value="2" <?PHP if(isset($_GET['type'])){ if($_GET['type'] == 2 ){echo 'selected';} } ?>>คลินิกนอกเวลา</option>
+                                                <option value="คลินิกทั่วไป" <?PHP if(isset($_GET['type'])){ if($_GET['type'] == "คลินิกทั่วไป" ){echo 'selected';} } ?>>คลินิกทั่วไป</option>
+                                                <option value="คลินิกนอกเวลา" <?PHP if(isset($_GET['type'])){ if($_GET['type'] == "คลินิกนอกเวลา" ){echo 'selected';} } ?>>คลินิกนอกเวลา</option>
                                             </select>
                                         </div>
                                     </div>
@@ -59,7 +59,7 @@
                                                 $sql_query_service = mysqli_query($con,$sqlService)or die(mysqli_error($con));
                                             ?>
                                             <?PHP foreach($sql_query_service as $service){ ?>
-                                                <option value="<?PHP echo $service['ser_id']; ?>" <?PHP if(isset($_GET['service'])){ if($_GET['service'] == $service['ser_id'] ){echo 'selected';} } ?>><?PHP echo $service['ser_name']?></option>
+                                                <option value="<?PHP echo $service['ser_name']; ?>" <?PHP if(isset($_GET['service'])){ if($_GET['service'] == $service['ser_name'] ){echo 'selected';} } ?>><?PHP echo $service['ser_name']?></option>
                                             <?PHP } ?>
                                         </select>
                                     </div>
@@ -124,19 +124,14 @@
 
                                     // query ตาราง member
                                     $query_meet = "SELECT * FROM meet_service 
-                                                   JOIN services_point ON services_point.ser_point_id = meet_service.mt_serpoint_id 
-                                                   JOIN services ON services.ser_id = meet_service.mt_service_id 
-                                                   JOIN services_des ON services_des.serdes_id = meet_service.mt_serdateId 
-                                                   JOIN services_des_time ON services_des_time.des_time_id = meet_service.mt_sertimeId 
-                                                   JOIN services_time ON services_time.time_id = services_des_time.destimeId 
                                                    JOIN users ON users.user_iden13 = meet_service.mt_idcardNumber
                                                    WHERE meet_service.mt_serpoint_id LIKE '%$point%' 
                                                    AND meet_service.mt_sertype_id LIKE '%$type%' 
                                                    AND meet_service.mt_status LIKE '%$status%' 
                                                    AND meet_service.mt_service_id LIKE '%$service%' 
                                                    AND meet_service.mt_idcardNumber LIKE '%$search%' 
-                                                   AND services_des.serdes_date LIKE '%$date%' 
-                                                   ORDER BY services_des.serdes_date desc;"or die("Error:" . mysqli_error($con));
+                                                   AND meet_service.mt_serdateId LIKE '%$date%' 
+                                                   ORDER BY meet_service.mt_serdateId desc;"or die("Error:" . mysqli_error($con));
                                     $result_meet = mysqli_query($con, $query_meet)or die(mysqli_error($con));
                                     $i = 1;
                                 ?>
@@ -153,10 +148,10 @@
                                             <?PHP } ?>
                                         </td>
                                         <td><?PHP echo $row['mt_tel']; ?></td>
-                                        <td><?PHP echo $row['ser_point_name']; ?> <?PHP if($row['mt_sertype_id'] == 1){ ?>(คลินิกทั่วไป)<?PHP }else{ ?>(คลินิกนอกเวลา)<?PHP } ?></td>
-                                        <td><?PHP echo $row['ser_name']; ?></td>
-                                        <td  class="text-center" data-sort='YYYYMMDD'><?PHP echo date("d-m-Y", strtotime($row['serdes_date'])) ; ?></td>
-                                        <td  class="text-center"><?PHP echo $row['time_name']; ?> น.</td>
+                                        <td><?PHP echo $row['mt_serpoint_id']; ?> (<?PHP echo $row['mt_sertype_id']; ?>)</td>
+                                        <td><?PHP echo $row['mt_service_id']; ?></td>
+                                        <td  class="text-center" data-sort='YYYYMMDD'><?PHP echo date("d-m-Y", strtotime($row['mt_serdateId'])) ; ?></td>
+                                        <td  class="text-center"><?PHP echo $row['mt_sertimeId']; ?> น.</td>
                                         <td  class="text-center">
                                             <?PHP if($row['mt_status'] == 1){ ?>
                                                 <!-- 1 = ทำการนัดหมายไว้ -->

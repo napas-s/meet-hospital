@@ -20,14 +20,7 @@
         <?php
             if(isset($_GET["id"])){
               $meetId = $_GET["id"];
-              $sql = "SELECT * FROM meet_service 
-                    JOIN services_point ON services_point.ser_point_id = meet_service.mt_serpoint_id 
-                    JOIN services ON services.ser_id = meet_service.mt_service_id 
-                    JOIN services_des ON services_des.serdes_id = meet_service.mt_serdateId 
-                    JOIN services_des_time ON services_des_time.des_time_id = meet_service.mt_sertimeId 
-                    JOIN services_time ON services_time.time_id = services_des_time.destimeId 
-                    JOIN users ON users.user_iden13 = meet_service.mt_idcardNumber 
-                    WHERE meet_service.mt_id = $meetId;" or die("Error:" . mysqli_error($con));
+              $sql = "SELECT * FROM meet_service JOIN users ON users.user_iden13 = meet_service.mt_idcardNumber WHERE meet_service.mt_id = $meetId;" or die("Error:" . mysqli_error($con));
               $sql_query = mysqli_query($con,$sql)or die(mysqli_error($con));
               $row = mysqli_fetch_assoc($sql_query);
             }
@@ -196,14 +189,17 @@
                       <h5 class="title">รายละเอียดนัดหมาย</h5>
                     </div>
                     <div class="card-body">
-                      <div><b>จุดบริการ : </b><?PHP if(isset($row['ser_point_name'])){ echo $row['ser_point_name']; } ?></div>
-                      <div><b>ประเภทบริการ : </b><?PHP if(isset($row['mt_sertype_id'])){ ?> <?PHP if($row['mt_sertype_id'] == 1){echo 'คลินิกทั่วไป';}else{echo 'คลินิกนอกเวลา';} ?> <?PHP } ?></div>
-                      <div><b>บริการ : </b><?PHP if(isset($row['ser_name'])){ echo $row['ser_name']; } ?></div>
+                      <div><b>จุดบริการ : </b><?PHP if(isset($row['mt_serpoint_id'])){ echo $row['mt_serpoint_id']; } ?></div>
+                      <div><b>ประเภทบริการ : </b><?PHP if(isset($row['mt_sertype_id'])){ echo $row['mt_sertype_id']; } ?></div>
+                      <div><b>บริการ : </b><?PHP if(isset($row['mt_service_id'])){ echo $row['mt_service_id']; } ?></div>
                       <br/>
-                      <div><b>วันที่นัดหมาย : </b><?PHP if(isset($row['serdes_date'])){ echo date("d-m-Y", strtotime($row['serdes_date'])); } ?></div>
-                      <div><b>เวลาที่นัดหมาย : </b><?PHP if(isset($row['time_name'])){ echo $row['time_name']; } ?></div>
+                      <div><b>วันที่นัดหมาย : </b><?PHP if(isset($row['mt_serdateId'])){ echo date("d-m-Y", strtotime($row['mt_serdateId'])); } ?></div>
+                      <div><b>เวลาที่นัดหมาย : </b><?PHP if(isset($row['mt_sertimeId'])){ echo $row['mt_sertimeId']; } ?></div>
                       <br/>
                       <div><b>เบอร์โทรศัพท์ : </b><?PHP if(isset($row['mt_tel'])){ echo $row['mt_tel']; } ?></div>
+                    </div>
+                    <div class="card-footer">
+                      <small>วันที่ทำนัดหมายออนไลน์ :: <?PHP echo $row['mt_dateMeetadd'];?></small>
                     </div>
                   </div>
 
