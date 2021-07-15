@@ -23,53 +23,55 @@
                             <h4 class="card-title"><i class="nc-icon nc-book-bookmark"></i> ข้อมูลผู้ลงทะเบียนนัดหมายทันตกรรม</h4>
                         </div>
                         <div class="card-body">
-                            <div class="toolbar"></div>
-                            <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 15%;">เลขบัตรประชาชน</th>
-                                        <th>ชื่อ-สกุล</th>
-                                        <th class="text-center" style="width: 10%;">สถานะภาพสมรส</th>
-                                        <th class="text-center" style="width: 10%;">สัญชาติ</th>
-                                        <th class="text-center" style="width: 10%;">เพศ</th>
-                                        <th class="text-center" style="width: 10%;">หมู่เลือด</th>
-                                        <th class="disabled-sorting text-center" style="width: 10%;">จัดการ</th>
-                                    </tr>
-                                </thead>
-                                <?php
-                                    // query ตาราง member
-                                    $query = "SELECT * FROM users ORDER BY user_id ASC;" or die("Error:" . mysqli_error($con));
-                                    $result = mysqli_query($con, $query);
-                                    $i = 1;
-                                ?>
-                                <tbody>
-                                    <!-- loop ข้อมูลที่ query ได้ จาก member -->
-                                    <?PHP  while($row = mysqli_fetch_array($result)) {  ?>
-                                    <tr>
-                                        <td><?PHP echo $row['user_iden13']; ?></td>
-                                        <td>
-                                            <?PHP if(isset($row['user_prename']) && isset($row['user_fname']) && isset($row['user_lname'])){ ?>
-                                                <?PHP if($row['user_prename'] == "อื่นๆ"){echo $row['user_prenameOthers']; } else{echo $row['user_prename'];} ?> <?PHP echo $row['user_fname']; ?> <?PHP echo $row['user_lname']; ?>
-                                            <?PHP } else{ ?>
-                                                <div class="text-danger">ยังไม่มีข้อมูลส่วนบุคคล</div>
-                                            <?PHP } ?>
-                                        </td>
-                                        <td class="text-center">
-                                            <?PHP if(isset($row['user_marry_status'])){ echo $row['user_marry_status'];}else{echo '-';} ?>
-                                        </td>
-                                        <td class="text-center"><?PHP if(isset($row['user_nation'])){ if($row['user_nation'] == "อื่นๆ"){echo $row['user_nationOther']; } else{echo $row['user_nation'];} }else{echo '-';} ?></td>
-                                        <td class="text-center"><?PHP if(isset($row['user_sex'])){ echo $row['user_sex'];}else{echo '-';} ?></td>
-                                        <td class="text-center"><?PHP if(isset($row['user_blood'])){ echo $row['user_blood'];}else{echo '-';} ?></td>
-                                        <td class="text-center">
-                                            <a href="form.php?id=<?PHP echo $row['user_id']; ?>"><button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm"><i class="fa fa-edit"></i></button></a>
-                                            <a href="#"  onclick="deleteModel(this)" data-toggle="modal" data-target="#deleteModel" data-id="<?PHP echo $row['user_id']; ?>" data-message="คุณต้องการลบข้อมูลรายการนี้หรือไม่ ?" type="button" rel="tooltip">
-                                                <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm"><i class="fa fa-times"></i></button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <?PHP } ?>
-                                </tbody>
-                            </table>
+                            <div class="table-responsive">
+                                <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 100px;">เลขบัตรประชาชน</th>
+                                            <th style="min-width: 150px;">ชื่อ-สกุล</th>
+                                            <th class="text-center" style="width: 120px;">สถานะภาพสมรส</th>
+                                            <th class="text-center" style="width: 80px;">สัญชาติ</th>
+                                            <th class="text-center" style="width: 80px;">เพศ</th>
+                                            <th class="text-center" style="width: 80px;">หมู่เลือด</th>
+                                            <th class="disabled-sorting text-center" style="width: 150px;">จัดการ</th>
+                                        </tr>
+                                    </thead>
+                                    <?php
+                                        // query ตาราง member
+                                        $query = "SELECT * FROM users ORDER BY user_id ASC;" or die("Error:" . mysqli_error($con));
+                                        $result = mysqli_query($con, $query);
+                                        $i = 1;
+                                    ?>
+                                    <tbody>
+                                        <!-- loop ข้อมูลที่ query ได้ จาก member -->
+                                        <?PHP  while($row = mysqli_fetch_array($result)) {  ?>
+                                        <tr>
+                                            <td><?PHP echo $row['user_iden13']; ?></td>
+                                            <td>
+                                                <?PHP if(isset($row['user_prename']) && isset($row['user_fname']) && isset($row['user_lname'])){ ?>
+                                                    <?PHP if($row['user_prename'] == "อื่นๆ"){echo $row['user_prenameOthers']; } else{echo $row['user_prename'];} ?> <?PHP echo $row['user_fname']; ?> <?PHP echo $row['user_lname']; ?>
+                                                <?PHP } else{ ?>
+                                                    <div class="text-danger">ยังไม่มีข้อมูลส่วนบุคคล</div>
+                                                <?PHP } ?>
+                                            </td>
+                                            <td class="text-center">
+                                                <?PHP if(isset($row['user_marry_status'])){ echo $row['user_marry_status'];}else{echo '-';} ?>
+                                            </td>
+                                            <td class="text-center"><?PHP if(isset($row['user_nation'])){ if($row['user_nation'] == "อื่นๆ"){echo $row['user_nationOther']; } else{echo $row['user_nation'];} }else{echo '-';} ?></td>
+                                            <td class="text-center"><?PHP if(isset($row['user_sex'])){ echo $row['user_sex'];}else{echo '-';} ?></td>
+                                            <td class="text-center"><?PHP if(isset($row['user_blood'])){ echo $row['user_blood'];}else{echo '-';} ?></td>
+                                            <td class="text-center">
+                                                <a href="history.php?id=<?PHP echo $row['user_id']; ?>"><button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm"><i class="nc-icon nc-single-copy-04"></i></button></a>
+                                                <a href="form.php?id=<?PHP echo $row['user_id']; ?>"><button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm"><i class="fa fa-edit"></i></button></a>
+                                                <a href="#"  onclick="deleteModel(this)" data-toggle="modal" data-target="#deleteModel" data-id="<?PHP echo $row['user_id']; ?>" data-message="คุณต้องการลบข้อมูลรายการนี้หรือไม่ ?" type="button" rel="tooltip">
+                                                    <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm"><i class="fa fa-times"></i></button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <?PHP } ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -89,8 +91,6 @@
 
 <!-- นำเข้าแจ้งเตือนก่อนตกลง delete -->
 <?PHP include_once('_action/delete.php'); ?>
-<!-- นำเข้าแจ้งเตือนก่อนตกลง ปิด/เปิด การใช้งาน -->
-<?PHP include_once('_action/show.php'); ?>
 
 <script>
 
