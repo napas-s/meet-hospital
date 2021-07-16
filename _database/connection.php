@@ -6,5 +6,10 @@ $con= mysqli_connect("localhost","root","","db_meet_hospital") or die("Error: " 
 //เซ็ตค่าเป็น UTF 8 เพื่อใช้งานภาษาไทย
 mysqli_set_charset($con, "utf8");
 
+if ($con -> connect_errno) {
+    echo "Failed to connect to MySQL: " . $con -> connect_error;
+    exit();
+}
+
 ?>
 

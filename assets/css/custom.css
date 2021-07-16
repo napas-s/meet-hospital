@@ -341,6 +341,9 @@ span.round-tab:hover {
     padding: 40px 0 !important;
 }                    
 
+.group-other{
+    display: none;
+}
 /* ============================================================================ stepwizard */
 .has-error .sm-form-control {
     border: 2px solid #a94442;

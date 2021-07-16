@@ -21,6 +21,14 @@ if ($("#serpoint_id").length != 0) {
     });
 }
 
+if ($("#prename").length != 0) {
+    $('#prename').select2({
+        placeholder: "เลือกสถานะคำนำหน้า",
+        selectOnClose: true,
+        allowClear: true
+    });
+}
+
 if ($("#sertype_id").length != 0) {
     $('#sertype_id').select2({
         placeholder: "กรุณาเลือกประเภทบริการ",
@@ -60,6 +68,18 @@ if ($(".format").length != 0) {
     });
 }
 
+function prenameOtherChange(e){
+
+    var value = e;
+    var Other = document.getElementById("prenameOthers");
+  
+    if(value == "อื่นๆ"){
+      Other.style.display = "block";
+    }else{
+      Other.style.display = "none";
+    }
+  }
+
 var table = $('#datatable1').DataTable({
     responsive: true,
     autoWidth: false,
@@ -83,6 +103,7 @@ var table = $('#datatable1').DataTable({
     },
 
 });
+
 
 //custom search input for data table
 $(".dataTables_filter").hide();
@@ -166,6 +187,10 @@ function setTimeService(e){
 function meetPresent(){
 
     var idcardNumber    = $('#idcardNumber').val();
+    var prename         = $('#prename').val();
+    var prenameOther    = $('#prenameOther').val();
+    var fname           = $('#fname').val();
+    var lname           = $('#lname').val();
     var birthday        = $('#birthday').val();
     var contact         = $('#contact').val();
     var setpointId      = $('#serpoint_id').val();
@@ -177,7 +202,7 @@ function meetPresent(){
     $.ajax({
         url: '_ajax/meetPresent.php',
         type: "GET",
-        data: { idcardNumber:idcardNumber,birthday:birthday,contact:contact,setpointId:setpointId,settypeId:settypeId,setserviceId:setserviceId,serdateId:serdateId,sertimeId:sertimeId},
+        data: { lname:lname,fname:fname,prenameOther:prenameOther,prename:prename,idcardNumber:idcardNumber,birthday:birthday,contact:contact,setpointId:setpointId,settypeId:settypeId,setserviceId:setserviceId,serdateId:serdateId,sertimeId:sertimeId},
         cache: false,
         beforeSend: function () { },
         success: function (response) {

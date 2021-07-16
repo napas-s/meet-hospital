@@ -56,7 +56,31 @@
                                     <h3><i class="icon-user4"></i> :: ลงทะเบียน</h3>
                                     <div class="col_full form-group">
                                         <label for="idcardNumber">เลขบัตรประชาชน</label>
-                                        <input type="text" id="idcardNumber" name="idcardNumber" required="required" value="" class="sm-form-control">
+                                        <input type="text" id="idcardNumber" name="idcardNumber" required="required" value="" class="sm-form-control" >
+                                    </div>
+                                    <div class="col_full form-group">
+                                        <label for="prename">คำนำหน้า</label>
+                                        <select class="sm-form-control" name="prename" id="prename" onchange="prenameOtherChange(this.value)" required="true" >
+                                            <option value="" disabled="" selected="">เลือกคำนำหน้า</option>
+                                            <option value="นาย" >นาย</option>
+                                            <option value="นางสาว" >นางสาว</option>
+                                            <option value="นาง" >นาง</option>
+                                            <option value="ด.ช." >ด.ช.</option>
+                                            <option value="ด.ญ." >ด.ญ.</option>
+                                            <option value="อื่นๆ" >อื่นๆ</option>
+                                        </select>
+                                        <div id="prenameOthers" class="form-group group-other">
+                                            <br/>
+                                            <input placeholder="โปรดระบุ" class="sm-form-control" type="text" name="prenameOther" id="prenameOther" value="" required="true" />
+                                        </div>
+                                    </div>
+                                    <div class="col_half form-group">
+                                        <label for="idcardNumber">ชื่อ</label>
+                                        <input type="text" id="fname" name="fname" required="required" value="" class="sm-form-control">
+                                    </div>
+                                    <div class="col_half col_last form-group">
+                                        <label for="idcardNumber">สกุล</label>
+                                        <input type="text" id="lname" name="lname" required="required" value="" class="sm-form-control">
                                     </div>
                                     <div class="col_full form-group">
                                         <label for="birthday">วัน/เดือน/ปีเกิด (ค.ศ.)</label>

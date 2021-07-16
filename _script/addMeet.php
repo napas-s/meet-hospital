@@ -7,6 +7,10 @@
 
     //รับค่าจาก form
     $idcardNumber           = $_POST['idcardNumber'];
+    $prename                = $_POST['prename'];
+    $prenameOther           = $_POST['prenameOther'];
+    $fname                  = $_POST['fname'];
+    $lname                  = $_POST['lname'];
     $birthday 	            = date("Y-m-d", strtotime($_POST['birthday']));
     $contact 	            = $_POST['contact'];
     $serpoint_id 	        = $_POST['serpoint_id'];
@@ -90,6 +94,10 @@
 
                 $sql = "INSERT INTO users (
                     user_iden13,
+                    user_prename,
+                    user_prenameOthers,
+                    user_fname,
+                    user_lname,
                     user_birthday,
                     user_addby,
                     user_adddate,
@@ -99,6 +107,10 @@
                 VALUES
                 (
                     '$idcardNumber',
+                    '$prename',
+                    '$prenameOther',
+                    '$fname',
+                    '$lname',
                     '$birthday',
                     'System',
                     '$date',

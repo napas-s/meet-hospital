@@ -4,6 +4,10 @@
     require_once('../_database/connection.php');
 
     $idcardNumber       = $_GET['idcardNumber'];
+    $prename            = $_GET['prename'];
+    $prenameOther       = $_GET['prenameOther'];
+    $fname              = $_GET['fname'];
+    $lname              = $_GET['lname'];
     $birthday           = $_GET['birthday'];
     $contact            = $_GET['contact'];
     $setpointId         = $_GET['setpointId'];
@@ -36,6 +40,11 @@
     }
 
     echo "<div class='mg_present'><b>เลขบัตรประชาชน : </b>".$idcardNumber."</div>";
+    if($prename == 'อื่นๆ'){
+        echo "<div class='mg_present'><b>ชื่อ - สกุล : </b>".$prenameOther.' '.$fname.' '.$lname."</div>";
+    }else{
+        echo "<div class='mg_present'><b>ชื่อ - สกุล : </b>".$prename .$fname .$lname."</div>";
+    }
     echo "<div class='mg_present'><b>วัน/เดือน/ปีเกิด : </b>".$birthday."</div>";
     echo "<div class='mg_present'><b>เบอร์โทรศัพท์ : </b>".$contact."</div>";
     echo "<div class='divider'><i class='icon-screen'></i></div>";
