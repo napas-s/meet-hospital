@@ -126,7 +126,8 @@
 					user_addby,
 					user_adddate,
 					user_updateby,
-					user_updatedate
+					user_updatedate,
+                    user_channel
 				)
 				VALUES
 				(
@@ -156,7 +157,8 @@
 					'$member_name',
 					'$date',
 					'$member_name',
-					'$date'
+					'$date',
+					'เพิ่มโดยพนักงาน/ผู้ดูแลระบบ'
 				)";
 
 		$result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error($con));

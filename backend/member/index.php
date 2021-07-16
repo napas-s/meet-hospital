@@ -31,9 +31,9 @@
                                         <th>ชื่อ-สกุล</th>
                                         <th>ชื่อผู้ใช้</th>
                                         <th class="text-center" style="width: 70px;">สถานะ</th>
-                                        <th class="text-center" style="width: 70px;">สถานะการใช้งาน</th>
-                                        <th class="text-center">เข้าใช้งานล่าสุด</th>
-                                        <th class="disabled-sorting text-center">จัดการ</th>
+                                        <th class="text-center" style="width: 110px;">สถานะการใช้งาน</th>
+                                        <th class="text-center" style="width: 120px;">เข้าใช้งานล่าสุด</th>
+                                        <th class="disabled-sorting text-center" style="width: 100px;">จัดการ</th>
                                     </tr>
                                 </thead>
                                 <?php
@@ -62,7 +62,7 @@
                                             <?PHP if($row['member_status'] == 1){ ?>  <!-- ถ้า member_status == 1 -->
                                                 <span class="badge badge-pill badge-success">เปิดใช้งาน</span>
                                             <?PHP }else{ ?> <!-- ถ้า member_status == 2 -->
-                                                <span class="badge badge-pill badge-danger">ปิดการใช้งาน</span>
+                                                <span class="badge badge-pill badge-danger">ระงับการใช้งาน</span>
                                             <?PHP } ?>
                                         </td>
                                         <td class="text-center"><?PHP echo $row['last_login']; ?></td>

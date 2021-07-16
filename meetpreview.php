@@ -36,7 +36,7 @@
                                     <?PHP if(isset($row['user_prename']) && isset($row['user_fname']) && isset($row['user_lname'])){ ?>
                                         <div class='mg_present'><b>ชื่อ - สกุล : </b><?PHP if($row['user_prename'] == "อื่นๆ"){echo $row['user_prenameOthers']; } else{echo $row['user_prename'];} ?> <?PHP echo $row['user_fname']; ?> <?PHP echo $row['user_lname']; ?></div>
                                     <?PHP }else{ ?>
-                                        <div class='mg_present'><b>ชื่อ - สกุล : </b>-</div>
+                                        <div class='mg_present'><b>ชื่อ - สกุล : </b><?PHP echo $row['user_prename']; ?> <?PHP echo $row['user_fname']; ?> <?PHP echo $row['user_lname']; ?></div>
                                     <?PHP } ?>
                                     <div class='mg_present'><b>วัน/เดือน/ปีเกิด (ค.ศ.) : </b><?PHP if(isset($row['user_birthday'])){ echo date("d-m-Y", strtotime($row['user_birthday']));; } else{echo '-';} ?></div>
                                     <div class='mg_present'><b>เบอร์โทรศัพท์ : </b><?PHP if(isset($row['mt_tel'])){ echo $row['mt_tel']; } else{echo '-';} ?></div>

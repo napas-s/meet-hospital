@@ -71,7 +71,7 @@
                                         </select>
                                         <div id="prenameOthers" class="form-group group-other">
                                             <br/>
-                                            <input placeholder="โปรดระบุ" class="sm-form-control" type="text" name="prenameOther" id="prenameOther" value="" required="true" />
+                                            <input placeholder="โปรดระบุ" class="sm-form-control" type="text" name="prenameOther" id="prenameOther" value="" />
                                         </div>
                                     </div>
                                     <div class="col_half form-group">

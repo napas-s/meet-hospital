@@ -212,19 +212,19 @@
                       <div class="card-body">
                         <div class="form-check-radio">
                           <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="mt_status" id="mt_status" value="1" <? if($row['mt_status'] == 1){ echo 'checked'; } ?>> นัดหมายแล้ว
+                            <input class="form-check-input" type="radio" name="mt_status" id="mt_status" value="1" <?PHP if($row['mt_status'] == 1){ echo 'checked'; } ?>> นัดหมายแล้ว
                             <span class="form-check-sign"></span>
                           </label>
                         </div>
                         <div class="form-check-radio">
                           <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="mt_status" id="mt_status" value="2" <? if($row['mt_status'] == 2){ echo 'checked'; } ?>> มาตามนัดหมาย/นัดหมายสำเร็จ
+                            <input class="form-check-input" type="radio" name="mt_status" id="mt_status" value="2" <?PHP if($row['mt_status'] == 2){ echo 'checked'; } ?>> มาตามนัดหมาย/นัดหมายสำเร็จ
                             <span class="form-check-sign"></span>
                           </label>
                         </div>
                         <div class="form-check-radio">
                           <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="mt_status" id="mt_status" value="3" <? if($row['mt_status'] == 3){ echo 'checked'; } ?>> ไม่มาตามนัดหมาย/ยกเลิก
+                            <input class="form-check-input" type="radio" name="mt_status" id="mt_status" value="3" <?PHP if($row['mt_status'] == 3){ echo 'checked'; } ?>> ไม่มาตามนัดหมาย/ยกเลิก
                             <span class="form-check-sign"></span>
                           </label>
                         </div>

@@ -458,7 +458,8 @@
               <div class="card-footer">
                 <?PHP if(isset($_GET["id"])){ ?>
                   <div class="form-group">
-                    <small>อัพเดตข้อมูลล่าสุด :: <?PHP echo $row['user_updateby'];?> / <?PHP echo date("d-m-Y H:i:s", strtotime($row['user_updatedate']));?></small>
+                    <small>อัพเดตข้อมูลล่าสุด :: <?PHP echo $row['user_updateby'];?> / <?PHP echo date("d-m-Y H:i:s", strtotime($row['user_updatedate']));?></small><br/>
+                    <small>ที่มาของข้อมูล :: <?PHP echo $row['user_channel'];?></small>
                   </div>
                   <br/>
                 <?PHP } ?>

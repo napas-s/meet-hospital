@@ -1,6 +1,7 @@
+<meta charset="UTF-8" />
 <?php
     //ประกาศใช้ session เพื่อ login (การใส่ @ นำหน้า session คือการปิด error ของ session)
-	@session_start();
+	session_start();
 
     //เช็คว่ามีข้อมูลเข้ามาไหม ถ้าไม่มีให้เด้งกลับไปที่หน้า login และ แสดง error
 
@@ -27,13 +28,15 @@
             $_SESSION["Img"]    = 'admin.png';
 
             // ไปยังระบบหลังบ้าน
-            Header("Location: ../backend/dashboard/index.php");
+            echo "<script type='text/javascript'>";
+            echo "window.location='../backend/dashboard/index.php'";
+            echo "</script>";
 
         }else{
 
             //เช็คว่ามีข้อมูลอยู่ในฐานข้อมูลหรือไม่ ถ้าไม่มีให้เด้งกลับไปหน้า Login และแสดง error ถ้ามีให้อัพเดตวันที่ Login ล่าสุด และเข้าสู่ระบบ
-            $sql="SELECT * FROM member Where member_username='".$txt_username."' and member_password='".$txt_password."' and member_status= '1' ";
-            $result = mysqli_query($con,$sql);
+            $sql="SELECT * FROM member Where member_user='".$txt_username."' and member_password='".$txt_password."' and member_status= '1' ";
+            $result = mysqli_query($con,$sql) or die ("Error in query: $sql " . mysqli_error($con));
 
             //mysqli_num_rows คือ นับจำนวนว่าในฐานข้อมูลมีข้อมูลอยู่กี่แถว
             if(mysqli_num_rows($result)==1){ //ถ้ามีข้อมูล
@@ -43,7 +46,7 @@
 
                 //อัพเดตวันที่ Login ล่าสุด " last_login ='$date' "
                 $member_id = $row["member_id"];
-                $sqlUpdate = "UPDATE tb_member SET last_login ='$date' WHERE member_id = '$member_id'";
+                $sqlUpdate = "UPDATE member SET last_login ='$date' WHERE member_id = '$member_id'";
                 $result = mysqli_query($con, $sqlUpdate) or die ("Error in query: $sql " . mysqli_error($con));
 
                 //เช็ตค่า SESSION เพื่อเข้าสู่ระบบ
@@ -53,14 +56,15 @@
                 $_SESSION["Img"]    = $row["member_img"];
 
                 // ไปยังระบบหลังบ้าน
-                Header("Location: ../backend/dashboard/index.php");
-
+                echo "<script type='text/javascript'>";
+                echo "window.location='../backend/dashboard/index.php';";
+                echo "</script>";
 
             }else{ // ถ้าไม่มีข้อมูล
 
                 // ไปยังหน้า login และแสดง er == 1
-                echo "<script>";
-                echo "location.href='../login.php?er=1';";
+                echo "<script type='text/javascript'>";
+                echo "window.location='../login.php?er=1';";
                 echo "</script>";
 
             }
@@ -68,6 +72,8 @@
     }else{ // ถ้าไม่มีข้อมูล
 
         // ไปยังหน้า login และแสดง er == 1
-        Header("Location: ../login.php?er=1");
+        echo "<script type='text/javascript'>";
+        echo "window.location='../login.php?er=1';";
+        echo "</script>";
     }
 ?>

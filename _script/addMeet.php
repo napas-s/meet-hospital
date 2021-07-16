@@ -102,7 +102,8 @@
                     user_addby,
                     user_adddate,
                     user_updateby,
-                    user_updatedate
+                    user_updatedate,
+                    user_channel
                 )
                 VALUES
                 (
@@ -115,7 +116,8 @@
                     'System',
                     '$date',
                     'System',
-                    '$date'
+                    '$date',
+                    'ลงทะเบียนออนไลน์'
                 )";
 
                 $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error($con));

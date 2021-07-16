@@ -1,10 +1,13 @@
 <?PHP
 
     //ประกาศใช้ session เพื่อ login (การใส่ @ นำหน้า session คือการปิด error ของ session)
-    @session_start();
+    session_start();
+    @ob_start();
     //เช็คว่ามี session id อยู่หรือไม่ ถ้าไม่มีให้ไปยังหน้า login และแสดง er == 1
     if(!isset($_SESSION["Id"]) || $_SESSION["Id"]==""){
-        Header("Location: ../../login.php?er=1");
+        echo "<script type='text/javascript'>";
+        echo "window.location='../../login.php?er=1';";
+        echo "</script>";
     }
 
 ?>

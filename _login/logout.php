@@ -4,7 +4,9 @@
     //ล้างค่า session ที่มีอยู่ในระบบ
     session_destroy();
     //ไปยังหน้า login เมื่อล้างค่า session เสร็จแล้ว
-    header("Location:../login.php");
+    echo "<script type='text/javascript'>";
+    echo "window.location='../login.php';";
+    echo "</script>";
     echo "<meta http-equiv=\"refresh\" content=\"0 url=index.php\">";
 
 ?>

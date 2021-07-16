@@ -80,12 +80,12 @@
                             <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th class="text-center" style="width: 70px;">รหัส</th>
-                                        <th>วันที่ให้บริการ</th>
+                                        <th class="disabled-sorting text-center" style="width: 70px;">รหัส</th>
+                                        <th class="disabled-sorting ">วันที่ให้บริการ</th>
                                         <th>ประเภทบริการ</th>
                                         <th>จุดบริการ</th>
                                         <th class="text-center" style="width: 70px;">สถานะ</th>
-                                        <th class="text-center" style="width: 120px;">อัพเดตข้อมูลล่าสุด</th>
+                                        <th class="disabled-sorting text-center" style="width: 120px;">อัพเดตข้อมูลล่าสุด</th>
                                         <th class="disabled-sorting text-center" style="width: 120px;">จัดการ</th>
                                     </tr>
                                 </thead>

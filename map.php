@@ -30,10 +30,12 @@
                     <?PHP if(isset($row)){ ?>
                         <?PHP if($row['about_lavel'] == 1){ ?>
                             <?PHP echo $row['about_content']; ?>
+                            <br/>
                         <?PHP }else if($row['about_lavel'] == 2){ ?>
                             <div class="center">
                                 <img style="width: 100%; height: auto" src="<?PHP base_url() ?>uploads/about/<?PHP echo $row['about_img']; ?>" alt="about image" />
                             </div>
+                            <br/>
                         <?PHP }else{ ?>
                             <?PHP if(isset($row['about_content_googlemap'])){ ?>
                                 <?PHP echo $row['about_content_googlemap']; ?>
