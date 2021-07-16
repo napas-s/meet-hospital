@@ -9,6 +9,15 @@
     <!-- นำเข้าไฟล์ Template ส่วนเมนู -->
     <?PHP include_once('assets/_template/navbar.php') ?>
 
+    <section id="page-title">
+        <div class="container clearfix">
+            <h1>ข่าวสารและประชาสัมพันธ์</h1>
+            <ol class="breadcrumb">
+                <li><a href="index.php">หน้าแรก</a></li>
+                <li class="active">ข่าวสารและประชาสัมพันธ์</li>
+            </ol>
+        </div>
+    </section>
     <section id="content">
         <div class="content-wrap">
             <div class="container clearfix mapabout">

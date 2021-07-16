@@ -9,12 +9,19 @@
     <!-- นำเข้าไฟล์ Template ส่วนเมนู -->
     <?PHP include_once('assets/_template/navbar.php') ?>
 
+    <section id="page-title">
+        <div class="container clearfix">
+            <h1>ข้อมูลเกี่ยวกับองค์กร</h1>
+            <ol class="breadcrumb">
+                <li><a href="index.php">หน้าแรก</a></li>
+                <li><a href="about.php">เกี่ยวกับเรา</a></li>
+                <li class="active">ข้อมูลเกี่ยวกับองค์กร</li>
+            </ol>
+        </div>
+    </section>
     <section id="content">
         <div class="content-wrap">
             <div class="container clearfix mapabout">
-                    <div class="heading-block center">
-                        <h4>ข้อมูลเกี่ยวกับองค์กร</h4>
-                    </div>
                     <?php
                         $sql="SELECT * FROM about WHERE about_type = '1' AND about_status = '1'";
                         $sql_query = mysqli_query($con,$sql)or die(mysqli_error($con));

@@ -9,17 +9,43 @@
     <!-- นำเข้าไฟล์ Template ส่วนเมนู -->
     <?PHP include_once('assets/_template/navbar.php') ?>
 
+    <section id="page-title">
+        <div class="container clearfix">
+            <h1>การเดินทาง</h1>
+            <ol class="breadcrumb">
+                <li><a href="index.php">หน้าแรก</a></li>
+                <li class="active">การเดินทาง</li>
+            </ol>
+        </div>
+    </section>
     <section id="content">
         <div class="content-wrap">
             <div class="container clearfix mapabout">
-                    <div class="heading-block center">
-                        <h4>การเดินทาง</h4>
-                    </div>
                     <?php
                         $sql="SELECT * FROM about WHERE about_type = '3' AND about_status = '1'";
                         $sql_query = mysqli_query($con,$sql)or die(mysqli_error($con));
                         $row = mysqli_fetch_assoc($sql_query);
                     ?>
+
+                    <?PHP if(isset($row)){ ?>
+                        <?PHP if($row['about_lavel'] == 1){ ?>
+                            <?PHP echo $row['about_content']; ?>
+                        <?PHP }else if($row['about_lavel'] == 2){ ?>
+                            <div class="center">
+                                <img style="width: 100%; height: auto" src="<?PHP base_url() ?>uploads/about/<?PHP echo $row['about_img']; ?>" alt="about image" />
+                            </div>
+                        <?PHP }else{ ?>
+                            <?PHP if(isset($row['about_content_googlemap'])){ ?>
+                                <?PHP echo $row['about_content_googlemap']; ?>
+                                <br/>
+                            <?PHP } ?>
+                            <?PHP echo $row['about_googlemap']; ?>
+                        <?PHP } ?>
+                    <?PHP }else{ ?>
+                        <div class="center">
+                            ยังไม่มีข้อมูล
+                        </div>
+                    <?PHP } ?>
 
                     <?PHP if(!empty($setting['tel'])){ ?>
                         <div style="margin-bottom:20px"><strong>เบอร์โทรศัพท์ : <a href="tel:<?PHP echo $setting['tel']; ?>"><?PHP echo $setting['tel']; ?></a></strong></div>
@@ -53,25 +79,6 @@
                             <i class="icon-twitter"></i>
                             <i class="icon-twitter"></i>
                         </a>
-                    <?PHP } ?>
-
-                    <?PHP if(isset($row)){ ?>
-                        <br/>
-                        <?PHP if($row['about_lavel'] == 1){ ?>
-                            <?PHP echo $row['about_content']; ?>
-                        <?PHP }else if($row['about_lavel'] == 2){ ?>
-                            <div class="center">
-                                <img style="width: 100%; height: auto" src="<?PHP base_url() ?>uploads/about/<?PHP echo $row['about_img']; ?>" alt="about image" />
-                            </div>
-                        <?PHP }else{ ?>
-                            <?PHP echo $row['about_content_googlemap']; ?>
-                            <br/>
-                            <?PHP echo $row['about_googlemap']; ?>
-                        <?PHP } ?>
-                    <?PHP }else{ ?>
-                        <div class="center">
-                            ยังไม่มีข้อมูล
-                        </div>
                     <?PHP } ?>
             </div>
         </div>
