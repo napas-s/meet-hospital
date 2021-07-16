@@ -29,7 +29,7 @@
 }
 
 .mapabout .fluid-width-video-wrapper{
-    padding-top: 55% !important;
+    padding-top: 48% !important;
 }
 .mapabout .fluid-width-video-wrapper iframe, .mapabout .fluid-width-video-wrapper object, .mapabout .fluid-width-video-wrapper embed {
     max-height: 500px;
@@ -327,6 +327,20 @@ span.round-tab:hover {
 .dataTables_empty{
     text-align: center !important;
 }
+
+
+#page-title {
+    position: relative;
+    padding: 30px 20px !important;
+    background-color: transparent !important;
+    border-bottom: none !important;
+}
+
+.content-wrap {
+    position: relative;
+    padding: 40px 0 !important;
+}                    
+
 /* ============================================================================ stepwizard */
 .has-error .sm-form-control {
     border: 2px solid #a94442;
