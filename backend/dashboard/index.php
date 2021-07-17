@@ -162,7 +162,62 @@
                         <div class="card-footer ">
                             <a class="stats" href="../meet/index.php">
                                 <i class="nc-icon nc-minimal-right"></i> ดูเพิ่มเติม...
-                            </ๆ>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header ">
+
+                            <?PHP
+
+                                //วันที่ปัจจุบัน
+                                $dateTodayFailed = date('Y-m-d');
+
+                                //หาจำนวนรายการที่มีอยู๋
+                                $queryFailed = "SELECT * FROM meet_service WHERE meet_service.mt_serdateId < '$dateTodayFailed' AND mt_status = 1 "or die("Error:" . mysqli_error($con));
+                                $resultFailed = mysqli_query($con, $queryFailed)or die(mysqli_error($con));
+                                $numFailed     = mysqli_num_rows($resultFailed);
+                            ?>
+
+                            <h4 class="card-title"><i class="nc-icon nc-calendar-60" style="margin-right: 20px;"></i> (<?PHP echo $numFailed;?>) รายการ</h4>
+                            <h5 class="card-category">นัดหมายที่เลยกำหนดแล้ว</h5>
+                        </div>
+                        <div class="card-body ">
+                            <table id="datatable2" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" style="width: 120px;">เลขบัตรประชาชน</th>
+                                        <th>จุดบริการ</th>
+                                        <th class="text-center" style="width: 100px;">วันที่นัดหมาย</th>
+                                        <th class="text-center" style="width: 100px;">เวลาที่นัดหมาย</th>
+                                    </tr>
+                                </thead>
+                                <?php
+                                    $dateToday = date('Y-m-d');
+                                    // query ตาราง member
+                                    $query_meet = "SELECT * FROM meet_service JOIN users ON users.user_iden13 = meet_service.mt_idcardNumber WHERE meet_service.mt_serdateId < '$dateToday' AND mt_status = 1  ORDER BY meet_service.mt_serdateId desc;"or die("Error:" . mysqli_error($con));
+                                    $result_meet = mysqli_query($con, $query_meet)or die(mysqli_error($con));
+                                    $i = 1;
+                                ?>
+                                <tbody>
+                                    <?PHP  while($row = mysqli_fetch_array($result_meet)) {  ?>
+                                        <tr>
+                                            <td class="text-center"><?PHP echo $row['mt_idcardNumber']; ?></td>
+                                            <td>
+                                                <?PHP echo $row['mt_service_id']; ?> <small>(<?PHP echo $row['mt_sertype_id']; ?>)</small><br/><?PHP echo $row['mt_serpoint_id']; ?>
+                                            </td>
+                                            <td  class="text-center" data-sort='YYYYMMDD'><?PHP echo date("d-m-Y", strtotime($row['mt_serdateId'])) ; ?></td>
+                                            <td  class="text-center"><?PHP echo $row['mt_sertimeId']; ?></td>
+                                        </tr>
+                                    <?PHP } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-footer ">
+                            <a class="stats" href="../meet/failed.php">
+                                <i class="nc-icon nc-minimal-right"></i> ดูเพิ่มเติม...
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -186,7 +241,33 @@
         responsive: true,
         autoWidth: false,
         processing: true,
-        pageLength: 10,
+        pageLength: 5,
+        searching:false,
+        language: {
+            sLengthMenu: "",
+            search: 'ค้นหา',
+            searchPlaceholder: "ค้นหา",
+            processing: '<i class="nc-icon nc-refresh-69"></i><span class="ml-2">กำลังโหลดข้อมูล...</span> ',
+            info: "แสดง หน้า _PAGE_ จาก _PAGES_",
+            infoEmpty: "",
+            zeroRecords: "ไม่พบข้อมูล",
+            infoFiltered: "(ค้นหา จาก _MAX_ รายการ)",
+            paginate: {
+                first: 'หน้าแรก',
+                last: 'หน้าสุดท้าย',
+                next: '<i class="nc-icon nc-minimal-right"></i>',
+                previous: '<i class="nc-icon nc-minimal-left"></i>'
+            }
+        },
+
+      });
+
+
+      $('#datatable2').DataTable({
+        responsive: true,
+        autoWidth: false,
+        processing: true,
+        pageLength: 5,
         searching:false,
         language: {
             sLengthMenu: "",
@@ -208,6 +289,8 @@
       });
 
     });
+
+    
 </script>
 
 <!-- ./จบนำเข้าไฟล์ js ที่ต้องการเพิ่มเติม เพื่อใช้ในหน้านี้เท่านั้น -->
