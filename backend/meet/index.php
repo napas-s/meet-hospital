@@ -20,7 +20,12 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"><i class="nc-icon nc-single-copy-04"></i> ประวัติการนัดหมาย</h4>
+                            <?PHP
+                                $queryMeet1 = "SELECT * FROM meet_service "or die("Error:" . mysqli_error($con));
+                                $resultMeet1 = mysqli_query($con, $queryMeet1)or die(mysqli_error($con));
+                                $numMeet1     = mysqli_num_rows($resultMeet1);
+                            ?>
+                            <h4 class="card-title"><i class="nc-icon nc-single-copy-04"></i> ประวัติการนัดหมาย (<?PHP echo $numMeet1;?>)</h4>
                         </div>
                         <div class="card-body">
                             <form action="index.php" method="get">
