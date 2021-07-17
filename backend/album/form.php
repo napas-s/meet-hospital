@@ -78,6 +78,7 @@
                       <br/>
                       <input id="files" name="files[]" type="file" multiple class="form-control" accept="image/jpg" />
                       <button type="submit" id="btnUpload" class="btn btn-success btn-block">อัพโหลดไฟล์</button>
+                      <small class="text-danger">คำแนะนำ: ไฟล์ไม่ควรมีขนาดใหญ่เกิน 1MB ต่อภาพ</small><br/>
                       <small class="text-danger">หมายเหตุ: <i class="nc-icon nc-bookmark-2"></i> คือการเลือกภาพนั้นเป็นภาพหน้าปก</small>
                     </form>
                   </div>
