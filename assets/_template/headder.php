@@ -48,5 +48,5 @@
 	<link rel="stylesheet" href="<?PHP echo base_url(); ?>assets/vendor/canvas/css/components/daterangepicker.css" type="text/css" />
 
 </head>
-<body class="stretched">
+<body class="stretched no-transition">
 
