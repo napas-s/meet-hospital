@@ -183,3 +183,7 @@ table tbody tr td{
     border: 1px solid #ef8157;
     color: #ef8157;
 }
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    white-space: nowrap !important;
+}
