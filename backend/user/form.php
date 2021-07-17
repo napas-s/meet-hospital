@@ -226,10 +226,10 @@
                             <label>หมู่เลือด<font color="red"><i>*</i></font></label>
                             <select class="form-control mt-1" id="blood" name="blood" required="true" >
                               <option value="" disabled="" selected="">เลือกหมู่เลือด</option>
-                              <option value="A (เอ)" <?PHP if(isset($row['user_blood'])){ ?> <?PHP if($row['user_blood'] == "A (เอ)"){echo 'selected'; }?> <?PHP } ?>>A (เอ)</option>
-                              <option value="B (บี)" <?PHP if(isset($row['user_blood'])){ ?> <?PHP if($row['user_blood'] == "B (บี)"){echo 'selected'; }?> <?PHP } ?>>B (บี)</option>
-                              <option value="AB (เอบี)" <?PHP if(isset($row['user_blood'])){ ?> <?PHP if($row['user_blood'] == "AB (เอบี)"){echo 'selected'; }?> <?PHP } ?>>AB (เอบี)</option>
-                              <option value="O (โอ)" <?PHP if(isset($row['user_blood'])){ ?> <?PHP if($row['user_blood'] == "O (โอ)"){echo 'selected'; }?> <?PHP } ?>>O (โอ)</option>
+                              <option value="A" <?PHP if(isset($row['user_blood'])){ ?> <?PHP if($row['user_blood'] == "A"){echo 'selected'; }?> <?PHP } ?>>A</option>
+                              <option value="B" <?PHP if(isset($row['user_blood'])){ ?> <?PHP if($row['user_blood'] == "B"){echo 'selected'; }?> <?PHP } ?>>B</option>
+                              <option value="AB" <?PHP if(isset($row['user_blood'])){ ?> <?PHP if($row['user_blood'] == "AB"){echo 'selected'; }?> <?PHP } ?>>AB</option>
+                              <option value="O" <?PHP if(isset($row['user_blood'])){ ?> <?PHP if($row['user_blood'] == "O"){echo 'selected'; }?> <?PHP } ?>>O</option>
                               <option value="ไม่ทราบ" <?PHP if(isset($row['user_blood'])){ ?> <?PHP if($row['user_blood'] == "ไม่ทราบ"){echo 'selected'; }?> <?PHP } ?>>ไม่ทราบ</option>
                             </select>
                           </div>

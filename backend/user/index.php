@@ -20,9 +20,65 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"><i class="nc-icon nc-book-bookmark"></i> ข้อมูลผู้ลงทะเบียนนัดหมายทันตกรรม</h4>
+                            <?PHP
+                                $checkUser   = "SELECT * FROM users";
+                                $resultUser = mysqli_query($con, $checkUser);
+                                $numUser     = mysqli_num_rows($resultUser);
+                            ?>
+                            <h4 class="card-title"><i class="nc-icon nc-book-bookmark"></i> ข้อมูลผู้ลงทะเบียนนัดหมายทันตกรรม (<?PHP echo $numUser; ?>)</h4>
                         </div>
                         <div class="card-body">
+                        <form action="index.php" method="get">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>ค้นหาจากหมวดหมู่เลือด</label>
+                                            <select class="form-control mt-1" id="ublood" name="ublood"  >
+                                            <option value="" >เลือกหมู่เลือด</option>
+                                                <option value="A" <?PHP if(isset($_GET['ublood'])){ ?> <?PHP if($_GET['ublood'] == "A"){echo 'selected'; }?> <?PHP } ?>>A</option>
+                                                <option value="B" <?PHP if(isset($_GET['ublood'])){ ?> <?PHP if($_GET['ublood'] == "B"){echo 'selected'; }?> <?PHP } ?>>B</option>
+                                                <option value="AB" <?PHP if(isset($_GET['ublood'])){ ?> <?PHP if($_GET['ublood'] == "AB"){echo 'selected'; }?> <?PHP } ?>>AB</option>
+                                                <option value="O" <?PHP if(isset($_GET['ublood'])){ ?> <?PHP if($_GET['ublood'] == "O"){echo 'selected'; }?> <?PHP } ?>>O</option>
+                                                <option value="ไม่ทราบ" <?PHP if(isset($_GET['ublood'])){ ?> <?PHP if($_GET['ublood'] == "ไม่ทราบ"){echo 'selected'; }?> <?PHP } ?>>ไม่ทราบ</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>เพศ</label>
+                                            <select class="form-control" name="usex" id="usex">
+                                                <option value="">กรุณาเลือกข้อมูล</option>
+                                                <option value="ชาย" <?PHP if(isset($_GET['usex'])){ if($_GET['usex'] == "ชาย" ){echo 'selected';} } ?>>ชาย</option>
+                                                <option value="หญิง" <?PHP if(isset($_GET['usex'])){ if($_GET['usex'] == "หญิง" ){echo 'selected';} } ?>>หญิง</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button type="submit" style="margin-top: 25px;" class="btn btn-block btn-success"><i class="nc-icon nc-tap-01"></i> ค้นหาข้อมูล</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button type="button" style="margin-top: 25px;" class="btn btn-block" data-toggle="modal" data-target="#import-data"><i class="nc-icon nc-share-66"></i> Import .CSV</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>ค้นหา</label>
+                                        <input name="search" id="search" type="text" value="" class="form-control" placeholder="ค้นหาข้อมูล">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="index.php" style="margin-top: 25px;"  type="button" class="btn btn-block btn-warning"><i class="nc-icon nc-refresh-69"></i> โหลดข้อมูลใหม่</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href='form.php' style="margin-top: 25px;" class='btn btn-block btn-info'>+ เพิ่มข้อมูล</a>
+                                </div>
+                            </div>
                             <div class="table-responsive">
                                 <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
@@ -37,8 +93,15 @@
                                         </tr>
                                     </thead>
                                     <?php
+
+                                        //กำหนดค่าตัวแปร เมื่อไม่มีการค้นหา
+                                        if(!empty($_GET['ublood'])){ $blood = $_GET['ublood']; }else{  $blood = ''; }
+                                        if(!empty($_GET['usex'])){ $sex = $_GET['usex']; }else{  $sex = ''; }
+
+                                        // WHERE user_blood LIKE '%$blood%' AND user_sex LIKE '%$sex%'
+
                                         // query ตาราง member
-                                        $query = "SELECT * FROM users ORDER BY user_id ASC;" or die("Error:" . mysqli_error($con));
+                                        $query = "SELECT * FROM users  ORDER BY user_id ASC;" or die("Error:" . mysqli_error($con));
                                         $result = mysqli_query($con, $query);
                                         $i = 1;
                                     ?>
@@ -83,6 +146,9 @@
 
 <!-- ./จบเนื้อหาของหน้า -->
 
+<!-- นำเข้า modal import -->
+<?PHP include_once('_action/import.php'); ?>
+
 <!-- นำเข้าไฟล์ js เบื้องต้น -->
 <?PHP include_once('../_template/footerjs.php') ?>
 
@@ -95,13 +161,13 @@
 <script>
 
     $(document).ready(function() {
-      $('#datatable').DataTable({
+      var table = $('#datatable').DataTable({
         responsive: true,
         autoWidth: false,
         processing: true,
         pageLength: 15,
         language: {
-            sLengthMenu: "<a href='form.php' class='btn btn-info btn-md'>+ เพิ่มข้อมูล</a>",
+            sLengthMenu: "",
             search: 'ค้นหา',
             searchPlaceholder: "ค้นหา",
             processing: '<i class="nc-icon nc-refresh-69"></i><span class="ml-2">กำลังโหลดข้อมูล...</span> ',
@@ -119,10 +185,25 @@
 
       });
 
+        //custom search input for data table
+        $(".dataTables_filter").hide();
+        $('#search').on( 'keypress', function () {
+            var val = $("#search").val();
+            table.search( val ).draw();
+        });
+
     });
 </script>
 
 <!-- ./จบนำเข้าไฟล์ js ที่ต้องการเพิ่มเติม เพื่อใช้ในหน้านี้เท่านั้น -->
+
+<script src="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/js/plugins/jquery.validate.min.js"></script>
+<script>
+    //ส่งค่า input ไปยัง form Validation ในไฟล์ assets/vendor/paper-dashboard/assets/js/function.js
+    $(document).ready(function() {
+      setFormValidation('#FormValidation');
+    });
+</script>
 
 <!-- แจ้งเตือนมีการผิดพลาด (รับตัวแปลจากหน้า _script/add or _script/update) -->
 <?PHP if(isset($_GET['message'])){ ?>
