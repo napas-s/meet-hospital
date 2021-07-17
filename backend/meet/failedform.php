@@ -26,9 +26,8 @@
             }
         ?>
 
-              <form id="FormValidation" class="form-horizontal" enctype="multipart/form-data" action="_script/update.php" method="post">
+              <form id="FormValidation" class="form-horizontal" enctype="multipart/form-data" action="_script/updatefailed.php" method="post">
               <input type="hidden" name="member_id" id="member_id" value="<?PHP if(isset($_GET['id'])){ echo $_GET['id'];}?>" />
-
               <div class="row">
                 <div class="col-md-8">
                   <div class="card">
@@ -173,7 +172,7 @@
                     </div>
                     <div class="card-footer">
                       <div class="row">
-                        <div class="col-md-6"><a href="index.php"><button type="button" class="btn btn-danger">ย้อนกลับ</button></a></div>
+                        <div class="col-md-6"><a href="failed.php"><button type="button" class="btn btn-danger">ย้อนกลับ</button></a></div>
                         <div class="col-md-6 text-right"></div>
                       </div>
                     </div>
