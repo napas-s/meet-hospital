@@ -35,9 +35,9 @@
                                         $des = mysqli_fetch_assoc($sql_query_des);
                                     ?>
                                     <?PHP if(count($des) != 0){ ?>
-                                        <a href="albumcontent.php?p=<?PHP echo $album['album_id']; ?>"><img class="image_fade" src="<?PHP base_url() ?>uploads/album/<?PHP echo $des['des_img']; ?>" alt="<?PHP echo $album['album_title']; ?>"></a>
+                                        <a href="albumcontent.php?p=<?PHP echo $album['album_id']; ?>"><img loading='lazy' class="image_fade" src="<?PHP base_url() ?>uploads/album/<?PHP echo $des['des_img']; ?>" alt="<?PHP echo $album['album_title']; ?>"></a>
                                     <?PHP }else{ ?>
-                                        <a href="albumcontent.php?p=<?PHP echo $album['album_id']; ?>"><img class="image_fade" src="<?PHP base_url() ?>assets/images/no-image.jpeg" alt="<?PHP echo $album['album_title']; ?>"></a>
+                                        <a href="albumcontent.php?p=<?PHP echo $album['album_id']; ?>"><img loading='lazy' class="image_fade" src="<?PHP base_url() ?>assets/images/no-image.jpeg" alt="<?PHP echo $album['album_title']; ?>"></a>
                                     <?PHP } ?>
                                 </div>
                                 <div class="entry-title">
