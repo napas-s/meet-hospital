@@ -66,12 +66,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>ค้นหาจากวันที่ (ค.ศ.)</label>
-                                    <div class="input-group">
-										<input type="text" value="<?PHP if(isset($_GET['date'])){ echo $_GET['date']; } ?>" name="date" id="date" class="sm-form-control tleft format" placeholder="MM/DD/YYYY">
-										<span class="input-group-addon" style="padding: 9px 12px;">
-											<i class="icon-calendar2"></i>
-										</span>
-									</div>
+									<input type="text" value="<?PHP if(isset($_GET['date'])){ echo $_GET['date']; } ?>" name="date" id="date" class="sm-form-control tleft format" placeholder="MM/DD/YYYY">
                                 </div>
                             </div>
                             <div class="col-md-3">
