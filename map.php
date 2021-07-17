@@ -42,6 +42,7 @@
                                 <br/>
                             <?PHP } ?>
                             <?PHP echo $row['about_googlemap']; ?>
+                            <br/>
                         <?PHP } ?>
                     <?PHP }else{ ?>
                         <div class="center">
