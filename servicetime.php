@@ -40,9 +40,8 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>ค้นหาจากจุดบริการ</label>
                                     <select class="sm-form-control" name="point" id="point">
-                                        <option value="">กรุณาเลือกข้อมูล</option>
+                                        <option value="">ค้นหาจากจุดบริการ</option>
                                         <?PHP
                                             $sqlPoint="SELECT ser_point_id,ser_point_name,ser_point_status FROM services_point WHERE ser_point_status = 1 ";
                                             $sql_query_point = mysqli_query($con,$sqlPoint)or die(mysqli_error($con));
@@ -55,9 +54,8 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>ค้นหาจากประเภทคลินิก</label>
                                     <select class="sm-form-control" name="type" id="type">
-                                        <option value="">กรุณาเลือกข้อมูล</option>
+                                        <option value="">ค้นหาจากประเภทคลินิก</option>
                                         <option value="1" <?PHP if(isset($_GET['type'])){ if($_GET['type'] == "1" ){echo 'selected';} } ?>>คลินิกทั่วไป</option>
                                         <option value="2" <?PHP if(isset($_GET['type'])){ if($_GET['type'] == "2" ){echo 'selected';} } ?>>คลินิกนอกเวลา</option>
                                     </select>
@@ -65,13 +63,12 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>ค้นหาจากวันที่ (ค.ศ.)</label>
-									<input type="text" value="<?PHP if(isset($_GET['date'])){ echo $_GET['date']; } ?>" name="date" id="date" class="sm-form-control tleft format" placeholder="MM/DD/YYYY">
+									<input type="text" value="<?PHP if(isset($_GET['date'])){ echo $_GET['date']; } ?>" name="date" id="date" class="sm-form-control tleft format" placeholder="ค้นหาจากวันที่ (ค.ศ.)">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <button type="submit" style="margin-top: 30px;" class="btn btn-block button button-green center"><i class="nc-icon nc-tap-01"></i> ค้นหาข้อมูล</button>
+                                    <button type="submit" style="margin: 0px;" class="btn btn-block button button-green center"><i class="nc-icon nc-tap-01"></i> ค้นหาข้อมูล</button>
                                 </div>
                             </div>
                         </div>
@@ -79,13 +76,12 @@
                     <div class="row">
                         <div class="col-md-9">
                             <div class="form-group">
-                                <label>ค้นหา</label>
                                 <input name="search" id="search" type="text" value="" class="sm-form-control" placeholder="ค้นหาข้อมูล">
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <a href="servicetime.php" style="margin-top: 30px;"  type="button" class="btn btn-block button button-amber"><i class="nc-icon nc-refresh-69"></i> โหลดข้อมูลใหม่</a>
-                        </div> 
+                            <a href="servicetime.php" style="margin: 0px"  type="button" class="btn btn-block button button-amber"><i class="nc-icon nc-refresh-69"></i> โหลดข้อมูลใหม่</a>
+                        </div>
                     </div>
 
                     <div class="table-responsive">
