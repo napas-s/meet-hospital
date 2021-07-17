@@ -216,3 +216,8 @@ function meetPresent(){
     });
 
 }
+
+//loadding lazy
+const hasSupport = 'loading' in HTMLImageElement.prototype;
+document.documentElement.className = hasSupport ? 'pass' : 'fail';
+document.querySelector('span').textContent = hasSupport;
