@@ -98,10 +98,8 @@
                                         if(!empty($_GET['ublood'])){ $blood = $_GET['ublood']; }else{  $blood = ''; }
                                         if(!empty($_GET['usex'])){ $sex = $_GET['usex']; }else{  $sex = ''; }
 
-                                        // WHERE user_blood LIKE '%$blood%' AND user_sex LIKE '%$sex%'
-
                                         // query ตาราง member
-                                        $query = "SELECT * FROM users  ORDER BY user_id ASC;" or die("Error:" . mysqli_error($con));
+                                        $query = "SELECT * FROM users WHERE user_blood LIKE '%$blood%' AND user_sex LIKE '%$sex%' ORDER BY user_id ASC;" or die("Error:" . mysqli_error($con));
                                         $result = mysqli_query($con, $query);
                                         $i = 1;
                                     ?>
@@ -117,10 +115,10 @@
                                                     <div class="text-danger">ยังไม่มีข้อมูลส่วนบุคคล</div>
                                                 <?PHP } ?>
                                             </td>
-                                            <td class="text-center">
+                                            <td>
                                                 <?PHP if(isset($row['user_marry_status'])){ echo $row['user_marry_status'];}else{echo '-';} ?>
                                             </td>
-                                            <td class="text-center"><?PHP if(isset($row['user_nation'])){ if($row['user_nation'] == "อื่นๆ"){echo $row['user_nationOther']; } else{echo $row['user_nation'];} }else{echo '-';} ?></td>
+                                            <td><?PHP if(isset($row['user_nation'])){ if($row['user_nation'] == "อื่นๆ"){echo $row['user_nationOther']; } else{echo $row['user_nation'];} }else{echo '-';} ?></td>
                                             <td class="text-center"><?PHP if(isset($row['user_sex'])){ echo $row['user_sex'];}else{echo '-';} ?></td>
                                             <td class="text-center"><?PHP if(isset($row['user_blood'])){ echo $row['user_blood'];}else{echo '-';} ?></td>
                                             <td class="text-center">
