@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 16, 2021 at 11:06 AM
+-- Generation Time: Jul 17, 2021 at 09:11 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.12
 
@@ -145,8 +145,8 @@ CREATE TABLE `meet_service` (
 --
 
 INSERT INTO `meet_service` (`mt_id`, `mt_idcardNumber`, `mt_tel`, `mt_serpoint_id`, `mt_sertype_id`, `mt_service_id`, `mt_serdateId`, `mt_sertimeId`, `mt_dateMeetadd`, `mt_status`, `mt_status_updateby`, `mt_status_dateby`) VALUES
-(1, '1850456723459', '0987654321', 'คลินิกทันตกรรมผู้ป่วยเรื้อรัง', 'คลินิกนอกเวลา', 'ขูดหินปูน', '2021-07-27', '16.30 - 17.00', '2021-07-15 20:31:19', 3, 'ผู้ดูแลระบบ', '2021-07-15 20:50:35'),
-(3, '1234652789012', '0987654379', 'คลินิกทันตกรรมผู้ป่วยเรื้อรัง', 'คลินิกนอกเวลา', 'ถอนฟัน', '2021-07-27', '18.30 - 19.00', '2021-07-15 20:48:58', 1, NULL, NULL);
+(1, '1890234583021', '1234567890', 'คลินิกทันตกรรมผู้ป่วยเรื้อรัง', 'คลินิกนอกเวลา', 'ขูดหินปูน', '2021-07-15', '17.30 - 18.00', '2021-07-18 01:45:54', 3, 'ผู้ดูแลระบบ', '2021-07-18 01:58:53'),
+(2, '1890234583021', '1234567890', 'คลินิกทันตกรรมผู้ป่วยเรื้อรัง', 'คลินิกนอกเวลา', 'ขูดหินปูน', '2021-07-17', '17.30 - 18.00', '2021-07-18 01:45:54', 3, 'ผู้ดูแลระบบ', '2021-07-18 01:56:34');
 
 -- --------------------------------------------------------
 
@@ -10804,7 +10804,7 @@ CREATE TABLE `users` (
   `user_fname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'ชื่อ',
   `user_lname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'นามสกุล',
   `user_sex` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'เพศ',
-  `user_birthday` date DEFAULT NULL COMMENT 'วัน/เดือน/ปีเกิด',
+  `user_birthday` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'วัน/เดือน/ปีเกิด',
   `user_nation` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'สัญชาติ',
   `user_nationOther` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'สัญชาติ (อื่นๆ)',
   `user_country` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'ประเทศที่เกิด',
@@ -10833,9 +10833,16 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_iden13`, `user_prename`, `user_prenameOthers`, `user_fname`, `user_lname`, `user_sex`, `user_birthday`, `user_nation`, `user_nationOther`, `user_country`, `user_countryOther`, `user_province_birth`, `user_provinceOther`, `user_job`, `user_faith`, `user_faithOther`, `user_education`, `user_marry_status`, `user_blood`, `user_allergy`, `user_allergyOther`, `user_father_name`, `user_mother_name`, `user_channel`, `user_addby`, `user_adddate`, `user_updateby`, `user_updatedate`) VALUES
-(12, '1850456723459', 'นางสาว', '', 'มะลิ', 'กลิ่นหอม', 'หญิง', '1995-07-19', 'ไทย', '', 'ไทย', '', 'กรุงเทพมหานคร', '', 'รับจ้างทั่วไป', 'พุทธ', '', 'ไม่ได้ศึกษา', 'โสด', 'O (โอ)', 'ไม่เคยแพ้', '', 'สุทน กลิ่นหอม', 'มานี กลิ่นหอม', NULL, 'ผู้ดูแลระบบ', '2021-07-14 22:09:31', 'ผู้ดูแลระบบ', '2021-07-15 00:22:33'),
-(18, '1234567823490', NULL, NULL, NULL, NULL, NULL, '2021-07-27', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'SYSTEM', '2021-07-14 23:51:15', 'SYSTEM', '2021-07-14 23:51:15'),
-(21, '1234652789012', NULL, NULL, NULL, NULL, NULL, '1990-07-15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'System', '2021-07-27 00:00:00', 'System', '2021-07-27 00:00:00');
+(2, '2345678912304', 'นาง', '', 'มะลิ', 'กลิ่นหอม', 'หญิง', '', 'ไทย', '', 'ไทย', '', 'กรุงเทพมหานคร', '', '', 'พุทธ', '', 'ไม่ทราบ', 'โสด', 'O', 'ไม่ทราบ', '', '', '', 'Import Excel', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24'),
+(3, '9803456782914', 'นาย', '', 'สุชาติ', 'มั่งมี', 'ชาย', '', 'ไทย', '', 'ไทย', '', 'ประจวบคีรีขันธ์', '', '', 'พุทธ', '', 'มัธยมศึกษาตอนปลาย', 'แต่งงาน', 'A', 'ไม่เคยแพ้', '', '', '', 'Import Excel', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24'),
+(4, '4583402198237', 'นางสาว', '', 'งานดี', 'มีมาก', 'หญิง', '', 'ไทย', '', 'ไทย', '', 'ประจวบคีรีขันธ์', '', '', 'พุทธ', '', 'ปริญญาตรี', 'โสด', 'AB', 'ไม่เคยแพ้', '', '', '', 'Import Excel', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24'),
+(5, '9803457823019', 'อื่นๆ', 'ร้อยตำรวจตรี', 'คมสัน', 'สุขดี', 'ชาย', '', 'ไทย', '', 'ไทย', '', 'ประจวบคีรีขันธ์', '', '', 'พุทธ', '', 'ไม่ทราบ', 'แต่งงาน', 'ไม่ทราบ', 'ไม่ทราบ', '', '', '', 'Import Excel', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24'),
+(6, '3850238745610', 'ด.ช.', '', 'หทัย', 'ทิพย์สุข', 'ชาย', '', 'ไทย', '', 'ไทย', '', 'ประจวบคีรีขันธ์', '', '', 'พุทธ', '', 'ประถมศึกษา', 'โสด', 'AB', 'เคยแพ้', 'อาหารทะเล', '', '', 'Import Excel', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24'),
+(7, '1890234583021', 'ด.ญ.', '', 'นฤมล', 'มั่งมี', 'หญิง', '', 'ไทย', '', 'ไทย', '', 'ประจวบคีรีขันธ์', '', '', 'พุทธ', '', 'ประถมศึกษา', 'โสด', 'AB', 'ไม่เคยแพ้', '', '', '', 'Import Excel', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24'),
+(8, '9203451984579', 'นางสาว', '', 'มานี', 'จิตดี', 'หญิง', '', 'ไทย', '', 'ไทย', '', 'ประจวบคีรีขันธ์', '', '', 'พุทธ', '', 'ไม่ทราบ', 'แต่งงาน', 'O', 'ไม่เคยแพ้', '', '', '', 'Import Excel', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24'),
+(9, '5892043198245', 'นางสาว', '', 'ฟากฟ้า', 'สีทอง', 'หญิง', '', 'อื่นๆ', 'อเมริกัน', 'อื่นๆ', 'สหรัฐอเมริกา', 'อื่นๆ', 'สหรัฐอเมริกา', '', 'อื่นๆ', 'คริสต์', 'ไม่ทราบ', 'โสด', 'O', 'ไม่ทราบ', '', '', '', 'Import Excel', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24'),
+(10, '9038576120938', 'นาง', '', 'จัน', 'เกรดดี', 'หญิง', '', 'ไทย', '', 'ไทย', '', 'ประจวบคีรีขันธ์', '', '', 'พุทธ', '', 'ไม่ทราบ', 'แต่งงาน', 'O', 'ไม่เคยแพ้', '', '', '', 'Import Excel', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24'),
+(11, '9840138475902', 'ด.ญ.', '', 'อรทัย', 'จันทร์หอม', 'หญิง', '', 'ไทย', '', 'ไทย', '', 'ประจวบคีรีขันธ์', '', '', 'อื่นๆ', 'อิสลาม', 'ประถมศึกษา', 'โสด', 'O', 'ไม่เคยแพ้', '', '', '', 'Import Excel', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24');
 
 -- --------------------------------------------------------
 
@@ -10866,9 +10873,16 @@ CREATE TABLE `users_contact` (
 --
 
 INSERT INTO `users_contact` (`id`, `user_id`, `user_home_no_pt`, `user_moo_pt`, `user_soi_pt`, `user_road_pt`, `user_province_live_pt`, `user_amphure_live_pt`, `user_district_live_pt`, `user_zipcode_live_pt`, `user_phone_moblie_1_pt`, `user_phone_moblie_2_pt`, `user_phone_home_pt`, `user_phone_work_pt`, `user_email_pt`) VALUES
-(11, 12, '12/54', '2', '-', 'บางบ่อ', 'สมุทรปราการ', 'บางบ่อ', 'คลองด่าน', '10550', '0987654321', '', '', '', ''),
-(17, 18, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(20, 21, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(22, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(23, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(24, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(25, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(26, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(27, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(28, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(29, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(30, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(31, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -10893,9 +10907,16 @@ CREATE TABLE `users_family` (
 --
 
 INSERT INTO `users_family` (`id`, `user_id`, `user_name_fam`, `user_relation_fam`, `user_phone_moblie_1_fam`, `user_phone_moblie_2_fam`, `user_phone_home_fam`, `user_phone_work_fam`, `user_email_fam`) VALUES
-(8, 12, '', '', '', '', '', '', ''),
-(14, 18, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(17, 21, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(19, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(20, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(21, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(22, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(23, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(24, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(25, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(26, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(27, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(28, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -11050,7 +11071,7 @@ ALTER TABLE `album_des`
 -- AUTO_INCREMENT for table `meet_service`
 --
 ALTER TABLE `meet_service`
-  MODIFY `mt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `mt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `member`
@@ -11128,19 +11149,19 @@ ALTER TABLE `se_provinces`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users_contact`
 --
 ALTER TABLE `users_contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `users_family`
 --
 ALTER TABLE `users_family`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Constraints for dumped tables
