@@ -101,13 +101,13 @@
                                         // query ตาราง member
                                         if(empty($_GET['ublood']) && empty($_GET['usex'])){
                                             //เงื่อนไขการค้นหาถ้า หมู่เลือดและเพศ เท่ากับค่าว่าง
-                                            $query = "SELECT * FROM users ORDER BY user_id ASC;" or die("Error:" . mysqli_error($con));
+                                            $query = "SELECT * FROM users ORDER BY user_iden13 ASC;" or die("Error:" . mysqli_error($con));
                                         }elseif(!empty($_GET['usex']) && empty($_GET['ublood'])){
                                             //เงื่อนไขการค้นหาถ้า หมู่เลือดเท่ากับค่าว่าง และเพศ ไม่เท่ากับค่าว่าง
-                                            $query = "SELECT * FROM users WHERE user_sex LIKE '%$sex%' ORDER BY user_id ASC;" or die("Error:" . mysqli_error($con));
+                                            $query = "SELECT * FROM users WHERE user_sex LIKE '%$sex%' ORDER BY user_iden13 ASC;" or die("Error:" . mysqli_error($con));
                                         }else{
                                             //เงื่อนไขการค้นหาถ้า หมู่เลือดและเพศ ไม่เท่ากับค่าว่าง
-                                            $query = "SELECT * FROM users WHERE user_sex LIKE '%$sex%' AND user_blood LIKE '$blood'  ORDER BY user_id ASC;" or die("Error:" . mysqli_error($con));
+                                            $query = "SELECT * FROM users WHERE user_sex LIKE '%$sex%' AND user_blood LIKE '$blood'  ORDER BY user_iden13 ASC;" or die("Error:" . mysqli_error($con));
                                         }
                                         $result = mysqli_query($con, $query);
                                         $i = 1;

@@ -145,6 +145,14 @@
                     $strSQL .="'".$date."',";
                     $strSQL .="'Import Excel') ";
                     $objQuery =  mysqli_query($con, $strSQL) or die ("Error in query: $strSQL " . mysqli_error($con));
+                    $userId = mysqli_insert_id($con);
+                    //ผู้ติดต่อกรณีฉุกเฉิน
+                    $sql_family = "INSERT INTO users_family (user_id)VALUES('$userId')";
+                    mysqli_query($con, $sql_family) or die ("Error in query: $sql_family " . mysqli_error($con));
+
+                    //ข้อมูลการติดต่อ
+                    $sql_contact = "INSERT INTO users_contact (user_id)VALUES('$userId')";
+                    mysqli_query($con, $sql_contact) or die ("Error in query: $sql_contact " . mysqli_error($con));
 
                 }
 

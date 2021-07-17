@@ -19,14 +19,11 @@
 
             <?php
                 $userId = $_GET["id"];
-                $sql="SELECT * FROM users 
-                    JOIN users_contact ON users_contact.user_id = users.user_id 
-                    JOIN users_family ON users_family.user_id = users.user_id 
-                    WHERE users.user_id = $userId ";
+                $sql="SELECT * FROM users WHERE users.user_id = $userId ";
                 $sql_query = mysqli_query($con,$sql)or die(mysqli_error($con));
                 $row = mysqli_fetch_assoc($sql_query);
 
-                $query = "SELECT * FROM meet_service WHERE mt_idcardNumber = $row[user_iden13] ORDER BY mt_serdateId desc;"or die("Error:" . mysqli_error($con));
+                $query = "SELECT * FROM meet_service WHERE mt_idcardNumber = '$row[user_iden13]' ORDER BY mt_serdateId desc;"or die("Error:" . mysqli_error($con));
                 $result = mysqli_query($con, $query)or die(mysqli_error($con));
                 $numMeet     = mysqli_num_rows($result);
             ?>
@@ -46,7 +43,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>ชื่อ - สกุล</label>
-                                    <input disabled class="form-control" type="text" value="<?PHP if($row['user_prename'] == "อื่นๆ"){echo $row['user_prenameOthers']; } else{echo $row['user_prename'];} ?> <?PHP echo $row['user_fname']; ?> <?PHP echo $row['user_lname']; ?>"/>
+                                    <input disabled class="form-control" type="text" value="<?PHP if(isset($row['user_prename'])){ if($row['user_prename'] == "อื่นๆ"){echo $row['user_prenameOthers']; } else{echo $row['user_prename'];} } ?> <?PHP if(isset($row['user_fname'])){ echo $row['user_fname']; } ?> <?PHP if(isset($row['user_lname'])){ echo $row['user_lname']; } ?>"/>
                                 </div>
                             </div>
                         </div>

@@ -20,10 +20,7 @@
           <?php
               if(isset($_GET["id"])){
                 $userId = $_GET["id"];
-                $sql="SELECT * FROM users 
-                      JOIN users_contact ON users_contact.user_id = users.user_id 
-                      JOIN users_family ON users_family.user_id = users.user_id 
-                      WHERE users.user_id = $userId ";
+                $sql="SELECT * FROM users JOIN users_contact ON users_contact.user_id = users.user_id JOIN users_family ON users_family.user_id = users.user_id WHERE users.user_id = $userId ";
                 $sql_query = mysqli_query($con,$sql)or die(mysqli_error($con));
                 $row = mysqli_fetch_assoc($sql_query);
               }
@@ -458,8 +455,8 @@
               <div class="card-footer">
                 <?PHP if(isset($_GET["id"])){ ?>
                   <div class="form-group">
-                    <small>อัพเดตข้อมูลล่าสุด :: <?PHP echo $row['user_updateby'];?> / <?PHP echo date("d-m-Y H:i:s", strtotime($row['user_updatedate']));?></small><br/>
-                    <small>ที่มาของข้อมูล :: <?PHP echo $row['user_channel'];?></small>
+                    <small>อัพเดตข้อมูลล่าสุด :: <?PHP if(isset($row['user_updateby'])){ echo $row['user_updateby']; }else{echo '-';} ?> / <?PHP if(isset($row['user_updatedate'])){ echo date("d-m-Y H:i:s", strtotime($row['user_updatedate'])); }else{echo '-';} ?></small><br/>
+                    <small>ที่มาของข้อมูล :: <?PHP if(isset($row['user_channel'])){ echo $row['user_channel']; }else{echo '-';} ?></small>
                   </div>
                   <br/>
                 <?PHP } ?>
