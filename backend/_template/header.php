@@ -10,6 +10,9 @@
         echo "</script>";
     }
 
+    //ตั้งค่า timezone
+    date_default_timezone_set('Asia/Bangkok');
+
 ?>
 <!-- นำเข้าไฟล์ฐานข้อมูล -->
 <?PHP require_once('../../_database/connection.php'); ?>
