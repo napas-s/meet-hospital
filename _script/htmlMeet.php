@@ -12,10 +12,11 @@
         <table style="width:100%;  padding: 10px">
             <tr>
                 <td style="width: 100px;">
-                    <img style="width:100px; margin-bottom:20px" src="../assets/images/ministry_of_public_health.png" />
+                    <img style="width:100px; margin:auto" src="../assets/images/ministry_of_public_health.png" />
                 </td>
                 <td style="width:auto">
-                    <div><strong style="margin: 0; font-size:20px;">โรงพยาบาลสามร้อยยอด กระทรวงสาธารณสุข</strong></div>
+                    <div><strong style="margin: 0; font-size:20px;">โรงพยาบาลส่งเสริมสุขภาพตำบลห้วยยาง</strong></div>
+                    <div><strong style="margin: 0; font-size:20px;">อำเภอทับสะแก จังหวัดประจวบคีรีขันธ์</strong></div>
                     <div><strong style="margin: 0; font-size:18px;">ใบนัดหมายทันตกรรมออนไลน์</strong></div>
                     <div style="font-size: 16px;"><strong>โทรศัพท์ : </strong><?PHP if(isset($setting['tel'])){ echo $setting['tel']; }else{ echo '-';} ?></div>
                 </td>
@@ -63,8 +64,6 @@
             </td>
         </tr>
     </table>
-    <br/>
-    <br/>
     <br/>
     <br/>
     <br/>

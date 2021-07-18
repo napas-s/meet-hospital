@@ -14,9 +14,9 @@
             <div class="container clearfix">
                 <div class="center">
                     <img class="logo-health" src="assets/images/ministry_of_public_health.png" />
-                    <h3 class="c-text" style="margin-bottom: 0;">โรงพยาบาลสามร้อยยอด</h3>
-                    <h4 class="c-text" style="margin-bottom: 0;">กระทรวงสาธารณสุข</h4>
-                    <h4 class="c-text" style="margin-bottom: 0;">ระบบจองนัดออนไลน์</h4>
+                    <h3 class="c-text" style="margin-bottom: 0;">โรงพยาบาลส่งเสริมสุขภาพตำบลห้วยยาง</h3>
+                    <h4 class="c-text" style="margin-bottom: 0;">อำเภอทับสะแก จังหวัดประจวบคีรีขันธ์</h4>
+                    <h4 class="c-text" style="margin-bottom: 0;">ระบบจองคิวทันตกรรมออนไลน์</h4>
                 </div>
             </div>
 
@@ -26,7 +26,7 @@
                         <div class="connecting-line"></div>
                         <ul class="nav nav-tabs setup-panel" role="tablist">
                             <li role="presentation" class="active">
-                                <a href="#step1" class="btn-panel" data-toggle="tab" aria-controls="step1" role="tab" title="ลงทะเบียน">
+                                <a href="#step1" class="btn-panel" data-toggle="tab" aria-controls="step1" role="tab" title="ลงทะเบียน" >
                                     <span class="round-tab">
                                         <i class="icon-user4"></i>
                                     </span>

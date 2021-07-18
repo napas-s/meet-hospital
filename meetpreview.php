@@ -14,9 +14,9 @@
             <div class="container clearfix">
                 <div class="center">
                     <img class="logo-health" src="assets/images/ministry_of_public_health.png" />
-                    <h3 class="c-text" style="margin-bottom: 0;">โรงพยาบาลสามร้อยยอด</h3>
-                    <h4 class="c-text" style="margin-bottom: 0;">กระทรวงสาธารณสุข</h4>
-                    <h4 class="c-text" style="margin-bottom: 0;">ระบบจองนัดออนไลน์</h4>
+                    <h3 class="c-text" style="margin-bottom: 0;">โรงพยาบาลส่งเสริมสุขภาพตำบลห้วยยาง</h3>
+                    <h4 class="c-text" style="margin-bottom: 0;">อำเภอทับสะแก จังหวัดประจวบคีรีขันธ์</h4>
+                    <h4 class="c-text" style="margin-bottom: 0;">ระบบจองคิวทันตกรรมออนไลน์</h4>
                 </div>
                 <div class="mgt_preview">
                     <?PHP if($_GET['message'] == 1){ ?>
