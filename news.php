@@ -30,9 +30,9 @@
                             <div class="entry-news clearfix">
                                 <div class="entry-image-news">
                                     <?PHP if(!empty($news['news_img_cover'])){ ?>
-                                        <a href="newscontent.php?p=<?PHP echo $news['news_id']; ?>"><img loading='lazy' class="image_fade" src="<?PHP base_url() ?>uploads/news/<?PHP echo $news['news_img_cover']; ?>" alt="<?PHP echo $news['news_title']; ?>"></a>
+                                        <a href="newscontent.php?p=<?PHP echo $news['news_id']; ?>"><img class="image_fade lazyload" loading="lazy" data-src="<?PHP base_url() ?>uploads/news/<?PHP echo $news['news_img_cover']; ?>" alt="<?PHP echo $news['news_title']; ?>"></a>
                                     <?PHP }else{ ?>
-                                        <a href="newscontent.php?p=<?PHP echo $news['news_id']; ?>"><img loading='lazy' class="image_fade" src="<?PHP base_url() ?>assets/images/no-image.jpeg" alt="<?PHP echo $news['news_title']; ?>"></a>
+                                        <a href="newscontent.php?p=<?PHP echo $news['news_id']; ?>"><img class="image_fade lazyload" loading="lazy" data-src="<?PHP base_url() ?>assets/images/no-image.jpeg" alt="<?PHP echo $news['news_title']; ?>"></a>
                                     <?PHP } ?>
                                 </div>
                                 <div class="entry-title">

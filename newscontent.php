@@ -34,9 +34,9 @@
 
                             <div class="entry-image">
                                 <?PHP if(!empty($row['news_img_cover'])){ ?>
-                                    <img  loading='lazy' src="<?PHP base_url() ?>uploads/news/<?PHP echo $row['news_img_cover']; ?>" alt="<?PHP echo $row['news_title']; ?>">
+                                    <img  class="lazyload" loading="lazy" data-src="<?PHP base_url() ?>uploads/news/<?PHP echo $row['news_img_cover']; ?>" alt="<?PHP echo $row['news_title']; ?>">
                                 <?PHP }else{ ?>
-                                    <img loading='lazy' class="content-img" src="<?PHP base_url() ?>assets/images/no-image.jpeg" alt="<?PHP echo $row['news_title']; ?>">
+                                    <img  class="lazyload" loading="lazy" data-class="content-img" src="<?PHP base_url() ?>assets/images/no-image.jpeg" alt="<?PHP echo $row['news_title']; ?>">
                                 <?PHP } ?>
                             </div>
 

@@ -43,10 +43,11 @@
 
                             <div class="masonry-thumbs col-6" data-big="3" data-lightbox="gallery">
                                 <?PHP  while($des = mysqli_fetch_array($sql_query)) {  ?>
-                                    <a href="<?PHP base_url() ?>uploads/album/<?PHP echo $des['des_img']; ?>" data-lightbox="gallery-item"><img loading='lazy' class="image_fade" src="<?PHP base_url() ?>uploads/album/<?PHP echo $des['des_img']; ?>" alt="<?PHP echo $des['des_img']; ?>"></a>
+                                    <a href="<?PHP base_url() ?>uploads/album/<?PHP echo $des['des_img']; ?>" data-lightbox="gallery-item"><img class="image_fade lazyload" loading="lazy" data-src="<?PHP base_url() ?>uploads/album/<?PHP echo $des['des_img']; ?>" alt="<?PHP echo $des['des_img']; ?>"></a>
                                 <?PHP } ?>
                             </div>
 
+                            <br/>
                             <br/>
                             <ul class="pager nomargin">
                                 <li class="previous"><a href="album.php">← ย้อนกลับ</a></li>
