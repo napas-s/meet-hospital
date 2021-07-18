@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 17, 2021 at 09:11 PM
+-- Generation Time: Jul 18, 2021 at 04:25 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.12
 
@@ -45,9 +45,9 @@ CREATE TABLE `about` (
 --
 
 INSERT INTO `about` (`about_id`, `about_content`, `about_content_googlemap`, `about_img`, `about_googlemap`, `about_lavel`, `about_type`, `about_status`, `about_updateby`, `about_updatedate`) VALUES
-(1, '<p>dddddd</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>svdgdf</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>dfgdfg</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<div style=\"background:#eeeeee; border:1px solid #cccccc; padding:5px 10px\">sgdgdfg</div>\r\n', '', NULL, '<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7799.138410869049!2d99.858551!3d12.209689!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x51b42d703b0d112c!2z4LmC4Lij4LiH4Lie4Lii4Liy4Lia4Liy4Lil4Liq4Liy4Lih4Lij4LmJ4Lit4Lii4Lii4Lit4LiU!5e0!3m2!1sth!2sth!4v1624635317817!5m2!1sth!2sth\" width=\"400\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', 3, 3, 1, 'ผู้ดูแลระบบ', '2021-07-16 10:56:04'),
+(1, '<p>dddddd</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>svdgdf</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>dfgdfg</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<div style=\"background:#eeeeee; border:1px solid #cccccc; padding:5px 10px\">sgdgdfg</div>\r\n', '', NULL, '<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7816.429434499142!2d99.664181!3d11.608036!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x87aeb689dec7a402!2z4LmC4Lij4LiH4Lie4Lii4Liy4Lia4Liy4Lil4Liq4LmI4LiH4LmA4Liq4Lij4Li04Lih4Liq4Li44LiC4Lig4Liy4Lie4LiV4Liz4Lia4Lil4Lir4LmJ4Lin4Lii4Lii4Liy4LiH!5e0!3m2!1sth!2sus!4v1626575071144!5m2!1sth!2sus\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', 3, 3, 1, 'ผู้ดูแลระบบ', '2021-07-18 09:24:39'),
 (2, '', NULL, '72324455820210626_001543.jpeg', '', 2, 2, 1, 'ผู้ดูแลระบบ', '2021-06-26 00:15:43'),
-(3, '<p>โรงพยาบาลสามร้อยยอด &nbsp;เดิมใช้ชื่อว่า&nbsp; &quot;โรงพยาบาลกุยบุรี&quot; &nbsp;แต่ต่อมาได้เปลี่ยนชื่อเป็น &quot;โรงพยาบาลสามร้อยยอด&quot;&nbsp;&nbsp;ตามสถานที่ตั้งของกิ่งอำเภอสามร้อยยอดเมื่อเดือน ตุลาคม 2539<br />\r\nโรงพยาบาลสามร้อยยอด &nbsp;&nbsp;ตั้งอยู่เลขที่&nbsp;51&nbsp;&nbsp; หมู่ที่ &nbsp;6&nbsp;&nbsp; ตำบลไร่ใหม่ &nbsp;&nbsp;กิ่งอำเภอสามร้อยยอด&nbsp;จังหวัดประจวบคีรีขันธ์&nbsp;มีเนื้อที่ทั้งหมด&nbsp;18&nbsp;ไร่&nbsp;&nbsp; 2&nbsp;&nbsp; งาน&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>\r\n\r\n<p>พ.ศ. &nbsp;&nbsp;&nbsp; 2508&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เริ่มจากสถานีอนามัย&nbsp;ชั้น 2<br />\r\nพ.ศ.&nbsp;&nbsp;&nbsp; &nbsp;2518&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ยกฐานะเป็นศูนย์การแพทย์ และอนามัย<br />\r\nพ.ศ.&nbsp;&nbsp;&nbsp; &nbsp;2519&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ยกฐานะเป็นโรงพยาบาลอำเภอ&nbsp;ขนาด&nbsp;10&nbsp;เตียง<br />\r\nพ.ศ. &nbsp;&nbsp;&nbsp; 2527&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ยกฐานะเป็นโรงพยาบาล&nbsp;ขนาด 60 เตียง<br />\r\nพ.ศ. &nbsp;&nbsp;&nbsp; 2539&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เปลี่ยนชื่อโรงพยาบาลกุยบุรี มาเป็น&nbsp;โรงพยาบาลสามร้อยยอด</p>\r\n\r\n<h3>รายนามผู้อำนวยการโรงพยาบาลสามร้อยยอด</h3>\r\n\r\n<ul>\r\n	<li>นายแพทย์วิทยา&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; คุณานุกูล&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; พ.ศ.2518-2529</li>\r\n	<li>นายแพทย์พิภพ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; เจนสุทธิเวชกุล&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; พ.ศ.2529-2532</li>\r\n	<li>นายแพทย์สมเกียรติ&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ตั้งใจรักษาการดี&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; พ.ศ.2532-2536(รก.)</li>\r\n	<li>นายแพทย์สมชาญ&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; พงษ์ริยวัฒนา&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; พ.ศ.2536-2539(รก.)</li>\r\n	<li>แพทย์หญิงศรีสมัย&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; เชื้อชาติ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; พ.ศ.2539-2543(รก.)</li>\r\n	<li>นายแพทย์ปิยะ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ลินลาวรรณ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; พ.ศ.2543-2546(รก.)</li>\r\n	<li>แพทย์หญิงศรีสมัย&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; เชื้อชาติ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; พ.ศ.2546-2551</li>\r\n	<li>นายแพทย์สมเกียรติ&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ตั้งใจรักษาการดี&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; พ.ศ.2551-30 ก.ย.2562</li>\r\n	<li>แพทย์หญิงวศินี&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; วีระไวทยะ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1 ต.ค.2562-ปัจจุบัน</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3><strong>วิสัยทัศน์ (VISION) ปี 2560 &ndash; 2564</strong></h3>\r\n\r\n<p>เป็นผู้นำให้บริการด้านสุขภาพที่มีคุณภาพมาตรฐาน บริหารจัดการตามหลักธรรมาภิบาล ผู้รับบริการมีพฤติกรรมสุขภาพที่ดี</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3><strong>พันธกิจ (MISSION) ปี 2560 &ndash; 2564</strong></h3>\r\n\r\n<ol>\r\n	<li>พัฒนาระบบบริการจัดการด้านสุขภาพให้มีประสิทธิภาพตามหลักธรรมาภิบาล</li>\r\n	<li>พัฒนาคุณภาพมาตรฐานด้านการรักษาพยาบาลการเฝ้าระวังป้องกันโรค&nbsp;&nbsp; การส่งเสริมสุขภาพ&nbsp; และฟื้นฟูสภาพ</li>\r\n	<li>ส่งเสริมและพัฒนาการใช้ภูมิปัญญาการแพทย์แผนไทยและการแพทย์ทางเลือก</li>\r\n	<li>สร้างเสริมพฤติกรรมสุขภาพที่ถูกต้องของประชาชน</li>\r\n	<li>พัฒนาระบบประกันสุขภาพให้ประชาชนเข้าถึงบริการได้อย่างเสมอภาคและเป็นธรรม</li>\r\n	<li>ส่งเสริมและจัดระบบการคุ้มครองผู้บริโภค</li>\r\n	<li>เสริมสร้างความเข้มแข็งของภาคีเครือข่าย</li>\r\n	<li>เสริมสร้างและพัฒนาสมรรถนะบุคลากร</li>\r\n	<li>พัฒนาระบบข้อมูลข่าวสาร&nbsp; เทคโนโลยีสารสนเทศให้มีประสิทธิภาพ</li>\r\n	<li>พัฒนาวิชาการและส่งเสริมการสร้างนวัตกรรมด้านสุขภาพ</li>\r\n</ol>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3>ยุทธศาสตร์</h3>\r\n\r\n<ol>\r\n	<li>พัฒนาระบบบริหารจัดการภายในองค์กรและเครือข่ายให้สอดคล้องตามหลักธรรมาภิบาล</li>\r\n	<li>พัฒนาและจัดการระบบการรักษาพยาบาลเฝ้าระวังป้องกันโรค&nbsp; ส่งเสริมสุขภาพ&nbsp; และฟื้นฟุสภาพ</li>\r\n	<li>พัฒนาระบบการแพทย์แผนไทยและการแพทย์ทางเลือก</li>\r\n	<li>ส่งเสริมการจัดบริการสร้างเสริมพฤติกรรมการกูแลสุขภาพ</li>\r\n	<li>ส่งเสริมการจัดระบบบริการสุขภาพที่ประชาชนสามารถเข้าถึงได้อย่างครอบคลุมและทั่วถึง</li>\r\n	<li>พัฒนากลไกลการดำเนินงานควบคุม&nbsp; กำกับด้านคุ้มครองผู้บริโภคและด้านบริการสุขภาพ</li>\r\n	<li>&nbsp;พัฒนาภาคีเครือข่ายให้มีศักยภาพและส่งเสริมการมีส่วนร่วมในการดำเดินงาสร้างสุ๘ขภาพ</li>\r\n	<li>พัฒนาศักยภาพบุคลากร</li>\r\n	<li>พัฒนาระบบข้อมูลสารสนเทศ</li>\r\n	<li>พัฒนาองค์กรให้เป็นองค์กรแห่งการเรียนรู้</li>\r\n</ol>\r\n\r\n<p>&nbsp;</p>\r\n', NULL, '', '', 1, 1, 1, 'ผู้ดูแลระบบ', '2021-06-26 00:03:01'),
+(3, '<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n', '', '', '', 1, 1, 0, 'ผู้ดูแลระบบ', '2021-07-18 09:24:17'),
 (7, '', '', '', '', 1, 4, 1, 'ผู้ดูแลระบบ', '2021-07-16 00:22:24');
 
 -- --------------------------------------------------------
@@ -146,7 +146,8 @@ CREATE TABLE `meet_service` (
 
 INSERT INTO `meet_service` (`mt_id`, `mt_idcardNumber`, `mt_tel`, `mt_serpoint_id`, `mt_sertype_id`, `mt_service_id`, `mt_serdateId`, `mt_sertimeId`, `mt_dateMeetadd`, `mt_status`, `mt_status_updateby`, `mt_status_dateby`) VALUES
 (1, '1890234583021', '1234567890', 'คลินิกทันตกรรมผู้ป่วยเรื้อรัง', 'คลินิกนอกเวลา', 'ขูดหินปูน', '2021-07-15', '17.30 - 18.00', '2021-07-18 01:45:54', 3, 'ผู้ดูแลระบบ', '2021-07-18 01:58:53'),
-(2, '1890234583021', '1234567890', 'คลินิกทันตกรรมผู้ป่วยเรื้อรัง', 'คลินิกนอกเวลา', 'ขูดหินปูน', '2021-07-17', '17.30 - 18.00', '2021-07-18 01:45:54', 3, 'ผู้ดูแลระบบ', '2021-07-18 01:56:34');
+(2, '1890234583021', '1234567890', 'คลินิกทันตกรรมผู้ป่วยเรื้อรัง', 'คลินิกนอกเวลา', 'ขูดหินปูน', '2021-07-17', '17.30 - 18.00', '2021-07-18 01:45:54', 3, 'ผู้ดูแลระบบ', '2021-07-18 01:56:34'),
+(3, '11', '11', 'คลินิกทันตกรรมผู้ป่วยเรื้อรัง', 'คลินิกนอกเวลา', 'ขูดหินปูน', '2021-07-27', '18.00 - 18.30', '2021-07-18 08:48:10', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -762,7 +763,7 @@ CREATE TABLE `setting` (
 --
 
 INSERT INTO `setting` (`id`, `icon_web`, `logo_web`, `name_web`, `tel`, `email`, `facebook`, `twitter`, `address`, `edit_by`, `edit_date`) VALUES
-(14, 'icon3309549920210625_235337.png', 'logo72795205520210627_200725.png', 'ระบบจองคิวทันตกรรมออนไลน์', '032-688558 , 032-688020 , 032-689169 , 032-573315', 'ex@email.com', 'https://www.facebook.com/samroiyodhospital', '', 'โรงพยาบาลสามร้อยยอด 51 หมู่ 6 ต.ไร่ใหม่ อ.สามร้อยยอด จ.ประจวบคีรีขันธ์ 77180', 'ผู้ดูแลระบบ', '2021-07-16 03:28:06');
+(14, 'icon8112067820210718_092324.jpeg', 'logo8112067820210718_092324.png', 'ระบบจองคิวทันตกรรมออนไลน์', '032-815-118', 'ex@email.com', '032 815 118', '', 'โรงพยาบาลส่งเสริมสุขภาพตำบลห้วยยาง 188 หมู่ 1, ตำบลห้วยยาง อำเภอทับสะแก จังหวัดประจวบคีรีขันธ์, 77130', 'ผู้ดูแลระบบ', '2021-07-18 09:24:06');
 
 -- --------------------------------------------------------
 
@@ -10842,7 +10843,8 @@ INSERT INTO `users` (`user_id`, `user_iden13`, `user_prename`, `user_prenameOthe
 (8, '9203451984579', 'นางสาว', '', 'มานี', 'จิตดี', 'หญิง', '', 'ไทย', '', 'ไทย', '', 'ประจวบคีรีขันธ์', '', '', 'พุทธ', '', 'ไม่ทราบ', 'แต่งงาน', 'O', 'ไม่เคยแพ้', '', '', '', 'Import Excel', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24'),
 (9, '5892043198245', 'นางสาว', '', 'ฟากฟ้า', 'สีทอง', 'หญิง', '', 'อื่นๆ', 'อเมริกัน', 'อื่นๆ', 'สหรัฐอเมริกา', 'อื่นๆ', 'สหรัฐอเมริกา', '', 'อื่นๆ', 'คริสต์', 'ไม่ทราบ', 'โสด', 'O', 'ไม่ทราบ', '', '', '', 'Import Excel', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24'),
 (10, '9038576120938', 'นาง', '', 'จัน', 'เกรดดี', 'หญิง', '', 'ไทย', '', 'ไทย', '', 'ประจวบคีรีขันธ์', '', '', 'พุทธ', '', 'ไม่ทราบ', 'แต่งงาน', 'O', 'ไม่เคยแพ้', '', '', '', 'Import Excel', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24'),
-(11, '9840138475902', 'ด.ญ.', '', 'อรทัย', 'จันทร์หอม', 'หญิง', '', 'ไทย', '', 'ไทย', '', 'ประจวบคีรีขันธ์', '', '', 'อื่นๆ', 'อิสลาม', 'ประถมศึกษา', 'โสด', 'O', 'ไม่เคยแพ้', '', '', '', 'Import Excel', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24');
+(11, '9840138475902', 'ด.ญ.', '', 'อรทัย', 'จันทร์หอม', 'หญิง', '', 'ไทย', '', 'ไทย', '', 'ประจวบคีรีขันธ์', '', '', 'อื่นๆ', 'อิสลาม', 'ประถมศึกษา', 'โสด', 'O', 'ไม่เคยแพ้', '', '', '', 'Import Excel', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24', 'ผู้ดูแลระบบ', '2021-07-18 01:33:24'),
+(12, '11', 'นางสาว', '', '1', '1', NULL, '2021-07-23', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ลงทะเบียนออนไลน์', 'System', '2021-07-27 00:00:00', 'System', '2021-07-27 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -10882,7 +10884,8 @@ INSERT INTO `users_contact` (`id`, `user_id`, `user_home_no_pt`, `user_moo_pt`, 
 (28, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (29, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (30, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(31, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(31, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(32, 12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -10916,7 +10919,8 @@ INSERT INTO `users_family` (`id`, `user_id`, `user_name_fam`, `user_relation_fam
 (25, 8, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (26, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (27, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(28, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(28, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(29, 12, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -11071,7 +11075,7 @@ ALTER TABLE `album_des`
 -- AUTO_INCREMENT for table `meet_service`
 --
 ALTER TABLE `meet_service`
-  MODIFY `mt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `mt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `member`
@@ -11149,19 +11153,19 @@ ALTER TABLE `se_provinces`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users_contact`
 --
 ALTER TABLE `users_contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `users_family`
 --
 ALTER TABLE `users_family`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Constraints for dumped tables
