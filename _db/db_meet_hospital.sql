@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 18, 2021 at 04:25 AM
+-- Generation Time: Jul 19, 2021 at 03:56 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.12
 
@@ -135,10 +135,10 @@ CREATE TABLE `meet_service` (
   `mt_serdateId` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'วันที่นัดหมาย',
   `mt_sertimeId` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'เวลาที่นัดหมาย',
   `mt_dateMeetadd` datetime NOT NULL COMMENT 'วันที่ทำการนัดหมาย',
-  `mt_status` int(1) NOT NULL DEFAULT 0 COMMENT '1 = ทำการนัดหมาย, 2= นัดหมายสำเร็จ, 3=นัดหมายไม่สำเร็จ/ยกเลิก',
+  `mt_status` int(1) NOT NULL DEFAULT 1 COMMENT '1 = ทำการนัดหมาย, 2= นัดหมายสำเร็จ, 3=นัดหมายไม่สำเร็จ/ยกเลิก',
   `mt_status_updateby` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'อัพเดตข้อมูลโดย',
   `mt_status_dateby` datetime DEFAULT NULL COMMENT 'วันที่อัพเดตข้อมูล'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='ข้อมูลการนัดหมาย';
 
 --
 -- Dumping data for table `meet_service`
@@ -294,7 +294,7 @@ CREATE TABLE `services_des_time` (
   `des_time_id` int(11) NOT NULL COMMENT 'รหัส',
   `serdesId` int(11) NOT NULL COMMENT 'รหัสจากตาราง services_des',
   `destimeId` int(11) NOT NULL COMMENT 'เวลาที่ให้บริการ'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='ข้อมูลประเภทบริการ';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='ข้อมูลเวลาที่ให้บริการ';
 
 --
 -- Dumping data for table `services_des_time`
@@ -709,7 +709,7 @@ CREATE TABLE `services_time` (
   `time_adddate` datetime DEFAULT NULL COMMENT 'วันที่เพิ่มข้อมูล',
   `time_updateby` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'อัพเดตข้อมูลโดย',
   `time_updatedate` datetime DEFAULT NULL COMMENT 'วันที่อัพเดต'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='ข้อมูลประเภทบริการ';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='ข้อมูลการตั้งค่าเวลา';
 
 --
 -- Dumping data for table `services_time`
@@ -779,7 +779,7 @@ CREATE TABLE `se_amphures` (
   `province_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='ข้อมูลอำเภอ/เขต';
 
 --
 -- Dumping data for table `se_amphures`
@@ -1800,7 +1800,7 @@ CREATE TABLE `se_districts` (
   `amphure_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='ข้อมูลตำบลและรหัสไปรษณีย์';
 
 --
 -- Dumping data for table `se_districts`
@@ -10669,32 +10669,6 @@ INSERT INTO `se_districts` (`id`, `dis_code`, `dis_name_th`, `dis_name_en`, `amp
 -- --------------------------------------------------------
 
 --
--- Table structure for table `se_geographies`
---
-
-CREATE TABLE `se_geographies` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `geo_name_th` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `geo_name_en` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `se_geographies`
---
-
-INSERT INTO `se_geographies` (`id`, `geo_name_th`, `geo_name_en`, `created_at`, `updated_at`) VALUES
-(1, 'ภาคเหนือ', 'North', '2020-11-05 20:08:22', '2020-11-05 20:08:42'),
-(2, 'ภาคกลาง', 'Central region', '2020-11-05 20:08:44', '2020-11-05 20:08:46'),
-(3, 'ภาคตะวันออกเฉียงเหนือ', 'Northeast', '2020-11-05 20:08:48', '2020-11-05 20:08:50'),
-(4, 'ภาคตะวันตก', 'Western region', '2020-11-05 20:08:52', '2020-11-05 20:08:55'),
-(5, 'ภาคตะวันออก', 'Eastern region', '2020-11-05 20:08:57', '2020-11-05 20:08:59'),
-(6, 'ภาคใต้', 'South', '2020-11-05 20:09:01', '2020-11-05 20:09:02');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `se_provinces`
 --
 
@@ -10703,93 +10677,92 @@ CREATE TABLE `se_provinces` (
   `prov_code` int(11) NOT NULL DEFAULT 1,
   `prov_name_th` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `prov_name_en` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `geography_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='ข้อมูลจังหวัด';
 
 --
 -- Dumping data for table `se_provinces`
 --
 
-INSERT INTO `se_provinces` (`id`, `prov_code`, `prov_name_th`, `prov_name_en`, `geography_id`, `created_at`, `updated_at`) VALUES
-(1, 10, 'กรุงเทพมหานคร', 'Bangkok', 2, NULL, NULL),
-(2, 11, 'สมุทรปราการ', 'Samut Prakan', 2, NULL, NULL),
-(3, 12, 'นนทบุรี', 'Nonthaburi', 2, NULL, NULL),
-(4, 13, 'ปทุมธานี', 'Pathum Thani', 2, NULL, NULL),
-(5, 14, 'พระนครศรีอยุธยา', 'Phra Nakhon Si Ayutthaya', 2, NULL, NULL),
-(6, 15, 'อ่างทอง', 'Ang Thong', 2, NULL, NULL),
-(7, 16, 'ลพบุรี', 'Loburi', 2, NULL, NULL),
-(8, 17, 'สิงห์บุรี', 'Sing Buri', 2, NULL, NULL),
-(9, 18, 'ชัยนาท', 'Chai Nat', 2, NULL, NULL),
-(10, 19, 'สระบุรี', 'Saraburi', 2, NULL, NULL),
-(11, 20, 'ชลบุรี', 'Chon Buri', 5, NULL, NULL),
-(12, 21, 'ระยอง', 'Rayong', 5, NULL, NULL),
-(13, 22, 'จันทบุรี', 'Chanthaburi', 5, NULL, NULL),
-(14, 23, 'ตราด', 'Trat', 5, NULL, NULL),
-(15, 24, 'ฉะเชิงเทรา', 'Chachoengsao', 5, NULL, NULL),
-(16, 25, 'ปราจีนบุรี', 'Prachin Buri', 5, NULL, NULL),
-(17, 26, 'นครนายก', 'Nakhon Nayok', 2, NULL, NULL),
-(18, 27, 'สระแก้ว', 'Sa Kaeo', 5, NULL, NULL),
-(19, 30, 'นครราชสีมา', 'Nakhon Ratchasima', 3, NULL, NULL),
-(20, 31, 'บุรีรัมย์', 'Buri Ram', 3, NULL, NULL),
-(21, 32, 'สุรินทร์', 'Surin', 3, NULL, NULL),
-(22, 33, 'ศรีสะเกษ', 'Si Sa Ket', 3, NULL, NULL),
-(23, 34, 'อุบลราชธานี', 'Ubon Ratchathani', 3, NULL, NULL),
-(24, 35, 'ยโสธร', 'Yasothon', 3, NULL, NULL),
-(25, 36, 'ชัยภูมิ', 'Chaiyaphum', 3, NULL, NULL),
-(26, 37, 'อำนาจเจริญ', 'Amnat Charoen', 3, NULL, NULL),
-(27, 39, 'หนองบัวลำภู', 'Nong Bua Lam Phu', 3, NULL, NULL),
-(28, 40, 'ขอนแก่น', 'Khon Kaen', 3, NULL, NULL),
-(29, 41, 'อุดรธานี', 'Udon Thani', 3, NULL, NULL),
-(30, 42, 'เลย', 'Loei', 3, NULL, NULL),
-(31, 43, 'หนองคาย', 'Nong Khai', 3, NULL, NULL),
-(32, 44, 'มหาสารคาม', 'Maha Sarakham', 3, NULL, NULL),
-(33, 45, 'ร้อยเอ็ด', 'Roi Et', 3, NULL, NULL),
-(34, 46, 'กาฬสินธุ์', 'Kalasin', 3, NULL, NULL),
-(35, 47, 'สกลนคร', 'Sakon Nakhon', 3, NULL, NULL),
-(36, 48, 'นครพนม', 'Nakhon Phanom', 3, NULL, NULL),
-(37, 49, 'มุกดาหาร', 'Mukdahan', 3, NULL, NULL),
-(38, 50, 'เชียงใหม่', 'Chiang Mai', 1, NULL, NULL),
-(39, 51, 'ลำพูน', 'Lamphun', 1, NULL, NULL),
-(40, 52, 'ลำปาง', 'Lampang', 1, NULL, NULL),
-(41, 53, 'อุตรดิตถ์', 'Uttaradit', 1, NULL, NULL),
-(42, 54, 'แพร่', 'Phrae', 1, NULL, NULL),
-(43, 55, 'น่าน', 'Nan', 1, NULL, NULL),
-(44, 56, 'พะเยา', 'Phayao', 1, NULL, NULL),
-(45, 57, 'เชียงราย', 'Chiang Rai', 1, NULL, NULL),
-(46, 58, 'แม่ฮ่องสอน', 'Mae Hong Son', 1, NULL, NULL),
-(47, 60, 'นครสวรรค์', 'Nakhon Sawan', 2, NULL, NULL),
-(48, 61, 'อุทัยธานี', 'Uthai Thani', 2, NULL, NULL),
-(49, 62, 'กำแพงเพชร', 'Kamphaeng Phet', 2, NULL, NULL),
-(50, 63, 'ตาก', 'Tak', 4, NULL, NULL),
-(51, 64, 'สุโขทัย', 'Sukhothai', 2, NULL, NULL),
-(52, 65, 'พิษณุโลก', 'Phitsanulok', 2, NULL, NULL),
-(53, 66, 'พิจิตร', 'Phichit', 2, NULL, NULL),
-(54, 67, 'เพชรบูรณ์', 'Phetchabun', 2, NULL, NULL),
-(55, 70, 'ราชบุรี', 'Ratchaburi', 4, NULL, NULL),
-(56, 71, 'กาญจนบุรี', 'Kanchanaburi', 4, NULL, NULL),
-(57, 72, 'สุพรรณบุรี', 'Suphan Buri', 2, NULL, NULL),
-(58, 73, 'นครปฐม', 'Nakhon Pathom', 2, NULL, NULL),
-(59, 74, 'สมุทรสาคร', 'Samut Sakhon', 2, NULL, NULL),
-(60, 75, 'สมุทรสงคราม', 'Samut Songkhram', 2, NULL, NULL),
-(61, 76, 'เพชรบุรี', 'Phetchaburi', 4, NULL, NULL),
-(62, 77, 'ประจวบคีรีขันธ์', 'Prachuap Khiri Khan', 4, NULL, NULL),
-(63, 80, 'นครศรีธรรมราช', 'Nakhon Si Thammarat', 6, NULL, NULL),
-(64, 81, 'กระบี่', 'Krabi', 6, NULL, NULL),
-(65, 82, 'พังงา', 'Phangnga', 6, NULL, NULL),
-(66, 83, 'ภูเก็ต', 'Phuket', 6, NULL, NULL),
-(67, 84, 'สุราษฎร์ธานี', 'Surat Thani', 6, NULL, NULL),
-(68, 85, 'ระนอง', 'Ranong', 6, NULL, NULL),
-(69, 86, 'ชุมพร', 'Chumphon', 6, NULL, NULL),
-(70, 90, 'สงขลา', 'Songkhla', 6, NULL, NULL),
-(71, 91, 'สตูล', 'Satun', 6, NULL, NULL),
-(72, 92, 'ตรัง', 'Trang', 6, NULL, NULL),
-(73, 93, 'พัทลุง', 'Phatthalung', 6, NULL, NULL),
-(74, 94, 'ปัตตานี', 'Pattani', 6, NULL, NULL),
-(75, 95, 'ยะลา', 'Yala', 6, NULL, NULL),
-(76, 96, 'นราธิวาส', 'Narathiwat', 6, NULL, NULL),
-(77, 97, 'บึงกาฬ', 'buogkan', 3, NULL, NULL);
+INSERT INTO `se_provinces` (`id`, `prov_code`, `prov_name_th`, `prov_name_en`, `created_at`, `updated_at`) VALUES
+(1, 10, 'กรุงเทพมหานคร', 'Bangkok', NULL, NULL),
+(2, 11, 'สมุทรปราการ', 'Samut Prakan', NULL, NULL),
+(3, 12, 'นนทบุรี', 'Nonthaburi', NULL, NULL),
+(4, 13, 'ปทุมธานี', 'Pathum Thani', NULL, NULL),
+(5, 14, 'พระนครศรีอยุธยา', 'Phra Nakhon Si Ayutthaya', NULL, NULL),
+(6, 15, 'อ่างทอง', 'Ang Thong', NULL, NULL),
+(7, 16, 'ลพบุรี', 'Loburi', NULL, NULL),
+(8, 17, 'สิงห์บุรี', 'Sing Buri', NULL, NULL),
+(9, 18, 'ชัยนาท', 'Chai Nat', NULL, NULL),
+(10, 19, 'สระบุรี', 'Saraburi', NULL, NULL),
+(11, 20, 'ชลบุรี', 'Chon Buri', NULL, NULL),
+(12, 21, 'ระยอง', 'Rayong', NULL, NULL),
+(13, 22, 'จันทบุรี', 'Chanthaburi', NULL, NULL),
+(14, 23, 'ตราด', 'Trat', NULL, NULL),
+(15, 24, 'ฉะเชิงเทรา', 'Chachoengsao', NULL, NULL),
+(16, 25, 'ปราจีนบุรี', 'Prachin Buri', NULL, NULL),
+(17, 26, 'นครนายก', 'Nakhon Nayok', NULL, NULL),
+(18, 27, 'สระแก้ว', 'Sa Kaeo', NULL, NULL),
+(19, 30, 'นครราชสีมา', 'Nakhon Ratchasima', NULL, NULL),
+(20, 31, 'บุรีรัมย์', 'Buri Ram', NULL, NULL),
+(21, 32, 'สุรินทร์', 'Surin', NULL, NULL),
+(22, 33, 'ศรีสะเกษ', 'Si Sa Ket', NULL, NULL),
+(23, 34, 'อุบลราชธานี', 'Ubon Ratchathani', NULL, NULL),
+(24, 35, 'ยโสธร', 'Yasothon', NULL, NULL),
+(25, 36, 'ชัยภูมิ', 'Chaiyaphum', NULL, NULL),
+(26, 37, 'อำนาจเจริญ', 'Amnat Charoen', NULL, NULL),
+(27, 39, 'หนองบัวลำภู', 'Nong Bua Lam Phu', NULL, NULL),
+(28, 40, 'ขอนแก่น', 'Khon Kaen', NULL, NULL),
+(29, 41, 'อุดรธานี', 'Udon Thani', NULL, NULL),
+(30, 42, 'เลย', 'Loei', NULL, NULL),
+(31, 43, 'หนองคาย', 'Nong Khai', NULL, NULL),
+(32, 44, 'มหาสารคาม', 'Maha Sarakham', NULL, NULL),
+(33, 45, 'ร้อยเอ็ด', 'Roi Et', NULL, NULL),
+(34, 46, 'กาฬสินธุ์', 'Kalasin', NULL, NULL),
+(35, 47, 'สกลนคร', 'Sakon Nakhon', NULL, NULL),
+(36, 48, 'นครพนม', 'Nakhon Phanom', NULL, NULL),
+(37, 49, 'มุกดาหาร', 'Mukdahan', NULL, NULL),
+(38, 50, 'เชียงใหม่', 'Chiang Mai', NULL, NULL),
+(39, 51, 'ลำพูน', 'Lamphun', NULL, NULL),
+(40, 52, 'ลำปาง', 'Lampang', NULL, NULL),
+(41, 53, 'อุตรดิตถ์', 'Uttaradit', NULL, NULL),
+(42, 54, 'แพร่', 'Phrae', NULL, NULL),
+(43, 55, 'น่าน', 'Nan', NULL, NULL),
+(44, 56, 'พะเยา', 'Phayao', NULL, NULL),
+(45, 57, 'เชียงราย', 'Chiang Rai', NULL, NULL),
+(46, 58, 'แม่ฮ่องสอน', 'Mae Hong Son', NULL, NULL),
+(47, 60, 'นครสวรรค์', 'Nakhon Sawan', NULL, NULL),
+(48, 61, 'อุทัยธานี', 'Uthai Thani', NULL, NULL),
+(49, 62, 'กำแพงเพชร', 'Kamphaeng Phet', NULL, NULL),
+(50, 63, 'ตาก', 'Tak', NULL, NULL),
+(51, 64, 'สุโขทัย', 'Sukhothai', NULL, NULL),
+(52, 65, 'พิษณุโลก', 'Phitsanulok', NULL, NULL),
+(53, 66, 'พิจิตร', 'Phichit', NULL, NULL),
+(54, 67, 'เพชรบูรณ์', 'Phetchabun', NULL, NULL),
+(55, 70, 'ราชบุรี', 'Ratchaburi', NULL, NULL),
+(56, 71, 'กาญจนบุรี', 'Kanchanaburi', NULL, NULL),
+(57, 72, 'สุพรรณบุรี', 'Suphan Buri', NULL, NULL),
+(58, 73, 'นครปฐม', 'Nakhon Pathom', NULL, NULL),
+(59, 74, 'สมุทรสาคร', 'Samut Sakhon', NULL, NULL),
+(60, 75, 'สมุทรสงคราม', 'Samut Songkhram', NULL, NULL),
+(61, 76, 'เพชรบุรี', 'Phetchaburi', NULL, NULL),
+(62, 77, 'ประจวบคีรีขันธ์', 'Prachuap Khiri Khan', NULL, NULL),
+(63, 80, 'นครศรีธรรมราช', 'Nakhon Si Thammarat', NULL, NULL),
+(64, 81, 'กระบี่', 'Krabi', NULL, NULL),
+(65, 82, 'พังงา', 'Phangnga', NULL, NULL),
+(66, 83, 'ภูเก็ต', 'Phuket', NULL, NULL),
+(67, 84, 'สุราษฎร์ธานี', 'Surat Thani', NULL, NULL),
+(68, 85, 'ระนอง', 'Ranong', NULL, NULL),
+(69, 86, 'ชุมพร', 'Chumphon', NULL, NULL),
+(70, 90, 'สงขลา', 'Songkhla', NULL, NULL),
+(71, 91, 'สตูล', 'Satun', NULL, NULL),
+(72, 92, 'ตรัง', 'Trang', NULL, NULL),
+(73, 93, 'พัทลุง', 'Phatthalung', NULL, NULL),
+(74, 94, 'ปัตตานี', 'Pattani', NULL, NULL),
+(75, 95, 'ยะลา', 'Yala', NULL, NULL),
+(76, 96, 'นราธิวาส', 'Narathiwat', NULL, NULL),
+(77, 97, 'บึงกาฬ', 'buogkan', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -10827,7 +10800,7 @@ CREATE TABLE `users` (
   `user_adddate` datetime DEFAULT NULL COMMENT 'วันที่เพิ่มข้อมูล',
   `user_updateby` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'อัพเดตข้อมูลโดย',
   `user_updatedate` datetime DEFAULT NULL COMMENT '	วันที่อัพเดต'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='ประวัติผู้ลงทะเบียน';
 
 --
 -- Dumping data for table `users`
@@ -10868,7 +10841,7 @@ CREATE TABLE `users_contact` (
   `user_phone_home_pt` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'เบอร์โทรศัพท์บ้าน',
   `user_phone_work_pt` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'เบอร์โทรศัพท์ที่ทำงาน',
   `user_email_pt` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'E-mail'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='ข้อมูลการติดต่อ';
 
 --
 -- Dumping data for table `users_contact`
@@ -10903,7 +10876,7 @@ CREATE TABLE `users_family` (
   `user_phone_home_fam` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'เบอร์โทรศัพท์บ้าน',
   `user_phone_work_fam` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'เบอร์โทรศัพท์ที่ทำงาน',
   `user_email_fam` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'E-mail'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='ข้อมูลติดต่อกรณีฉุกเฉิน';
 
 --
 -- Dumping data for table `users_family`
@@ -11017,17 +10990,10 @@ ALTER TABLE `se_districts`
   ADD KEY `se_districts_amphure_id_index` (`amphure_id`) USING BTREE;
 
 --
--- Indexes for table `se_geographies`
---
-ALTER TABLE `se_geographies`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `se_provinces`
 --
 ALTER TABLE `se_provinces`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `se_provinces_geography_id_index` (`geography_id`) USING BTREE;
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -11138,12 +11104,6 @@ ALTER TABLE `se_districts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=961304;
 
 --
--- AUTO_INCREMENT for table `se_geographies`
---
-ALTER TABLE `se_geographies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
 -- AUTO_INCREMENT for table `se_provinces`
 --
 ALTER TABLE `se_provinces`
@@ -11201,12 +11161,6 @@ ALTER TABLE `se_amphures`
 --
 ALTER TABLE `se_districts`
   ADD CONSTRAINT `8b_districts_amphure_id_foreign` FOREIGN KEY (`amphure_id`) REFERENCES `se_amphures` (`id`);
-
---
--- Constraints for table `se_provinces`
---
-ALTER TABLE `se_provinces`
-  ADD CONSTRAINT `8b_provinces_geography_id_foreign` FOREIGN KEY (`geography_id`) REFERENCES `se_geographies` (`id`);
 
 --
 -- Constraints for table `users_contact`
