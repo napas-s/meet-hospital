@@ -224,6 +224,7 @@
                     previous: '<i class="nc-icon nc-minimal-left"></i>'
                 }
             },
+            order: [[ 5, "desc" ]],
 
         });
 
