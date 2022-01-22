@@ -29,7 +29,7 @@
                     <?PHP if(isset($row)){ ?>
                         <?PHP if($row['about_lavel'] == 1){ ?>
                             <?PHP echo $row['about_content']; ?>
-                            <?PHP }else{ ?>
+                        <?PHP }else{ ?>
                             <div class="center">
                                 <img style="width: 100%; height: auto" src="<?PHP base_url() ?>uploads/about/<?PHP echo $row['about_img']; ?>" alt="about image" />
                             </div>
