@@ -31,20 +31,24 @@
               <span>
                 <!-- ดึงข้อมูลชื่อผู้ใช้จาก session มาแสดง -->
                 <?PHP echo $_SESSION["User"]; ?>
+                <?PHP if($_SESSION["Id"] != "000"){ ?>
                 <b class="caret"></b>
+                <?PHP } ?>
               </span>
             </a>
+            <?PHP if($_SESSION["Id"] != "000"){ ?>
             <div class="clearfix"></div>
             <div class="collapse" id="collapseExample">
               <ul class="nav">
                 <li>
-                  <a href="#">
+                  <a href="../member/profile.php">
                     <span class="sidebar-mini-icon"><i class="nc-icon nc-ruler-pencil"></i></span>
                     <span class="sidebar-normal">บัญชีผู้ใช้ของฉัน</span>
                   </a>
                 </li>
               </ul>
             </div>
+            <?PHP } ?>
           </div>
         </div>
         <ul class="nav">
