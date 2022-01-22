@@ -61,7 +61,7 @@
                           <?PHP if(isset($row['user_iden13'])){ ?>
                           <input type="hidden" name="iden13_hd" id="iden13_hd" value="<?PHP if(isset($row['user_iden13'])){ echo $row['user_iden13'];}?>" />
                           <?PHP } ?>
-                          <input class="form-control" type="text" name="iden13" id="iden13"<?PHP if(isset($_GET["id"])){echo'disabled'; }?> value="<?PHP if(isset($row['user_iden13'])){ echo $row['user_iden13']; } ?>" required="true" />
+                          <input class="form-control n_tel" type="text" name="iden13" id="iden13"<?PHP if(isset($_GET["id"])){echo'disabled'; }?> value="<?PHP if(isset($row['user_iden13'])){ echo $row['user_iden13']; } ?>" required="true" />
                         </div>
                       </div>
                     </div>
@@ -338,13 +338,13 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>เบอร์โทรศัพท์มือถือ#1:<font color="red"><i> * </i></font></label>
-                          <input type="text" class="form-control" id="phone_moblie_1_pt" name="phone_moblie_1_pt" value="<?PHP if(isset($row['user_phone_moblie_1_pt'])){ echo $row['user_phone_moblie_1_pt']; } ?>" maxlength="50" size="50" placeholder="" oninput="this.value=this.value.replace(/[^0-9]/g,'');" autocomplete="off">
+                          <input type="text" class="form-control n_tel" id="phone_moblie_1_pt" name="phone_moblie_1_pt" value="<?PHP if(isset($row['user_phone_moblie_1_pt'])){ echo $row['user_phone_moblie_1_pt']; } ?>" maxlength="50" size="50" placeholder="" oninput="this.value=this.value.replace(/[^0-9]/g,'');" autocomplete="off">
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>เบอร์โทรศัพท์มือถือ#2:</label>
-                          <input type="text" class="form-control" id="phone_moblie_2_pt" name="phone_moblie_2_pt" value="<?PHP if(isset($row['user_phone_moblie_2_pt'])){ echo $row['user_phone_moblie_2_pt']; } ?>" maxlength="50" size="50" placeholder="" oninput="this.value=this.value.replace(/[^0-9]/g,'');" autocomplete="off">
+                          <input type="text" class="form-control n_tel" id="phone_moblie_2_pt" name="phone_moblie_2_pt" value="<?PHP if(isset($row['user_phone_moblie_2_pt'])){ echo $row['user_phone_moblie_2_pt']; } ?>" maxlength="50" size="50" placeholder="" oninput="this.value=this.value.replace(/[^0-9]/g,'');" autocomplete="off">
                         </div>
                       </div>
                     </div>
@@ -352,13 +352,13 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>เบอร์โทรศัพท์บ้าน:</label>
-                          <input type="text" class="form-control" id="phone_home_pt" name="phone_home_pt" value="<?PHP if(isset($row['user_phone_home_pt'])){ echo $row['user_phone_home_pt']; } ?>" maxlength="100" size="100" placeholder="" autocomplete="off">
+                          <input type="text" class="form-control n_tel" id="phone_home_pt" name="phone_home_pt" value="<?PHP if(isset($row['user_phone_home_pt'])){ echo $row['user_phone_home_pt']; } ?>" maxlength="100" size="100" placeholder="" autocomplete="off">
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>เบอร์โทรศัพท์ที่ทำงาน:</label>
-                          <input type="text" class="form-control" id="phone_work_pt" name="phone_work_pt" value="<?PHP if(isset($row['user_phone_work_pt'])){ echo $row['user_phone_work_pt']; } ?>" maxlength="100" size="100" placeholder="" autocomplete="off">
+                          <input type="text" class="form-control n_tel" id="phone_work_pt" name="phone_work_pt" value="<?PHP if(isset($row['user_phone_work_pt'])){ echo $row['user_phone_work_pt']; } ?>" maxlength="100" size="100" placeholder="" autocomplete="off">
                         </div>
                       </div>
                     </div>
@@ -416,13 +416,13 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>เบอร์โทรศัพท์มือถือ#1:<font color="red"><i>*</i></font></label>
-                          <input type="text" class="form-control" id="phone_moblie_1_fam" name="phone_moblie_1_fam" value="<?PHP if(isset($row['user_phone_moblie_1_fam'])){ echo $row['user_phone_moblie_1_fam']; } ?>"  maxlength="50" size="50" placeholder="" oninput="this.value=this.value.replace(/[^0-9]/g,'');" autocomplete="off">
+                          <input type="text" class="form-control n_tel" id="phone_moblie_1_fam" name="phone_moblie_1_fam" value="<?PHP if(isset($row['user_phone_moblie_1_fam'])){ echo $row['user_phone_moblie_1_fam']; } ?>"  maxlength="50" size="50" placeholder="" oninput="this.value=this.value.replace(/[^0-9]/g,'');" autocomplete="off">
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>เบอร์โทรศัพท์มือถือ#2:</label>
-                          <input type="text" class="form-control" id="phone_moblie_2_fam" name="phone_moblie_2_fam" value="<?PHP if(isset($row['user_phone_moblie_2_fam'])){ echo $row['user_phone_moblie_2_fam']; } ?>"  maxlength="50" size="50" placeholder="" oninput="this.value=this.value.replace(/[^0-9]/g,'');" autocomplete="off">
+                          <input type="text" class="form-control n_tel" id="phone_moblie_2_fam" name="phone_moblie_2_fam" value="<?PHP if(isset($row['user_phone_moblie_2_fam'])){ echo $row['user_phone_moblie_2_fam']; } ?>"  maxlength="50" size="50" placeholder="" oninput="this.value=this.value.replace(/[^0-9]/g,'');" autocomplete="off">
                         </div>
                       </div>
                     </div>
@@ -430,13 +430,13 @@
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>เบอร์โทรศัพท์บ้าน:</label>
-                          <input type="text" class="form-control" id="phone_home_fam" name="phone_home_fam" value="<?PHP if(isset($row['user_phone_home_fam'])){ echo $row['user_phone_home_fam']; } ?>"  maxlength="100" size="100" placeholder="" autocomplete="off">
+                          <input type="text" class="form-control n_tel" id="phone_home_fam" name="phone_home_fam" value="<?PHP if(isset($row['user_phone_home_fam'])){ echo $row['user_phone_home_fam']; } ?>"  maxlength="100" size="100" placeholder="" autocomplete="off">
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>เบอร์โทรศัพท์ที่ทำงาน:</label>
-                          <input type="text" class="form-control" id="phone_work_fam" name="phone_work_fam" value="<?PHP if(isset($row['user_phone_work_fam'])){ echo $row['user_phone_work_fam']; } ?>"  maxlength="100" size="100" placeholder="" autocomplete="off">
+                          <input type="text" class="form-control n_tel" id="phone_work_fam" name="phone_work_fam" value="<?PHP if(isset($row['user_phone_work_fam'])){ echo $row['user_phone_work_fam']; } ?>"  maxlength="100" size="100" placeholder="" autocomplete="off">
                         </div>
                       </div>
                     </div>
@@ -444,7 +444,7 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label>E-mail:</label>
-                          <input type="text" class="form-control" id="email_fam" name="email_fam" value="<?PHP if(isset($row['user_email_fam'])){ echo $row['user_email_fam']; } ?>"  maxlength="100" size="100" placeholder="" autocomplete="off">
+                          <input type="text" class="form-control n_tel" id="email_fam" name="email_fam" value="<?PHP if(isset($row['user_email_fam'])){ echo $row['user_email_fam']; } ?>"  maxlength="100" size="100" placeholder="" autocomplete="off">
                         </div>
                       </div>
                     </div>
@@ -527,6 +527,16 @@
 <input type="hidden" name="message" id="message" value="<?PHP if(isset($_GET['message'])){ echo $_GET['message'];}?>" /> <!-- ตัวแปรข้อความ -->
 
 <script>
+    $('.n_tel').keypress( function(){
+        var email = String.fromCharCode(event.keyCode);
+        var RE = /^([a-zA-Z@0-9._])+$/;
+        if(!RE.test(email))
+        {
+            return false;
+        }
+        return true;
+    });
+
     $(document).ready(function() {
       $icon = $('#icon').val();
       $message = $('#message').val();
@@ -540,6 +550,5 @@
 <?PHP } ?>
 
 <!-- ./จบนำเข้าไฟล์ js ที่ต้องการเพิ่มเติม เพื่อใช้ในหน้านี้เท่านั้น -->
-
 <!-- นำเข้าไฟล์ Template ส่วนท้าย -->
 <?PHP include_once('../_template/footer.php') ?>
