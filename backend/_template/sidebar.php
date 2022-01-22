@@ -89,13 +89,13 @@
                   </a>
                 </li>
                 <li>
-                  <a href="../servicepoint/index.php">
+                  <a href="../servicepoints/index.php">
                     <span class="sidebar-mini-icon"><i class="nc-icon nc-tile-56"></i></span>
                     <span class="sidebar-normal"> ข้อมูลจุดบริการ </span>
                   </a>
                 </li>
                 <li>
-                  <a href="../service/index.php">
+                  <a href="../services/index.php">
                     <span class="sidebar-mini-icon"><i class="nc-icon nc-paper"></i></span>
                     <span class="sidebar-normal"> ข้อมูลการบริการ </span>
                   </a>
