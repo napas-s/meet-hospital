@@ -63,13 +63,6 @@
                         <input <?PHP if(isset($_SESSION["Id"])){ ?>disabled<?PHP } ?> class="form-control" type="text" name="member_user" id="member_user" required="true" value="<?PHP if(isset($row['member_user'])){ echo $row['member_user']; }?>"/>
                         <input type="hidden" name="member_user_old" id="member_user_old" value="<?PHP if(isset($row['member_user'])){ echo $row['member_user']; }?>"/>
                       </div>
-                      <div class="form-group">
-                        <label>สถานะ</label>
-                        <select class="form-control" name="member_lavel" id="member_lavel">
-                          <option value="1" value="<?PHP if(isset($row['member_lavel'])){ if($row['member_user'] == 1){echo 'selected';} }?>" >พนักงาน</option>
-                          <option value="2" value="<?PHP if(isset($row['member_lavel'])){ if($row['member_user'] == 2){echo 'selected';}  }?>">ผู้ดูแลระบบ</option>
-                        </select>
-                      </div>
                       <?PHP if(isset($_SESSION["Id"])){ ?>
                         <div class="form-group">
                           <a href="changpassword.php?id=<?PHP echo $_SESSION["Id"]; ?>"><i class="nc-icon nc-tap-01"></i> เปลี่ยนรหัสผ่าน</a>
