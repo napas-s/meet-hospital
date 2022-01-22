@@ -56,7 +56,7 @@
                                     <h3><i class="icon-user4"></i> :: ลงทะเบียน</h3>
                                     <div class="col_full form-group">
                                         <label for="idcardNumber">เลขบัตรประชาชน</label>
-                                        <input type="text" id="idcardNumber" name="idcardNumber" required="required" value="" class="sm-form-control" >
+                                        <input type="text" id="idcardNumber" name="idcardNumber" required="required" value="" class="n_tel sm-form-control" >
                                     </div>
                                     <div class="col_full form-group">
                                         <label for="prename">คำนำหน้า</label>
@@ -93,7 +93,7 @@
                                     </div>
                                     <div class="col_full form-group">
                                         <label for="contact">เบอร์ติดต่อ</label>
-                                        <input type="text" id="contact" name="contact" required="required" value="" class="sm-form-control" >
+                                        <input type="text" id="contact" name="contact" required="required" value="" class="n_tel sm-form-control" >
                                     </div>
                                     <div class="row">
                                         <div class="col-md-8"></div>
@@ -224,6 +224,16 @@
 <?PHP } ?>
 
 <script type="text/javascript">
+
+    $('.n_tel').keypress( function(){
+        var email = String.fromCharCode(event.keyCode);
+        var RE = /^([a-zA-Z@0-9._])+$/;
+        if(!RE.test(email))
+        {
+            return false;
+        }
+        return true;
+    });
 
     $(document).ready(function () {
         //Initialize tooltips
