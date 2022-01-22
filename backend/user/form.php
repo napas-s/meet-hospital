@@ -481,6 +481,18 @@
 <!-- นำเข้าไฟล์ js ที่ต้องการเพิ่มเติม เพื่อใช้ในหน้านี้เท่านั้น -->
   
 <script src="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/js/plugins/jquery.validate.min.js"></script>
+
+<script>
+  $('.n_tel').keypress( function(){
+        var email = String.fromCharCode(event.keyCode);
+        var RE = /^([a-zA-Z@0-9._])+$/;
+        if(!RE.test(email))
+        {
+            return false;
+        }
+        return true;
+  });
+</script>
 <script>
     //ส่งค่า input ไปยัง form Validation ในไฟล์ assets/vendor/paper-dashboard/assets/js/function.js
     $(document).ready(function() {
@@ -527,16 +539,6 @@
 <input type="hidden" name="message" id="message" value="<?PHP if(isset($_GET['message'])){ echo $_GET['message'];}?>" /> <!-- ตัวแปรข้อความ -->
 
 <script>
-    $('.n_tel').keypress( function(){
-        var email = String.fromCharCode(event.keyCode);
-        var RE = /^([a-zA-Z@0-9._])+$/;
-        if(!RE.test(email))
-        {
-            return false;
-        }
-        return true;
-    });
-
     $(document).ready(function() {
       $icon = $('#icon').val();
       $message = $('#message').val();
