@@ -6,7 +6,26 @@
     $setpointId = $_GET['setpointId'];
     $sertypeId = $_GET['sertypeId'];
 
-    //เช็คว่าวันที่เวลานั้นว่งให้บริการที่เลือกหรือไม่
+    //select point value
+    $sql_point="SELECT * FROM services_point WHERE ser_point_id = $setpointId ";
+    $sql_query_point = mysqli_query($con,$sql_point)or die(mysqli_error($con));
+    $row_point = mysqli_fetch_assoc($sql_query_point);
+    $point = $row_point['ser_point_name'];
+
+    //select type value
+    if($sertypeId == 1){
+        $type = "คลินิกทั่วไป";
+    }else{
+        $type = "คลินิกนอกเวลา";
+    }
+
+    //select date value
+    $sql_date="SELECT * FROM services_des WHERE serdes_id = $serdateId ";
+    $sql_query_date = mysqli_query($con,$sql_date)or die(mysqli_error($con));
+    $row_date = mysqli_fetch_assoc($sql_query_date);
+    $date = $row_date['serdes_date'];
+
+    //เช็คว่าวันที่เวลานั้นว่างให้บริการที่เลือกหรือไม่
     $sqlMeet = "SELECT * FROM meet_service WHERE mt_serpoint_id = '$setpointId' AND mt_sertype_id = '$sertypeId' AND mt_serdateId = '$serdateId' AND mt_status != '3'";
     $sql_queryMeet = mysqli_query($con,$sqlMeet)or die(mysqli_error($con));
     $numMeet    = mysqli_num_rows($sql_queryMeet);
@@ -24,9 +43,34 @@
               ";
             $sql_query = mysqli_query($con,$sql)or die(mysqli_error($con));
 
-            echo "<option value=''>กรุณาเลือกเวลานัดหมาย</option>";
+            echo "<option value=''>1กรุณาเลือกเวลานัดหมาย</option>";
             foreach($sql_query as $row){
-                echo "<option value='".$row['des_time_id']."'>".$row['time_name']."</option>";
+
+                //select time value
+                $sql_time="SELECT * FROM services_des_time JOIN services_time ON services_time.time_id = services_des_time.destimeId WHERE des_time_id = $row[des_time_id]";
+                $sql_query_time = mysqli_query($con,$sql_time)or die(mysqli_error($con));
+                $row_time = mysqli_fetch_assoc($sql_query_time);
+                $time = $row_time['time_name'];
+
+                //ตรวจสอบใน meet_service ว่ามีการทำนัดหมายในรายการดังกล่าวไปหรือยัง
+                $checkMeet   = "SELECT * FROM meet_service  
+                        WHERE mt_serpoint_id='$point' 
+                        AND mt_sertype_id='$type' 
+                        AND mt_serdateId='$date'
+                        AND mt_sertimeId='$time'
+                    ";
+                $resultMeet = mysqli_query($con, $checkMeet);
+                $meet     = mysqli_num_rows($resultMeet);
+
+                if($meet > 0){
+                    $select = '(มีการจองแล้ว)';
+                    $disabled = 'disabled';
+                }else{
+                    $select = '';
+                    $disabled = '';
+                }
+
+                echo "<option value='".$row['des_time_id']."' ".$disabled.">".$row['time_name']." ".$select."</option>";
             }
 
         }
@@ -40,10 +84,39 @@
               ";
             $sql_query = mysqli_query($con,$sql)or die(mysqli_error($con));
 
-            echo "<option value=''>กรุณาเลือกเวลานัดหมาย</option>";
+            echo "<option value=''>2กรุณาเลือกเวลานัดหมาย</option>";
 
             foreach($sql_query as $row){
-                echo "<option value='".$row['des_time_id']."'>".$row['time_name']."</option>";
+
+                //select time value
+                $sql_time="SELECT * FROM services_des_time 
+                           JOIN services_time ON services_time.time_id = services_des_time.destimeId 
+                           WHERE des_time_id = $row[des_time_id]
+                           ";
+                $sql_query_time = mysqli_query($con,$sql_time)or die(mysqli_error($con));
+                $row_time = mysqli_fetch_assoc($sql_query_time);
+                $time = $row_time['time_name'];
+
+                //ตรวจสอบใน meet_service ว่ามีการทำนัดหมายในรายการดังกล่าวไปหรือยัง
+                $checkMeet   = "SELECT * FROM meet_service  
+                        WHERE mt_serpoint_id='$point' 
+                        AND mt_sertype_id='$type' 
+                        AND mt_serdateId='$date'
+                        AND mt_sertimeId='$time'
+                        AND mt_status!='3'
+                    ";
+                $resultMeet = mysqli_query($con, $checkMeet);
+                $meet     = mysqli_num_rows($resultMeet);
+
+                if($meet > 0){
+                    $select = '(มีการจองแล้ว)';
+                    $disabled = 'disabled';
+                }else{
+                    $select = '';
+                    $disabled = '';
+                }
+
+                echo "<option value='".$row['des_time_id']."' ".$disabled.">".$row['time_name']." ".$select."</option>";
             }
     }
 

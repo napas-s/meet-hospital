@@ -27,7 +27,7 @@
                             <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th class="text-center" style="width: 70px;">#</th>
+                                        <th class="text-center" style="width: 70px;">ลำดับ</th>
                                         <th class="text-center" style="width: 150px;">ภาพหน้าปก</th>
                                         <th>ชื่ออัลบั้ม</th>
                                         <th class="text-center" style="width: 70px;">สถานะ</th>

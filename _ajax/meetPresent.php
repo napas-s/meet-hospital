@@ -41,9 +41,9 @@
 
     echo "<div class='mg_present'><b>เลขบัตรประชาชน : </b>".$idcardNumber."</div>";
     if($prename == 'อื่นๆ'){
-        echo "<div class='mg_present'><b>ชื่อ - สกุล : </b>".$prenameOther.' '.$fname.' '.$lname."</div>";
+        echo "<div class='mg_present'><b>ชื่อ - สกุล : </b>".$prenameOther.' '.$fname.'&nbsp;'.$lname."</div>";
     }else{
-        echo "<div class='mg_present'><b>ชื่อ - สกุล : </b>".$prename .$fname .$lname."</div>";
+        echo "<div class='mg_present'><b>ชื่อ - สกุล : </b>".$prename .$fname.'&nbsp;'.$lname."</div>";
     }
     echo "<div class='mg_present'><b>วัน/เดือน/ปีเกิด : </b>".$birthday."</div>";
     echo "<div class='mg_present'><b>เบอร์โทรศัพท์ : </b>".$contact."</div>";
@@ -52,6 +52,6 @@
     echo "<div class='mg_present'><b>ประเภทบริการ : </b>".$typeName."</div>";
     echo "<div class='mg_present'><b>บริการ : </b>".$service['ser_name']."</div>";
     echo "<div class='mg_present'><b>วันที่นัดหมาย : </b>".$date."</div>";
-    echo "<div class='mg_present'><b>เวลาที่นัดหมาย : </b>".$time['time_name']."</div>";
+    echo "<div class='mg_present'><b>เวลาที่นัดหมาย : </b>".$time['time_name']." น.</div>";
 
 ?>

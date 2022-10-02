@@ -52,8 +52,8 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>ค้นหาจากวันที่ (ค.ศ.)</label>
-                                            <input name="date" id="date" type="text" value="<?PHP if(isset($_GET['date'])){ echo $_GET['date']; } ?>" class="form-control datepicker" placeholder="วัน-เดือน-คศ">
+                                            <label>ค้นหาจากวันที่ (พ.ศ.)</label>
+                                            <input name="date" id="date" type="text" value="<?PHP if(isset($_GET['date'])){ echo $_GET['date']; } ?>" class="form-control datepicker" placeholder="วัน-เดือน-พ.ศ.">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -110,7 +110,7 @@
                                     <?PHP  while($row = mysqli_fetch_array($result_des)) {  ?>
                                     <tr>
                                         <td class="text-center"><?PHP echo str_pad($row['serdes_id'], 4, 'T0', STR_PAD_LEFT); ?></td>
-                                        <td data-sort='YYYYMMDD'><?PHP echo $row['serdes_date']; ?></td>
+                                        <td data-sort='YYYYMMDD'><?PHP echo date("d-m-Y", strtotime($row['serdes_date']));?></td>
                                         <td><?PHP if($row['sertype_id'] == 1){ ?>คลินิกทั่วไป<?PHP }else{ ?>คลินิกนอกเวลา<?PHP } ?></td>
                                         <td><?PHP echo $row['ser_point_name']; ?></td>
                                         <td class="text-center">

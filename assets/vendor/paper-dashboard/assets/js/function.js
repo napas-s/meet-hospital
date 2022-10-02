@@ -360,18 +360,18 @@ if ($("#district_live_pt").length != 0) {
 }
 
 if ($(".datepicker").length != 0) {
-  $('.datepicker').datetimepicker({
-    format: 'DD-MM-YYYY',
-    icons: {
-      time: "fa fa-clock-o",
-      date: "fa fa-calendar",
-      up: "fa fa-chevron-up",
-      down: "fa fa-chevron-down",
-      previous: 'fa fa-chevron-left',
-      next: 'fa fa-chevron-right',
-      today: 'fa fa-screenshot',
-      clear: 'fa fa-trash',
-      close: 'fa fa-remove'
-    }
+  $('.datepicker').datepicker({
+    language:'th-th',
+    format:'dd-mm-yyyy',
+    autoclose: true,
+  });
+}
+
+if ($(".datepicker-birthday").length != 0) {
+  $('.datepicker-birthday').datepicker({
+    language:'th-th',
+    format:'dd-mm-yyyy',
+    autoclose: true,
+    endDate: new Date(new Date().setDate(new Date().getDate()))
   });
 }

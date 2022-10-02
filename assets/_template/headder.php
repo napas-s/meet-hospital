@@ -43,10 +43,7 @@
 	<link rel="stylesheet" href="<?PHP echo base_url(); ?>assets/vendor/canvas/css/components/bs-datatable.css" type="text/css" />
 
     <!-- Date & Time Picker CSS -->
-	<link rel="stylesheet" href="<?PHP echo base_url(); ?>assets/vendor/canvas/css/components/datepicker.css" type="text/css" />
-	<link rel="stylesheet" href="<?PHP echo base_url(); ?>assets/vendor/canvas/css/components/timepicker.css" type="text/css" />
-	<link rel="stylesheet" href="<?PHP echo base_url(); ?>assets/vendor/canvas/css/components/daterangepicker.css" type="text/css" />
-
+    <link rel="stylesheet" href="<?PHP echo base_url(); ?>assets/vendor/bootstrap-datepicker/css/datepicker.css" type="text/css" />
 </head>
 <body class="stretched">
 

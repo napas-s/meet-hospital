@@ -18,7 +18,7 @@
                     <div><strong style="margin: 0; font-size:20px;">โรงพยาบาลส่งเสริมสุขภาพตำบลห้วยยาง</strong></div>
                     <div><strong style="margin: 0; font-size:20px;">อำเภอทับสะแก จังหวัดประจวบคีรีขันธ์</strong></div>
                     <div><strong style="margin: 0; font-size:18px;">ใบนัดหมายทันตกรรมออนไลน์</strong></div>
-                    <div style="font-size: 16px;"><strong>โทรศัพท์ : </strong><?PHP if(isset($setting['tel'])){ echo $setting['tel']; }else{ echo '-';} ?></div>
+                    <div style="font-size: 16px;"><strong>โทรศัพท์ : </strong><?PHP echo $setting['tel'] ? $setting['tel'] : '-' ?></div>
                 </td>
             </tr>
         </table>
@@ -41,26 +41,26 @@
     <table style="width:100%; padding: 10px">
         <tr>
             <td>
-                <div ><b>เลขบัตรประชาชน : </b><?PHP if(isset($row['mt_idcardNumber'])){ echo $row['mt_idcardNumber']; } ?></div>
-                <?PHP if(isset($row['user_prename']) && isset($row['user_fname']) && isset($row['user_lname'])){ ?>
-                    <div ><b>ชื่อ - สกุล : </b><?PHP if($row['user_prename'] == "อื่นๆ"){echo $row['user_prenameOthers']; } else{echo $row['user_prename'];} ?> <?PHP echo $row['user_fname']; ?> <?PHP echo $row['user_lname']; ?></div>
+                <div ><b>เลขบัตรประชาชน : </b><?PHP echo $row['mt_idcardNumber'] ? $row['mt_idcardNumber'] : '' ?></div>
+                <?PHP if(!empty($row['user_prename']) && !empty($row['user_fname']) && !empty($row['user_lname'])){ ?>
+                    <div ><b>ชื่อ - สกุล : </b><?PHP echo $row['user_prename'] == "อื่นๆ" ? $row['user_prenameOthers'] : $row['user_prename']; ?> <?PHP echo $row['user_fname']; ?>&nbsp;<?PHP echo $row['user_lname']; ?></div>
                 <?PHP }else{ ?>
                     <div ><b>ชื่อ - สกุล : </b> - </div>
                 <?PHP } ?>
-                <?PHP if(isset($row['user_birthday'])){ ?>
-                <div ><b>วัน/เดือน/ปีเกิด (ค.ศ.) : </b><?PHP if(isset($row['user_birthday'])){ echo date("d-m-Y", strtotime($row['user_birthday']));; } ?></div>
+                <?PHP if(!empty($row['user_birthday'])){ ?>
+                <div ><b>วัน/เดือน/ปีเกิด (พ.ศ.) : </b><?PHP echo !empty($row['user_birthday']) ? date("d-m-Y", strtotime($row['user_birthday'])) : '' ?></div>
                 <?PHP }else{ ?>
-                    <div ><b>วัน/เดือน/ปีเกิด (ค.ศ.) : </b> - </div>
+                    <div ><b>วัน/เดือน/ปีเกิด (พ.ศ.) : </b> - </div>
                 <?PHP } ?>
                 <div ><b>เบอร์โทรศัพท์ : </b><?PHP if(isset($row['mt_tel'])){ echo $row['mt_tel']; } ?></div>
                 <br/>
                 <img style="width:auto;" src="../assets/images/pdf-line.png" />
                 <br/>
-                <div ><b>จุดบริการ : </b><?PHP if(isset($row['mt_serpoint_id'])){ echo $row['mt_serpoint_id']; } ?></div>
-                <div ><b>ประเภทบริการ : </b><?PHP if(isset($row['mt_sertype_id'])){ echo $row['mt_sertype_id']; } ?></div>
-                <div ><b>บริการ : </b><?PHP if(isset($row['mt_service_id'])){ echo $row['mt_service_id']; } ?></div>
-                <div ><b>วันที่นัดหมาย : </b><?PHP if(isset($row['mt_serdateId'])){ echo date("d-m-Y", strtotime($row['mt_serdateId']));} ?></div>
-                <div ><b>เวลาที่นัดหมาย : </b><?PHP if(isset($row['mt_sertimeId'])){ echo $row['mt_sertimeId']; } ?></div>
+                <div ><b>จุดบริการ : </b><?PHP echo $row['mt_serpoint_id'] ? $row['mt_serpoint_id'] : '' ?></div>
+                <div ><b>ประเภทบริการ : </b><?PHP echo $row['mt_sertype_id'] ? $row['mt_sertype_id'] : '' ?></div>
+                <div ><b>บริการ : </b><?PHP echo $row['mt_service_id'] ? $row['mt_service_id'] : '' ?></div>
+                <div ><b>วันที่นัดหมาย : </b><?PHP echo $row['mt_serdateId'] ? date("d-m-Y", strtotime($row['mt_serdateId'])) : '' ?></div>
+                <div ><b>เวลาที่นัดหมาย : </b><?PHP echo $row['mt_sertimeId'] ? $row['mt_sertimeId'] : '' ?> น.</div>
             </td>
         </tr>
     </table>
@@ -75,7 +75,7 @@
                 <td>
                     <div><b>หมายเหตุ :</b></div>
                     <div>1. กรุณาเก็บไฟล์ไว้เป็นหลักฐานในการนัดหมายทันตกรรมของท่าน</div>
-                    <div>2. วันที่ทำการนัดหมาย : <?PHP if(isset($row['mt_dateMeetadd'])){ echo $row['mt_dateMeetadd']; } ?></div>
+                    <div>2. วันที่ทำการนัดหมาย : <?PHP echo $row['mt_dateMeetadd'] ? $row['mt_dateMeetadd'] : '' ?></div>
                 </td>
             </tr>
         </table>

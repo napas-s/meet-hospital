@@ -75,7 +75,7 @@
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label>วัน/เดือน/ปีเกิด (ค.ศ.)</label>
+                            <label>วัน/เดือน/ปีเกิด (พ.ศ.)</label>
                             <input disabled type="text" value="<?PHP if(isset($row['user_birthday'])){ echo date("d-m-Y", strtotime($row['user_birthday'])); }else{echo '-';} ?>" class="form-control">
                           </div>
                         </div>
@@ -189,7 +189,7 @@
                       <div><b>บริการ : </b><?PHP if(isset($row['mt_service_id'])){ echo $row['mt_service_id']; } ?></div>
                       <br/>
                       <div><b>วันที่นัดหมาย : </b><?PHP if(isset($row['mt_serdateId'])){ echo date("d-m-Y", strtotime($row['mt_serdateId'])); } ?></div>
-                      <div><b>เวลาที่นัดหมาย : </b><?PHP if(isset($row['mt_sertimeId'])){ echo $row['mt_sertimeId']; } ?></div>
+                      <div><b>เวลาที่นัดหมาย : </b><?PHP if(isset($row['mt_sertimeId'])){ echo $row['mt_sertimeId']; } ?> น.</div>
                       <br/>
                       <div><b>เบอร์โทรศัพท์ : </b><?PHP if(isset($row['mt_tel'])){ echo $row['mt_tel']; } ?></div>
                     </div>

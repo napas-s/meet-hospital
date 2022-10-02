@@ -67,12 +67,14 @@
                             <div id="showContentImg" style="display: none;">
                                 <label>เลือกรูปภาพ</label>
                                 <input type="file" id="about_img" name="about_img" class="form-control" accept="image/*" onchange="readURL(this);"/>
+                                <small class="text-danger">หมายเหตุ : รูปภาพที่เลือกมีความกว้างขนาด 1140PX</small>
+                                <br/>
                                 <br/>
                                 <div class="text-center">
                                     <?PHP if(!empty($row['about_img'])){ ?>
-                                        <img style="width: auto;"  id="preView" src="<?PHP base_url() ?>../../uploads/about/<?PHP echo $row['about_img']; ?>" alt="your image" />
+                                        <img style="width: 100%; max-width: 1140px"  id="preView" src="<?PHP base_url() ?>../../uploads/about/<?PHP echo $row['about_img']; ?>" alt="your image" />
                                     <?PHP }else{ ?>
-                                        <img style="width: auto;" id="preView" src="<?PHP base_url() ?>../../assets/images/no-image-banner.png" alt="your image" />
+                                        <img style="width: 100%; max-width: 1140px" id="preView" src="<?PHP base_url() ?>../../assets/images/no-image-banner.png" alt="your image" />
                                     <?PHP } ?>
                                 </div>
                                 <br/>

@@ -13,6 +13,67 @@ function prevTab(elem) {
     $(elem).prev().find('a[data-toggle="tab"]').click();
 }
 
+$('#idcardNumber').keyup( function (e) {
+
+    let idCardNumber = $(this).val();
+
+    $.ajax({
+        url: '_ajax/getUser.php',
+        type: "GET",
+        data: { idCardNumber: idCardNumber},
+        cache: false,
+        beforeSend: function () { },
+        success: function (res) {
+            $('#fname').val('');
+            $('#lname').val('');
+            $('#birthday').val('');
+            $('#contact').val('');
+
+            if (idCardNumber) {
+                var response = JSON.parse(res);
+
+                $('#prename').val(response ? response.user_prename : '');
+                $('#prename').trigger('change');
+                $('#prenameOther').val(response ? response.user_prenameOthers : '');
+                $('#fname').val(response ? response.user_fname : '');
+                $('#lname').val(response ? response.user_lname : '');
+                $('#birthday').val(response ? response.user_birthday : '');
+                $('#contact').val(response ? response.user_phone_moblie_1_pt : '');
+            }
+        },
+        failure: function (errMsg) {
+            alert(errMsg);
+        }
+    });
+
+});
+
+$('#serdateId').change( function () {
+    let idCardNumber = $('#idcardNumber').val();
+    let serdateId = $(this).val();
+
+    $.ajax({
+        url: '_ajax/getMeet.php',
+        type: "GET",
+        data: { idCardNumber: idCardNumber, serdateId : serdateId},
+        cache: false,
+        beforeSend: function () { },
+        success: function (res) {
+            $('#error-date').html('');
+            $('#meetTab').prop('disabled', false);
+
+            if (res == 1) {
+                $('#error-date').html('คุณมีนัดหมายในวันที่เลือกแล้ว กรุณาตรวจสอบข้อมุล');
+                $('#meetTab').prop('disabled', true);
+            }
+        },
+        failure: function (errMsg) {
+            alert(errMsg);
+        }
+    });
+
+});
+
 if ($("#serpoint_id").length != 0) {
     $('#serpoint_id').select2({
         placeholder: "กรุณาเลือกจุดบริการ",
@@ -69,7 +130,6 @@ if ($(".format").length != 0) {
 }
 
 function prenameOtherChange(e){
-
     var value = e;
     var Other = document.getElementById("prenameOthers");
   
@@ -78,7 +138,7 @@ function prenameOtherChange(e){
     }else{
       Other.style.display = "none";
     }
-  }
+}
 
 var table = $('#datatable1').DataTable({
     responsive: true,

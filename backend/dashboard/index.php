@@ -125,7 +125,7 @@
                 <div class="col-lg-8 col-md-12" style="padding-top: 10px;">
                     <div class="card">
                         <div class="card-header ">
-                            <h4 class="card-title"><i class="nc-icon nc-calendar-60" style="margin-right: 20px;"></i> <?PHP echo date("d-m-Y"); ?></h4>
+                            <h4 class="card-title"><i class="nc-icon nc-calendar-60" style="margin-right: 20px;"></i> <?PHP echo date("d-m-Y", strtotime("+543 years")); ?></h4>
                             <h5 class="card-category">นัดหมายประจำวัน</h5>
                         </div>
                         <div class="card-body ">

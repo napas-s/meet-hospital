@@ -56,7 +56,7 @@
                             </div>
                             <div class="col-md-6">
                             <div class="form-group">
-                                <label>วัน/เดือน/ปีเกิด (ค.ศ.)</label>
+                                <label>วัน/เดือน/ปีเกิด (พ.ศ.)</label>
                                 <input disabled type="text" value="<?PHP if(isset($row['user_birthday'])){ echo date("d-m-Y", strtotime($row['user_birthday'])); }else{echo '-';} ?>" class="form-control">
                             </div>
                             </div>
@@ -131,7 +131,7 @@
                                             <th class="text-center" style="width: 120px"> เวลา</th>
                                             <th style="min-width: 150px;">จุดบริการ</th>
                                             <th style="min-width: 100px;">บริการ</th>
-                                            <th style="width: 100px;">เบอร์ติดต่อ</th>
+                                            <th style="width: 100px;">เบอร์โทรศัพท์</th>
                                             <th class="text-center" style="width: 80px;">สถานะ</th>
                                         </tr>
                                     </thead>

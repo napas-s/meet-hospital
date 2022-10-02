@@ -60,9 +60,9 @@
                           </select>
                       </div>
                       <div class="form-group">
-                        <label>วันที่ให้บริการ (ค.ศ.)</label>
+                        <label>วันที่ให้บริการ (พ.ศ.)</label>
                         <input type="hidden" name="serdes_date_old" id="serdes_date_old" value="<?PHP if(isset($row['serdes_date'])){ ?><?PHP echo $row['serdes_date']; ?><?PHP }?>" >
-                        <input type="text" name="serdes_date" id="serdes_date" class="form-control datepicker" value="<?PHP if(isset($row['serdes_date'])){ ?><?PHP echo date("d-m-Y", strtotime($row['serdes_date']));?><?PHP }?>" placeholder="<?PHP if(isset($row['serdes_date'])){ ?><?PHP echo date("d-m-Y", strtotime($row['serdes_date']));?><?PHP }else{ ?><?PHP echo date('d-m-Y') ?><?PHP } ?>" <?PHP if(empty($_GET["id"])){ ?>required="true" <?PHP } ?>>
+                        <input type="text" name="serdes_date" id="serdes_date" class="form-control datepicker" value="<?PHP if(isset($row['serdes_date'])){ ?><?PHP echo date("d-m-Y", strtotime($row['serdes_date']));?><?PHP }?>" placeholder="<?PHP if(isset($row['serdes_date'])){ ?><?PHP echo date("d-m-Y", strtotime($row['serdes_date']));?><?PHP }else{ ?><?PHP echo date("d-m-Y", strtotime("+543 years")) ?><?PHP } ?>" <?PHP if(empty($_GET["id"])){ ?>required="true" <?PHP } ?>>
                       </div>
                       <div class="form-group">
                           <label>สถานะ</label>
@@ -200,22 +200,6 @@
     //ส่งค่า input ไปยัง form Validation ในไฟล์ assets/vendor/paper-dashboard/assets/js/function.js
     $(document).ready(function() {
       setFormValidation('#FormValidation');
-    });
-    //datepicker
-    $('.datepicker').datetimepicker({
-      format: 'DD-MM-YYYY',
-      // minDate: new Date(),
-      icons: {
-        time: "fa fa-clock-o",
-        date: "fa fa-calendar",
-        up: "fa fa-chevron-up",
-        down: "fa fa-chevron-down",
-        previous: 'fa fa-chevron-left',
-        next: 'fa fa-chevron-right',
-        today: 'fa fa-screenshot',
-        clear: 'fa fa-trash',
-        close: 'fa fa-remove'
-      }
     });
 </script>
 

@@ -67,6 +67,8 @@
                             <div id="showContentImg" style="display: none;">
                                 <label>เลือกรูปภาพ</label>
                                 <input type="file" id="about_img" name="about_img" class="form-control" accept="image/*" onchange="readURL(this);"/>
+                                <small class="text-danger">หมายเหตุ : รูปภาพที่เลือกมีความกว้างขนาด 1140PX</small>
+                                <br/>
                                 <br/>
                                 <div class="text-center">
                                     <?PHP if(!empty($row['about_img'])){ ?>

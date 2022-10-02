@@ -33,7 +33,7 @@
                             <br/>
                         <?PHP }else if($row['about_lavel'] == 2){ ?>
                             <div class="center">
-                                <img style="width: 100%; height: auto" src="<?PHP base_url() ?>uploads/about/<?PHP echo $row['about_img']; ?>" alt="about image" />
+                                <img style="width: 100%; height: auto; max-width: 1140px" src="<?PHP base_url() ?>uploads/about/<?PHP echo $row['about_img']; ?>" alt="about image" />
                             </div>
                             <br/>
                         <?PHP }else{ ?>

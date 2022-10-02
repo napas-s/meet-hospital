@@ -88,8 +88,8 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label>ค้นหาจากวันที่ (ค.ศ.)</label>
-                                            <input name="date" id="date" type="text" value="<?PHP if(isset($_GET['date'])){ echo $_GET['date']; } ?>" class="form-control datepicker" placeholder="วัน-เดือน-คศ">
+                                            <label>ค้นหาจากวันที่ (พ.ศ.)</label>
+                                            <input name="date" id="date" type="text" value="<?PHP if(isset($_GET['date'])){ echo $_GET['date']; } ?>" class="form-control datepicker" placeholder="วัน-เดือน-พ.ศ.">
                                         </div>
                                     </div>
                                     <div class="col-md-4">

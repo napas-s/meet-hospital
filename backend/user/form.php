@@ -109,8 +109,8 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label>วัน/เดือน/ปีเกิด (ค.ศ.)<font color="red"><i>*</i></font></label>
-                          <input name="birthday" id="birthday" type="text" required="required" value="<?PHP if(isset($row['user_birthday'])){ echo date("d-m-Y", strtotime($row['user_birthday'])); } ?>" class="form-control datepicker" placeholder="วัน-เดือน-คศ">
+                          <label>วัน/เดือน/ปีเกิด (พ.ศ.)<font color="red"><i>*</i></font></label>
+                          <input name="birthday" id="birthday" type="text" required="required" value="<?PHP if(isset($row['user_birthday'])){ echo date("d-m-Y", strtotime($row['user_birthday'])); } ?>" class="form-control datepicker-birthday" placeholder="วัน-เดือน-พ.ศ.">
                         </div>
                       </div>
                     </div>

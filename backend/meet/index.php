@@ -83,8 +83,8 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label>ค้นหาจากวันที่ (ค.ศ.)</label>
-                                            <input name="date" id="date" type="text" value="<?PHP if(isset($_GET['date'])){ echo $_GET['date']; } ?>" class="form-control datepicker" placeholder="วัน-เดือน-คศ">
+                                            <label>ค้นหาจากวันที่ (พ.ศ.)</label>
+                                            <input name="date" id="date" type="text" value="<?PHP if(isset($_GET['date'])){ echo $_GET['date']; } ?>" class="form-control datepicker" placeholder="วัน-เดือน-พ.ศ.">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -108,7 +108,7 @@
                                 <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
-                                            <th class="text-center" style="width: 120px;">เลขบัตรประชาชน</th>
+                                            <th style="width: 120px;">เลขบัตรประชาชน</th>
                                             <th>ชื่อ - สกุล</th>
                                             <th>เบอร์โทรศัพท์</th>
                                             <th>จุดบริการ</th>
@@ -146,7 +146,7 @@
                                         <!-- loop ข้อมูลที่ query ได้ จาก member -->
                                         <?PHP  while($row = mysqli_fetch_array($result_meet)) {  ?>
                                         <tr>
-                                            <td class="text-center"><?PHP echo $row['mt_idcardNumber']; ?></td>
+                                            <td><?PHP echo $row['mt_idcardNumber']; ?></td>
                                             <td>
                                                 <?PHP if(isset($row['user_prename']) && isset($row['user_fname']) && isset($row['user_lname'])){ ?>
                                                     <?PHP if($row['user_prename'] == "อื่นๆ"){echo $row['user_prenameOthers']; } else{echo $row['user_prename'];} ?> <?PHP echo $row['user_fname']; ?> <?PHP echo $row['user_lname']; ?>

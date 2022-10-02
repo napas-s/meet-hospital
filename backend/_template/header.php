@@ -26,32 +26,35 @@
 
 <head>
 
-  <!-- นำเข้าไฟล์ config part file เพื่อเรียกใช้ part file ปัจจุบัน -->
-  <?PHP include_once('../../assets/vendor/base_url.php'); ?>
+    <!-- นำเข้าไฟล์ config part file เพื่อเรียกใช้ part file ปัจจุบัน -->
+    <?PHP include_once('../../assets/vendor/base_url.php'); ?>
 
-  <meta charset="utf-8" />
-  <?PHP if(isset($setting['icon_web'])){ ?>
-      <link rel="icon" href="<?PHP echo base_url(); ?>../../uploads/setting/<?PHP echo $setting['icon_web']; ?>" type ="image/png">
-  <?PHP } ?>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <?PHP if(isset($setting['name_web'])){ ?>
-      <title>ระบบจัดการหลังบ้าน | <?PHP echo $setting['name_web']; ?></title>
-  <?PHP } ?>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <meta charset="utf-8" />
+    <?PHP if(isset($setting['icon_web'])){ ?>
+        <link rel="icon" href="<?PHP echo base_url(); ?>../../uploads/setting/<?PHP echo $setting['icon_web']; ?>" type ="image/png">
+    <?PHP } ?>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <?PHP if(isset($setting['name_web'])){ ?>
+        <title>ระบบจัดการหลังบ้าน | <?PHP echo $setting['name_web']; ?></title>
+    <?PHP } ?>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
 
-  <!-- นำเข้าไฟล์  Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <!-- นำเข้าไฟล์  Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 
-  <!-- นำเข้าไฟล์ CSS Files -->
+    <!-- นำเข้าไฟล์ CSS Files -->
 
-  <link href="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/css/paper-dashboard.css" rel="stylesheet" />
-  <link href="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/css/custom.css" rel="stylesheet" />
+    <link href="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/css/paper-dashboard.css" rel="stylesheet" />
+    <link href="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/css/custom.css" rel="stylesheet" />
 
-  <!-- นำเข้าไฟล์ CSS Just for demo purpose, don't include it in your project -->
-  <link href="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/demo/demo.css" rel="stylesheet" />
+    <!-- นำเข้าไฟล์ CSS Just for demo purpose, don't include it in your project -->
+    <link href="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/demo/demo.css" rel="stylesheet" />
+
+    <!-- Date & Time Picker CSS -->
+    <link rel="stylesheet" href="<?PHP echo base_url(); ?>../../assets/vendor/bootstrap-datepicker/css/datepicker.css" type="text/css" />
 
 </head>
 

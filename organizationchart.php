@@ -32,7 +32,7 @@
                             <?PHP echo $row['about_content']; ?>
                             <?PHP }else{ ?>
                             <div class="center">
-                                <img style="width: 100%; height: auto" src="<?PHP base_url() ?>uploads/about/<?PHP echo $row['about_img']; ?>" alt="about image" />
+                                <img style="width: 100%; height: auto; max-width: 1140px" src="<?PHP base_url() ?>uploads/about/<?PHP echo $row['about_img']; ?>" alt="about image" />
                             </div>
                         <?PHP } ?>
                     <?PHP }else{ ?>

@@ -32,27 +32,7 @@
                                 ?>
                                 <div class="preview_detail">
                                     <div class="center"><h4>คุณลงทะเบียนสำเร็จแล้ว</h4></div>
-                                    <div class='mg_present'><b>เลขบัตรประชาชน : </b><?PHP if(isset($row['mt_idcardNumber'])){ echo $row['mt_idcardNumber']; } else{echo '-';}?></div>
-                                    <?PHP if(isset($row['user_prename']) && isset($row['user_fname']) && isset($row['user_lname'])){ ?>
-                                        <div class='mg_present'><b>ชื่อ - สกุล : </b><?PHP if($row['user_prename'] == "อื่นๆ"){echo $row['user_prenameOthers']; } else{echo $row['user_prename'];} ?> <?PHP echo $row['user_fname']; ?> <?PHP echo $row['user_lname']; ?></div>
-                                    <?PHP }else{ ?>
-                                        <div class='mg_present'><b>ชื่อ - สกุล : </b><?PHP echo $row['user_prename']; ?> <?PHP echo $row['user_fname']; ?> <?PHP echo $row['user_lname']; ?></div>
-                                    <?PHP } ?>
-                                    <div class='mg_present'><b>วัน/เดือน/ปีเกิด (ค.ศ.) : </b><?PHP if(isset($row['user_birthday'])){ echo date("d-m-Y", strtotime($row['user_birthday']));; } else{echo '-';} ?></div>
-                                    <div class='mg_present'><b>เบอร์โทรศัพท์ : </b><?PHP if(isset($row['mt_tel'])){ echo $row['mt_tel']; } else{echo '-';} ?></div>
-                                    <div class='divider'><i class='icon-screen'></i></div>
-                                    <div class='mg_present'><b>จุดบริการ : </b><?PHP if(isset($row['mt_serpoint_id'])){ echo $row['mt_serpoint_id']; }  else{echo '-';}?></div>
-                                    <div class='mg_present'><b>ประเภทบริการ : </b><?PHP if(isset($row['mt_sertype_id'])){ echo $row['mt_sertype_id']; } else{echo '-';} ?></div>
-                                    <div class='mg_present'><b>บริการ : </b><?PHP if(isset($row['mt_service_id'])){ echo $row['mt_service_id']; } else{echo '-';} ?></div>
-                                    <div class='mg_present'><b>วันที่นัดหมาย : </b><?PHP if(isset($row['mt_serdateId'])){ echo date("d-m-Y", strtotime($row['mt_serdateId']));} else{echo '-';} ?></div>
-                                    <div class='mg_present'><b>เวลาที่นัดหมาย : </b><?PHP if(isset($row['mt_sertimeId'])){ echo $row['mt_sertimeId']; } else{echo '-';} ?></div>
-                                    <br/>
-                                    <div class="center">
-                                        <a href="_script/pdfMeet.php?id=<?PHP echo $Id; ?>" class="btn btn-block button button-green2" type="button">
-                                            <i class="icon-hand-up"></i>
-                                            <span>ดาวน์โหลดนัดหมาย (PDF)</span>
-                                        </a>
-                                    </div>
+                                    <?PHP include_once('_script/contentHTMLmeet.php') ?> 
                                     <hr/>
                                     <small>หมายเหตุ : กรุณาแคปหน้าจอหรือดาวน์โหลดเอกสารไว้เพื่อนำมาเป็นหลักฐานในการนัดหมายทันตกรรมของท่าน</small>
                                 </div>

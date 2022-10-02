@@ -27,7 +27,7 @@
                             <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th class="text-center" style="width: 70px;">รหัสผู้ใช้</th>
+                                        <th class="text-center" style="width: 70px;">ลำดับ</th>
                                         <th>ชื่อ-สกุล</th>
                                         <th>ชื่อผู้ใช้</th>
                                         <th class="text-center" style="width: 70px;">สถานะ</th>
@@ -46,7 +46,7 @@
                                     <!-- loop ข้อมูลที่ query ได้ จาก member -->
                                     <?PHP  while($row = mysqli_fetch_array($result_member)) {  ?>
                                     <tr>
-                                        <td class="text-center"><?PHP echo str_pad($row['member_id'], 4, '0', STR_PAD_LEFT); ?></td>
+                                        <td class="text-center"><?PHP echo str_pad($i++, 4, '0', STR_PAD_LEFT); ?></td>
                                         <td><?PHP echo $row['member_fullname']; ?></td>
                                         <td><?PHP echo $row['member_user']; ?></td>
                                         <td class="text-center">

@@ -29,10 +29,12 @@
                     <?PHP if(isset($row)){ ?>
                         <?PHP if($row['about_lavel'] == 1){ ?>
                             <?PHP echo $row['about_content']; ?>
+                            <br/>
                         <?PHP }else{ ?>
                             <div class="center">
-                                <img style="width: 100%; height: auto" src="<?PHP base_url() ?>uploads/about/<?PHP echo $row['about_img']; ?>" alt="about image" />
+                                <img style="width: 100%; height: auto; max-width: 1140px" src="<?PHP base_url() ?>uploads/about/<?PHP echo $row['about_img']; ?>" alt="about image" />
                             </div>
+                            <br/>
                         <?PHP } ?>
                     <?PHP } ?>
 
@@ -63,7 +65,12 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-									<input type="text" value="<?PHP if(isset($_GET['date'])){ echo $_GET['date']; } ?>" name="date" id="date" class="sm-form-control tleft format" placeholder="ค้นหาจากวันที่ (ค.ศ.)">
+                                    <div class="input-group">
+                                        <input name="date" id="date" type="text" required="required" value="<?PHP if(isset($_GET['date'])){ echo $_GET['date']; } ?>" class="sm-form-control datepicker" placeholder="วัน-เดือน-พ.ศ.">
+                                        <span class="input-group-addon" style="padding: 9px 12px;">
+                                            <i class="icon-calendar2"></i>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -83,7 +90,15 @@
                             <a href="servicetime.php" style="margin: 0px"  type="button" class="btn btn-block button button-amber"><i class="nc-icon nc-refresh-69"></i> โหลดข้อมูลใหม่</a>
                         </div>
                     </div>
-
+                    <br/>      
+                    <small class="text-danger">
+                        <?php
+                            $queryser_service = "SELECT * FROM services 
+                            ORDER BY ser_name ASC;" or die("Error:" . mysqli_error($con));
+                            $resultser_service = mysqli_query($con, $queryser_service);
+                        ?>
+                        หมายเหตุ : ท่านสามารถเลือกรับบริการ <?PHP  while($serService = mysqli_fetch_array($resultser_service)) { echo $serService['ser_name'] .' '; } ?>ได้ตามจุดบริการต่างๆ ที่ได้กำหนดไว้
+                    </small>
                     <div class="table-responsive">
 						<table id="datatable1" class="table table-striped table-bordered" cellspacing="0" width="100%">
 							<thead>
@@ -91,7 +106,7 @@
                                     <th style="width: 200px;" class="disabled-sorting text-center">วันที่ให้บริการ</th>
                                     <th style="width: 200px;" class="disabled-sorting text-center">เวลา</th>
                                     <th class="disabled-sorting text-center">ประเภทบริการ</th>
-                                    <th>จุดบริการ</th>
+                                    <th class="text-center">จุดบริการ</th>
 								</tr>
 							</thead>
                             <?php
@@ -100,7 +115,7 @@
                                 if(!empty($_GET['type'])){ $type = $_GET['type']; }else{  $type = ''; }
                                 if(!empty($_GET['date'])){ $date = date("Y-m-d", strtotime($_GET['date'])); }else{  $date = ''; }
 
-                                $dateNow = date('Y-m-d');
+                                $dateNow = date("Y-m-d", strtotime("+543 years"));
 
                                 // query ตาราง services_des
                                 $queryser_des = "SELECT * FROM services_des 
@@ -123,7 +138,7 @@
                                             <?PHP echo $serDes['time_name']; ?>
                                         </td>
                                         <td class="text-center"><?PHP if($serDes['sertype_id'] == 1){ ?>คลินิกทั่วไป<?PHP }else{ ?>คลินิกนอกเวลา<?PHP } ?></td>
-                                        <td><?PHP echo $serDes['ser_point_name']; ?></td>
+                                        <td class="text-center"><?PHP echo $serDes['ser_point_name']; ?></td>
                                     </tr>
                                     <?PHP } ?>
 							</tbody>
@@ -142,5 +157,15 @@
 <!-- นำเข้าไฟล์ Template js ส่วนท้าย -->
 <?PHP include_once('assets/_template/footerjs.php') ?>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#date').datepicker({
+            language:'th-th',
+            format:'dd-mm-yyyy',
+            autoclose: true,
+            endDate: new Date(new Date().setDate(new Date().getDate()))
+        });
+    });
+</script>
 </body>
 </html>

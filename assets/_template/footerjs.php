@@ -5,7 +5,9 @@
 
     <!-- Date & Time Picker JS -->
 	<script type="text/javascript" src="<?PHP echo base_url(); ?>assets/vendor/canvas/js/components/moment.js"></script>
-	<script type="text/javascript" src="<?PHP echo base_url(); ?>assets/vendor/canvas/js/datepicker.js"></script>
+	<script type="text/javascript" src="<?PHP echo base_url(); ?>assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="<?PHP echo base_url(); ?>assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker-thai.js"></script>
+	<script type="text/javascript" src="<?PHP echo base_url(); ?>assets/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.th.js"></script>
 
     <!-- นำเข้า select2 จากภายนอก -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
