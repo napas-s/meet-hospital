@@ -23,7 +23,7 @@
                             <?PHP
 
                                 //วันที่ปัจจุบัน
-                                $dateToday = date('Y-m-d');
+                                $dateToday = date("Y-m-d", strtotime("+543 years"));
 
                                 //หาจำนวนรายการที่มีอยู๋
                                 $queryMeet1 = "SELECT * FROM meet_service WHERE meet_service.mt_serdateId < '$dateToday' AND mt_status = 1  "or die("Error:" . mysqli_error($con));
@@ -105,7 +105,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <a href="index.php" style="margin-top: 25px;"  type="button" class="btn btn-block btn-warning"><i class="nc-icon nc-refresh-69"></i> โหลดข้อมูลใหม่</a>
+                                    <a href="failed.php" style="margin-top: 25px;"  type="button" class="btn btn-block btn-warning"><i class="nc-icon nc-refresh-69"></i> โหลดข้อมูลใหม่</a>
                                 </div>
                             </div>
 

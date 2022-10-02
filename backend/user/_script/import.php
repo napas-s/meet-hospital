@@ -53,6 +53,8 @@
                 $result1 = mysqli_query($con, $check);
                 $num     = mysqli_num_rows($result1);
 
+                $dateBirthday = $objArr[6] ? date("d-m-Y", strtotime($objArr[6])) : '';
+
                 if($num > 0)
                 {
 
@@ -62,7 +64,7 @@
                         user_fname	            ='$objArr[3]',
                         user_lname	            ='$objArr[4]',
                         user_sex	            ='$objArr[5]',
-                        user_birthday	        ='$objArr[6]',
+                        user_birthday	        ='$dateBirthday',
                         user_nation	            ='$objArr[7]',
                         user_nationOther	    ='$objArr[8]',
                         user_country	        ='$objArr[9]',
@@ -122,7 +124,7 @@
                     $strSQL .="'".$objArr[3]."',";
                     $strSQL .="'".$objArr[4]."',";
                     $strSQL .="'".$objArr[5]."',";
-                    $strSQL .="'".$objArr[6]."',";
+                    $strSQL .="'".$dateBirthday."',";
                     $strSQL .="'".$objArr[7]."',";
                     $strSQL .="'".$objArr[8]."',";
                     $strSQL .="'".$objArr[9]."',";

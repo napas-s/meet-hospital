@@ -139,7 +139,7 @@
                                     </tr>
                                 </thead>
                                 <?php
-                                    $dateToday = date('Y-m-d');
+                                    $dateToday = date("Y-m-d", strtotime("+543 years"));
                                     // query ตาราง member
                                     $query_meet = "SELECT * FROM meet_service JOIN users ON users.user_iden13 = meet_service.mt_idcardNumber WHERE meet_service.mt_serdateId = '$dateToday'  ORDER BY meet_service.mt_serdateId desc;"or die("Error:" . mysqli_error($con));
                                     $result_meet = mysqli_query($con, $query_meet)or die(mysqli_error($con));
@@ -172,7 +172,7 @@
                             <?PHP
 
                                 //วันที่ปัจจุบัน
-                                $dateTodayFailed = date('Y-m-d');
+                                $dateTodayFailed = date("Y-m-d", strtotime("+543 years"));
 
                                 //หาจำนวนรายการที่มีอยู๋
                                 $queryFailed = "SELECT * FROM meet_service WHERE meet_service.mt_serdateId < '$dateTodayFailed' AND mt_status = 1 "or die("Error:" . mysqli_error($con));
@@ -194,7 +194,7 @@
                                     </tr>
                                 </thead>
                                 <?php
-                                    $dateToday = date('Y-m-d');
+                                    $dateToday = date("Y-m-d", strtotime("+543 years"));
                                     // query ตาราง member
                                     $query_meet = "SELECT * FROM meet_service JOIN users ON users.user_iden13 = meet_service.mt_idcardNumber WHERE meet_service.mt_serdateId < '$dateToday' AND mt_status = 1  ORDER BY meet_service.mt_serdateId desc;"or die("Error:" . mysqli_error($con));
                                     $result_meet = mysqli_query($con, $query_meet)or die(mysqli_error($con));
