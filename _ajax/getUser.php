@@ -1,5 +1,4 @@
 <?PHP
-
     // นำเข้าไฟล์ฐานข้อมูล
     require_once('../_database/connection.php');
 
@@ -22,8 +21,8 @@
         'user_prenameOthers' => $user['user_prenameOthers'],
         'user_fname' => $user['user_fname'],
         'user_lname' => $user['user_lname'],
-        'user_birthday' => $user['user_birthday'] ? date("d-m-Y", strtotime($user['user_birthday'])) : '',
-        'user_phone_moblie_1_pt' => $user['user_phone_moblie_1_pt'],
+        'user_birthday' => $user['user_birthday'] ? date("d-m-Y", strtotime($user['user_birthday'])) : date("d-m-Y"),
+        'user_phone_moblie_1_pt' => $user['user_phone_moblie_1_pt'] ? $user['user_phone_moblie_1_pt'] : '-',
       ];
     }
 

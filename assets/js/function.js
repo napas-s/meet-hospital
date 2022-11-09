@@ -38,7 +38,8 @@ $('#idcardNumber').keyup( function (e) {
                 $('#fname').val(response ? response.user_fname : '');
                 $('#lname').val(response ? response.user_lname : '');
                 $('#birthday').val(response ? response.user_birthday : '');
-                $('#contact').val(response ? response.user_phone_moblie_1_pt : '');
+                $('#contact').val(response ? (response.user_phone_moblie_1_pt != '-' ? response.user_phone_moblie_1_pt : '') : '');
+            
             }
         },
         failure: function (errMsg) {

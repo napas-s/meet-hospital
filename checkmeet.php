@@ -62,22 +62,52 @@
                                         $Id = $_GET["idCardNumber"];
                                         $dateNow = date("Y-m-d", strtotime("+543 years"));
 
+                                        //ค้นหาการนัดหมายเดิมที่มีอยู่
+                                        // join ข้อมูลตาราง user กับ ตาราง meet_service โดยเทียบเคียงจากบัตรประชาชน
+                                        // เงื่อนไขที่ 2 : วันที่นัดหมายและเวลาที่นัดหมาย น้อยกว่าขึ้นก่อน
                                         $sql="SELECT * FROM meet_service JOIN users ON users.user_iden13 = meet_service.mt_idcardNumber 
                                                 WHERE meet_service.mt_idcardNumber = $Id 
-                                                AND mt_serdateId >= $dateNow
-                                                ORDER BY mt_serdateId, mt_sertimeId ASC";
-                                        $sql_query = mysqli_query($con,$sql)or die(mysqli_error($con));
-                                        $row = mysqli_fetch_assoc($sql_query);
+                                                ORDER BY mt_serdateId, mt_sertimeId asc";
+                                        $result = mysqli_query($con,$sql)or die(mysqli_error($con));
+                                        $i = 1;
                                     ?>
-                                    <?PHP if(isset($row)) { ?>
-                                        <?PHP include_once('_script/contentHTMLmeet.php') ?> 
+                                    
+
+                                    <!-- ข้อมูลไม่เท่ากับค่าว่าง -->
+                                    <?PHP if(mysqli_num_rows($result)!=0){ ?>
+
+                                        <div>คุณมีทั้งหมด <?PHP echo mysqli_num_rows($result);?> นัดหมาย</div>
+                                        <hr/>
+                                        <?PHP foreach($result as $row){ ?>
+                                            <!-- แสดงเฉพาะข้อมุลแรก -->
+                                                <?php
+                                                    $yOld = date("Y", strtotime($row["mt_serdateId"]));
+                                                    $mOld = date("m", strtotime($row["mt_serdateId"]));
+                                                    $dOld = date("d", strtotime($row["mt_serdateId"]));
+                                                    $dateOld = ($yOld-543)."-".$mOld."-".$dOld
+                                                ?>
+
+                                                <!-- วันที่นัดหมายต้องมากกว่าหรือเท่ากับวันที่ปัจจุบัน -->
+                                                <?PHP if($dateOld >= date("Y-m-d")) { ?>
+                                                    <div class="alert alert-info">
+                                                        <div><?PHP echo $i; ?>. วันที่ <?PHP echo date("d-m-Y", strtotime($row["mt_serdateId"])); ?> เวลา <?PHP echo $row["mt_sertimeId"]; ?></div>
+                                                        <br/>
+                                                        <div class="center">
+                                                            <a href="_script/pdfMeet.php?id=<?PHP echo $row['mt_id']; ?>" class="btn btn-block button button-green2" type="button">
+                                                                <i class="icon-hand-up"></i>
+                                                                <span>ดาวน์โหลดนัดหมาย (PDF)</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                <?PHP $i++; } ?>
+
+                                        <?php } ?>
                                         <hr/>
                                         <small>หมายเหตุ : กรุณาแคปหน้าจอหรือดาวน์โหลดเอกสารไว้เพื่อนำมาเป็นหลักฐานในการนัดหมายทันตกรรมของท่าน</small>
-                                    <?PHP } else { ?>
+
+                                    <? } else {?>
                                         <div class="center"><h4 class="mgb_no">ยังไม่มีนัดหมาย!!</h4></div>
-                                    <?PHP } ?>
-                                <? } else {?>
-                                    <div class="center"><h4 class="mgb_no">ยังไม่มีนัดหมาย!!</h4></div>
+                                    <?php } ?>
                                 <?php } ?>
                             </div>
                         </div>
