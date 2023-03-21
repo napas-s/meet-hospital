@@ -31,6 +31,7 @@
         <div class="col-md-4">
           <form id="FormValidation" class="form-horizontal" enctype="multipart/form-data" action="_script/changpassword.php" method="post">
             <input type="hidden" name="member_id" id="member_id" value="<?PHP if(!empty($_GET['id'])){ echo $_GET['id'];}?>" /> <!-- ตัวแปร icon แจ้งเตือน -->
+            <input type="hidden" name="is_change" id="is_change" value="<?PHP if(!empty($_GET['is_change'])){ echo $_GET['is_change'];} else { echo '2';}?>" /> <!-- ตัวแปร แจ้งสถานะการเปลี่ยนรหัสผ่าน -->
             <div class="card ">
               <div class="card-header ">
                   <h4 class="card-title">เปลี่ยนรหัสผ่าน</h4>
@@ -40,10 +41,18 @@
                   <label>ชื่อผู้ใช้ <small>(ใช้สำหรับเข้าสู่ระบบ)</small></label>
                   <input disabled class="form-control" type="text" name="member_user" id="member_user" value="<?PHP if(!empty($row['member_user'])){ echo $row['member_user']; } ?>" />
                 </div>
-                <div class="form-group">
-                  <label>รหัสผ่าน</label>
-                  <input class="form-control" type="text" name="member_password" id="member_password" required="true"   />
-                </div>
+                <?php if (!empty($_GET['is_change'] != 1)) { ?>
+                  <div class="form-group">
+                    <label>รหัสผ่านเดิม</label>
+                    <input class="form-control" type="text" name="member_password_old" id="member_password_old" required="true"   />
+                  </div>
+                <?php } ?>
+                <?php if (!empty($_GET['is_change'] == 1)) { ?>
+                  <div class="form-group">
+                    <label>รหัสผ่านใหม่</label>
+                    <input class="form-control" type="text" name="member_password" id="member_password" required="true"   />
+                  </div>
+                <?php } ?>
               </div>
               <div class="card-footer">
                 <div class="row">

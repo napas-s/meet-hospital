@@ -89,7 +89,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 <!-- ./จบเนื้อหาของหน้า -->
@@ -106,7 +105,6 @@
 <?PHP include_once('_action/show.php'); ?>
 
 <script>
-
     $(document).ready(function() {
       $('#datatable').DataTable({
         responsive: true,

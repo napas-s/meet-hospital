@@ -9,6 +9,12 @@
     <!-- นำเข้าไฟล์ Template ส่วนเมนู -->
     <?PHP include_once('assets/_template/navbar.php') ?>
 
+    <?php
+        $sql_setting="SELECT * FROM setting";
+        $sql_query_setting = mysqli_query($con,$sql_setting)or die(mysqli_error($con));
+        $setting = mysqli_fetch_assoc($sql_query_setting);
+    ?>
+
     <section id="content">
         <div class="content-wrap">
             <div class="container clearfix">
@@ -16,7 +22,7 @@
                     <img class="logo-health" src="assets/images/ministry_of_public_health.png" />
                     <h3 class="c-text" style="margin-bottom: 0;">โรงพยาบาลส่งเสริมสุขภาพ<br class="d-sm-none"/>ตำบลห้วยยาง</h3>
                     <h4 class="c-text" style="margin-bottom: 0;">อำเภอทับสะแก จังหวัดประจวบคีรีขันธ์</h4>
-                    <h4 class="c-text" style="margin-bottom: 0;">ระบบจองคิวทันตกรรมออนไลน์</h4>
+                    <h4 class="c-text" style="margin-bottom: 0;"><?php echo $setting['name_web'] ?></h4>
                 </div>
             </div>
 
@@ -58,13 +64,13 @@
                                         <div class="tap-box">
                                             <h3><i class="icon-user4"></i> :: ลงทะเบียน</h3>
                                             <div class="col_full form-group">
-                                                <label for="idcardNumber">เลขบัตรประชาชน</label>
+                                                <label for="idcardNumber">เลขบัตรประชาชน <span class="text-danger">*</span></label>
                                                 <input type="text" maxlength="13" id="idcardNumber" name="idcardNumber" required="required" value="" class="n_tel sm-form-control" >
                                             </div>
                                             <div class="col_full form-group">
-                                                <label for="prename">คำนำหน้า</label>
+                                                <label for="prename">คำนำหน้า <span class="text-danger">*</span></label>
                                                 <select class="sm-form-control" name="prename" id="prename" onchange="prenameOtherChange(this.value)" required="true" >
-                                                    <option value="" disabled="" selected="">เลือกคำนำหน้า</option>
+                                                    <option value="" selected="">เลือกคำนำหน้า</option>
                                                     <option value="นาย" >นาย</option>
                                                     <option value="นางสาว" >นางสาว</option>
                                                     <option value="นาง" >นาง</option>
@@ -78,15 +84,15 @@
                                                 </div>
                                             </div>
                                             <div class="col_half form-group">
-                                                <label for="idcardNumber">ชื่อ</label>
+                                                <label for="idcardNumber">ชื่อ <span class="text-danger">*</span></label>
                                                 <input type="text" id="fname" name="fname" required="required" value="" class="sm-form-control">
                                             </div>
                                             <div class="col_half col_last form-group">
-                                                <label for="idcardNumber">สกุล</label>
+                                                <label for="idcardNumber">สกุล <span class="text-danger">*</span></label>
                                                 <input type="text" id="lname" name="lname" required="required" value="" class="sm-form-control">
                                             </div>
                                             <div class="col_full form-group">
-                                                <label for="birthday">วัน/เดือน/ปีเกิด (พ.ศ.)</label>
+                                                <label for="birthday">วัน/เดือน/ปีเกิด (พ.ศ.) <span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <input name="birthday" id="birthday" type="text" required="required" value="" class="sm-form-control" placeholder="วัน-เดือน-พ.ศ.">
                                                     <span class="input-group-addon" style="padding: 9px 12px;">
@@ -95,7 +101,7 @@
                                                 </div>
                                             </div>
                                             <div class="col_full form-group">
-                                                <label for="contact">เบอร์โทรศัพท์</label>
+                                                <label for="contact">เบอร์โทรศัพท์ <span class="text-danger">*</span></label>
                                                 <input type="text" id="contact" name="contact" required="required" value="" class="n_tel sm-form-control" >
                                             </div>
                                             <div class="row">
@@ -112,7 +118,7 @@
                                         <div class="tap-box">
                                             <h3><i class="icon-calendar3"></i> :: นัดหมาย</h3>
                                             <div class="col_full form-group">
-                                                <label for="idcardNumber">จุดบริการ</label>
+                                                <label for="idcardNumber">จุดบริการ <span class="text-danger">*</span></label>
                                                 <select class="sm-form-control" required="required" name="serpoint_id" id="serpoint_id" onchange="setTypeService(this.value)" >
                                                 <option value="">กรุณาเลือกจุดบริการ</option>
                                                 <?PHP
@@ -125,13 +131,13 @@
                                                 </select>
                                             </div>
                                             <div class="col_full form-group">
-                                                <label for="birthday">ประเภทบริการ</label>
+                                                <label for="birthday">ประเภทบริการ <span class="text-danger">*</span></label>
                                                 <select class="sm-form-control" required="required" name="sertype_id" id="sertype_id" onchange="setDateService(this.value)">
                                                     <option value="" >กรุณาเลือกประเภทบริการ</option>
                                                 </select>
                                             </div>
                                             <div class="col_full form-group">
-                                                <label for="idcardNumber">บริการ</label>
+                                                <label for="idcardNumber">บริการ <span class="text-danger">*</span></label>
                                                 <select class="sm-form-control" required="required" name="service_id" id="service_id" >
                                                     <option value="" >กรุณาเลือกบริการ</option>
                                                     <?PHP
@@ -144,12 +150,12 @@
                                                 </select>
                                             </div>
                                             <div class="col_full form-group">
-                                                <label for="birthday">วันที่นัดหมายทันตกรรม</label><br/>
+                                                <label for="birthday">วันที่นัดหมายทันตกรรม <span class="text-danger">*</span></label><br/>
                                                 <select class="sm-form-control" required="required" name="serdateId" id="serdateId" onchange="setTimeService(this.value)" ></select>
                                                 <small id="error-date" class="text-danger"></small>
                                             </div>
                                             <div class="col_full form-group">
-                                                <label for="birthday">เวลานัดหมายทันตกรรม</label><br/>
+                                                <label for="birthday">เวลานัดหมายทันตกรรม <span class="text-danger">*</span></label><br/>
                                                 <select class="sm-form-control" required="required" name="sertimeId" id="sertimeId" ></select>
                                             </div>
                                             <div class="row">
@@ -218,6 +224,30 @@
             </div>
 
         </div>
+
+        <div class="modal fade" id="meet_section" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <div class="center">
+                            <img class="logo-health" src="assets/images/ministry_of_public_health.png" />
+                            <h3 class="c-text" style="margin-bottom: 0;">โรงพยาบาลส่งเสริมสุขภาพ<br class="d-sm-none"/>ตำบลห้วยยาง</h3>
+                            <h4 class="c-text" style="margin-bottom: 0;">อำเภอทับสะแก จังหวัดประจวบคีรีขันธ์</h4>
+                            <h4 class="c-text" style="margin-bottom: 0;"><?php echo $setting['name_web'] ?></h4>
+                        </div>
+                        <hr/>
+                        <div class="alert alert-info">
+                            คุณมีนัดหมายในระบบแล้ว!! กรุณาตรวจสอบข้อมูล
+                            <hr/>
+                            <a id="meet_yourlink" href="" target="_blank"><i class="icon-hand-up"></i> สามารถตรวจสอบได้ที่นี่</a>
+                        </div>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+
     </section>
 
 </div>

@@ -81,15 +81,7 @@
 						<input class="input100" type="password" id="txt_password" name="txt_password" >
 						<span class="focus-input100"></span>
 					</div>
-
-					<div class="flex-sb-m w-full p-b-48">
-						<div class="contact100-form-checkbox"></div>
-						<div>
-							<a href="#" class="txt3">
-								ลืมรหัสผ่าน?
-							</a>
-						</div>
-					</div>
+					
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
 							เข้าสู่ระบบ

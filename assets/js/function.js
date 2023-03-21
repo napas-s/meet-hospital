@@ -24,22 +24,15 @@ $('#idcardNumber').keyup( function (e) {
         cache: false,
         beforeSend: function () { },
         success: function (res) {
-            $('#fname').val('');
-            $('#lname').val('');
-            $('#birthday').val('');
-            $('#contact').val('');
-
             if (idCardNumber) {
                 var response = JSON.parse(res);
 
-                $('#prename').val(response ? response.user_prename : '');
-                $('#prename').trigger('change');
-                $('#prenameOther').val(response ? response.user_prenameOthers : '');
-                $('#fname').val(response ? response.user_fname : '');
-                $('#lname').val(response ? response.user_lname : '');
-                $('#birthday').val(response ? response.user_birthday : '');
-                $('#contact').val(response ? (response.user_phone_moblie_1_pt != '-' ? response.user_phone_moblie_1_pt : '') : '');
-            
+                if (response != '')
+                {
+                    var a = document.getElementById('meet_yourlink');
+                    a.href = response.meet_yourlink;
+                    $('#meet_section').modal('show');
+                }
             }
         },
         failure: function (errMsg) {
@@ -48,6 +41,42 @@ $('#idcardNumber').keyup( function (e) {
     });
 
 });
+
+// $('#idcardNumber').keyup( function (e) {
+
+//     let idCardNumber = $(this).val();
+
+//     $.ajax({
+//         url: '_ajax/getUser.php',
+//         type: "GET",
+//         data: { idCardNumber: idCardNumber},
+//         cache: false,
+//         beforeSend: function () { },
+//         success: function (res) {
+//             $('#fname').val('');
+//             $('#lname').val('');
+//             $('#birthday').val('');
+//             $('#contact').val('');
+
+//             if (idCardNumber) {
+//                 var response = JSON.parse(res);
+
+//                 $('#prename').val(response ? response.user_prename : '');
+//                 $('#prename').trigger('change');
+//                 $('#prenameOther').val(response ? response.user_prenameOthers : '');
+//                 $('#fname').val(response ? response.user_fname : '');
+//                 $('#lname').val(response ? response.user_lname : '');
+//                 $('#birthday').val(response ? response.user_birthday : '');
+//                 $('#contact').val(response ? (response.user_phone_moblie_1_pt != '-' ? response.user_phone_moblie_1_pt : '') : '');
+            
+//             }
+//         },
+//         failure: function (errMsg) {
+//             alert(errMsg);
+//         }
+//     });
+
+// });
 
 $('#serdateId').change( function () {
     let idCardNumber = $('#idcardNumber').val();
@@ -290,3 +319,7 @@ if ('loading' in HTMLImageElement.prototype) {
     script.src ='https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js';
     document.body.appendChild(script);
 }
+
+$('.select2-selection__clear').click(function (){
+    console.log('1');
+})

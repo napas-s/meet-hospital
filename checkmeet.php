@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input class="sm-form-control" name="idCardNumber" id="idCardNumber" placeholder="หมายเลขบัตรประชาชน" />
+                                        <input class="n_tel sm-form-control" maxlength="13" name="idCardNumber" id="idCardNumber" value="<?php if(!empty($_GET['idCardNumber'])) { echo $_GET['idCardNumber']; }?>" placeholder="หมายเลขบัตรประชาชน" />
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -50,11 +50,17 @@
                         <div class="alert alert-success">
                             <br/>
                             <div class="preview_detail">
+                                <?php
+                                    $sql_setting="SELECT * FROM setting";
+                                    $sql_query_setting = mysqli_query($con,$sql_setting)or die(mysqli_error($con));
+                                    $setting = mysqli_fetch_assoc($sql_query_setting);
+                                ?>
+
                                 <div class="center">
                                     <img class="logo-health" src="assets/images/ministry_of_public_health.png" />
                                     <h3 class="c-text" style="margin-bottom: 0;">โรงพยาบาลส่งเสริมสุขภาพ<br class="d-sm-none"/>ตำบลห้วยยาง</h3>
                                     <h4 class="c-text" style="margin-bottom: 0;">อำเภอทับสะแก จังหวัดประจวบคีรีขันธ์</h4>
-                                    <h4 class="c-text" style="margin-bottom: 0;">ระบบจองคิวทันตกรรมออนไลน์</h4>
+                                    <h4 class="c-text" style="margin-bottom: 0;"><?php echo $setting['name_web'] ?></h4>
                                 </div>
                                 <hr/>
                                 <?php if(!empty($_GET["idCardNumber"])){ ?>
@@ -72,7 +78,6 @@
                                         $i = 1;
                                     ?>
                                     
-
                                     <!-- ข้อมูลไม่เท่ากับค่าว่าง -->
                                     <?PHP if(mysqli_num_rows($result)!=0){ ?>
 
@@ -105,9 +110,11 @@
                                         <hr/>
                                         <small>หมายเหตุ : กรุณาแคปหน้าจอหรือดาวน์โหลดเอกสารไว้เพื่อนำมาเป็นหลักฐานในการนัดหมายทันตกรรมของท่าน</small>
 
-                                    <? } else {?>
-                                        <div class="center"><h4 class="mgb_no">ยังไม่มีนัดหมาย!!</h4></div>
+                                    <?php } else { ?>
+                                        <div class="center"><h4 class="mgb_no">ยังไม่มีข้อมูลในระบบ!!</h4></div>
                                     <?php } ?>
+                                <?php } else { ?>
+                                    <div class="center"><h4 class="mgb_no">ยังไม่มีข้อมูลในระบบ!!</h4></div>
                                 <?php } ?>
                             </div>
                         </div>

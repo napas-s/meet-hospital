@@ -8,16 +8,16 @@
     <!-- นำเข้าไฟล์ฐานข้อมูล -->
     <?PHP require_once('_database/connection.php'); ?>
     <?php
-        $sql_setting="SELECT * FROM setting";
-        $sql_query_setting = mysqli_query($con,$sql_setting)or die(mysqli_error($con));
-        $setting = mysqli_fetch_assoc($sql_query_setting);
+        $sql_setting_temp="SELECT * FROM setting";
+        $sql_query_setting_temp = mysqli_query($con,$sql_setting_temp)or die(mysqli_error($con));
+        $setting_temp = mysqli_fetch_assoc($sql_query_setting_temp);
     ?>
 
-    <?PHP if(isset($setting['name_web'])){ ?>
-        <title><?PHP echo $setting['name_web']; ?></title>
+    <?PHP if(isset($setting_temp['name_web'])){ ?>
+        <title><?PHP echo $setting_temp['name_web']; ?></title>
     <?PHP } ?>
-    <?PHP if(isset($setting['icon_web'])){ ?>
-        <link rel="icon" href="<?PHP echo base_url(); ?>uploads/setting/<?PHP echo $setting['icon_web']; ?>" type ="image/x-icon">
+    <?PHP if(isset($setting_temp['icon_web'])){ ?>
+        <link rel="icon" href="<?PHP echo base_url(); ?>uploads/setting/<?PHP echo $setting_temp['icon_web']; ?>" type ="image/x-icon">
     <?PHP } ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

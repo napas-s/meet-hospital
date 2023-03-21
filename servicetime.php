@@ -163,7 +163,7 @@
             language:'th-th',
             format:'dd-mm-yyyy',
             autoclose: true,
-            endDate: new Date(new Date().setDate(new Date().getDate()))
+            //endDate: new Date(new Date().setDate(new Date().getDate()))
         });
     });
 </script>

@@ -391,3 +391,18 @@ span.round-tab:hover {
         display: block;
     }
 }
+
+.modal-dialog
+{
+    padding-right: 0!important;
+    justify-content: center!important;
+    align-items: center!important;
+}
+
+#meet_section .modal-body {
+    padding: 30px !important;
+}
+
+#meet_section .modal-body .alert {
+    margin-bottom: 0 !important;
+}
