@@ -9,12 +9,6 @@
     <!-- นำเข้าไฟล์ Template ส่วนเมนู -->
     <?PHP include_once('assets/_template/navbar.php') ?>
 
-    <?php
-        $sql_setting="SELECT * FROM setting";
-        $sql_query_setting = mysqli_query($con,$sql_setting)or die(mysqli_error($con));
-        $setting = mysqli_fetch_assoc($sql_query_setting);
-    ?>
-
     <section id="content">
         <div class="content-wrap">
             <div class="container clearfix">
@@ -22,7 +16,7 @@
                     <img class="logo-health" src="assets/images/ministry_of_public_health.png" />
                     <h3 class="c-text" style="margin-bottom: 0;">โรงพยาบาลส่งเสริมสุขภาพ<br class="d-sm-none"/>ตำบลห้วยยาง</h3>
                     <h4 class="c-text" style="margin-bottom: 0;">อำเภอทับสะแก จังหวัดประจวบคีรีขันธ์</h4>
-                    <h4 class="c-text" style="margin-bottom: 0;"><?php echo $setting['name_web'] ?></h4>
+                    <h4 class="c-text" style="margin-bottom: 0;"><?php echo $setting_temp['name_web'] ?></h4>
                 </div>
             </div>
 
@@ -233,7 +227,7 @@
                             <img class="logo-health" src="assets/images/ministry_of_public_health.png" />
                             <h3 class="c-text" style="margin-bottom: 0;">โรงพยาบาลส่งเสริมสุขภาพ<br class="d-sm-none"/>ตำบลห้วยยาง</h3>
                             <h4 class="c-text" style="margin-bottom: 0;">อำเภอทับสะแก จังหวัดประจวบคีรีขันธ์</h4>
-                            <h4 class="c-text" style="margin-bottom: 0;"><?php echo $setting['name_web'] ?></h4>
+                            <h4 class="c-text" style="margin-bottom: 0;"><?php echo $setting_temp['name_web'] ?></h4>
                         </div>
                         <hr/>
                         <div class="alert alert-info">
