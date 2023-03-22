@@ -15,11 +15,11 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<?PHP if(isset($setting['name_web'])){ ?>
-        <title><?PHP echo $setting['name_web']; ?></title>
+	<?PHP if(isset($setting_temp['name_web'])){ ?>
+        <title><?PHP echo $setting_temp['name_web']; ?></title>
     <?PHP } ?>
-    <?PHP if(isset($setting['icon_web'])){ ?>
-        <link rel="icon" href="<?PHP echo base_url(); ?>uploads/setting/<?PHP echo $setting['icon_web']; ?>" type ="image/x-icon">
+    <?PHP if(isset($setting_temp['icon_web'])){ ?>
+        <link rel="icon" href="<?PHP echo base_url(); ?>uploads/setting/<?PHP echo $setting_temp['icon_web']; ?>" type ="image/x-icon">
     <?PHP } ?>
 
 	<link rel="stylesheet" type="text/css" href="<?PHP base_url()?>assets/vendor/Login_v14/vendor/bootstrap/css/bootstrap.min.css">
@@ -52,8 +52,8 @@
 			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
 				<form class="login100-form validate-form flex-sb flex-w" action="_login/login.php" method="post">
 					<span class="login100-form-title p-b-32">
-						<?PHP if(isset($setting['logo_web'])){ ?>
-                        	<img src="<?PHP echo base_url(); ?>uploads/setting/<?PHP echo $setting['logo_web']; ?>" alt="" class="img-topnav" />
+						<?PHP if(isset($setting_temp['logo_web'])){ ?>
+                        	<img src="<?PHP echo base_url(); ?>uploads/setting/<?PHP echo $setting_temp['logo_web']; ?>" alt="" class="img-topnav" />
 						<?PHP } ?>
 					</span>
 

@@ -1,15 +1,15 @@
 <div class="sidebar" data-color="brown" data-active-color="danger">
       <div class="logo">
-        <?PHP if(isset($setting['icon_web'])){ ?>
+        <?PHP if(isset($setting_temp['icon_web'])){ ?>
           <a href="../../index.php" target="_bank" class="simple-text logo-mini">
             <div class="logo-image-small">
-              <img src="<?PHP echo base_url(); ?>../../uploads/setting/<?PHP echo $setting['icon_web']; ?>">
+              <img src="../../uploads/setting/<?PHP echo $setting_temp['icon_web']; ?>">
             </div>
           </a>
         <?PHP } ?>
-        <?PHP if(isset($setting['icon_web'])){ ?>
+        <?PHP if(isset($setting_temp['icon_web'])){ ?>
         <a href="../../index.php" target="_bank"  class="simple-text logo-normal">
-          <img style="max-width: 80px;" src="<?PHP echo base_url(); ?>../../uploads/setting/<?PHP echo $setting['icon_web']; ?>">
+          <img style="max-width: 80px;" src="../../uploads/setting/<?PHP echo $setting_temp['icon_web']; ?>">
         </a>
         <?PHP } ?>
       </div>

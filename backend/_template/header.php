@@ -19,7 +19,7 @@
 <?php
     $sql_setting="SELECT * FROM setting";
     $sql_query_setting = mysqli_query($con,$sql_setting)or die(mysqli_error($con));
-    $setting = mysqli_fetch_assoc($sql_query_setting);
+    $setting_temp = mysqli_fetch_assoc($sql_query_setting);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,12 +30,12 @@
     <?PHP include_once('../../assets/vendor/base_url.php'); ?>
 
     <meta charset="utf-8" />
-    <?PHP if(isset($setting['icon_web'])){ ?>
-        <link rel="icon" href="<?PHP echo base_url(); ?>../../uploads/setting/<?PHP echo $setting['icon_web']; ?>" type ="image/png">
+    <?PHP if(isset($setting_temp['icon_web'])){ ?>
+        <link rel="icon" href="../../uploads/setting/<?PHP echo $setting_temp['icon_web']; ?>" type ="image/png">
     <?PHP } ?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <?PHP if(isset($setting['name_web'])){ ?>
-        <title>ระบบจัดการหลังบ้าน | <?PHP echo $setting['name_web']; ?></title>
+    <?PHP if(isset($setting_temp['name_web'])){ ?>
+        <title>ระบบจัดการหลังบ้าน | <?PHP echo $setting_temp['name_web']; ?></title>
     <?PHP } ?>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
@@ -46,15 +46,15 @@
 
     <!-- นำเข้าไฟล์ CSS Files -->
 
-    <link href="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/css/paper-dashboard.css" rel="stylesheet" />
-    <link href="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/css/custom.css" rel="stylesheet" />
+    <link href="../../assets/vendor/paper-dashboard/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../assets/vendor/paper-dashboard/assets/css/paper-dashboard.css" rel="stylesheet" />
+    <link href="../../assets/vendor/paper-dashboard/assets/css/custom.css" rel="stylesheet" />
 
     <!-- นำเข้าไฟล์ CSS Just for demo purpose, don't include it in your project -->
-    <link href="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/demo/demo.css" rel="stylesheet" />
+    <link href="../../assets/vendor/paper-dashboard/assets/demo/demo.css" rel="stylesheet" />
 
     <!-- Date & Time Picker CSS -->
-    <link rel="stylesheet" href="<?PHP echo base_url(); ?>../../assets/vendor/bootstrap-datepicker/css/datepicker.css" type="text/css" />
+    <link rel="stylesheet" href="../../assets/vendor/bootstrap-datepicker/css/datepicker.css" type="text/css" />
 
 </head>
 

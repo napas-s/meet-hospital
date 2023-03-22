@@ -30,10 +30,15 @@
                         <input accept=".csv" class="form-control" type="file" name="import" id="import" required="true" style="opacity: 1;" />
                     </div>
                     <div class="form-group">
-                        <a href="<?PHP echo base_url(); ?>../../assets/file_dowloads/refer-data.zip" download="" class="text-danger">ดาวน์โหลดข้อมูลอ้างอิง</a>
+                        <a href="../../assets/file_dowloads/refer-data.zip" download="" class="text-danger">ดาวน์โหลดข้อมูลอ้างอิง</a>
                     </div>
                     <div class="form-group">
-                        <a href="<?PHP echo base_url(); ?>../../assets/file_dowloads/import-data-user.csv" download="">ดาวน์โหลด Template File</a>
+                        <a href="../../assets/file_dowloads/import-data-user.zip" download="">ดาวน์โหลด Template File</a><br/>
+                        <div class="alert alert-info">
+                            <small>
+                            ช่องหมายเลขบัตรประชาชน ต้องตั้งค่าเป็นตัวเลขเท่านั้น <br/>
+                            ยกตัวอย่าง เช่น 2.34568E+12 จะไม่สามารถเพิ่มข้อมูลได้ ต้องเป็น 9874563210213 เท่านั้น</small>
+						</div>
                     </div>
                 </div>
                 <div class="modal-footer">

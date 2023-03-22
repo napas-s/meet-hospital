@@ -208,7 +208,7 @@
                         ?>
 
                         <div>หมายเหตุ: สำหรับชาวต่างชาติที่ต้องการรับบริการให้ติดต่อที่ 
-                            <?PHP if(!empty($setting['tel'])){ ?><a href="tel:<?PHP echo $setting['tel']; ?>"><?PHP echo $setting['tel']; ?></a><?PHP } ?> หรือ 
+                            <?PHP if(!empty($setting_temp['tel'])){ ?><a href="tel:<?PHP echo $setting_temp['tel']; ?>"><?PHP echo $setting_temp['tel']; ?></a><?PHP } ?> หรือ 
                             <br class="d-none d-block-lg"/>ดูรายละเอียดเพิ่มเติมที่ <a href="map.php">ติดต่อเรา</a>
                         </div>
 
