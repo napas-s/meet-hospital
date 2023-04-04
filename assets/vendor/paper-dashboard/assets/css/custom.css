@@ -192,3 +192,12 @@ table tbody tr td{
     padding: 20px;
     border: 1px solid #dbdada;
 }
+
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: show;
+}

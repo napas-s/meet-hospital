@@ -60,9 +60,31 @@
                           </select>
                       </div>
                       <div class="form-group">
+                        <div class="form-check form-check-inline">
+                          <label class="form-check-label">
+                            <input id="check-date-multiple" name="check-date-multiple" class="form-check-input" type="checkbox">
+                            <span class="form-check-sign"></span>
+                            เลือกวันที่แบบหลายรายการ
+                          </label>
+                        </div>
+                      </div>
+                      <input type="hidden" name="serdes_date_old" id="serdes_date_old" value="<?PHP if(isset($row['serdes_date'])){ ?><?PHP echo $row['serdes_date']; ?><?PHP }?>" >
+                      <div id="group-signal" class="form-group">
                         <label>วันที่ให้บริการ (พ.ศ.)</label>
-                        <input type="hidden" name="serdes_date_old" id="serdes_date_old" value="<?PHP if(isset($row['serdes_date'])){ ?><?PHP echo $row['serdes_date']; ?><?PHP }?>" >
-                        <input type="text" name="serdes_date" id="serdes_date" class="form-control datepicker" value="<?PHP if(isset($row['serdes_date'])){ ?><?PHP echo date("d-m-Y", strtotime($row['serdes_date']));?><?PHP }?>" placeholder="<?PHP if(isset($row['serdes_date'])){ ?><?PHP echo date("d-m-Y", strtotime($row['serdes_date']));?><?PHP }else{ ?><?PHP echo date("d-m-Y", strtotime("+543 years")) ?><?PHP } ?>" <?PHP if(empty($_GET["id"])){ ?>required="true" <?PHP } ?>>
+                        <input type="text" name="serdes_date" id="serdes_date" class="form-control datepicker" onkeydown="return false"  value="<?PHP if(isset($row['serdes_date'])){ ?><?PHP echo date("d-m-Y", strtotime($row['serdes_date']));?><?PHP }?>" placeholder="<?PHP if(isset($row['serdes_date'])){ ?><?PHP echo date("d-m-Y", strtotime($row['serdes_date']));?><?PHP }else{ ?><?PHP echo date("d-m-Y", strtotime("+543 years")) ?><?PHP } ?>" <?PHP if(empty($_GET["id"])){ ?>required="true" <?PHP } ?>>
+                      </div>
+                      <div id="group-multiple" class="form-group hidden">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <label>วันที่ให้บริการตั้งแต่วันที่ (พ.ศ.)</label>
+                            <input type="text" name="serdes_date_multiple_start" id="serdes_date_multiple_start" onkeydown="return false"  class="form-control datepicker" value="<?PHP if(isset($row['serdes_date'])){ ?><?PHP echo date("d-m-Y", strtotime($row['serdes_date']));?><?PHP }else{ ?><?PHP echo date("d-m-Y", strtotime("+543 years")) ?><?PHP } ?>" placeholder="<?PHP if(isset($row['serdes_date'])){ ?><?PHP echo date("d-m-Y", strtotime($row['serdes_date']));?><?PHP }else{ ?><?PHP echo date("d-m-Y", strtotime("+543 years")) ?><?PHP } ?>" <?PHP if(empty($_GET["id"])){ ?>required="true" <?PHP } ?>>
+                          </div>
+                          <div class="col-md-6">
+                            <label>ถึงวันที่ (พ.ศ.)</label>
+                            <input type="text" name="serdes_date_multiple_end" id="serdes_date_multiple_end" onkeydown="return false"  class="form-control datepicker" value="<?PHP if(isset($row['serdes_date'])){ ?><?PHP echo date("d-m-Y", strtotime($row['serdes_date']));?><?PHP }else{ ?><?PHP echo date("d-m-Y", strtotime("+543 years")) ?><?PHP } ?>" placeholder="<?PHP if(isset($row['serdes_date'])){ ?><?PHP echo date("d-m-Y", strtotime($row['serdes_date']));?><?PHP }else{ ?><?PHP echo date("d-m-Y", strtotime("+543 years")) ?><?PHP } ?>" <?PHP if(empty($_GET["id"])){ ?>required="true" <?PHP } ?>>
+                          </div>
+                        </div>
+                        
                       </div>
                       <div class="form-group">
                           <label>สถานะ</label>
@@ -177,6 +199,8 @@
 <!-- datepicker -->
 <script src="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/assets/js/plugins/bootstrap-datetimepicker.js"></script>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
 <!-- แจ้งเตือนมีการผิดพลาด (รับตัวแปลจากหน้า _script/add or _script/update) -->
 <?PHP if(isset($_GET['message'])){ ?>
 <script src="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/sweetalert2@11.js"></script>
@@ -197,10 +221,10 @@
 <?PHP } ?>
 
 <script>
-    //ส่งค่า input ไปยัง form Validation ในไฟล์ assets/vendor/paper-dashboard/assets/js/function.js
-    $(document).ready(function() {
-      setFormValidation('#FormValidation');
-    });
+  //ส่งค่า input ไปยัง form Validation ในไฟล์ assets/vendor/paper-dashboard/assets/js/function.js
+  $(document).ready(function() {
+    setFormValidation('#FormValidation');
+  });
 </script>
 
 <?PHP if(!empty($row['sertype_id'])){ ?>

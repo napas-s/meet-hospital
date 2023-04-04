@@ -55,7 +55,6 @@
 
     <!-- Date & Time Picker CSS -->
     <link rel="stylesheet" href="../../assets/vendor/bootstrap-datepicker/css/datepicker.css" type="text/css" />
-
 </head>
 
 <body class="">

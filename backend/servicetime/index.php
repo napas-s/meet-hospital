@@ -163,6 +163,25 @@
 <!-- นำเข้าแจ้งเตือนก่อนตกลง ปิด/เปิด การใช้งาน -->
 <?PHP include_once('_action/show.php'); ?>
 
+<!-- แจ้งเตือนมีการผิดพลาด (รับตัวแปลจากหน้า _script/add or _script/update) -->
+<?PHP if(isset($_GET['message'])){ ?>
+<script src="<?PHP base_url() ?>../../assets/vendor/paper-dashboard/sweetalert2@11.js"></script>
+<input type="hidden" name="icon" id="icon" value="<?PHP if(isset($_GET['icon'])){ echo $_GET['icon'];}?>" /> <!-- ตัวแปร icon แจ้งเตือน -->
+<input type="hidden" name="message" id="message" value="<?PHP if(isset($_GET['message'])){ echo $_GET['message'];}?>" /> <!-- ตัวแปรข้อความ -->
+
+<script>
+    $(document).ready(function() {
+      $icon = $('#icon').val();
+      $message = $('#message').val();
+      Swal.fire({
+        text: $message,
+        icon: $icon,
+        confirmButtonText: 'ปิด'
+      })
+    });
+</script>
+<?PHP } ?>
+
 <script>
 
     $(document).ready(function() {

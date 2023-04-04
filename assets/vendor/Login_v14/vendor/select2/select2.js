@@ -1831,7 +1831,7 @@ S2.define('select2/selection/allowClear',[
     );
     $remove.data('data', data);
 
-    this.$selection.find('.select2-selection__rendered').prepend($remove);
+    //this.$selection.find('.select2-selection__rendered').prepend($remove);
   };
 
   return AllowClear;

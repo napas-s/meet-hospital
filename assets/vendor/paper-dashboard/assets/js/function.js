@@ -375,3 +375,72 @@ if ($(".datepicker-birthday").length != 0) {
     endDate: new Date(new Date().setDate(new Date().getDate()))
   });
 }
+
+if ($("#serdes_date_multiple_start").length != 0) {
+
+  var endDate = setDate_To_Eng($('#serdes_date_multiple_end').val());
+
+  $("#serdes_date_multiple_start").datepicker('setEndDate', endDate).on('changeDate', function (selected) {
+    var maxDate = new Date(selected.date.valueOf());
+
+    var date = maxDate.getDate();
+    var month = maxDate.getMonth() + 1;
+    var year = maxDate.getFullYear();
+    var fullDate = date + "/" + month + "/" + year
+
+    $('#serdes_date_multiple_end').datepicker('setStartDate', fullDate);
+  });
+}
+
+if ($("#serdes_date_multiple_end").length != 0) {
+
+  var startDate = setDate_To_Eng($('#serdes_date_multiple_start').val());
+
+  $("#serdes_date_multiple_end").datepicker('setStartDate', startDate).on('changeDate', function (selected) {
+    var minDate = new Date(selected.date.valueOf());
+
+    var date = minDate.getDate();
+    var month = minDate.getMonth() + 1;
+    var year = minDate.getFullYear();
+    var fullDate = date + "/" + month + "/" + year
+
+    $('#serdes_date_multiple_start').datepicker('setEndDate', fullDate);
+  });
+}
+
+if ($("#check-date-multiple").length != 0) {
+  var toggle = false;
+
+  $('#check-date-multiple').click(function (){
+
+    $("#check-date-multiple").attr("checked",!toggle);
+
+    toggle = !toggle;
+
+    if (toggle == true)
+    {
+      var signal = document.getElementById("group-signal");
+      var multiple = document.getElementById("group-multiple");
+
+      signal.classList.add("hidden");
+      multiple.classList.remove("hidden");
+    } else {
+      var signal = document.getElementById("group-signal");
+      var multiple = document.getElementById("group-multiple");
+
+      signal.classList.remove("hidden");
+      multiple.classList.add("hidden");
+    }
+  })
+}
+
+function setDate_To_Eng(date)
+{
+  var dataFull = date.split('-');
+
+  var date = dataFull[0];
+  var month = dataFull[1];
+  var year = dataFull[2]-543;
+  
+  return new Date(year + "/" + month + "/" + date);
+}
